@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="WebApp Regression - Prod" configfailurepolicy="continue">
+<parameter name="enivironment" value="Prod" />
+  <test name="WebApp Regression">
+    <classes>
+       <class name="com.frontierX.TestScripts.FxWebApp_Regression"/>
+    </classes>
+  </test>
+</suite> <!-- <class name="com.frontierX.TestScripts.DownloadFITTest"/> -->

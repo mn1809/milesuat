@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automated Live Test cases" preserve-order ="true">
+<parameter name="enivironment" value="prod" />
+  <test name="Live ECG ">
+    <classes> 
+		<class name="com.frontierX.TestScripts.LiveECG"/>
+		<!--<class name="com.frontierX.SanityScripts.FxSanity_Coach"/>-->
+    </classes>
+  </test>
+</suite> <!-- Suite -->

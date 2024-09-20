@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Doctors - Smoke Tests">
+<parameter name="enivironment" value="prod" />
+
+  <test thread-count="5" name="Regression Test - Doctor Prespective">
+    <classes>
+       <class name="com.frontierX.TestScripts.FxDoctorsWorkFlows"/>
+    </classes>
+  </test>
+</suite> <!-- Suite -->

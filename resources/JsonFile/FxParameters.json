@@ -1,0 +1,33 @@
+{
+	"FxParams": {
+
+		"Activity_Title": "Run on Thu, Mar 23 at 06:18 AM",
+		"Duration": "01:21:48",
+		"Training Load": "467",
+		
+		"Derived_Max": [{
+			"HR": "186",
+			"BR": "54",
+			"Strain": "0.21",
+			"HRV": "54",
+			"BodyShock": "168",
+			"StepCad": "202"
+		}],
+		"Derived_Avg": [{
+			"HR": "160",
+			"BR": "45",
+			"Strain": "0.07",
+			"HRV": "4",
+			"BodyShock": "63",
+			"StepCad": "138"
+		}],
+		"Derived_Min": [{
+			"HR": "96",
+			"BR": "22",
+			"Strain": "-0.1",
+			"HRV": "1",
+			"BodyShock": "0",
+			"StepCad": "0"
+		}]
+	}
+}

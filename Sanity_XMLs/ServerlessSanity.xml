@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Automated Sanity Test cases in Server less" preserve-order ="true">
+<parameter name="enivironment" value="prod" />
+  <test name="Daily Sanity - Serverless">
+    <classes> 
+		<class name="com.frontierX.SanityScripts.Fx24hrsActivity"/>
+		<class name="com.frontierX.SanityScripts.Fx_AdminPage_Workflow"/> 
+		<class name="com.frontierX.SanityScripts.FxSleepActivity"/>
+		<class name="com.frontierX.SanityScripts.FxShareActivity_AsUser"/>
+		<class name="com.frontierX.SanityScripts.FxShareActivity_AsAdmin"/>
+		<class name="com.frontierX.SanityScripts.Fx_BeatCount_Workflow"/>
+		<class name="com.frontierX.SanityScripts.Fx_LiveUserDashboard_Workflow"/>
+		
+		<class name="com.frontierX.SanityScripts.FxSanity"/>
+		<class name="com.frontierX.SanityScripts.Fx_FHPDoctor_WorkFlow"/>
+		<class name="com.frontierX.SanityScripts.FxActivityNotes"/>
+		<class name="com.frontierX.SanityScripts.FxNoiseActivity"/>
+		<class name = "com.frontierX.SanityScripts.FxShareActivity_AsAdminSleep"/>
+		<!--<class name="com.frontierX.SanityScripts.FxSanity_Coach"/>-->
+    </classes>
+  </test>
+</suite> <!-- Suite -->

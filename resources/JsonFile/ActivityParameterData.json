@@ -1,0 +1,99 @@
+{
+	"FxParams": {
+		
+		"24Hrs": [{
+			"Activity_Title": "Rest on Wed, Feb 28 at 11:44 AM", 
+			"Duration": "23:31:42",
+			"TrainingLoad": "3055",
+			"MaxHR": "181",
+			"AvgHR": "117",
+			"MinHR": "80",
+			"MaxBR": "70",
+			"AvgBR": "26",
+			"MinBR": "0",
+			"MaxStrain": "0.03",
+			"AvgStrain": "0.01",
+			"MinStrain": "-0.06",
+			"MaxHRV": "31",
+			"AvgHRV": "1",
+			"MinHRV": "0",
+			"MaxBodyShock": "200",
+			"AvgBodyShock": "124",
+			"MinBodyShock": "0",
+			"MaxCadence": "222",
+			"AvgCadence": "147",
+			"MinCadence": "0"
+			
+			
+		}],
+
+
+		"SleepActivity": [{
+			"Activity_Title": "Sleep on Wed, Feb 28 at 02:35 AM",
+			"Duration": "08:08:46",
+			"Training Load": "0",
+			"MaxHR": "82",
+			"AvgHR": "65",
+			"MinHR": "52",
+			"MaxBR": "21",
+			"AvgBR": "13",
+			"MinBR": "11",
+			"MaxStrain": "$51.00",
+			"AvgStrain": "http://www.frank.com",
+			"MinStrain": "edit",
+			"MaxHRV": "$51.00",
+			"AvgHRV": "http://www.frank.com",
+			"MinHRV": "edit",
+			"MaxBodyShock": "$51.00",
+			"AvgBodyShock": "http://www.frank.com",
+			"MinBodyShock": "edit",
+			"MaxCadence": "$51.00",
+			"AvgCadence": "http://www.frank.com",
+			"MinCadence": "edit"
+			
+			
+		}],
+
+		"RunActivity": [{
+			"Activity_Title": "Run on Wed, Feb 28 at 06:05 AM",
+			"Duration": "01:31:01",
+			"Training Load": "584",
+			"MaxHR": "191",
+			"AvgHR": "168",
+			"MinHR": "89",
+			"MaxBR": "59",
+			"AvgBR": "45",
+			"MinBR": "28",
+			"MaxStrain": "0.13",
+			"AvgStrain": "0.06",
+			"MinStrain": "-0.04",
+			"MaxHRV": "24",
+			"AvgHRV": "4",
+			"MinHRV": "2",
+			"MaxBodyShock": "178",
+			"AvgBodyShock": "95",
+			"MinBodyShock": "6",
+			"MaxCadence": "214",
+			"AvgCadence": "155",
+			"MinCadence": "103"
+			
+			
+		}],
+		"Derived_Avg": [{
+			"HR": "160",
+			"BR": "45",
+			"Strain": "0.07",
+			"HRV": "4",
+			"BodyShock": "63",
+			"StepCad": "138"
+		}],
+		"Derived_Min": [{
+			"HR": "96",
+			"BR": "22",
+			"Strain": "-0.1",
+			"HRV": "1",
+			"BodyShock": "0",
+			"StepCad": "0"
+		}]
+	}
+}

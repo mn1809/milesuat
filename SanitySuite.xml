@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Sanity Testcase - Production" preserve-order ="true">
+
+
+
+<!--
+<listeners>
+        <listener class-name="com.frontierX.Utilities.CustomReport" />
+        <listener class-name="com.frontierX.Utilities.TestNameListener" /> 
+</listeners>
+-->
+<suite-files>
+	<suite-file path ="/Sanity_XMLs/DailySanity.xml"/>
+</suite-files>
+</suite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Admin User - Smoke Tests in Prod" preserve-order ="true">
+<parameter name="enivironment" value="prod" />
+  <test  parallel = "classes" name="Smoke Tests - Admin Prespective">
+    <classes>
+       
+		<class name="com.frontierX.TestScripts.FxAdminWorkFlows"/>
+	<!--	<class name="com.frontierX.TestScripts.LiveUserDashboardTest"/>
+		<class name="com.frontierX.TestScripts.VerifyUserLevelSettingsAreSavedTest"/> 	 
+ 		<class name="com.frontierX.TestScripts.VerifyAdminCanSearchExistingUsersTest"/> -->
+		
+    </classes>
+  </test>
+</suite> <!-- Suite -->
