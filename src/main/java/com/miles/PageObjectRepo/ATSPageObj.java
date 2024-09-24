@@ -1,5 +1,6 @@
 package com.miles.PageObjectRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -7,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.miles.BaseSettings.MilesBasePage;
 
@@ -21,6 +24,10 @@ public class ATSPageObj extends MilesBasePage
 		// TODO Auto-generated constructor stub
 	   }
 
+	   
+	  // protected WebElement MainMenu = driver.findElement(By.className("dropdown-toggle"));
+	   
+	  
 //	   protected List <WebElement> UserRecords = driver.findElements(By.className("longContentControl"));
 //	   //protected WebElement SearchBox = driver.findElement(By.className("form-search"));
 //
@@ -50,7 +57,6 @@ public class ATSPageObj extends MilesBasePage
 	//protected WebElement Coach_email = driver.findElement(By.id("trainer_email"));
 	
 	//protected WebElement Coach_deviceLink = driver.findElement(By.id("device_purchase_link"));
-	
-
+	 
 }
 //Testing 123GIT//

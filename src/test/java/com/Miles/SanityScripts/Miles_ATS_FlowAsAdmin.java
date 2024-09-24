@@ -3,17 +3,21 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -34,6 +38,7 @@ import com.miles.PageLibRepo.OPTPageLib;
 import com.miles.PageLibRepo.WorkoutDetailsPageLib;
 import com.miles.PageObjectRepo.ATSPageObj;
 import com.miles.PageObjectRepo.HomePageObj;
+import com.miles.PageObjectRepo.OPTPageObj;
 import com.miles.Utilities.MilesUtilities;
 import com.miles.Utilities.MilesUtilities;
 
@@ -42,10 +47,9 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	 WebDriver driver = null ;
 	 LoginPageLib loginObj ;
 	 HomePageLib homeObj ;
-	 //AdminPageLib adminLib;
-	 OPTPageLib OPTPageObj;
-	 
-	 
+	
+	 ATSPageLib ATSPageObj;
+	
 	 LocalDate currentDate = LocalDate.now();
 		Locale locale = Locale.getDefault();
 		String currentMonthAsString = currentDate.getMonth().getDisplayName(
@@ -56,23 +60,12 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	String CurrentMonth = MilesUtilities.GetShortFormOfMonth(currentMonthAsString.toUpperCase());
 	int currentDate1 = currentDate.getDayOfMonth();
 	
-	 String expectedInfoTxt = "User's information updated successfully." ;
+	 String expectedInfoTxt = "Automation-User";
+	 String Name = "Automation-User";
 	 String ClassName = this.getClass().getSimpleName().toString();
 	 
 	 String GeneralInfoContains = "Male";
 	 String SerialInfoContains = "Serial Number";
-	 
-	 String Zone1_Duration = "4h 42m";
-	 String Zone2_Duration = "16h 7m";
-	 String Zone3_Duration = "1h 19m";
-	 String Zone4_Duration = "20 sec";
-	 String Zone5_Duration = "1h 21m";
-	 
-	 String Zone1_Percentage = "20%";
-	 String Zone2_Percentage = "69%";
-	 String Zone3_Percentage = "6%";
-	 String Zone4_Percentage = "<1%";
-	 String Zone5_Percentage = "6%";
 	 
 	 String Added_Recommendation = "Adding Recommendation Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
 	 String Editted_Recommendation = "Edited Add Recommendation Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
@@ -89,12 +82,12 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 		 this.driver = DecideEnvironment(env);
 		 
 		 loginObj = new LoginPageLib(driver);
-		 OPTPageObj = new OPTPageLib(driver);
+		 
+	       
 		 
 		 EneEnv = env;
 		 if(env.contains("prod"))			//Prod//
 		 {
-			// homeObj = loginObj.login("manoj.hr@mileseducation.com", "12341234"); // Use the decrypted version temporarily
 			homeObj = loginObj.login("manoj.hr@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
 			 //MTIzNDEyMzQ=
 			 System.out.println("Logging in as Quality : Serverless Production user");
@@ -102,7 +95,6 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 		 
 		 else
 		 {   // Regular Prod User		//Stage//
-			 //homeObj = loginObj.login("manoj.hr@mileseducation.com", "12341234"); // Use the decrypted version temporarily
 			 homeObj = loginObj.login("manoj.hr@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
 			 
 			 System.out.println("Logging in as Quality user : Regular Stage user");
@@ -118,6 +110,7 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 		 System.out.println("\n Full trace : "+e.getCause());
 		 
 	 }
+ 
 }
 	 @AfterMethod
 	 private void CloseDriverSession(ITestResult result) throws Exception
@@ -134,7 +127,7 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-		//driver.quit();
+	//	driver.quit();
 	 }
 	 
 	
@@ -146,6 +139,7 @@ private void SetEvidenceDir()
 	// For Jenkins Logs
 	System.out.println("******User Level Sanity Test cases will be executed now..******");
 	// Read JSON File from Backend Automation here TO-DO
+	
 }
 	
 //@Test(description = "Verify Admin Login")
@@ -159,12 +153,95 @@ public void ClearingHomePage() throws InterruptedException
 public void AdminDropdownOptions() throws InterruptedException
 
 {
+	ClearMyCandidateFilter();
+	VerifyHomeMenuOptions();
+}
+
+//@Test(description = "Verify Admin Can Enter to ATS Module")
+public void EntireingtoMilesRequirementATSModule() throws InterruptedException
+
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+}
+
+
+//@Test (description = "Verify ATS Module Configuration Options")
+public void ATSConfigurationDropdownOptions () throws InterruptedException
+
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	VerifyATSCOnfigurationOptions();
+}
+
+//@Test (description = "Verify ATS Module Search Candidate")
+public void U7ASearachCandidate() throws InterruptedException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	SearchU7ACnadidate();
+}
+
+@Test (description = "Verify ATS Module U7A Candidate Bucket")
+public void U7ACandidateWindow() throws InterruptedException
+{
 	
 	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	SearchU7ACnadidate();
+	CandidateU7ADetails();
 	
+	
+	
+}
+	
+
+	
+
+	/*
+	 * Helper Methods
+	 */
+
+public void CandidateU7ADetails() throws InterruptedException
+{
+	String ExpectedDashBoardUserName = "Automation-User";
+	String ExpectedCanID = "Test-659531";
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
+	Thread.sleep(3000);
+	System.out.println("Actual User Name According To Passport is "+getCandidateName());
+	Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
+	
+	System.out.println("Actual CanID is "+getCandidateID());
+	Assert.assertTrue(getCandidateID().contains(ExpectedCanID));
+	
+}
+
+public String getCandidateID()
+{
+	return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
+}
+
+public String getCandidateName()
+{
+	return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
+}
+
+public void SearchU7ACnadidate() throws InterruptedException
+{
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
+}
+
+public void VerifyHomeMenuOptions()
+{
 	driver.findElement(By.className("dropdown-toggle")).click();
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-item o_app')]")));
 	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item o_app')]")).isDisplayed());
+	
 	Assert.assertEquals(Options.get(0).getText(), "USP Eligibility");
 	Assert.assertEquals(Options.get(1).getText(), "Miles ATS");
 	Assert.assertEquals(Options.get(2).getText(), "Miles Recruitments");
@@ -175,27 +252,53 @@ public void AdminDropdownOptions() throws InterruptedException
 	Assert.assertEquals(Options.get(7).getText(), "Job Queue");
 	Assert.assertEquals(Options.get(8).getText(), "Contacts");
 	Assert.assertEquals(Options.get(9).getText(), "Dashboards");
-	Assert.assertEquals(Options.get(10).getText(), "Surveys");
-	Assert.assertEquals(Options.get(11).getText(), "Employees");
-	Assert.assertEquals(Options.get(12).getText(), "Apps");
-	Assert.assertEquals(Options.get(13).getText(), "Settings");
-
+	Assert.assertEquals(Options.get(10).getText(), "Employees");
+	Assert.assertEquals(Options.get(11).getText(), "Apps");
+	Assert.assertEquals(Options.get(12).getText(), "Settings");
 }
-
-
-@Test(description = "Verify Admin Can Enter to Miles Requirement as ATS Module")
-public void EntireingtoMilesRequirementATSModule() throws InterruptedException
-
+public void VerifyATSCOnfigurationOptions()
 {
-	ClearMyCandidateFilter();
-	VerifyInitiateATSPage();
+	driver.findElement(By.xpath("//*[contains(@title, 'Configuration')]")).click();
+	// Expected options
+	List<String> expectedOptions = Arrays.asList(
+		    "Allocation Configuration",
+		    "Enrollment Batches",
+		    "Enrollment University",
+		    "Buckets",
+		    "Enrollment Course",
+		    "ATS Journey",
+		    "LOR Question",
+		    "Graduation Division",
+		    "Pathway College",
+		    "Sessions",
+		    "Document Type",
+		    "MSA Document Type",
+		    "DS-160 Step",
+		    "Ineligible Reason",
+		    "Loan Provider",
+		    "Bank",
+		    "Synopsis",
+		    "Telephony call Reason",
+		    "Visa Slot City",
+		    "Questions",
+		    "Category",
+		    "Journey Decks",
+		    "MF Migration",
+		    "NAAC Grade",
+		    "University Grade Matrix",
+		    "University Recommendation Combination"
+		);
+	
+ WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+ List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
+ 
+ for (int i = 0; i < OptionsIteam.size();i++)
+ {
+	 System.out.println(OptionsIteam.get(i).getText());
+	 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
+	 
+ }
 }
-
-	/*
-	 * Helper Methods
-	 */
-
-
 
 public void VerifyInitiateATSPage() throws InterruptedException
 {
@@ -304,15 +407,15 @@ public void UserdashBoardPage()
 	System.out.println("Home Dashboard User Name is "+getUserNameOnDashboard());
 }
 
-public void InitateAdminPage() throws InterruptedException
-{	 
-	List <WebElement> Options = driver.findElements(By.className("listbrdr"));
-	Options.get(1).click();
-	Thread.sleep(6000);
-	OPTPageObj = new OPTPageLib(driver);
-	
-	
-}
+//public void InitateAdminPage() throws InterruptedException
+//{	 
+//	List <WebElement> Options = driver.findElements(By.className("listbrdr"));
+//	Options.get(1).click();
+//	Thread.sleep(6000);
+//	OPTPageObj = new OPTPageLib(driver);
+//	
+//	
+//}
 
 public String getUserNameOnDashboard()
 {

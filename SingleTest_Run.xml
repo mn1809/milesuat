@@ -31,7 +31,7 @@ Custome Report with Screenshot attached.
 	<classes>
 		
 		<!-- <class name="com.frontierX.TestScripts.LiveECG"/>-->
-		<class name = "com.Miles.SanityScripts.Miles_OPT_FlowAsAdmin"/>
+		<class name = "com.Miles.SanityScripts.Miles_ATS_FlowAsAdmin"/>
 		
 		
 		
