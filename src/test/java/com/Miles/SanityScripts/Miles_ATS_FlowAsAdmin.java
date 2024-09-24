@@ -1,4 +1,7 @@
 package com.Miles.SanityScripts;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -60,8 +63,12 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	String CurrentMonth = MilesUtilities.GetShortFormOfMonth(currentMonthAsString.toUpperCase());
 	int currentDate1 = currentDate.getDayOfMonth();
 	
-	 String expectedInfoTxt = "Automation-User";
 	 String Name = "Automation-User";
+	 String expectedInfoTxt = "Automation-User";
+	 String ExpectedCanID = "Test-659531";
+	 String ExpectedEmail = "milesautomation@mileseducation.com";
+	 
+	
 	 String ClassName = this.getClass().getSimpleName().toString();
 	 
 	 String GeneralInfoContains = "Male";
@@ -127,7 +134,7 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-	//	driver.quit();
+	//driver.quit();
 	 }
 	 
 	
@@ -183,7 +190,7 @@ public void U7ASearachCandidate() throws InterruptedException
 	SearchU7ACnadidate();
 }
 
-@Test (description = "Verify ATS Module U7A Candidate Bucket")
+//@Test (description = "Verify ATS Module U7A Candidate Bucket")
 public void U7ACandidateWindow() throws InterruptedException
 {
 	
@@ -191,37 +198,82 @@ public void U7ACandidateWindow() throws InterruptedException
 	VerifyInitiateATSPage();
 	SearchU7ACnadidate();
 	CandidateU7ADetails();
-	
-	
-	
 }
 	
+@Test (description  = "Verify ATS Module Candidate Allocation For GM")
 
+public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	SearchU7ACnadidate();
+	Thread.sleep(3000);
+	CandidateU7AllocationProcess();
+	
+}
 	
 
 	/*
 	 * Helper Methods
 	 */
 
+public void CandidateU7AllocationProcess() throws InterruptedException, AWTException
+{
+	driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
+	Thread.sleep(2000);
+	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
+	
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'form-check-input')]")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).click();
+	
+	System.out.println("Actual Can id is "+getcandidateId());
+	Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
+	
+	driver.findElement(By.id("general_manager_id")).click();
+	driver.findElement(By.id("general_manager_id")).sendKeys("Manoj Expert");
+	Thread.sleep(2000);
+	Robot robot = new Robot();
+	robot.mouseMove(100, 200); // Adjust the coordinates as needed
+    robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+    robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+    
+    Thread.sleep(2000);
+	driver.findElement(By.id("gm_spoc_id")).click();
+	driver.findElement(By.id("gm_spoc_id")).sendKeys("Manoj Spoc");
+	
+	Robot robot1 = new Robot();
+	robot1.mouseMove(300, 400); // Adjust the coordinates as needed
+    robot1.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+    robot1.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+    //action_allocate_gm_to_leads
+    Thread.sleep(2000);
+driver.findElement(By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]")).click();
+	
+}
+
 public void CandidateU7ADetails() throws InterruptedException
 {
 	String ExpectedDashBoardUserName = "Automation-User";
-	String ExpectedCanID = "Test-659531";
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
 	Thread.sleep(3000);
 	System.out.println("Actual User Name According To Passport is "+getCandidateName());
 	Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
 	
-	System.out.println("Actual CanID is "+getCandidateID());
-	Assert.assertTrue(getCandidateID().contains(ExpectedCanID));
+	System.out.println("Actual Can id is "+getcandidateId());
+	Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
 	
 }
 
-public String getCandidateID()
+public String getcandidateId()
 {
-	return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
+	return driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).getText();
 }
-
 public String getCandidateName()
 {
 	return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
@@ -234,7 +286,9 @@ public void SearchU7ACnadidate() throws InterruptedException
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
+driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
 }
+
 
 public void VerifyHomeMenuOptions()
 {
@@ -255,6 +309,16 @@ public void VerifyHomeMenuOptions()
 	Assert.assertEquals(Options.get(10).getText(), "Employees");
 	Assert.assertEquals(Options.get(11).getText(), "Apps");
 	Assert.assertEquals(Options.get(12).getText(), "Settings");
+}
+
+
+public void VerifyInitiateATSPage() throws InterruptedException
+{
+	driver.findElement(By.className("dropdown-toggle")).click();
+	List <WebElement> Options = driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item o_app')]"));
+	Options.get(1).click();
+	
+	Thread.sleep(4000);
 }
 public void VerifyATSCOnfigurationOptions()
 {
@@ -300,14 +364,7 @@ public void VerifyATSCOnfigurationOptions()
  }
 }
 
-public void VerifyInitiateATSPage() throws InterruptedException
-{
-	driver.findElement(By.className("dropdown-toggle")).click();
-	List <WebElement> Options = driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item o_app')]"));
-	Options.get(1).click();
-	
-	Thread.sleep(4000);
-}
+
 public void ClearMyCandidateFilter() throws InterruptedException
 {
 	Thread.sleep(3);
@@ -421,7 +478,7 @@ public String getUserNameOnDashboard()
 {
 	return driver.findElement(By.className("current-user-dashboard")).getText();
 }
-//Check12345//
+
 
 }
 	
