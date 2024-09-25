@@ -134,7 +134,7 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-	//driver.quit();
+	driver.quit();
 	 }
 	 
 	
@@ -149,14 +149,14 @@ private void SetEvidenceDir()
 	
 }
 	
-//@Test(description = "Verify Admin Login")
+@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
 	ClearMyCandidateFilter();
 }
 
-//@Test(description = "Verify Admin Dropdown Options")
+@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -164,7 +164,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	VerifyHomeMenuOptions();
 }
 
-//@Test(description = "Verify Admin Can Enter to ATS Module")
+@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -173,7 +173,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 }
 
 
-//@Test (description = "Verify ATS Module Configuration Options")
+@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -182,7 +182,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	VerifyATSCOnfigurationOptions();
 }
 
-//@Test (description = "Verify ATS Module Search Candidate")
+@Test (priority = 5,description = "Verify ATS Module Search Candidate")
 public void U7ASearachCandidate() throws InterruptedException
 {
 	ClearMyCandidateFilter();
@@ -190,7 +190,7 @@ public void U7ASearachCandidate() throws InterruptedException
 	SearchU7ACnadidate();
 }
 
-//@Test (description = "Verify ATS Module U7A Candidate Bucket")
+@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
 public void U7ACandidateWindow() throws InterruptedException
 {
 	
@@ -200,7 +200,7 @@ public void U7ACandidateWindow() throws InterruptedException
 	CandidateU7ADetails();
 }
 	
-@Test (description  = "Verify ATS Module Candidate Allocation For GM")
+@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -212,11 +212,44 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	CandidateU7AllocationProcess();
 	
 }
+
+@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+
+public void U7EnrolledBucket()throws InterruptedException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	SearchU7EnrolledCandidate();
+}
 	
 
 	/*
 	 * Helper Methods
 	 */
+
+
+public void SearchU7EnrolledCandidate() throws InterruptedException
+{
+	String ExpectedDashBoardUserName = "Automation-User";
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	System.out.println("Actual Can id is "+getcandidateId());
+	Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
+	
+	System.out.println("Actual User Name According To Passport is "+getCandidateName());
+	Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
+	
+}
+
+
 
 public void CandidateU7AllocationProcess() throws InterruptedException, AWTException
 {
@@ -286,8 +319,10 @@ public void SearchU7ACnadidate() throws InterruptedException
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
-driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
 }
+
+
 
 
 public void VerifyHomeMenuOptions()
