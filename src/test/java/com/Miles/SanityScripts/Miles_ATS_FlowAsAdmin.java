@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Locale;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver.Options;
@@ -67,8 +68,11 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	 String expectedInfoTxt = "Automation-User";
 	 String ExpectedCanID = "Test-659531";
 	 String ExpectedEmail = "milesautomation@mileseducation.com";
+	 String ExpectedEligibilityCode = "Eligibility/B/24/09/115";
+	 String ExpectedEnrollmentStatus = "New Student";
+	 String ExpectedEligibilityType = "Eligibility not done";
 	 
-	
+	 
 	 String ClassName = this.getClass().getSimpleName().toString();
 	 
 	 String GeneralInfoContains = "Male";
@@ -134,7 +138,7 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-	driver.quit();
+	//driver.quit();
 	 }
 	 
 	
@@ -149,14 +153,14 @@ private void SetEvidenceDir()
 	
 }
 	
-@Test(priority = 1,description = "Verify Admin Login")
+//@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
 	ClearMyCandidateFilter();
 }
 
-@Test(priority = 2,description = "Verify Admin Dropdown Options")
+//@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -164,7 +168,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	VerifyHomeMenuOptions();
 }
 
-@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -173,7 +177,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 }
 
 
-@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -182,7 +186,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	VerifyATSCOnfigurationOptions();
 }
 
-@Test (priority = 5,description = "Verify ATS Module Search Candidate")
+//@Test (priority = 5,description = "Verify ATS Module Search Candidate")
 public void U7ASearachCandidate() throws InterruptedException
 {
 	ClearMyCandidateFilter();
@@ -190,7 +194,7 @@ public void U7ASearachCandidate() throws InterruptedException
 	SearchU7ACnadidate();
 }
 
-@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
+//@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
 public void U7ACandidateWindow() throws InterruptedException
 {
 	
@@ -200,7 +204,7 @@ public void U7ACandidateWindow() throws InterruptedException
 	CandidateU7ADetails();
 }
 	
-@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
+//@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -213,7 +217,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+//@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -221,13 +225,61 @@ public void U7EnrolledBucket()throws InterruptedException
 	VerifyInitiateATSPage();
 	Thread.sleep(3000);
 	SearchU7EnrolledCandidate();
-}
 	
+	
+}
+
+//@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+
+public void CheckingU7Tabs() throws InterruptedException
+{	
+	
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	TabsbuttonOnU7Enrolled();
+}
+
+@Test (priority = 10, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
+
+public void CandidateBasicDetails() throws InterruptedException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	TabsbuttonOnU7Enrolled();
+	ScrollToBasicDetails();
+	
+	System.out.println("Actual Eligibility Code is "+GetCandidateEligibilityCode());
+	Assert.assertTrue(GetCandidateEligibilityCode().contains(ExpectedEligibilityCode));
+	
+	System.out.println("Actual Enrollment Status is "+GetCandidateEnrollmentStatus());
+	Assert.assertTrue(GetCandidateEnrollmentStatus().contains(ExpectedEnrollmentStatus));
+	
+	System.out.println("Actual Eligibility Type is "+GetCandidateEligibilityType());
+	Assert.assertTrue(GetCandidateEligibilityType().contains(ExpectedEligibilityType));
+	
+
+}
+
 
 	/*
 	 * Helper Methods
 	 */
 
+public void ScrollTillElement(WebElement element)
+{
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("arguments[0].scrollIntoView(true);", element);
+
+}
+
+public void ScrollToBasicDetails() 
+{
+	Actions act = new Actions(driver);
+	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'student_card')]"))).perform();
+	//driver.findElement(By.className("fa fa-plus")).click();
+}
 
 public void SearchU7EnrolledCandidate() throws InterruptedException
 {
@@ -247,7 +299,43 @@ public void SearchU7EnrolledCandidate() throws InterruptedException
 	System.out.println("Actual User Name According To Passport is "+getCandidateName());
 	Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
 	
+	
+	
 }
+	
+public void TabsbuttonOnU7Enrolled() throws InterruptedException
+{
+	
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).isDisplayed();
+	System.out.println("Red Button 1 is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).get(1).isDisplayed();
+	System.out.println("Red Button 2 is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+	
+}
+	
+	
 
 
 
@@ -301,6 +389,21 @@ public void CandidateU7ADetails() throws InterruptedException
 	System.out.println("Actual Can id is "+getcandidateId());
 	Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
 	
+}
+
+
+public String GetCandidateEligibilityType()
+{
+	return driver.findElements(By.xpath("//*[contains(@name, 'eligibility_done_status')]")).get(0).getText();
+}
+public String GetCandidateEligibilityCode()
+{
+	return driver.findElements(By.xpath("//*[contains(@name, 'eligibility_code')]")).get(0).getText();
+}
+
+public String GetCandidateEnrollmentStatus()
+{
+	return driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(14).getText();
 }
 
 public String getcandidateId()
@@ -446,12 +549,12 @@ public void AddRecommendation() throws InterruptedException
 }
 
 
-public void ScrollToHeartRateZones()
-{
-	Actions act = new Actions(driver);
-	act.moveToElement(driver.findElement((By.xpath("//*[contains(@class, 'hr-zone-distribution')]")))).perform();
-	//driver.findElement(By.className("fa fa-plus")).click();
-}
+//public void ScrollToHeartRateZones()
+//{
+//	Actions act = new Actions(driver);
+//	act.moveToElement(driver.findElement((By.xpath("//*[contains(@class, 'hr-zone-distribution')]")))).perform();
+//	//driver.findElement(By.className("fa fa-plus")).click();
+//}
 
 public String ReadGeneralInfo() throws InterruptedException
 {
