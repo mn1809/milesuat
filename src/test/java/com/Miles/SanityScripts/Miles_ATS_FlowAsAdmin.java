@@ -153,14 +153,14 @@ private void SetEvidenceDir()
 	
 }
 	
-//@Test(priority = 1,description = "Verify Admin Login")
+@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
 	ClearMyCandidateFilter();
 }
 
-//@Test(priority = 2,description = "Verify Admin Dropdown Options")
+@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -168,7 +168,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	VerifyHomeMenuOptions();
 }
 
-//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -177,7 +177,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 }
 
 
-//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -186,7 +186,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	VerifyATSCOnfigurationOptions();
 }
 
-//@Test (priority = 5,description = "Verify ATS Module Search Candidate")
+@Test (priority = 5,description = "Verify ATS Module Search Candidate")
 public void U7ASearachCandidate() throws InterruptedException
 {
 	ClearMyCandidateFilter();
@@ -194,7 +194,7 @@ public void U7ASearachCandidate() throws InterruptedException
 	SearchU7ACnadidate();
 }
 
-//@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
+@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
 public void U7ACandidateWindow() throws InterruptedException
 {
 	
@@ -204,7 +204,7 @@ public void U7ACandidateWindow() throws InterruptedException
 	CandidateU7ADetails();
 }
 	
-//@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
+@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -217,7 +217,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-//@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -229,7 +229,7 @@ public void U7EnrolledBucket()throws InterruptedException
 	
 }
 
-//@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void CheckingU7Tabs() throws InterruptedException
 {	
@@ -249,7 +249,53 @@ public void CandidateBasicDetails() throws InterruptedException
 	Thread.sleep(3000);
 	TabsbuttonOnU7Enrolled();
 	ScrollToBasicDetails();
+	BasicCandidateDetails();
+
+}
+
+@Test (priority = 11, description = "Verify Updating Candidate Communication Test Result")
+
+public void UpdatingCommunicationTestResult() throws InterruptedException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	TabsbuttonOnU7Enrolled();
+	Thread.sleep(3000);
 	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).get(1).click();
+	Thread.sleep(2000);
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0')]")).get(15).click();
+	Thread.sleep(1000);
+	
+//	WebElement datepicker = driver.findElements(By.className("ats_communication_test_date")).get(2);
+
+//	 datepicker.click();
+	
+//	   Thread.sleep(1000);
+	
+     driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
+     Thread.sleep(3000);
+     
+     driver.findElement(By.xpath("//*[contains(@title, 'Close the picker')]")).click();
+     Thread.sleep(1000);
+   System.out.println("Date selected is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0')]")).get(15).getText());
+//     
+//  //   System.out.println("Date selected is "+driver.findElement(By.xpath("//*[contains(@class, 'ant-picker-cell-today')]")).getText());
+//     
+//    // day today
+//     Thread.sleep(1000);
+}
+
+
+
+	/*
+	 * Helper Methods
+	 */
+
+
+public void BasicCandidateDetails()
+{
 	System.out.println("Actual Eligibility Code is "+GetCandidateEligibilityCode());
 	Assert.assertTrue(GetCandidateEligibilityCode().contains(ExpectedEligibilityCode));
 	
@@ -258,14 +304,7 @@ public void CandidateBasicDetails() throws InterruptedException
 	
 	System.out.println("Actual Eligibility Type is "+GetCandidateEligibilityType());
 	Assert.assertTrue(GetCandidateEligibilityType().contains(ExpectedEligibilityType));
-	
-
 }
-
-
-	/*
-	 * Helper Methods
-	 */
 
 public void ScrollTillElement(WebElement element)
 {
