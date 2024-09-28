@@ -310,11 +310,12 @@ public void TooBookTimeSlot() throws InterruptedException
     WebElement session =  driver.findElement((By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_many2one o_required_modifier')]")));
     session.click();
     Thread.sleep(3000);
+    driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]"))).get(0).click();
    // session.sendKeys("Expert Counselling");
     
-	Thread.sleep(3000);
-	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options1.get(0).click();
+//	Thread.sleep(3000);
+//	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//	Options1.get(0).click();
 }
 
 
