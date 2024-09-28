@@ -78,7 +78,11 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	 String GeneralInfoContains = "Male";
 	 String SerialInfoContains = "Serial Number";
 	 
-	 String Added_Recommendation = "Adding Recommendation Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
+	 String Adding_Commentson_CommunicationTEST = "Adding Comments/Feedback Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1; 
+	 String Adding_Interview_Recording_Link = "Adding Interview Recording Link By QATeam on- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1+"www.YouTube.com";
+	 String Adding_Skill_Domain = "Adding Skill Domain By QATeam on- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1+"Noun,Pronoun,Verb,Adverb";
+	 String Adding_BasicCommunication_TestScore = "95";
+	// String Added_Recommendation = "Adding Recommendation Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
 	 String Editted_Recommendation = "Edited Add Recommendation Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
 	 String EneEnv;
 	 
@@ -153,14 +157,14 @@ private void SetEvidenceDir()
 	
 }
 	
-@Test(priority = 1,description = "Verify Admin Login")
+//@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
 	ClearMyCandidateFilter();
 }
 
-@Test(priority = 2,description = "Verify Admin Dropdown Options")
+//@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -168,7 +172,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	VerifyHomeMenuOptions();
 }
 
-@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -177,7 +181,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 }
 
 
-@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -186,7 +190,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	VerifyATSCOnfigurationOptions();
 }
 
-@Test (priority = 5,description = "Verify ATS Module Search Candidate")
+//@Test (priority = 5,description = "Verify ATS Module Search Candidate")
 public void U7ASearachCandidate() throws InterruptedException
 {
 	ClearMyCandidateFilter();
@@ -194,7 +198,7 @@ public void U7ASearachCandidate() throws InterruptedException
 	SearchU7ACnadidate();
 }
 
-@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
+//@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
 public void U7ACandidateWindow() throws InterruptedException
 {
 	
@@ -204,7 +208,7 @@ public void U7ACandidateWindow() throws InterruptedException
 	CandidateU7ADetails();
 }
 	
-@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
+//@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -217,7 +221,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+//@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -229,7 +233,7 @@ public void U7EnrolledBucket()throws InterruptedException
 	
 }
 
-@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+//@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void CheckingU7Tabs() throws InterruptedException
 {	
@@ -240,7 +244,7 @@ public void CheckingU7Tabs() throws InterruptedException
 	TabsbuttonOnU7Enrolled();
 }
 
-@Test (priority = 10, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
+//@Test (priority = 10, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
 
 public void CandidateBasicDetails() throws InterruptedException
 {
@@ -253,45 +257,112 @@ public void CandidateBasicDetails() throws InterruptedException
 
 }
 
-@Test (priority = 11, description = "Verify Updating Candidate Communication Test Result")
+//@Test (priority = 11, description = "Verify Updating Candidate Communication Test Result")
 
-public void UpdatingCommunicationTestResult() throws InterruptedException
+public void UpdatingCommunicationTestResult() throws InterruptedException, AWTException
 {
 	ClearMyCandidateFilter();
 	VerifyInitiateATSPage();
 	TabsbuttonOnU7Enrolled();
 	Thread.sleep(3000);
+	CommunicationTestFlow();
 	
+}
+
+@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
+public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
+{
+	
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	TabsbuttonOnU7Enrolled();
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@title, 'Meetings')]")).click();
+	Thread.sleep(2000);
+	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
+
+	driver.findElement(By.id("emp_id")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.id("emp_id")).sendKeys("Manoj Expert");
+	Thread.sleep(3000);
+	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options.get(0).click();
+	driver.findElement((By.xpath("//*[contains(@role, 'button')]"))).click();
+	Thread.sleep(2000);
+	TooBookTimeSlot();
+
+	
+	
+}
+
+	/*
+	 * Helper Methods
+	 */
+
+
+public void TooBookTimeSlot() throws InterruptedException
+{
+	WebElement button = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
+    button.click();
+    
+    WebElement session =  driver.findElement((By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_many2one o_required_modifier')]")));
+    session.click();
+    Thread.sleep(3000);
+   // session.sendKeys("Expert Counselling");
+    
+	Thread.sleep(3000);
+	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options1.get(0).click();
+}
+
+
+public void RandomClickonScreen() throws AWTException
+{
+	Robot robot = new Robot();
+	robot.mouseMove(100, 200); // Adjust the coordinates as needed
+   robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+   robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+}
+
+
+public void CommunicationTestFlow() throws AWTException, InterruptedException
+{
 	driver.findElements(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).get(1).click();
 	Thread.sleep(2000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0')]")).get(15).click();
 	Thread.sleep(1000);
-	
-//	WebElement datepicker = driver.findElements(By.className("ats_communication_test_date")).get(2);
 
-//	 datepicker.click();
-	
-//	   Thread.sleep(1000);
-	
      driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
      Thread.sleep(3000);
      
      driver.findElement(By.xpath("//*[contains(@title, 'Close the picker')]")).click();
      Thread.sleep(1000);
    System.out.println("Date selected is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0')]")).get(15).getText());
-//     
-//  //   System.out.println("Date selected is "+driver.findElement(By.xpath("//*[contains(@class, 'ant-picker-cell-today')]")).getText());
-//     
-//    // day today
-//     Thread.sleep(1000);
+   RandomClickonScreen();
+   
+   
+   driver.findElement(By.id("ats_communication_test_status")).click();
+   
+   Select dropdown = new Select(driver.findElement(By.id("ats_communication_test_status")));
+   dropdown.selectByValue("\"pass\""); // For "Passed"
+   // dropdown.selectByValue("\"fail\""); // For "Failed"
+   // dropdown.selectByValue("\"conditional\""); // For "Conditional Pass"
+   driver.findElements(By.id("ats_communication_test_remark")).get(0).sendKeys(Adding_Commentson_CommunicationTEST);
+   driver.findElements(By.id("ats_communication_test_link")).get(0).sendKeys(Adding_Interview_Recording_Link);
+   driver.findElements(By.id("ats_communication_skill_domain")).get(0).sendKeys(Adding_Skill_Domain);
+   driver.findElements(By.id("ats_communication_test_score")).get(0).sendKeys(Adding_BasicCommunication_TestScore);
+   
+   driver.findElements(By.id("ats_communication_tested_by")).get(0).sendKeys("Manoj Coach");
+   
+   RandomClickonScreen();
+   
+    Thread.sleep(2000);
+   driver.findElement(By.xpath("//*[contains(@name, 'action_submit_enrollment_rejection')]")).click();
 }
 
-
-
-	/*
-	 * Helper Methods
-	 */
 
 
 public void BasicCandidateDetails()
@@ -495,6 +566,7 @@ public void VerifyInitiateATSPage() throws InterruptedException
 	List <WebElement> Options = driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item o_app')]"));
 	Options.get(1).click();
 	
+	
 	Thread.sleep(4000);
 }
 public void VerifyATSCOnfigurationOptions()
@@ -578,14 +650,14 @@ public String Recommendation()
 	return  driver.findElements((By.className("w-title"))).get(0).getText();
 }
 
-public void AddRecommendation() throws InterruptedException
-{
-	 driver.findElement(By.id("recommendation-add-btn")).click();
-	 driver.findElements(By.id("note-title")).get(2).click();
-	 driver.findElements(By.id("note-title")).get(2).sendKeys(Added_Recommendation);
-	 Thread.sleep(3000);
-	 driver.findElement(By.id("add-recommendation-popup-submit")).click();
-}
+//public void AddRecommendation() throws InterruptedException
+//{
+//	 driver.findElement(By.id("recommendation-add-btn")).click();
+//	 driver.findElements(By.id("note-title")).get(2).click();
+//	 driver.findElements(By.id("note-title")).get(2).sendKeys(Added_Recommendation);
+//	 Thread.sleep(3000);
+//	 driver.findElement(By.id("add-recommendation-popup-submit")).click();
+//}
 
 
 //public void ScrollToHeartRateZones()
