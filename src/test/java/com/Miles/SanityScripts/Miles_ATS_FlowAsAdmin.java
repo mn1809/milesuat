@@ -301,6 +301,12 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 	ClearMyCandidateFilter();
 	VerifyInitiateATSPage();
 	TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+	
+	
+	
+	
+	//U7PLusEligibleTheCandidate();
 	
 }
 
@@ -311,7 +317,24 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 	 */
 
 
+public void U7PLusEligibleTheCandidate() throws InterruptedException
 
+{
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(9).click();
+	Thread.sleep(3000);
+	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).click();
+	
+
+	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options.get(0).click();
+	
+	Thread.sleep(1000);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(10).click();
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(11).click();
+	
+}
 
 public void TabsbuttonOnU7PlusEnrolled() throws InterruptedException
 {
