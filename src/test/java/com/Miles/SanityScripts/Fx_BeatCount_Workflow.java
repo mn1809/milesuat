@@ -78,7 +78,7 @@ public class Fx_BeatCount_Workflow extends MilesSettings
 			 homeObj = loginObj.login("quality+admin@fourthfrontier.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
 			 System.out.println("Logging in as Quality user : Regular Stage user");
 		 }
-		 
+		  
 
 	 }
 	 catch (Exception e)

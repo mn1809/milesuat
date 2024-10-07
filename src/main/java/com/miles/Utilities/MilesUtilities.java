@@ -38,7 +38,7 @@ public class MilesUtilities
 	private static String  Evidences = ".\\FailedTCs\\";
 	
 	static String format = "dd-MMMM-yyyy";
-    static DateFormat dateFormatter = new SimpleDateFormat(format);
+    static DateFormat dateFormatter = new SimpleDateFormat(format); 
     static Date FolderNamedate = new Date(); 
     
     static String date = dateFormatter.format(FolderNamedate);

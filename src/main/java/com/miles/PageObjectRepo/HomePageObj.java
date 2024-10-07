@@ -43,7 +43,7 @@ public class HomePageObj extends MilesBasePage
 	protected WebElement searchButton ;
 	
 	//@FindBy(css = "//i[@class='fa fa-power-off']") //.fa.fa-power-off
-	protected WebElement logoutButton = driver.findElement(By.className("fa-power-off"));
+//	protected WebElement logoutButton = driver.findElement(By.className("fa-power-off"));
 	
 	@FindBy(xpath = "//i[@class='fa fa-refresh']")
 	protected WebElement refreshButton ;

@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -55,6 +55,8 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	 ATSPageLib ATSPageObj;
 	
 	 LocalDate currentDate = LocalDate.now();
+	 LocalDate tomaroDate = LocalDate.now().plusDays(1);
+	 
 		Locale locale = Locale.getDefault();
 		String currentMonthAsString = currentDate.getMonth().getDisplayName(
           TextStyle.FULL, 
@@ -63,6 +65,7 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	String weekAbbreviation = currentDate.format(DateTimeFormatter.ofPattern("Eee", locale)).substring(0, 3);
 	String CurrentMonth = MilesUtilities.GetShortFormOfMonth(currentMonthAsString.toUpperCase());
 	int currentDate1 = currentDate.getDayOfMonth();
+	//int tomaroDate1 = tomaroDate.getDayOfMonth();
 	
 	 String Name = "Automation-User";
 	 String expectedInfoTxt = "Automation-User";
@@ -70,16 +73,24 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	 String ExpectedEmail = "milesautomation@mileseducation.com";
 	 String ExpectedEligibilityCode = "Eligibility/B/24/09/115";
 	 String ExpectedEnrollmentStatus = "New Student";
+	
 	 String ExpectedEligibilityType = "Eligibility not done";
 	 
 	 
-	 String ClassName = this.getClass().getSimpleName().toString();
+	 String ClassName = this.getClass().getSimpleName().toString(); 
 	 
 	 String GeneralInfoContains = "Male";
 	 String SerialInfoContains = "Serial Number";
 	 
 	 String Adding_Commentson_CommunicationTEST = "Adding Comments/Feedback Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1; 
 	 String Adding_Interview_Recording_Link = "Adding Interview Recording Link By QATeam on- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1+"www.YouTube.com";
+	 String Adding_CommentsTo_Agenda = "Adding Comments to Agenda By Automation Script For Booked Slots";
+//	 LocalDate tomorrow = LocalDate.now().plusDays(1);
+     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+     
+     DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("d");
+	String Adding_Tomaro_Date = "tomorrow.format(formatter1)";
+	
 	 String Adding_Skill_Domain = "Adding Skill Domain By QATeam on- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1+"Noun,Pronoun,Verb,Adverb";
 	 String Adding_BasicCommunication_TestScore = "95";
 	// String Added_Recommendation = "Adding Recommendation Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
@@ -269,7 +280,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
+//@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -277,6 +288,114 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 	VerifyInitiateATSPage();
 	TabsbuttonOnU7Enrolled();
 	Thread.sleep(3000);
+	TooBookExpertSession();
+	TooBookTimeSlot();
+	BookExpertSessionU7Window();
+	Thread.sleep(10000);
+}
+
+@Test (priority = 13, description = "U7+ Expert Session Booked")
+
+public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	TabsbuttonOnU7PlusEnrolled();
+	
+}
+
+
+
+	/*
+	 * Helper Methods
+	 */
+
+
+
+
+public void TabsbuttonOnU7PlusEnrolled() throws InterruptedException
+{
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_blue_color btn-secondary')]")).isDisplayed();
+	System.out.println("Blue Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_blue_color btn-secondary')]")).getText());
+	
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn button_blue_color btn-secondary')]")).get(1).isDisplayed();
+	System.out.println("Blue Button 2 is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_blue_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).isDisplayed();
+	System.out.println("Red Button  is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button  is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button  is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+
+}
+
+
+public void BookExpertSessionU7Window() throws InterruptedException
+{
+		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+		Thread.sleep(2000);
+		System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
+		System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).getText());
+		System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(17).getText());
+		Thread.sleep(2000);
+		driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(18).click();
+
+		// Get tomorrow's date
+		LocalDate tomorrow = LocalDate.now().plusDays(2);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+		String tomorrowDate = tomorrow.format(formatter);
+		
+		//XPath using the calculated date
+		String xpath = String.format("//td[@data-action='selectDay' and @data-day='%s']", tomorrowDate);
+		
+		
+		WebElement dateElement = driver.findElement(By.xpath(xpath));
+		dateElement.click();
+		
+		
+		driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
+		
+		System.out.println("Booked Date for Selected Slot is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_field_date')]")).getText());
+		System.out.println("Start Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'start_date')]")).getText());
+		System.out.println("End Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'end_date')]")).getText());
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//*[contains(@name, 'confirm_slot')]")).click();
+		Thread.sleep(2000);
+		
+		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(12).click();
+		Thread.sleep(2000);
+
+		driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
+ 
+		driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
+ 
+		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(11).click();
+ 
+ 
+}
+
+public void TooBookExpertSession() throws InterruptedException
+{
 	driver.findElement(By.xpath("//*[contains(@title, 'Meetings')]")).click();
 	Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
@@ -287,35 +406,50 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 	Thread.sleep(3000);
 	driver.findElement(By.id("emp_id")).sendKeys("Manoj Expert");
 	Thread.sleep(3000);
+	
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options.get(0).click();
-	driver.findElement((By.xpath("//*[contains(@role, 'button')]"))).click();
-	Thread.sleep(2000);
-	TooBookTimeSlot();
 
 	
-	
+	driver.findElement((By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]"))).click();
+	Thread.sleep(2000);
+
+
+ // Get tomorrow's date
+    LocalDate tomorrow = LocalDate.now().plusDays(1);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    String tomorrowDate = tomorrow.format(formatter);
+
+    //XPath using the calculated date
+    String xpath = String.format("//td[@data-action='selectDay' and @data-day='%s']", tomorrowDate);
+
+
+    WebElement dateElement = driver.findElement(By.xpath(xpath));
+    dateElement.click();
+    
+    
 }
 
-	/*
-	 * Helper Methods
-	 */
-
-
-public void TooBookTimeSlot() throws InterruptedException
-{
+public void TooBookTimeSlot() throws InterruptedException, AWTException
+{  
 	WebElement button = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button.click();
     
     WebElement session =  driver.findElement((By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_many2one o_required_modifier')]")));
     session.click();
     Thread.sleep(3000);
-    driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]"))).get(0).click();
-   // session.sendKeys("Expert Counselling");
+ 
+    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys("Expert Counselling");
+    RandomClickonScreen();
+    driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click(); //
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();//To Save Button//
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click(); //To confimring Allocation//
+    Thread.sleep(2000);
+    driver.findElements(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).get(1).click(); //Final Confirmation //
     
-//	Thread.sleep(3000);
-//	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-//	Options1.get(0).click();
+    
 }
 
 

@@ -838,11 +838,11 @@ public class HomePageLib extends HomePageObj
 		saveButtonEdit.click();
 	}
 	
-	public void logout() 
-	{
-		logoutButton.click();
-	}
-	
+//	public void logout() 
+//	{
+//		logoutButton.click();
+//	}
+//	
 	public void ClickRefresh() 
 	{
 		refreshButton.click();

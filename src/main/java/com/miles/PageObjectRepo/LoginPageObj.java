@@ -26,7 +26,7 @@ public class LoginPageObj extends MilesBasePage
 	
 	//driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-block')]")).click();
 
-	@FindBy (className = "mini-toastr-notification__message")
+	@FindBy (className = "mini-toastr-notification__message") 
 	protected WebElement NotificationInfoPopUp;
 	
 	protected List<WebElement> WarningMsg = driver.findElements(By.className("text-danger"));	
