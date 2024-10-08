@@ -294,7 +294,7 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 	Thread.sleep(10000);
 }
 
-@Test (priority = 13, description = "U7+ Expert Session Booked")
+//@Test (priority = 13, description = "U7+ Expert Session Booked")
 
 public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 {
@@ -315,12 +315,19 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 }
 
 @Test (priority = 14, description = "U7+ Recommend University To Candidate")
-public void VerifyU7PlusRecommendUniversity() throws InterruptedException
+public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
 {
 	ClearMyCandidateFilter();
 	VerifyInitiateATSPage();
 	TabsbuttonOnU7PlusEnrolled();
 	Thread.sleep(3000);
+	ScrollToMeetingTabU7Plus();
+	
+	Recommenduniversity();
+	
+	
+	
+	U7PLusEligibleTheCandidate();
 }
 
 
@@ -328,7 +335,53 @@ public void VerifyU7PlusRecommendUniversity() throws InterruptedException
 	/*
 	 * Helper Methods
 	 */
+public void Recommenduniversity() throws InterruptedException, AWTException
+{
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).click();
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success btn-sm')]")).isDisplayed();
+	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success btn-sm')]")).getText());
+	
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-danger btn-sm')]")).isDisplayed();
+	System.out.println("Red Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn btn-danger btn-sm')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-warning btn-sm')]")).isDisplayed();
+	System.out.println("Yellow Blue Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn btn-warning btn-sm')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-info btn-sm')]")).isDisplayed();
+	System.out.println("Light Blue Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn btn-info btn-sm')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-danger btn-sm')]")).isDisplayed();
+	System.out.println("Red2 Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn btn-danger btn-sm')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).isDisplayed();
+	System.out.println("Purple Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@name, 'action_recommend_university')]")).click();
+	
+	Thread.sleep(1500);
+	
+    WebElement button = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
+    button.click();
+ 
+    Thread.sleep(3000);
+    
+   driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("Michigan State University");
+   
+   Thread.sleep(4000);
+   
+   driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(1).sendKeys("Masters in Accounting");
 
+   Thread.sleep(4000);
+   driver.findElements(By.xpath("//*[contains(@name, 'action_recommend_university')]")).get(1).click();
+   
+   Thread.sleep(2000);
+   driver.findElement(By.xpath("//*[contains(@name, 'action_goto_lead')]")).click();
+   
+   
+}
 
 
 public void EndMeeting() throws InterruptedException
@@ -386,7 +439,7 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 	
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(9).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
 	Thread.sleep(3000);
 	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).click();
 	
@@ -394,9 +447,9 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options.get(0).click();
 	
-	Thread.sleep(1000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(10).click();
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(11).click();
+	Thread.sleep(4000);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
 	
 }
 
