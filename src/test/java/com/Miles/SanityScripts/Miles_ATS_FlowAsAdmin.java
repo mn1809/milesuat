@@ -31,7 +31,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.WebElement;
 import com.miles.BaseSettings.MilesSettings;
 import com.miles.PageLibRepo.ATSPageLib;
 import com.miles.PageLibRepo.AdminPageLib;
@@ -303,11 +303,24 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 	TabsbuttonOnU7PlusEnrolled();
 	Thread.sleep(3000);
 	
+	ScrollToMeetingTabU7Plus();
 	
-	
+	StartMeeting();
+	SwitchtoBLueButton();
+	EndMeeting();
+
 	
 	//U7PLusEligibleTheCandidate();
-	
+
+}
+
+@Test (priority = 14, description = "U7+ Recommend University To Candidate")
+public void VerifyU7PlusRecommendUniversity() throws InterruptedException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
 }
 
 
@@ -315,6 +328,57 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 	/*
 	 * Helper Methods
 	 */
+
+
+
+public void EndMeeting() throws InterruptedException
+{
+	List <WebElement> Options = driver.findElements(By.xpath("//*[contains(@class, 'btn btn-danger')]"));
+	Options.get(0).click();
+	Thread.sleep(2000);
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	
+	
+}
+
+public void StartMeeting() throws InterruptedException
+
+{
+	System.out.println("Meeting Info is "+driver.findElement(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).click();
+	
+	//driver.findElement(By.xpath("//*[contains(@class, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
+	
+		//driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();///Click to OK Button before Joining Meeting.//
+		
+		
+		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success')]")).click(); //Click Operation for Join Meeting.//
+		Thread.sleep(5000);
+}
+
+
+
+
+public void SwitchtoBLueButton() throws InterruptedException
+{
+	MilesUtilities.SwitchTab(1, driver); //BIg BLUE WINDOW.//
+	Thread.sleep(7000);
+
+	
+	driver.findElement(By.id("tippy-21")).click();
+
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'sc-dJjYzT gbVgVx md buttonWrapper sc-bUKjYF kULnRS')]")).click();	
+		
+	
+	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'MuiButtonBase-root MuiMenuItem-root MuiMenuItem-root sc-lheXJl fwmlKu css-1vsvrdy')]")));
+	Options.get(8).click();
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'sc-dlVxhl jQxUMv sc-jnbWvw eysmcT')]")).click();
+	MilesUtilities.SwitchTab(0, driver);
+}
 
 
 public void U7PLusEligibleTheCandidate() throws InterruptedException
@@ -339,7 +403,7 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 public void TabsbuttonOnU7PlusEnrolled() throws InterruptedException
 {
 	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
 	
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -535,12 +599,27 @@ public void BasicCandidateDetails()
 	Assert.assertTrue(GetCandidateEligibilityType().contains(ExpectedEligibilityType));
 }
 
+
+public void ScrollToMeetingTabU7Plus() throws InterruptedException 
+{
+	Actions act = new Actions(driver);
+	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'student_meeting_line')]"))).perform();
+	driver.findElement(By.xpath("//*[contains(@name, 'student_meeting_line')]")).click();
+	Thread.sleep(1000);
+	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+	//driver.findElement(By.className("fa fa-plus")).click();
+}
+
+
+
+
 public void ScrollTillElement(WebElement element)
 {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	js.executeScript("arguments[0].scrollIntoView(true);", element);
 
 }
+
 
 public void ScrollToBasicDetails() 
 {
