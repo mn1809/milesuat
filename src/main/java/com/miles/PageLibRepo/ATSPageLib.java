@@ -7,26 +7,50 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 
-import com.miles.PageObjectRepo.ATSPageObj;
+import com.miles.PageObjectRepo.atspageObj;
 import com.miles.PageObjectRepo.AdminPageObj;
 import com.miles.PageObjectRepo.OPTPageObj;
+import com.miles.PageObjectRepo.atspageObj;
 import com.miles.Utilities.MilesUtilities;
 import com.miles.Utilities.MilesUtilities;
 
 
-public class ATSPageLib extends ATSPageObj
+public class ATSPageLib extends atspageObj
+
 {
 	
 	public ATSPageLib(WebDriver driver) 
 	{
 		super(driver);
+	//	PageFactory.initElements(driver, this); 
 		// TODO Auto-generated constructor stub
 	}
 		
+	
+	public void U8bucket() throws InterruptedException
+	{
+		driver.findElement(By.className("o_searchview_input")).click();
+	//	UserName.sendKeys("AUTOMAYUON987");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 //	public void VerifyAdminDropdownoptions()
 //	{

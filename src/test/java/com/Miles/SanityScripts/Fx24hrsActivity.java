@@ -29,6 +29,7 @@ public class Fx24hrsActivity extends MilesSettings
 	 LoginPageLib loginObj ;
 	 HomePageLib homeObj ;
 	 WorkoutDetailsPageLib workoutObj ;
+	 
 	 HashMap<String, String> Average_Data;
 	 HashMap<String, String> Maximum_Data;
 	 HashMap<String, String> Minimum_Data;

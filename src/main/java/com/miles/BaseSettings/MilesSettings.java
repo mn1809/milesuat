@@ -219,7 +219,7 @@ public static void getChromeVersion() throws IOException
 		{
 			Assert.fail("Environment not executable");
 		}
-		
+		System.out.println(driver);
 		return driver;
 	}
 	

@@ -15,18 +15,24 @@ import com.miles.BaseSettings.MilesBasePage;
 
 
 
-public class ATSPageObj extends MilesBasePage
+public class atspageObj extends MilesBasePage
+
 {
 
-	   public ATSPageObj(WebDriver driver) 
+	   public atspageObj(WebDriver driver)
+	   
 	   {
 		super(driver);
 		// TODO Auto-generated constructor stub
 	   }
 
 	   
-	  // protected WebElement MainMenu = driver.findElement(By.className("dropdown-toggle"));
 	   
+	   
+	   
+	 //  protected WebElement MainMenu = driver.findElement(By.className("dropdown-toggle"));
+	   
+	   protected WebElement UserName = driver.findElement(By.className("o_searchview_input"));
 	  
 //	   protected List <WebElement> UserRecords = driver.findElements(By.className("longContentControl"));
 //	   //protected WebElement SearchBox = driver.findElement(By.className("form-search"));

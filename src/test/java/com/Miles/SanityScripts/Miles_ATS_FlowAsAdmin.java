@@ -1,7 +1,10 @@
 package com.Miles.SanityScripts;
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -40,7 +43,7 @@ import com.miles.PageLibRepo.LiveUserPageLib;
 import com.miles.PageLibRepo.LoginPageLib;
 import com.miles.PageLibRepo.OPTPageLib;
 import com.miles.PageLibRepo.WorkoutDetailsPageLib;
-import com.miles.PageObjectRepo.ATSPageObj;
+import com.miles.PageObjectRepo.atspageObj;
 import com.miles.PageObjectRepo.HomePageObj;
 import com.miles.PageObjectRepo.OPTPageObj;
 import com.miles.Utilities.MilesUtilities;
@@ -49,11 +52,15 @@ import com.miles.Utilities.MilesUtilities;
 public class Miles_ATS_FlowAsAdmin extends MilesSettings
 {	
 	 WebDriver driver = null ;
-	 LoginPageLib loginObj ;
-	 HomePageLib homeObj ;
+	 
+	protected LoginPageLib loginObj ;
 	
-	 ATSPageLib ATSPageObj;
+	protected HomePageLib homeObj ;
 	
+	protected ATSPageLib atspageObj;
+	 
+	// atspageObj = new ATSPageLib(driver);
+	 
 	 LocalDate currentDate = LocalDate.now();
 	 LocalDate tomaroDate = LocalDate.now().plusDays(1);
 	 
@@ -107,9 +114,11 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 	 {
 		 this.driver = DecideEnvironment(env);
 		 
+	//	System.out.println();
+		 
 		 loginObj = new LoginPageLib(driver);
 		 
-	       
+		
 		 
 		 EneEnv = env;
 		 if(env.contains("prod"))			//Prod//
@@ -126,7 +135,7 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 			 System.out.println("Logging in as Quality user : Regular Stage user");
 		 }
 		 
-
+		
 	 }
 	 catch (Exception e)
 	 {
@@ -154,7 +163,9 @@ public class Miles_ATS_FlowAsAdmin extends MilesSettings
 		 }
 		 
 	//driver.quit();
+	
 	 }
+	 
 	 
 	
 
@@ -310,11 +321,11 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 	EndMeeting();
 
 	
-	//U7PLusEligibleTheCandidate();
+	U7PLusEligibleTheCandidate();
 
 }
 
-@Test (priority = 14, description = "U7+ Recommend University To Candidate")
+//@Test (priority = 14, description = "U7+ Recommend University To Candidate")
 public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
 {
 	ClearMyCandidateFilter();
@@ -325,9 +336,34 @@ public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTEx
 	
 	Recommenduniversity();
 	
-	
-	
 	U7PLusEligibleTheCandidate();
+
+}
+
+//@Test (priority = 15, description = "U8 Expert Session Done Bucket")
+
+public void VerifyU8Bucket() throws InterruptedException, AWTException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	//atspageObj.U8bucket();
+	U8bucket();
+	MSASigned();
+}
+
+@Test (priority = 16, description = "U9 MSA SIGNED")
+
+public void VerifyU9Bucket() throws InterruptedException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	U9bucket();
+	UniversitySelection();
+	
+	
+	
 }
 
 
@@ -335,6 +371,142 @@ public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTEx
 	/*
 	 * Helper Methods
 	 */
+
+public void UniversitySelection() throws InterruptedException
+{
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
+	//selected_university_id
+	driver.findElement(By.id("selected_university_id")).sendKeys("Michigan State University, Masters in Accounting");
+	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options.get(0).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Ok']")).click();
+	
+	
+
+}
+
+
+public void U9bucket() throws InterruptedException
+{
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).isDisplayed();
+	System.out.println("Light Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).isDisplayed();
+	System.out.println("Red Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+
+}
+
+
+public void MSASigned() throws InterruptedException, AWTException
+{
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
+	
+	 driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("JAGSoM (Opt-IN)");
+	 Thread.sleep(2000);
+
+		
+		driver.findElement(By.xpath("//a[@class='dropdown-item ui-menu-item-wrapper text-truncate ui-state-active']")).click();		
+		
+//	driver.findElement(By.xpath("//*[contains(@class, 'oe_fileupload')]")).click();
+//	 Thread.sleep(5000);
+//	 
+//	 String Attachements = System.getProperty("user.dir");
+//	 driver.findElement(By.xpath("//*[contains(@name, 'o_field_widget o_field_many2many_binary')]")).sendKeys(Attachements+"\\Attachements\\MASATTACHEMENT.png");
+//	 
+//	 WebElement fileInput = driver.findElement(By.xpath("//*[contains(@class, 'oe_fileupload')]"));
+//	 
+////	 WebElement fileInput = driver.findElement(By.xpath("//*[contains(@class, 'oe_fileupload')]"));
+////	 fileInput.sendKeys("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\Screenshot (10).png");
+//	
+//	 Thread.sleep(5000);
+//	driver.findElement(By.xpath("//*[contains(@name, 'action_sign_msa_agreement_submit')]")).click();
+		Thread.sleep(5000);
+        WebElement uploadButton = driver.findElement(By.className("o_file_input_trigger"));
+        uploadButton.click();
+        Thread.sleep(5000);
+        
+        // Use the Robot class to handle the file upload dialog
+        Robot robot = new Robot();
+
+        // Copy the file path to the clipboard
+        StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
+        // Simulate pressing CTRL + V (paste)
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+
+        // Simulate pressing Enter to confirm the file selection
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        // Add any further actions if needed, such as submitting the form
+	Thread.sleep(10000);
+
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+}
+
+
+
+
+
+public void U8bucket() throws InterruptedException
+{
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).isDisplayed();
+	System.out.println("Light Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_blue_color btn-secondary')]")).isDisplayed();
+	System.out.println("Blue Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_blue_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).isDisplayed();
+	System.out.println("Red Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+	
+	
+	
+	
+}
+
 public void Recommenduniversity() throws InterruptedException, AWTException
 {
 	
@@ -402,9 +574,9 @@ public void StartMeeting() throws InterruptedException
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).click();
 	
-	//driver.findElement(By.xpath("//*[contains(@class, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
+	driver.findElement(By.xpath("//*[contains(@class, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
 	
-		//driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();///Click to OK Button before Joining Meeting.//
+		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();///Click to OK Button before Joining Meeting.//
 		
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success')]")).click(); //Click Operation for Join Meeting.//
@@ -443,12 +615,14 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 	Thread.sleep(3000);
 	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).click();
 	
-
+	Thread.sleep(3000);
+	
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options.get(0).click();
 	
 	Thread.sleep(4000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	Thread.sleep(3000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
 	
 }
