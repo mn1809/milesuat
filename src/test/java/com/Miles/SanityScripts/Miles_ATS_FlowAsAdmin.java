@@ -479,7 +479,7 @@ public void VerifyU11Stage1Bucket()throws InterruptedException
 	U11BucketStage1();
 }
 
-@Test (priority = 25, description = "U11 Miles Pathway Fee Received")
+//@Test (priority = 25, description = "U11 Miles Pathway Fee Received")
 public void verifyU11Stage2Bucket() throws InterruptedException
 
 {
@@ -489,34 +489,321 @@ public void verifyU11Stage2Bucket() throws InterruptedException
 	U11BucketStage2();	
 }
 
-@Test (priority = 26, description = "U12 Miles Pathway Fee Received")
+//@Test (priority = 26, description = "U12 Miles US Pathway Funding Type")
 public void verifyU12Bucket() throws InterruptedException
 {
 	ClearMyCandidateFilter();
 	VerifyInitiateATSPage();
 	Thread.sleep(2000);
+	U12BucketUSFundingType();
 	
 }
 
+//@Test (priority = 27, description = "U13A Miles US Funding Bucket Stage1")
+
+public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	
+	U13ABucketStage1USFunding();
+	Thread.sleep(2000);
+	DocumentCollectionforUSFundingDocuments();
+
+}
+
+@Test (priority = 28, description = "U13A Miles US Funding Bucket Stage2")
+
+public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
+{
+	
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	U13ABucketStage2USFunding();
+	Thread.sleep(2000);
+	ApprovingCollectedDocumentsU13A();
+
+}
 
 
 	/*
 	 * Helper Methods
 	 */
 
+public void ApprovingCollectedDocumentsU13A() throws InterruptedException
+{
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+    Thread.sleep(1500); 
+
+    		//--------------------Negative Flow where not able to save without Verifying the Documents------------------------//
+	driver.findElements(By.xpath("//*[contains(@class, 'modal-body')]")).get(1).isDisplayed();
+	System.out.println("Error Message is "+driver.findElements(By.xpath("//*[contains(@class, 'modal-body')]")).get(1).getText());
+	Thread.sleep(1000);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary o-default-button')]")).get(1).click();
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+    Thread.sleep(1500); 
+    
+    //----------------------------------Back to Positive Flow where approving the Documents--------------------//
+  
+    driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
+   Thread.sleep(2000);
+   
+    Actions act1 = new Actions(driver);
+	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+	Thread.sleep(2000);
+	
+	//--------------------------Verifying Uploaded BankBalance--------------------------//
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+	Thread.sleep(1500);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+	Thread.sleep(3000);
+	
+	//--------------------------Verifying Uploaded Passport--------------------------//
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+	Thread.sleep(1500);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+	Thread.sleep(3000);
+	
+	//--------------------------Verifying Uploaded Loan Sanction--------------------------//
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+	Thread.sleep(1500);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+	Thread.sleep(3000);
+	
+	//--------------------------Verifying Uploaded Financial Affidavit--------------------------//
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+	Thread.sleep(2000); 
+	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+	Thread.sleep(1500);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+	Thread.sleep(3000);
+ 
+    Actions act2 = new Actions(driver);
+   	act2.moveToElement(driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]"))).perform();
+   	Thread.sleep(2000);
+ 
+   	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+    Thread.sleep(1500);
+   	
+}
 
 
-
-public void U12BucketUSFundingType() throws InterruptedException
+public void U13ABucketStage2USFunding() throws InterruptedException, AWTException
 {
 	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Aqsa Qureshi");
+	
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 	
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).isDisplayed();
+	System.out.println("Red Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+     
+}
+public void DocumentCollectionforUSFundingDocuments() throws InterruptedException, AWTException
+
+{	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
+
+//--------------------------------------Uploading Documents for Passport---------------------//
+	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
+	
+	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
+	passportDocument.click();
+	Thread.sleep(5000);
+	Robot robot = new Robot();
+	StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
+	robot.keyPress(KeyEvent.VK_CONTROL);
+	robot.keyPress(KeyEvent.VK_V);
+	robot.keyRelease(KeyEvent.VK_V);
+	robot.keyRelease(KeyEvent.VK_CONTROL);
+	robot.keyPress(KeyEvent.VK_ENTER);
+	robot.keyRelease(KeyEvent.VK_ENTER);
+	Thread.sleep(10000);
+	    
+		//-----------------------------------------Loan Sanction Letter----------------------------------------------------------------//
+	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(2).click();	
+	WebElement LoanSanctionLetter = driver.findElements(By.className("o_file_input_trigger")).get(0);
+	LoanSanctionLetter.click();
+	    Thread.sleep(5000);
+	    Robot robot2 = new Robot();
+	    StringSelection filePath2 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath2, null);
+	    robot2.keyPress(KeyEvent.VK_CONTROL);
+	    robot2.keyPress(KeyEvent.VK_V);	    
+	    robot2.keyRelease(KeyEvent.VK_V);
+	    robot2.keyRelease(KeyEvent.VK_CONTROL);
+	    robot2.keyPress(KeyEvent.VK_ENTER);
+	    robot2.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(10000);
+	    
+		//---------------------------------------------------Bank Balance Certificate-----------------------------------------------//
+	    driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(4).click();	
+	    WebElement BankBalanceCertificate = driver.findElements(By.className("o_file_input_trigger")).get(0);
+	    BankBalanceCertificate.click();
+	    Thread.sleep(5000);  
+	    Robot robot3 = new Robot();
+	    StringSelection filePath3 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath3, null);
+	    robot3.keyPress(KeyEvent.VK_CONTROL);
+	    robot3.keyPress(KeyEvent.VK_V);
+	    robot3.keyRelease(KeyEvent.VK_V);
+	    robot3.keyRelease(KeyEvent.VK_CONTROL);
+	    robot3.keyPress(KeyEvent.VK_ENTER);
+	    robot3.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(10000);
+	    
+	//---------------------------------------------Financial Affidavit---------------------------------------------------------//
+		
+	    driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(6).click();	
+	    WebElement FinancialAffidavit = driver.findElements(By.className("o_file_input_trigger")).get(0);
+	    FinancialAffidavit.click();
+	    Thread.sleep(5000);  
+	    Robot robot4 = new Robot();
+	    StringSelection filePath4 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath4, null);
+	    robot4.keyPress(KeyEvent.VK_CONTROL);
+	    robot4.keyPress(KeyEvent.VK_V);
+	    robot4.keyRelease(KeyEvent.VK_V);
+	    robot4.keyRelease(KeyEvent.VK_CONTROL);
+	    robot4.keyPress(KeyEvent.VK_ENTER);
+	    robot4.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(10000);
+	    
+	    
+	    driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	     Thread.sleep(1500);   
+	    
+}
+
+public void U13ABucketStage1USFunding() throws InterruptedException, AWTException
+{
+	driver.findElement(By.className("o_searchview_input")).click();
+	
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).isDisplayed();
+	System.out.println("Light Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).getText());
+
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).isDisplayed();
+	System.out.println("Red Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+     
+}
+
+
+public void U12BucketUSFundingType() throws InterruptedException
+{
+	driver.findElement(By.className("o_searchview_input")).click();
+	
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).isDisplayed();
+	System.out.println("Red Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+	
+	
+	 WebElement paymentDropdown = driver.findElement(By.id("funding_type"));
+
+     // Create a Select object for the dropdown
+     Select select = new Select(paymentDropdown);
+
+     // Select the option by value
+     select.selectByValue("\"0\""); // Ensure to include the exact value here
+     // select.selectByVisibleText("Self Payment");
+
+     // Optional: Print selected option to verify
+     WebElement selectedOption = select.getFirstSelectedOption();
+     System.out.println("Selected option is: " + selectedOption.getText());
+     
+     //--------------------US Funding Status Selections----------------//
+     
+     WebElement USFundingStatus = driver.findElement(By.id("fee_received_status_us"));
+
+     // Create a Select object for the dropdown
+     Select selectdropdown = new Select(USFundingStatus);
+
+     // Select the option by value
+     selectdropdown.selectByValue("\"2\""); // Ensure to include the exact value here
+     // select.selectByVisibleText("Payment Completed");
+
+     // Optional: Print selected option to verify
+     WebElement selectedropoption = selectdropdown.getFirstSelectedOption();
+     System.out.println("Selected option is: " + selectedropoption.getText());
+     
+    //------------------------Selecting Bank Name---------------------//
+     
+     driver.findElement(By.id("bank_id")).click();
+     
+     driver.findElement(By.id("bank_id")).sendKeys("SBI");
+     Thread.sleep(2000);
+ 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+ 	Options.get(0).click();
+ 	
+ 	 driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+     Thread.sleep(1500); 
+     
 }
 
 public void U11BucketStage2() throws InterruptedException
