@@ -667,7 +667,7 @@ public void VerifyU16BucketStage3() throws InterruptedException, AWTException
 	U16ToAttendingMeeting();
 }
 
-@Test (priority = 43, description = "U16 Miles Book Visa Received")
+//@Test (priority = 43, description = "U16 Miles Book Visa Received")
 public void VerifyU16BucketStage4() throws InterruptedException, AWTException
 {
 	ClearMyCandidateFilter();
@@ -676,9 +676,122 @@ public void VerifyU16BucketStage4() throws InterruptedException, AWTException
 	U16VisaRecevied();
 }
 
+//@Test (priority = 44, description = "U17 Miles Bucket Uploading Visa Proof")
+public void VerifyU17BucketStage1() throws InterruptedException, AWTException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	U17Stage1UploadingVISA();	
+}
+
+@Test (priority = 45, description = "U17 Miles Bucket Approving Visa Proof")
+public void VerifyU17BucketStage2() throws InterruptedException, AWTException
+{
+	ClearMyCandidateFilter();
+	VerifyInitiateATSPage(); 
+	Thread.sleep(2000);
+	
+	U17Stage2ApprovingVISA();//-------------------------------------Approving VISA--------------------------//
+}
+
 	/*
 	 * Helper Methods
 	 */
+
+public void U17Stage2ApprovingVISA() throws InterruptedException
+{
+
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.className("o_searchview_input")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	Thread.sleep(5000);
+	
+	//-------------------------------------Approving VISA--------------------------//
+driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
+Thread.sleep(2000);
+   
+    Actions act1 = new Actions(driver);
+	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+	Thread.sleep(2000);
+
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+	Thread.sleep(1500);
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+	Thread.sleep(3000);
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+	
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	Thread.sleep(3000);
+	
+}
+
+
+
+public void U17Stage1UploadingVISA() throws InterruptedException, AWTException
+{
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.className("o_searchview_input")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	Thread.sleep(5000);
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
+	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).isDisplayed();
+	System.out.println("Light Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-danger btn-primary')]")).isDisplayed();
+	System.out.println("Red Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn btn-danger btn-primary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
+	System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
+	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
+	
+	Thread.sleep(1000);
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
+	
+	
+driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
+	
+	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
+	passportDocument.click();
+	Thread.sleep(5000);
+	Robot robot = new Robot();
+	StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
+	robot.keyPress(KeyEvent.VK_CONTROL);
+	robot.keyPress(KeyEvent.VK_V);
+	robot.keyRelease(KeyEvent.VK_V);
+	robot.keyRelease(KeyEvent.VK_CONTROL);
+	robot.keyPress(KeyEvent.VK_ENTER);
+	robot.keyRelease(KeyEvent.VK_ENTER);
+	Thread.sleep(10000);
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+    Thread.sleep(1500); 
+}
 
 
 
