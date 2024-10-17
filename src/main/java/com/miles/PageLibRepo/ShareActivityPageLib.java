@@ -28,6 +28,11 @@ public class ShareActivityPageLib extends ShareActivityPageObj
 		// TODO Auto-generated constructor stub
 	}
 
+	public String U17Testing()
+	{
+		return 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).getText();
+	}
+	
 	
 	public String getDurationValue()
 	{

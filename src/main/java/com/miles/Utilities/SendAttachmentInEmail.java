@@ -24,12 +24,12 @@ public class SendAttachmentInEmail
    
    {   
       // Recipient's email ID needs to be mentioned.
-      String to = "ravikiranhm07@gmail.com";
+      String to = "manojgowda839@gmail.com";
 
       // Sender's email ID needs to be mentioned
-      String from = "ravikiran@fourthfrontier.com";
+      String from = "manoj.hr@mileseducation.com";
 
-      final String username = "ravikiran@fourthfrontier.com";
+      final String username = "manoj.hr@mileseducation.com";
       final String password = "Junk";
 
       

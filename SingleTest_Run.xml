@@ -26,7 +26,7 @@ Custome Report with Screenshot attached.
 </listeners>
 
 	<test name="Single Test Suite" parallel = "classes"> <!--parallel = "classes"> -->
-	<parameter name="enivironment" value="prod"/>
+	<parameter name="enivironment" value="stage"/>
 	<!--<parameter name="user" value="user"/> -->
 	<classes>
 		
