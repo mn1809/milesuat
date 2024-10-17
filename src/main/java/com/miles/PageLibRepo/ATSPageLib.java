@@ -2350,7 +2350,7 @@ Thread.sleep(2000);
 //	  
 //	  
 //	  String LiveECG = driver.findElement(By.xpath("//div[contains(text(),'Live ECG')]")).getText();
-//	  System.out.println("Text is "+LiveECG);
+//	  System.out.println("Text is  "+LiveECG);
 //	  Assert.assertEquals(driver.findElement(By.xpath("//div[contains(text(),'Live ECG')]")).getText(),"Live ECG");
 //	  
 //	 }

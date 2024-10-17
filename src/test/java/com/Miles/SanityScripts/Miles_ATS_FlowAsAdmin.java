@@ -732,7 +732,7 @@ public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
-	ATS.U17Stage1UploadingVISA();	
+	ATS.U17Stage1UploadingVISA();	 
 }
 
 //@Test (priority = 45, description = "U17 Miles Bucket Approving Visa Proof")
