@@ -47,6 +47,28 @@ public class ATSPageLib extends atspageObj
 		driver.findElement((By.xpath("//*[contains(@class, 'o_facet_remove oi oi-close btn btn-link opacity-50 opacity-100-hover text-900')]"))).click();
 	}
 	
+	public void CandidateData() throws InterruptedException
+	{
+		driver.findElement(By.className("o_searchview_input")).click();
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+		Thread.sleep(3000);
+	}
+	
+	
+	public void CandidateData1() throws InterruptedException
+	
+	{
+		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.className("o_searchview_input")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	}
+	
 	
 	public void VerifyHomeMenuOptions()
 	{
@@ -74,8 +96,7 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.className("dropdown-toggle")).click();
 		List <WebElement> Options = driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item o_app')]"));
 		Options.get(1).click();
-		
-		
+
 		Thread.sleep(4000);
 	}
 
@@ -125,8 +146,7 @@ public class ATSPageLib extends atspageObj
 	public void TabsbuttonOnU7Enrolled() throws InterruptedException
 	{
 		
-		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+		CandidateData();
 		
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -160,9 +180,9 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.xpath("//*[contains(@title, 'Meetings')]")).click();
 		Thread.sleep(2000);
 		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
-		
+		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
-
+		Thread.sleep(2000);
 		driver.findElement(By.id("emp_id")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.id("emp_id")).sendKeys("Manoj Expert");
@@ -171,7 +191,7 @@ public class ATSPageLib extends atspageObj
 		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 		Options.get(0).click();
 
-		
+		Thread.sleep(2000);
 		driver.findElement((By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]"))).click();
 		Thread.sleep(2000);
 
@@ -195,20 +215,26 @@ public void TooBookTimeSlot() throws InterruptedException, AWTException
 {  
 	WebElement button = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button.click();
-    
+    Thread.sleep(2000);
     WebElement session =  driver.findElement((By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_many2one o_required_modifier')]")));
     session.click();
     Thread.sleep(3000);
  
     driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys("Expert Counselling");
-    RandomClickonScreen();
-    driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click(); //
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//a[@class='dropdown-item ui-menu-item-wrapper text-truncate ui-state-active']")).click();
+
+    //	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//	Options.get(0).click();
+	
+	//a[@class='dropdown-item ui-menu-item-wrapper text-truncate ui-state-active']
+    //driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click(); //
     Thread.sleep(2000);
     driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();//To Save Button//
     Thread.sleep(2000);
-    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click(); //To confimring Allocation//
+    driver.findElement(By.xpath("//*[contains(@name, 'action_confirm_allocation')]")).click(); //To confimring Allocation//
     Thread.sleep(2000);
-    driver.findElements(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).get(1).click(); //Final Confirmation //
+    driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click(); //Final Confirmation //
     
     
 }
@@ -224,8 +250,8 @@ public void RandomClickonScreen() throws AWTException
 
 public void TabsbuttonOnU7PlusEnrolled() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+		CandidateData() ;
+	
 	
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -265,6 +291,7 @@ public void ScrollToMeetingTab() throws InterruptedException
 	Thread.sleep(1000);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
 	//driver.findElement(By.className("fa fa-plus")).click();
+	
 }
 
 public void ScrollToBasicDetails() 
@@ -288,11 +315,12 @@ public void StartMeeting() throws InterruptedException
 	System.out.println("Meeting Info is "+driver.findElement(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).getText());
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).click();
-	
-	driver.findElement(By.xpath("//*[contains(@class, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
-	
-		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();///Click to OK Button before Joining Meeting.//
+	Thread.sleep(3000);
+	//driver.findElement(By.xpath("//*[contains(@name, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
+	Thread.sleep(6000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_join_meeting')]")).click();///Click to OK Button before Joining Meeting.//
 		
+		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success')]")).click(); //Click Operation for Join Meeting.//
 		Thread.sleep(5000);
@@ -304,8 +332,9 @@ public void SwitchtoBLueButton() throws InterruptedException
 	Thread.sleep(7000);
 
 	
-	driver.findElement(By.id("tippy-20")).click();
-
+	//driver.findElement(By.id("tippy-20")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'sc-dJjYzT gbVgVx md buttonWrapper sc-eJwWfJ wxIrW')]")).click();	
+	
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'sc-dJjYzT gbVgVx md buttonWrapper sc-bUKjYF kULnRS')]")).click();	
 		
@@ -376,7 +405,7 @@ public void Recommenduniversity() throws InterruptedException, AWTException
 	
 	driver.findElement(By.xpath("//*[contains(@name, 'action_recommend_university')]")).click();
 	
-	Thread.sleep(1500);
+	Thread.sleep(3500);
 	
     WebElement button = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button.click();
@@ -392,7 +421,7 @@ public void Recommenduniversity() throws InterruptedException, AWTException
    Thread.sleep(4000);
    driver.findElements(By.xpath("//*[contains(@name, 'action_recommend_university')]")).get(1).click();
    
-   Thread.sleep(2000);
+   Thread.sleep(3000);
    driver.findElement(By.xpath("//*[contains(@name, 'action_goto_lead')]")).click();
    
    
@@ -400,8 +429,7 @@ public void Recommenduniversity() throws InterruptedException, AWTException
 
 public void U8bucket() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -434,7 +462,7 @@ public void MSASigned() throws InterruptedException, AWTException
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 	
-	 driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("JAGSoM (Opt-IN)");
+	 driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("JAGSoM (Opt-IN)");//---------Giving MAS Documnet Input----------//
 	 Thread.sleep(2000);
 
 		
@@ -483,8 +511,7 @@ public void MSASigned() throws InterruptedException, AWTException
 
 public void U9bucketStage1() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -516,18 +543,18 @@ public void UniversitySelection() throws InterruptedException
 	driver.findElement(By.id("selected_university_id")).sendKeys("Michigan State University, Masters in Accounting");
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options.get(0).click();
-	
+	Thread.sleep(3000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Ok']")).click();
+	Thread.sleep(3000);
 
 }
 
 
 public void U9bucketStage2LOR() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -561,7 +588,7 @@ public void ScrollToLORatU9() throws InterruptedException
 	Actions act = new Actions(driver);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'student_lor')]"))).perform();
 	driver.findElement(By.xpath("//*[contains(@name, 'student_lor')]")).click();
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'action_generate_lor')]"))).perform();
 	//driver.findElement(By.className("fa fa-plus")).click();
 }
@@ -596,7 +623,7 @@ public void StudentLORandSOP() throws InterruptedException
 	Options1.get(0).click();
 	Thread.sleep(2000);
     driver.findElement(By.xpath("//*[contains(@name, 'action_update_lor')]")).click();
-    Thread.sleep(1000);
+    Thread.sleep(3000);
     driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
     Thread.sleep(8000);
 
@@ -606,7 +633,7 @@ public void StudentLORandSOP() throws InterruptedException
 	driver.findElement(By.id("sop_updated")).click();
 	driver.findElement(By.id("sop_updated")).sendKeys("Automated Script SOP for Candidate.");
 	Thread.sleep(2000);
-	 driver.findElement(By.xpath("//*[contains(@name, 'action_update_sop')]")).click();
+	 driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(1).click();
 	  
 	  Thread.sleep(6000);
 	
@@ -624,22 +651,17 @@ public void StudentLORandSOP() throws InterruptedException
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
 	Thread.sleep(3000);
-	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).click();
-	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
-	Thread.sleep(3000);
-	
-  
+//	
+//	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).click();
+//	Thread.sleep(3000);
+//	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
+//	Thread.sleep(3000);
 }
 
 
 public void U9Stage3() throws InterruptedException, AWTException
 {
-	
-	
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -650,8 +672,8 @@ public void U9Stage3() throws InterruptedException, AWTException
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
 	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
 	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).isDisplayed();
-	System.out.println("Light Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).getText());
+	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).isDisplayed();
+	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).getText());
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
 	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
@@ -671,6 +693,10 @@ public void U9Stage3() throws InterruptedException, AWTException
 public void UploadationOfApplicationProof() throws InterruptedException, AWTException
 
 {
+	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
+	Thread.sleep(3000);
 	//--------------------------------------------------------------------------------------------------------//
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 
@@ -726,8 +752,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 public void U9PlusBucket() throws InterruptedException
 
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -774,15 +799,15 @@ public void UPPlusReuploading() throws InterruptedException, AWTException
 	System.out.println("Payment Screenshot is "+driver.findElement(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char text-info')]")).getText());
 	
 	driver.findElement(By.xpath("//*[contains(@name, 'action_reupload')]")).click();//Adding Remark for COnfirmation Screenshot status.//
-	Thread.sleep(1500);
+	Thread.sleep(2000);
 	
 	driver.findElement(By.id("remark")).sendKeys("Adding Remark to Check Reupload");
-	Thread.sleep(1500);
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_submit_remark')]")).click();
-	Thread.sleep(1500);
+	Thread.sleep(2000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
-	Thread.sleep(1500);
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-sm btn-info')]")).click();
 	
 	WebElement SubmissionScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(0);
@@ -824,8 +849,7 @@ public void U9VerifyDocuments() throws InterruptedException
 
 public void U9plusVerifyApplicationSubmitted() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -854,7 +878,7 @@ public void U9plusVerifyApplicationSubmitted() throws InterruptedException
 
 
 
-public void U9AddingMOI()throws InterruptedException, AWTException
+public void U9PlusAddingMOI()throws InterruptedException, AWTException
 {
 	//--------------------------------------ADDING MOI IN EDUCATION ---------------------------//
 	
@@ -900,8 +924,7 @@ public void U9AddingMOI()throws InterruptedException, AWTException
 public void U10BucketStage1() throws InterruptedException, AWTException
 
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -949,16 +972,15 @@ public void U10BucketStage1() throws InterruptedException, AWTException
     
     
     driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();
-    Thread.sleep(1000);
+    Thread.sleep(2500);
     driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
-  	Thread.sleep(1500);
+  	Thread.sleep(2500);
   	
 }
 
 public void U10BucketStage2() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -982,8 +1004,7 @@ public void U10BucketStage2() throws InterruptedException
 
 public void U10BucketStage3() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -1005,8 +1026,7 @@ public void U10BucketStage3() throws InterruptedException
 
 public void U11BucketStage1() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -1079,8 +1099,7 @@ public void ScrollToFundingU11() throws InterruptedException
 
 public void U11BucketStage2() throws InterruptedException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -1170,15 +1189,7 @@ public void U11BucketStage2() throws InterruptedException
 
 public void U15BucketStage3ApprovingVISADetails() throws InterruptedException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(5000);
 
 	ScrollToVisaSlotU15();
@@ -1205,10 +1216,8 @@ public void U15BucketStage3ApprovingVISADetails() throws InterruptedException
 }
 
 public void U12BucketUSFundingType() throws InterruptedException
-{
-	driver.findElement(By.className("o_searchview_input")).click();
-	
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+{	
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -1278,9 +1287,7 @@ public void U12BucketUSFundingType() throws InterruptedException
 
 public void U13ABucketStage1USFunding() throws InterruptedException, AWTException 
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -1385,9 +1392,7 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 
 public void U13ABucketStage2USFunding() throws InterruptedException, AWTException
 {
-	driver.findElement(By.className("o_searchview_input")).click();
-	
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+	CandidateData();
 	
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
@@ -1481,16 +1486,9 @@ public void ApprovingCollectedDocumentsU13A() throws InterruptedException
 public void U13BBucketSkipFinancialStage1() throws InterruptedException
 
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Aqsa Qureshi");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
 
+	CandidateData1();
+		
 	Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
 	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
@@ -1514,15 +1512,7 @@ public void U13BBucketSkipFinancialStage1() throws InterruptedException
 
 public void U13BBucketStage2()throws InterruptedException, AWTException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).isDisplayed();
 	System.out.println("Stage is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).getText());
@@ -1552,15 +1542,7 @@ public void U13BBucketStage2()throws InterruptedException, AWTException
 public void U13BBucketStage3() throws InterruptedException
 {
 
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	
 	Thread.sleep(3000);
 	
@@ -1594,15 +1576,7 @@ public void U13BBucketStage3() throws InterruptedException
 public void U13CBucketStage1() throws InterruptedException, AWTException
 {
 
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(3000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
@@ -1647,16 +1621,8 @@ public void U13CBucketStage1() throws InterruptedException, AWTException
 }
 public void U13CBucketStage2() throws InterruptedException
 
-{
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+{	
+	CandidateData1();
 	Thread.sleep(3000);
 	
 	//----------------------------------Approvving US I20 Proof------------------------//
@@ -1688,15 +1654,7 @@ Thread.sleep(2000);
 
 public void U14BucketStage1() throws InterruptedException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(3000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
@@ -1722,15 +1680,7 @@ public void U14BucketStage1() throws InterruptedException
 
 public void U14BucketStage2() throws InterruptedException, AWTException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(3000);
 	
 	//-----------------------------Uploading DS160 Documents--------------------//
@@ -1762,15 +1712,7 @@ public void U14BucketStage2() throws InterruptedException, AWTException
 
 public void U14BucketStage3() throws InterruptedException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(3000);
 			//-------------------------------------Approving DS160--------------------------//
 	driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
@@ -1792,22 +1734,14 @@ public void U14BucketStage3() throws InterruptedException
 		
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
-		
+		Thread.sleep(3000);
 		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
 		Thread.sleep(3000);	
 }
 
 public void U15BucketStage1MandateFeilds() throws InterruptedException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(3000);
 
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
@@ -1878,10 +1812,10 @@ public void TooBookVISASlot() throws InterruptedException, AWTException
     WebElement dateElement = driver.findElement(By.xpath(xpath));
     dateElement.click();
   //----------------------------------------------------------------------------------//
-    
+    Thread.sleep(2000);
 	WebElement button = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button.click();
-    
+    Thread.sleep(2000);
     WebElement session =  driver.findElement((By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_many2one o_required_modifier')]")));
     session.click();
     Thread.sleep(3000);
@@ -1901,15 +1835,7 @@ public void TooBookVISASlot() throws InterruptedException, AWTException
 
 public void U16Bucket() throws InterruptedException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(5000);
 	
 	
@@ -1936,15 +1862,7 @@ public void U16Bucket() throws InterruptedException
 public void U15BucketStage2UploadingVISADetails() throws InterruptedException, AWTException
 
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(3000);
 	
 		////-------------------------Uploading VISA SLOT Details and Documents----------------------//
@@ -1993,15 +1911,7 @@ public void U15BucketStage2UploadingVISADetails() throws InterruptedException, A
 
 public void U16VisaRecevied() throws InterruptedException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(5000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
@@ -2031,15 +1941,7 @@ public void U16VisaRecevied() throws InterruptedException
 
 public void U17Stage1UploadingVISA() throws InterruptedException, AWTException
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(5000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
@@ -2084,15 +1986,7 @@ driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(
 public void U17Stage2ApprovingVISA() throws InterruptedException
 {
 
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-light o_switch_view o_list oi oi-view-list')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
+	CandidateData1();
 	Thread.sleep(5000);
 	
 	//-------------------------------------Approving VISA--------------------------//
