@@ -915,6 +915,7 @@ public void SearchU7ACnadidate() throws InterruptedException
 
 	    WebElement selectedOption = select.getFirstSelectedOption();
 	    System.out.println("Selected option is: " + selectedOption.getText());
+	     
 }
 
 
