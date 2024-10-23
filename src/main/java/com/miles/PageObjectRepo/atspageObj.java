@@ -17,12 +17,13 @@ import com.miles.BaseSettings.MilesBasePage;
 
 public class atspageObj extends MilesBasePage
 
-{
-
+{	
+	
 	   public atspageObj(WebDriver driver)
 	   
 	   {
 		super(driver);
+	
 		// TODO Auto-generated constructor stub 
 	   }
 

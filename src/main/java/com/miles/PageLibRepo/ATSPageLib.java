@@ -32,15 +32,23 @@ import com.miles.Utilities.MilesUtilities;
 
 public class ATSPageLib extends atspageObj
 
-{
-	 
+{	
+//	  public ATSPageLib(WebDriver driver, String env) {
+//	        super(driver, env);  // Pass driver and env to Libpage constructor
+//	    }
+
 	public ATSPageLib(WebDriver driver) 
 	{
 		super(driver);
+	
 	//	PageFactory.initElements(driver, this); 
 		// TODO Auto-generated constructor stub
 	}
-		
+
+	
+
+	    
+	    
 	public void ClearMyCandidateFilter() throws InterruptedException
 	{
 		Thread.sleep(3);
@@ -120,16 +128,7 @@ public class ATSPageLib extends atspageObj
 		}
 		
 		}
-	//String Info;
-	//if (EneEnv.contains("prod"))
-	//{				//Prod
-//		 Info = "manoj.hr@mileseducation.com";
-	//}
-	//else
-	//{			//Stage
-//		 Info = "manoj.hr@mileseducation.com";
-	//}
-	
+
 	
 	public void VerifyInitiateATSPage() throws InterruptedException
 	{
@@ -255,23 +254,80 @@ public class ATSPageLib extends atspageObj
 		
 	}
 	
-	
-	public void TooBookExpertSession() throws InterruptedException
+	public void TooBookExpertSessionProd() throws InterruptedException
 	{
+		
 		driver.findElement(By.xpath("//*[contains(@title, 'Meetings')]")).click();
 		Thread.sleep(2000);
 		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
 		Thread.sleep(2000);
+	
+			 
+			 driver.findElement(By.id("job_position")).click();
+			 Thread.sleep(3000);
+			//input[@id='job_position']
+				driver.findElement(By.id("job_position")).sendKeys("Counselling Expert");
+				List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+				Options1.get(0).click();
+//
+//		driver.findElement(By.id("emp_id")).click();
+//		Thread.sleep(3000);
+//		driver.findElement(By.id("emp_id")).sendKeys("Manoj Expert");
+//		Thread.sleep(3000);
+//		
+//		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//		Options.get(0).click();
+//		 
+//		 
+//		Thread.sleep(2000);
+//		driver.findElement((By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]"))).click();
+//		Thread.sleep(2000);
+//
+//
+//	 // Get tomorrow's date
+//	    LocalDate tomorrow = LocalDate.now().plusDays(1);
+//	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+//	    String tomorrowDate = tomorrow.format(formatter);
+//
+//	    //XPath using the calculated date
+//	    String xpath = String.format("//td[@data-action='selectDay' and @data-day='%s']", tomorrowDate);
+//
+//
+//	    WebElement dateElement = driver.findElement(By.xpath(xpath));
+//	    dateElement.click();
+	  
+	}
+	
+	
+	public void TooBookExpertSessionStage() throws InterruptedException
+	{
+		
+		driver.findElement(By.xpath("//*[contains(@title, 'Meetings')]")).click();
+		Thread.sleep(2000);
+		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
+		Thread.sleep(2000);
+	
+			 
+//			 driver.findElement(By.id("job_position")).click();
+//			 driver.findElement(By.id("job_position")).clear();
+//			 Thread.sleep(3000);
+//				driver.findElement(By.id("job_position")).sendKeys("Counselling Expert");
+//				List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//				Options.get(0).click();
+
 		driver.findElement(By.id("emp_id")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.id("emp_id")).sendKeys("Manoj Expert");
 		Thread.sleep(3000);
 		
-		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-		Options.get(0).click();
-
+		List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+		Options1.get(0).click();
+		 
+		 
 		Thread.sleep(2000);
 		driver.findElement((By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]"))).click();
 		Thread.sleep(2000);
@@ -379,6 +435,8 @@ public void ScrollToBasicDetails()
 {
 	Actions act = new Actions(driver);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'student_card')]"))).perform();
+	System.out.println("Eligibilty Code of candidate is "+driver.findElement(By.xpath("//*[contains(@name, 'eligibility_code')]")).getText());
+	
 	//driver.findElement(By.className("fa fa-plus")).click();
 }
 
@@ -2342,3 +2400,4 @@ Thread.sleep(2000);
 
 	
 }
+

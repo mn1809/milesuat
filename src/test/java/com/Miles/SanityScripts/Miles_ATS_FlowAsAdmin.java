@@ -62,7 +62,7 @@ LoginPageLib loginObj ;
 	 
 	atspageObj ATSPageLib;
 	
-	
+	String env;
 	
 //	ShareActivityPageLib ShareActivityPageObj;
 //	 atspageObj = new ATSPageLib(driver);
@@ -283,7 +283,7 @@ public void U7ACandidateWindow() throws InterruptedException
 	CandidateU7ADetails();
 }
 	
-@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
+//@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -297,7 +297,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-////@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+//@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -309,7 +309,7 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-////@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+//@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void CheckingU7Tabs() throws InterruptedException
 {	
@@ -321,7 +321,7 @@ public void CheckingU7Tabs() throws InterruptedException
 	ATS.TabsbuttonOnU7Enrolled();
 }
 
-////@Test (priority = 10, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
+//@Test (priority = 10, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
 
 public void CandidateBasicDetails() throws InterruptedException
 {
@@ -335,7 +335,7 @@ public void CandidateBasicDetails() throws InterruptedException
 
 }
 
-////@Test (priority = 11, description = "Verify Updating Candidate Communication Test Result")
+//@Test (priority = 11, description = "Verify Updating Candidate Communication Test Result")
 
 public void UpdatingCommunicationTestResult() throws InterruptedException, AWTException
 {
@@ -348,7 +348,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-////@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
+@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -357,9 +357,16 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 	ATS.VerifyInitiateATSPage();
 	ATS.TabsbuttonOnU7Enrolled();
 	Thread.sleep(3000);
-	ATS.TooBookExpertSession();
+	if (EneEnv.contains("prod"))
+	{
+		ATS.TooBookExpertSessionProd();
+	}
+	else
+	{
+		ATS.TooBookExpertSessionStage();
+	}
 	Thread.sleep(3000);
-	ATS.TooBookTimeSlot();
+	//ATS.TooBookTimeSlot();
 	Thread.sleep(3000);
 	//BookExpertSessionU7Window();
 	
@@ -1069,6 +1076,7 @@ public void CommunicationTestFlow() throws AWTException, InterruptedException
     Thread.sleep(2000);
    driver.findElement(By.xpath("//*[contains(@name, 'action_submit_enrollment_rejection')]")).click();
 }
+
 public void RandomClickonScreen() throws AWTException
 {
 	Robot robot = new Robot();
@@ -1297,9 +1305,7 @@ public void SearchU7EnrolledCandidate() throws InterruptedException
 	
 	System.out.println("Actual User Name According To Passport is "+getCandidateName());
 	Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
-	
-	
-	
+
 }
 //public void U17Test() throws InterruptedException
 //{
