@@ -33,7 +33,7 @@ import com.miles.Utilities.MilesUtilities;
 public class ATSPageLib extends atspageObj
 
 {
-	
+	 
 	public ATSPageLib(WebDriver driver) 
 	{
 		super(driver);
@@ -70,10 +70,38 @@ public class ATSPageLib extends atspageObj
 	}
 	
 	
-	public void VerifyHomeMenuOptions()
+	public void VerifyHomeMenuOptionsProd()
 	{
+	
 		driver.findElement(By.className("dropdown-toggle")).click();
+		
 		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-item o_app')]")));
+	
+		{
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item o_app')]")).isDisplayed());
+		
+		Assert.assertEquals(Options.get(0).getText(), "USP Eligibility");
+		Assert.assertEquals(Options.get(1).getText(), "Miles ATS");
+		Assert.assertEquals(Options.get(2).getText(), "Miles Recruitments");
+		Assert.assertEquals(Options.get(3).getText(), "Helpdesk");
+		Assert.assertEquals(Options.get(4).getText(), "Discuss");
+		Assert.assertEquals(Options.get(5).getText(), "Calendar");
+		Assert.assertEquals(Options.get(6).getText(), "Contacts");
+		Assert.assertEquals(Options.get(7).getText(), "Employees");
+		Assert.assertEquals(Options.get(8).getText(), "Apps");
+		Assert.assertEquals(Options.get(9).getText(), "Settings");
+		}
+		
+		}
+
+	public void VerifyHomeMenuOptionsStage()
+	{
+	
+		driver.findElement(By.className("dropdown-toggle")).click();
+		
+		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-item o_app')]")));
+	
+		{
 		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item o_app')]")).isDisplayed());
 		
 		Assert.assertEquals(Options.get(0).getText(), "USP Eligibility");
@@ -89,7 +117,19 @@ public class ATSPageLib extends atspageObj
 		Assert.assertEquals(Options.get(10).getText(), "Employees");
 		Assert.assertEquals(Options.get(11).getText(), "Apps");
 		Assert.assertEquals(Options.get(12).getText(), "Settings");
-	}
+		}
+		
+		}
+	//String Info;
+	//if (EneEnv.contains("prod"))
+	//{				//Prod
+//		 Info = "manoj.hr@mileseducation.com";
+	//}
+	//else
+	//{			//Stage
+//		 Info = "manoj.hr@mileseducation.com";
+	//}
+	
 	
 	public void VerifyInitiateATSPage() throws InterruptedException
 	{
@@ -100,7 +140,7 @@ public class ATSPageLib extends atspageObj
 		Thread.sleep(4000);
 	}
 
-	public void VerifyATSCOnfigurationOptions()
+	public void VerifyATSCOnfigurationOptionsStage()
 	{
 		driver.findElement(By.xpath("//*[contains(@title, 'Configuration')]")).click();
 		// Expected options
@@ -128,6 +168,47 @@ public class ATSPageLib extends atspageObj
 			    "Category",
 			    "Journey Decks",
 			    "MF Migration",
+			    "NAAC Grade",
+			    "University Category Matrix",
+			    "University Recommendation Combination"
+			);
+		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+		 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
+		 
+		 for (int i = 0; i < OptionsIteam.size();i++)
+		 {
+			 System.out.println(OptionsIteam.get(i).getText());
+			 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
+			 
+		 }
+	}
+	
+	
+	public void VerifyATSCOnfigurationOptionsProd()
+	{
+		driver.findElement(By.xpath("//*[contains(@title, 'Configuration')]")).click();
+		// Expected options
+		List<String> expectedOptions = Arrays.asList(
+			    "Allocation Configuration",
+			    "Enrollment Batches",
+			    "Enrollment University",
+			    "Buckets",
+			    "Enrollment Course",
+			    "ATS Journey",
+			    "LOR Question",
+			    "Graduation Division",
+			    "Pathway College",
+			    "Sessions",
+			    "Document Type",
+			    "MSA Document Type",
+			    "DS-160 Step",
+			    "Ineligible Reason",
+			    "Loan Provider",
+			    "Bank",
+			    "Synopsis",
+			    "Telephony call Reason",
+			    "Visa Slot City",
+			    "Journey Decks",
 			    "NAAC Grade",
 			    "University Grade Matrix",
 			    "University Recommendation Combination"
@@ -314,10 +395,16 @@ public void StartMeeting() throws InterruptedException
 {
 	System.out.println("Meeting Info is "+driver.findElement(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).getText());
 	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).click(); //Go to Booking in Main Bucket Screem//
 	Thread.sleep(3000);
-	//driver.findElement(By.xpath("//*[contains(@name, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
+	
+	driver.findElement(By.xpath("//*[contains(@name, 'meeting_attendees_line')]")).click(); //Normal CLick.
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
 	Thread.sleep(6000);
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click(); //Start Meeting OK COnfirmation.
+	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_join_meeting')]")).click();///Click to OK Button before Joining Meeting.//
 		
 		Thread.sleep(5000);
@@ -489,7 +576,7 @@ public void MSASigned() throws InterruptedException, AWTException
         Robot robot = new Robot();
 
         // Copy the file path to the clipboard
-        StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+        StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
         // Simulate pressing CTRL + V (paste)
         robot.keyPress(KeyEvent.VK_CONTROL);
@@ -539,8 +626,9 @@ public void U9bucketStage1() throws InterruptedException
 public void UniversitySelection() throws InterruptedException
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
-	//selected_university_id
+	Thread.sleep(3000);
 	driver.findElement(By.id("selected_university_id")).sendKeys("Michigan State University, Masters in Accounting");
+	Thread.sleep(3000);
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options.get(0).click();
 	Thread.sleep(3000);
@@ -693,10 +781,10 @@ public void U9Stage3() throws InterruptedException, AWTException
 public void UploadationOfApplicationProof() throws InterruptedException, AWTException
 
 {
-	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).click();
+	driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(0).click();
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
-	Thread.sleep(3000);
+	Thread.sleep(4000);
 	//--------------------------------------------------------------------------------------------------------//
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 
@@ -704,7 +792,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 		SubmissionScreenshot.click();
 	    Thread.sleep(5000);
 	    Robot robot1 = new Robot();
-	    StringSelection filePath1 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath1 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
 	    robot1.keyPress(KeyEvent.VK_CONTROL);
 	    robot1.keyPress(KeyEvent.VK_V);
@@ -719,7 +807,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 		EmailScreenshot.click();
 	    Thread.sleep(5000);
 	    Robot robot2 = new Robot();
-	    StringSelection filePath2 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath2 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath2, null);
 	    robot2.keyPress(KeyEvent.VK_CONTROL);
 	    robot2.keyPress(KeyEvent.VK_V);	    
@@ -733,7 +821,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 		PaymentScreenshot.click();
 	    Thread.sleep(5000);  
 	    Robot robot3 = new Robot();
-	    StringSelection filePath3 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath3 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath3, null);
 	    robot3.keyPress(KeyEvent.VK_CONTROL);
 	    robot3.keyPress(KeyEvent.VK_V);
@@ -814,7 +902,7 @@ public void UPPlusReuploading() throws InterruptedException, AWTException
 	SubmissionScreenshot.click();
     Thread.sleep(5000);
     Robot robot1 = new Robot();
-    StringSelection filePath1 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+    StringSelection filePath1 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
     robot1.keyPress(KeyEvent.VK_CONTROL);
     robot1.keyPress(KeyEvent.VK_V);
@@ -833,7 +921,7 @@ public void U9VerifyDocuments() throws InterruptedException
 //---------------------------------Verifying the Documents----------------------//
     
     driver.findElement(By.xpath("//*[contains(@name, 'action_open_document_attachment_state_wizard')]")).click();
-    
+    Thread.sleep(3000);
     driver.findElements(By.xpath("//*[contains(@name, 'action_approve')]")).get(0).click();
     Thread.sleep(2000);
     
@@ -900,7 +988,7 @@ public void U9PlusAddingMOI()throws InterruptedException, AWTException
 		SubmissionScreenshot.click();
 	    Thread.sleep(5000);
 	    Robot robot1 = new Robot();
-	    StringSelection filePath1 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath1 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
 	    robot1.keyPress(KeyEvent.VK_CONTROL);
 	    robot1.keyPress(KeyEvent.VK_V);
@@ -960,7 +1048,7 @@ public void U10BucketStage1() throws InterruptedException, AWTException
 	SubmissionScreenshot.click();
     Thread.sleep(5000);
     Robot robot1 = new Robot();
-    StringSelection filePath1 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+    StringSelection filePath1 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
     robot1.keyPress(KeyEvent.VK_CONTROL);
     robot1.keyPress(KeyEvent.VK_V);
@@ -1324,7 +1412,7 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 	passportDocument.click();
 	Thread.sleep(5000);
 	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 	robot.keyPress(KeyEvent.VK_CONTROL);
 	robot.keyPress(KeyEvent.VK_V);
@@ -1340,7 +1428,7 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 	LoanSanctionLetter.click();
 	    Thread.sleep(5000);
 	    Robot robot2 = new Robot();
-	    StringSelection filePath2 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath2 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath2, null);
 	    robot2.keyPress(KeyEvent.VK_CONTROL);
 	    robot2.keyPress(KeyEvent.VK_V);	    
@@ -1356,7 +1444,7 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 	    BankBalanceCertificate.click();
 	    Thread.sleep(5000);  
 	    Robot robot3 = new Robot();
-	    StringSelection filePath3 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath3 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath3, null);
 	    robot3.keyPress(KeyEvent.VK_CONTROL);
 	    robot3.keyPress(KeyEvent.VK_V);
@@ -1373,7 +1461,7 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 	    FinancialAffidavit.click();
 	    Thread.sleep(5000);  
 	    Robot robot4 = new Robot();
-	    StringSelection filePath4 = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath4 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath4, null);
 	    robot4.keyPress(KeyEvent.VK_CONTROL);
 	    robot4.keyPress(KeyEvent.VK_V);
@@ -1525,7 +1613,7 @@ public void U13BBucketStage2()throws InterruptedException, AWTException
 	passportDocument.click();
 	Thread.sleep(5000);
 	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 	robot.keyPress(KeyEvent.VK_CONTROL);
 	robot.keyPress(KeyEvent.VK_V);
@@ -1605,7 +1693,7 @@ public void U13CBucketStage1() throws InterruptedException, AWTException
 	passportDocument.click();
 	Thread.sleep(5000);
 	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 	robot.keyPress(KeyEvent.VK_CONTROL);
 	robot.keyPress(KeyEvent.VK_V);
@@ -1693,7 +1781,7 @@ public void U14BucketStage2() throws InterruptedException, AWTException
 	passportDocument.click();
 	Thread.sleep(5000);
 	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 	robot.keyPress(KeyEvent.VK_CONTROL);
 	robot.keyPress(KeyEvent.VK_V);
@@ -1892,7 +1980,7 @@ public void U15BucketStage2UploadingVISADetails() throws InterruptedException, A
 	 	VisaSlotDocument.click();
 		Thread.sleep(5000);
 		Robot robot = new Robot();
-		StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+		StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 		robot.keyPress(KeyEvent.VK_CONTROL);
 		robot.keyPress(KeyEvent.VK_V);
@@ -1969,7 +2057,7 @@ driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(
 	passportDocument.click();
 	Thread.sleep(5000);
 	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
 	robot.keyPress(KeyEvent.VK_CONTROL);
 	robot.keyPress(KeyEvent.VK_V);

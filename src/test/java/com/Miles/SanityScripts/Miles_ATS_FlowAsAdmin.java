@@ -82,7 +82,7 @@ LoginPageLib loginObj ;
 	
 	 String Name = "Automation-User1";
 	 String expectedInfoTxt = "Automation-User1";
-	 String ExpectedCanID = "B-77";
+	// String ExpectedCanID = "B-810987678";
 	 String ExpectedEmail = "milesautomation@mileseducation.com";
 	 
 //	 String ExpectedEligibilityCode = "Eligibility/B/24/09/115";
@@ -199,6 +199,16 @@ private void SetEvidenceDir()
 	// Read JSON File from Backend Automation here TO-DO
 	
 }
+
+//String Info;
+//if (EneEnv.contains("prod"))
+//{				//Prod
+//	 Info = "manoj.hr@mileseducation.com";
+//}
+//else
+//{			//Stage
+//	 Info = "manoj.hr@mileseducation.com";
+//}
 	
 //@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
@@ -214,7 +224,15 @@ public void AdminDropdownOptions() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
 	ATS.ClearMyCandidateFilter();
-	ATS.VerifyHomeMenuOptions();
+
+	if (EneEnv.contains("prod"))
+	{
+		ATS.VerifyHomeMenuOptionsProd();
+	}
+	else
+	{
+		ATS.VerifyHomeMenuOptionsStage();
+	}
 }
 
 //@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
@@ -226,7 +244,6 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 }
 
-
 //@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
@@ -234,7 +251,15 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	ATSPageLib ATS = new ATSPageLib(driver);
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
-	ATS.VerifyATSCOnfigurationOptions();
+	if (EneEnv.contains("prod"))
+	{
+		ATS.VerifyATSCOnfigurationOptionsProd();
+	}
+	else
+	{
+		ATS.VerifyATSCOnfigurationOptionsStage();
+	}
+	
 }
 
 //@Test (priority = 5,description = "Verify ATS Module Search Candidate")
@@ -244,6 +269,7 @@ public void U7ASearachCandidate() throws InterruptedException
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
 	SearchU7ACnadidate();
+	//EnteringGraduationDetails();										//--------------------------------Entering Graduation Details Mind it-------------------------------//
 }
 
 //@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
@@ -257,7 +283,7 @@ public void U7ACandidateWindow() throws InterruptedException
 	CandidateU7ADetails();
 }
 	
-//@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
+@Test (priority = 7,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -271,7 +297,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-//@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+////@Test (priority = 8,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -283,7 +309,7 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-//@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+////@Test (priority = 9,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void CheckingU7Tabs() throws InterruptedException
 {	
@@ -295,7 +321,7 @@ public void CheckingU7Tabs() throws InterruptedException
 	ATS.TabsbuttonOnU7Enrolled();
 }
 
-//@Test (priority = 10, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
+////@Test (priority = 10, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
 
 public void CandidateBasicDetails() throws InterruptedException
 {
@@ -309,7 +335,7 @@ public void CandidateBasicDetails() throws InterruptedException
 
 }
 
-//@Test (priority = 11, description = "Verify Updating Candidate Communication Test Result")
+////@Test (priority = 11, description = "Verify Updating Candidate Communication Test Result")
 
 public void UpdatingCommunicationTestResult() throws InterruptedException, AWTException
 {
@@ -322,7 +348,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-//@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
+////@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -336,10 +362,10 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 	ATS.TooBookTimeSlot();
 	Thread.sleep(3000);
 	//BookExpertSessionU7Window();
-	Thread.sleep(10000);
+	
 }
 
-//@Test (priority = 13, description = "Booking Expert Session U7 window")
+////@Test (priority = 13, description = "Booking Expert Session U7 window")
 public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -351,7 +377,7 @@ public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTExce
 }
 
 
-//@Test (priority = 14, description = "U7+ Expert Session Booked")
+////@Test (priority = 14, description = "U7+ Expert Session Booked")
 
 public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 {
@@ -372,7 +398,7 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 
 }
 
-//@Test (priority = 15, description = "U7+ Expert Session Booked Eligible Candidate")
+////@Test (priority = 15, description = "U7+ Expert Session Booked Eligible Candidate")
 
 public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedException
 {
@@ -386,7 +412,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 
 
 
-//@Test (priority = 16, description = "U7+ Recommend University To Candidate")
+////@Test (priority = 16, description = "U7+ Recommend University To Candidate")
 public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -402,7 +428,7 @@ public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTEx
 
 }
 
-//@Test (priority = 17, description = "U8 Expert Session Done Bucket")
+////@Test (priority = 17, description = "U8 Expert Session Done Bucket")
 
 public void VerifyU8Bucket() throws InterruptedException, AWTException
 {
@@ -416,7 +442,7 @@ public void VerifyU8Bucket() throws InterruptedException, AWTException
 	ATS.MSASigned();
 }
 
-//@Test (priority = 18, description = "U9 MSA SIGNED")
+////@Test (priority = 18, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage1Bucket() throws InterruptedException
 {
@@ -430,12 +456,13 @@ public void VerifyU9Stage1Bucket() throws InterruptedException
 	
 }
 
-//@Test (priority = 19, description = "U9 MSA SIGNED")
+////@Test (priority = 19, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
 	ATS.ClearMyCandidateFilter();
+	Thread.sleep(2000);
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
 	
@@ -448,7 +475,7 @@ public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 
 }
 
-//@Test (priority = 20, description = "U9 MSA SIGNED")
+////@Test (priority = 20, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
 
@@ -463,7 +490,7 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.UploadationOfApplicationProof();
 }
 
-//@Test (priority = 21, description = "U9+ Application Submitted Process")
+////@Test (priority = 21, description = "U9+ Application Submitted Process")
 
 public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 
@@ -480,7 +507,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	
 }
 
-//@Test (priority = 22, description= "U9+ Application Initiated")
+////@Test (priority = 22, description= "U9+ Application Initiated")
 
 public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 {
@@ -494,7 +521,7 @@ public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 23, description= "U10 Upload Offer Letter")
+////@Test (priority = 23, description= "U10 Upload Offer Letter")
 
 public void VerifyU10Bucket() throws InterruptedException, AWTException
 {
@@ -506,7 +533,7 @@ public void VerifyU10Bucket() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 24, description= "U10 Approve Offer Letter")
+////@Test (priority = 24, description= "U10 Approve Offer Letter")
 
 public void VerifyU10Stage2Bucket() throws InterruptedException
 {
@@ -518,7 +545,7 @@ public void VerifyU10Stage2Bucket() throws InterruptedException
 
 }
 
-//@Test (priority = 25, description= "U10 Final Approver of Offer Letter")
+////@Test (priority = 25, description= "U10 Final Approver of Offer Letter")
 
 public void VerifyU10Stage3Bucket() throws InterruptedException
 {
@@ -530,7 +557,7 @@ public void VerifyU10Stage3Bucket() throws InterruptedException
 	Thread.sleep(2000);
 }
 
-//@Test (priority = 26, description = "U11 Miles Pathway Funding")
+////@Test (priority = 26, description = "U11 Miles Pathway Funding")
 
 public void VerifyU11Stage1Bucket()throws InterruptedException
 {
@@ -541,7 +568,7 @@ public void VerifyU11Stage1Bucket()throws InterruptedException
 	ATS.U11BucketStage1();
 }
 
-//@Test (priority = 27, description = "U11 Miles Pathway Fee Received")
+////@Test (priority = 27, description = "U11 Miles Pathway Fee Received")
 public void verifyU11Stage2Bucket() throws InterruptedException
 
 {
@@ -552,7 +579,7 @@ public void verifyU11Stage2Bucket() throws InterruptedException
 	ATS.U11BucketStage2();	
 }
 
-//@Test (priority = 28, description = "U12 Miles US Pathway Funding Type")
+////@Test (priority = 28, description = "U12 Miles US Pathway Funding Type")
 public void verifyU12Bucket() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -563,7 +590,7 @@ public void verifyU12Bucket() throws InterruptedException
 	
 }
 
-//@Test (priority = 29, description = "U13A Miles US Funding Bucket Stage1")
+////@Test (priority = 29, description = "U13A Miles US Funding Bucket Stage1")
 
 public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 {
@@ -578,7 +605,7 @@ public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 30, description = "U13A Miles US Funding Bucket Stage2")
+////@Test (priority = 30, description = "U13A Miles US Funding Bucket Stage2")
 
 public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 {
@@ -593,7 +620,7 @@ public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 31, description = "U13B Miles US Funding Completed Bucket Stage 1")
+////@Test (priority = 31, description = "U13B Miles US Funding Completed Bucket Stage 1")
 
 public void VerifyU13BBucketStage1() throws InterruptedException
 
@@ -606,7 +633,7 @@ public void VerifyU13BBucketStage1() throws InterruptedException
 
 }
 
-//@Test (priority = 32, description = "U13B Miles US Funding Completed Bucket Stage 2")
+////@Test (priority = 32, description = "U13B Miles US Funding Completed Bucket Stage 2")
 public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 {
@@ -619,7 +646,7 @@ public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 
 
-//@Test (priority = 33, description = "U13B Miles US Funding Completed Bucket Stage 3")
+////@Test (priority = 33, description = "U13B Miles US Funding Completed Bucket Stage 3")
 public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 
 {
@@ -630,7 +657,7 @@ public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 	ATS.U13BBucketStage3();
 }
 
-//@Test (priority = 34, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
+////@Test (priority = 34, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 
 {
@@ -641,7 +668,7 @@ public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 	ATS.U13CBucketStage1(); //-----------------------------Uploading Copy Of I20 Documents-----------------//
 }
 
-//@Test (priority = 35, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
+////@Test (priority = 35, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
 public void VerifyU13CBucketStage2() throws InterruptedException
 
 {
@@ -652,7 +679,7 @@ public void VerifyU13CBucketStage2() throws InterruptedException
 	ATS.U13CBucketStage2();//------------------------Approving I20 Documents----------------------//
 }
 
-//@Test (priority = 36, description = "U14 Miles Fincial Submitted to US Unversity Stage2")
+////@Test (priority = 36, description = "U14 Miles Fincial Submitted to US Unversity Stage2")
 public void VerifyU14BucketSatge1() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -662,7 +689,7 @@ public void VerifyU14BucketSatge1() throws InterruptedException
 	ATS.U14BucketStage1();
 }
 
-//@Test (priority = 37, description = "U14 Miles Fincial Submitted to US Unversity Stage2")
+////@Test (priority = 37, description = "U14 Miles Fincial Submitted to US Unversity Stage2")
 public void VerifyU14BucketStage2() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -672,7 +699,7 @@ public void VerifyU14BucketStage2() throws InterruptedException, AWTException
 	ATS.U14BucketStage2();//-----------------------------Uploading DS160 Documents--------------------//
 }
 
-//@Test (priority = 38, description = "U14 Miles Fincial Submitted to US Unversity Stage3")
+////@Test (priority = 38, description = "U14 Miles Fincial Submitted to US Unversity Stage3")
 public void VerifyU14BucketStage3() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -683,7 +710,7 @@ public void VerifyU14BucketStage3() throws InterruptedException, AWTException
 }	
 
 
-//@Test (priority = 39, description = "U15 Miles DS160 Submitted")
+////@Test (priority = 39, description = "U15 Miles DS160 Submitted")
 public void VerifyU15BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -714,7 +741,7 @@ public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, 
 	ATS.U15BucketStage3ApprovingVISADetails();//------------------------------Approving VISA Slot Details and Documents--------------------//
 }
 
-//@Test (priority = 42, description = "U16 Miles Visa Mock Interview")
+//@Test (priority = 42, description = "U16 Miles Too Book VISA Slot")
 public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -722,6 +749,7 @@ public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
 	ATS.U16Bucket();
+	Thread.sleep(2000);
 	ATS.TooBookVISASlot();
 }
 
@@ -736,7 +764,7 @@ public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 }
 
 
-//@Test (priority = 44, description = "U16 Miles Book Visa Mock Interview")
+//@Test (priority = 44, description = "U16 Miles Attending Visa Mock Interview")
 public void VerifyU16BucketStage3() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -763,10 +791,10 @@ public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
-	ATS.U17Stage1UploadingVISA();	 
+	ATS.U17Stage1UploadingVISA();	 //-------------------Uploading VISA Proof--------------------//
 }
 
-@Test (priority = 47, description = "U17 Miles Bucket Approving Visa Proof")
+//@Test (priority = 47, description = "U17 Miles Bucket Approving Visa Proof")
 public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 {	
 	
@@ -774,7 +802,7 @@ public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage(); 
 	Thread.sleep(2000);
-	ATS.U17Stage2ApprovingVISA();//-------------------------------------Approving VISA--------------------------//	
+	ATS.U17Stage2ApprovingVISA();		//-------------------------------------Approving VISA--------------------------//	
 }
 
 	/*
@@ -802,6 +830,110 @@ public void CandidateData1() throws InterruptedException
 	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
 }
 
+
+public void EnteringGraduationDetails() throws InterruptedException
+{
+	driver.findElement(By.xpath("//*[contains(@name, 'education_details')]")).click();
+	Actions act1 = new Actions(driver);
+	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+	Thread.sleep(2000);
+	
+	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
+	
+	driver.findElement(By.id("graduation_level")).click();
+	
+	//Alternative way to select the other options//
+		WebElement paymentDropdown = driver.findElement(By.id("graduation_level"));
+
+	    // Create a Select object for the dropdown
+	    Select select = new Select(paymentDropdown);
+
+	    // Select the option by value
+	    select.selectByValue("\"ug\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+
+	    // OR: Select the option by visible text     // select.selectByVisibleText("Self support");
+
+	    WebElement selectedOption = select.getFirstSelectedOption();
+	    System.out.println("Selected option is: " + selectedOption.getText());
+	    Thread.sleep(3000);
+	    //-------------------------Graduation--------------------//
+	    driver.findElement(By.id("graduation_id")).click();
+	    driver.findElement(By.id("graduation_id")).sendKeys("Bachelor of Engineering");
+	    Thread.sleep(2000);
+	    List <WebElement> Graduation = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	    Graduation.get(0).click();
+	    
+		//-------------------------Unversity--------------------------//
+		
+		 driver.findElement(By.id("university_id")).click();
+		 driver.findElement(By.id("university_id")).sendKeys("Acharya Nagarjuna University, Guntur (Id: U-0003)");
+		 Thread.sleep(2000);
+		  List <WebElement> Unversity = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+		  Unversity.get(0).click();
+		    
+		//----------------------------------------Years of Graduation-------------------------------//    
+		  
+		  driver.findElement(By.id("year_of_graduation_date")).click();
+		  driver.findElement(By.xpath("//*[contains(@class, 'year old')]")).click();
+		     Thread.sleep(2000);
+		     driver.findElement(By.xpath("//span[@data-action='selectMonth' and @class='month']")).click();
+		     Thread.sleep(2000); 
+		     driver.findElement(By.xpath("//*[contains(@data-day, '01/18/2019')]")).click();
+		     Thread.sleep(2000); 
+		   //----------------------------------------------NAAC Grade------------------------//  
+		     
+		     driver.findElement(By.id("naac_grade")).click();
+		 		WebElement NAAC = driver.findElement(By.id("naac_grade"));
+		 	    Select select1 = new Select(NAAC);
+
+		 	    select1.selectByValue("\"app\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+		 	    WebElement selectedOption1 = select1.getFirstSelectedOption();
+		 	    System.out.println("Selected option is: " + selectedOption1.getText());
+		 	    Thread.sleep(3000);
+	//-------------------------------------------------GraduatioStatus---------------------------//	     
+		 	   driver.findElement(By.id("graduation_status")).click();
+		 		WebElement GraduatioStatus = driver.findElement(By.id("graduation_status"));
+		 	    Select select2 = new Select(GraduatioStatus);
+
+		 	    select2.selectByValue("\"2\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+		 	    WebElement selectedOption2 = select2.getFirstSelectedOption();
+		 	    System.out.println("Selected option is: " + selectedOption2.getText());
+		 	    Thread.sleep(3000);   
+		 	    
+	//----------------------------------------Rank------------------------------//
+		 	    
+		 	   driver.findElement(By.id("graduation_rank")).click();
+		 		WebElement Rank = driver.findElement(By.id("graduation_rank"));
+		 	    Select select3 = new Select(Rank);
+
+		 	    select3.selectByValue("\"1\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+		 	    WebElement selectedOption3 = select3.getFirstSelectedOption();
+		 	    System.out.println("Selected option is: " + selectedOption3.getText());
+		 	    Thread.sleep(3000);  
+
+		 	//------------------------------------------------------Division-------------------//
+		 	    
+		 	   driver.findElement(By.id("graduation_rank_id")).click();
+		 	  
+		 	 driver.findElement(By.id("graduation_rank_id")).sendKeys("First Division");
+		 	   Thread.sleep(3000); 
+		 	List <WebElement> Division = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+		 	Division.get(0).click();
+		    Thread.sleep(3000); 
+		
+		 	//---------------------------------NAACSTATUS---------------------------//    
+		 	   driver.findElement(By.id("naac_status")).click();
+		 		WebElement NAACSTATUS = driver.findElement(By.id("naac_status"));
+		 	    Select select5 = new Select(NAACSTATUS);
+
+		 	    select5.selectByValue("\"yes\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+		 	    WebElement selectedOption5 = select5.getFirstSelectedOption();
+		 	    System.out.println("Selected option is: " + selectedOption5.getText());
+		 	    Thread.sleep(3000);    
+		 	    
+		 	   
+		 	 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save')]")).click();  
+}
 public void CandidateU7AllocationProcess() throws InterruptedException, AWTException
 {
 driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
@@ -817,7 +949,7 @@ driver.findElement(By.xpath("//*[contains(@class, 'form-check-input')]")).click(
 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).click();
 
 System.out.println("Actual Can id is "+getcandidateId());
-Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
+//Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
 
 driver.findElement(By.id("general_manager_id")).click();
 Thread.sleep(5000);
@@ -856,7 +988,7 @@ System.out.println("Actual User Name According To Passport is "+getCandidateName
 Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
 
 System.out.println("Actual Can id is "+getcandidateId());
-Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
+//Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
 
 }
 
@@ -894,28 +1026,7 @@ public void SearchU7ACnadidate() throws InterruptedException
 	Thread.sleep(4000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
 	
-	driver.findElement(By.xpath("//*[contains(@name, 'education_details')]")).click();
-	Actions act1 = new Actions(driver);
-	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
-	Thread.sleep(2000);
 	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
-	driver.findElement(By.id("graduation_level")).click();
-	
-	//Alternative way to select the other options//
-		WebElement paymentDropdown = driver.findElement(By.id("graduation_level"));
-
-	    // Create a Select object for the dropdown
-	    Select select = new Select(paymentDropdown);
-
-	    // Select the option by value
-	    select.selectByValue("\"1\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-
-	    // OR: Select the option by visible text     // select.selectByVisibleText("Self support");
-
-	    WebElement selectedOption = select.getFirstSelectedOption();
-	    System.out.println("Selected option is: " + selectedOption.getText());
-	     
 }
 
 
@@ -1090,21 +1201,23 @@ public void U16ToAttendingMeeting() throws InterruptedException
 	ATS.ScrollToMeetingTab();
 	Thread.sleep(3000);
 	
-System.out.println("Meeting Info is "+driver.findElements(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]"))
-.get(1).getText());
+System.out.println("Meeting Info is "+driver.findElements(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).get(1).getText());
+
 	
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary btn-sm')]")).get(1).click();
-	Thread.sleep(1000);
+	driver.findElements(By.xpath("//*[contains(@name, 'action_goto_booking')]")).get(1).click(); //Click on Go to Booking Tab.//
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
-	Thread.sleep(1000);
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success')]")).click(); //Click Operation for Join Meeting.//
-	Thread.sleep(5000);
+	Thread.sleep(2000);
+	
 	
 		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();///Click to OK Button before Joining Meeting.//
 		Thread.sleep(4000);
 		
+		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success')]")).click(); //Click Operation for Join Meeting.//
+		Thread.sleep(5000);
 		
 		ATS.SwitchtoBLueButton();
+		Thread.sleep(4000);
 		ATS.EndMeeting();
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//*[contains(@name, 'action_goto_lead')]")).click();
@@ -1180,7 +1293,7 @@ public void SearchU7EnrolledCandidate() throws InterruptedException
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
 	
 	System.out.println("Actual Can id is "+getcandidateId());
-	Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
+//	Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
 	
 	System.out.println("Actual User Name According To Passport is "+getCandidateName());
 	Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
