@@ -4,13 +4,13 @@
 <parameter name="enivironment" value="prod" />
   <test name="Daily Sanity - Serverless">
     <classes> 
-		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsAdmin"/>
-		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsContentWriter"/> 
-		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsCounsellingTeam"/>
-		<class name="com.MilesUAT.SanityScripts.miles_ATS_FlowAsFundingTeam"/>
-		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsUnversityTeam"/>
-		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsVisaTeam"/>
-		<class name="com.MilesUAT.SanityScripts.Miles_OPT_FlowAsAdmin"/>
+		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsAdmin"/>
+		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsContentWriter"/> 
+		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsCounsellingTeam"/>
+		<class name="com.Miles.SanityScripts.miles_ATS_FlowAsFundingTeam"/>
+		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsUnversityTeam"/>
+		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsVisaTeam"/>
+		<class name="com.Miles.SanityScripts.Miles_OPT_FlowAsAdmin"/>
 		
 		<!--<class name="com.frontierX.SanityScripts.FxSanity_Coach"/>-->
     </classes>
