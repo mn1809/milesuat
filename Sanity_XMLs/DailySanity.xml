@@ -9,13 +9,13 @@
 		<class name="com.frontierX.SanityScripts.FxSleepActivity"/>
 		-->
 
-		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsAdmin"/>
-		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsContentWriter"/> 
-		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsCounsellingTeam"/>
-		<class name="com.frontierX.SanityScripts.miles_ATS_FlowAsFundingTeam"/>
-		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsUnversityTeam"/>
-		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsVisaTeam"/>
-		<class name="com.frontierX.SanityScripts.Miles_OPT_FlowAsAdmin"/>
+		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsAdmin"/>
+		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsContentWriter"/> 
+		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsCounsellingTeam"/>
+		<class name="com.MilesUAT.SanityScripts.miles_ATS_FlowAsFundingTeam"/>
+		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsUnversityTeam"/>
+		<class name="com.MilesUAT.SanityScripts.Miles_ATS_FlowAsVisaTeam"/>
+		<class name="com.MilesUAT.SanityScripts.Miles_OPT_FlowAsAdmin"/>
     </classes>
   </test>
 </suite> <!-- Suite -->
