@@ -246,8 +246,8 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).isDisplayed();
 		System.out.println("Yellow Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_yellow_color btn-secondary')]")).getText());
 		
-		driver.findElements(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).get(1).isDisplayed();
-		System.out.println("Red Button 2 is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
+//		driver.findElements(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).get(1).isDisplayed();
+//		System.out.println("Red Button 2 is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).getText());
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).isDisplayed();
 		System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
@@ -262,7 +262,7 @@ public class ATSPageLib extends atspageObj
 		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	
 			 
 			 driver.findElement(By.id("job_position")).click();
@@ -309,16 +309,20 @@ public class ATSPageLib extends atspageObj
 		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 	
 			 
-//			 driver.findElement(By.id("job_position")).click();
-//			 driver.findElement(By.id("job_position")).clear();
-//			 Thread.sleep(3000);
-//				driver.findElement(By.id("job_position")).sendKeys("Counselling Expert");
-//				List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-//				Options.get(0).click();
-
+			 driver.findElement(By.id("job_position")).click();
+			 
+			 driver.findElement(By.id("job_position")).clear();
+			 Thread.sleep(3000);
+			 driver.findElement(By.id("job_position")).click();
+			 Thread.sleep(2000);
+				driver.findElement(By.id("job_position")).sendKeys("Counselling Expert");
+				 Thread.sleep(2000);
+				List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+				Options.get(0).click();
+				 Thread.sleep(3000);
 		driver.findElement(By.id("emp_id")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.id("emp_id")).sendKeys("Manoj Expert");

@@ -9,19 +9,13 @@
 		<class name="com.frontierX.SanityScripts.FxSleepActivity"/>
 		-->
 
-		<class name="com.frontierX.SanityScripts.Fx24hrsActivity"/>
-		<class name="com.frontierX.SanityScripts.Fx_AdminPage_Workflow"/> 
-		<class name="com.frontierX.SanityScripts.FxSleepActivity"/>
-		<class name="com.frontierX.SanityScripts.FxShareActivity_AsUser"/>
-		<class name="com.frontierX.SanityScripts.FxShareActivity_AsAdmin"/>
-		<class name="com.frontierX.SanityScripts.Fx_BeatCount_Workflow"/>
-		<class name="com.frontierX.SanityScripts.Fx_LiveUserDashboard_Workflow"/>
-		
-		<class name="com.frontierX.SanityScripts.FxSanity"/>
-		<class name="com.frontierX.SanityScripts.Fx_FHPDoctor_WorkFlow"/>
-		<class name="com.frontierX.SanityScripts.FxActivityNotes"/>
-		<class name="com.frontierX.SanityScripts.FxNoiseActivity"/>	
-		<class name = "com.frontierX.SanityScripts.FxShareActivity_AsAdminSleep"/>
+		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsAdmin"/>
+		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsContentWriter"/> 
+		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsCounsellingTeam"/>
+		<class name="com.frontierX.SanityScripts.miles_ATS_FlowAsFundingTeam"/>
+		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsUnversityTeam"/>
+		<class name="com.frontierX.SanityScripts.Miles_ATS_FlowAsVisaTeam"/>
+		<class name="com.frontierX.SanityScripts.Miles_OPT_FlowAsAdmin"/>
     </classes>
   </test>
 </suite> <!-- Suite -->

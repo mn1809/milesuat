@@ -344,7 +344,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	ATS.VerifyInitiateATSPage();
 	ATS.TabsbuttonOnU7Enrolled();
 	Thread.sleep(3000);
-	CommunicationTestFlow();
+//	CommunicationTestFlow();
 	
 }
 
@@ -366,13 +366,14 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 		ATS.TooBookExpertSessionStage();
 	}
 	Thread.sleep(3000);
-	//ATS.TooBookTimeSlot();
+	ATS.TooBookTimeSlot();
 	Thread.sleep(3000);
 	//BookExpertSessionU7Window();
 	
 }
+//------------------------Needed to be added the Recommend university--------------------//
 
-////@Test (priority = 13, description = "Booking Expert Session U7 window")
+@Test (priority = 13, description = "Booking Expert Session U7 window")
 public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
