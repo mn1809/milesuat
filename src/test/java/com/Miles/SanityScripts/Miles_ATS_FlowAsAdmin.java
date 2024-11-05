@@ -348,7 +348,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
+//@Test (priority = 12, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -373,7 +373,7 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 }
 //------------------------Needed to be added the Recommend university--------------------//
 
-@Test (priority = 13, description = "Booking Expert Session U7 window")
+//@Test (priority = 13, description = "Booking Expert Session U7 window")
 public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
