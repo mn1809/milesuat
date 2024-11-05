@@ -30,7 +30,7 @@ public class SendAttachmentInEmail
       String from = "manoj.hr@mileseducation.com";
 
       final String username = "manoj.hr@mileseducation.com";
-      final String password = "Junk";
+      final String password = "KA03nq@0219";
 
       
       String host = "smtp.gmail.com";
@@ -71,7 +71,7 @@ public class SendAttachmentInEmail
          BodyPart messageBodyPart = new MimeBodyPart();
 
          // Now set the actual message
-         messageBodyPart.setText("Hello All \n Please find the attached report \n Test cases executed on :"+date+"\n Rgds, \n Fourth Frountier QA Team");
+         messageBodyPart.setText("Hello All \n Please find the attached report \n Test cases executed on :"+date+"\n Rgds, \n Miles Odoo QA Team");
 
          // Create a multipart message
          Multipart multipart = new MimeMultipart();
