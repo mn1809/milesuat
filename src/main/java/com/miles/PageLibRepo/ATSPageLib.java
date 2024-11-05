@@ -165,7 +165,7 @@ public class ATSPageLib extends atspageObj
              if (plusElement.isDisplayed()) {
                  plusElement.click();
                  System.out.println("Clicked on the 'More Menu' button.");
-                 Listforserver();
+                 ListforStageserver();
              }
              
          } catch (Exception e) {
@@ -173,14 +173,14 @@ public class ATSPageLib extends atspageObj
              System.out.println("'More Menu' not found, clicking 'Configuration' button instead.");
              WebElement configButton = driver.findElement(By.xpath("//button[@title= 'Configuration']"));
              configButton.click();
-             ListforLocal();
+             ListforLocalStage();
              
          }
 		 
 	}
 	
 	
-	public void ListforLocal()
+	public void ListforLocalStage()
 	{
 		 
 			List<String> expectedOptions = Arrays.asList(
@@ -223,12 +223,73 @@ public class ATSPageLib extends atspageObj
 			 }
 	}
 	
-	public void Listforserver()
+	public void ListforStageserver()
+	{ 
+		try {
+        WebElement plusElement = driver.findElement(By.xpath("//*[contains(@title, 'More Menu')]"));
+        
+        // If the element is displayed, click it
+        if (plusElement.isDisplayed()) {
+            plusElement.click();
+            System.out.println("Clicked on the 'More Menu' button.");
+            ListforStageserver();
+        }
+        
+    } catch (Exception e) {
+        // If "More Menu" element is not found, fall back to clicking the "Configuration" button
+        System.out.println("'More Menu' not found, clicking 'Configuration' button instead.");
+        WebElement configButton = driver.findElement(By.xpath("//button[@title= 'Configuration']"));
+        configButton.click();
+        ListforLocalStage();
+        
+    }
+	}
+	
+	
+	
+	public void VerifyATSCOnfigurationOptionsProd()
 	{
+		//driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
+		
+//		WebElement plusElement = driver.findElement(By.xpath("//*[contains(@title, 'More Menu')]"));
+//		if 
+//		(plusElement.isDisplayed())
+//		{
+//			driver.findElement(By.xpath("//*[contains(@title, 'More Menu')]")).click();
+//			Thread.sleep(4000);
+//		}
+//	
+//		else
+//		{
+//			driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
+//		}
+
+		 try {
+             WebElement plusElement = driver.findElement(By.xpath("//*[contains(@title, 'More Menu')]"));
+             
+             // If the element is displayed, click it
+             if (plusElement.isDisplayed()) {
+                 plusElement.click();
+                 System.out.println("Clicked on the 'More Menu' button.");
+                 ListforProdserver();
+             }
+             
+         } catch (Exception e) {
+             // If "More Menu" element is not found, fall back to clicking the "Configuration" button
+             System.out.println("'More Menu' not found, clicking 'Configuration' button instead.");
+             WebElement configButton = driver.findElement(By.xpath("//button[@title= 'Configuration']"));
+             configButton.click();
+             ListforLocalProd();
+             
+         }
 		 
-			List<String> expectedOptions = Arrays.asList(
-					"Telephony Call Logs",
-				    "Allocation Configuration",
+	}
+	
+	public void ListforProdserver()
+	{
+		List<String> expectedOptions = Arrays.asList(
+				
+				 "Allocation Configuration",
 				    "Enrollment Batches",
 				    "Enrollment University",
 				    "Buckets",
@@ -247,53 +308,10 @@ public class ATSPageLib extends atspageObj
 				    "Synopsis",
 				    "Telephony call Reason",
 				    "Visa Slot City",
-				    "Questions",
-				    "Category",
 				    "Journey Decks",
-				    "MF Migration",
-				    "Student Previous Document History",
 				    "NAAC Grade",
-				    "University Category Matrix",
+				    "University Grade Matrix",
 				    "University Recommendation Combination"
-				);
-			 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-			 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
-			 
-			 for (int i = 0; i < OptionsIteam.size();i++)
-			 {
-				 System.out.println(OptionsIteam.get(i).getText());
-				 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
-				 
-			 }
-	}
-	public void VerifyATSCOnfigurationOptionsProd()
-	{
-		driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
-		// Expected options
-		List<String> expectedOptions = Arrays.asList(
-			    "Allocation Configuration",
-			    "Enrollment Batches",
-			    "Enrollment University",
-			    "Buckets",
-			    "Enrollment Course",
-			    "ATS Journey",
-			    "LOR Question",
-			    "Graduation Division",
-			    "Pathway College",
-			    "Sessions",
-			    "Document Type",
-			    "MSA Document Type",
-			    "DS-160 Step",
-			    "Ineligible Reason",
-			    "Loan Provider",
-			    "Bank",
-			    "Synopsis",
-			    "Telephony call Reason",
-			    "Visa Slot City",
-			    "Journey Decks",
-			    "NAAC Grade",
-			    "University Grade Matrix",
-			    "University Recommendation Combination"
 			);
 		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
 		 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
@@ -304,7 +322,49 @@ public class ATSPageLib extends atspageObj
 			 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
 			 
 		 }
+}
+	public void ListforLocalProd()
+		{
+			List<String> expectedOptions = Arrays.asList(
+					
+					 "Allocation Configuration",
+					    "Enrollment Batches",
+					    "Enrollment University",
+					    "Buckets",
+					    "Enrollment Course",
+					    "ATS Journey",
+					    "LOR Question",
+					    "Graduation Division",
+					    "Pathway College",
+					    "Sessions",
+					    "Document Type",
+					    "MSA Document Type",
+					    "DS-160 Step",
+					    "Ineligible Reason",
+					    "Loan Provider",
+					    "Bank",
+					    "Synopsis",
+					    "Telephony call Reason",
+					    "Visa Slot City",
+					    "Journey Decks",
+					    "NAAC Grade",
+					    "University Grade Matrix",
+					    "University Recommendation Combination"
+				);
+			 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+			 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
+			 
+			 for (int i = 0; i < OptionsIteam.size();i++)
+			 {
+				 System.out.println(OptionsIteam.get(i).getText());
+				 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
+				 
+			 }
 	}
+	
+	
+	
+	
 	
 	public void TabsbuttonOnU7Enrolled() throws InterruptedException
 	{
