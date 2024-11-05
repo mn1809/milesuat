@@ -151,7 +151,7 @@ public static void getChromeVersion() throws IOException
 				driver.manage().window().maximize();
 				driver.get(MilesUtilities.GetURLs(FxEnums.URLs.ServerlessStage));
 				//System.out.println("Launching Prod Fx Web Page in Win Env");
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 				
 			}
 			else
@@ -171,7 +171,7 @@ public static void getChromeVersion() throws IOException
 				driver = new ChromeDriver(options);
 				driver.get(StageURL);
 				System.out.println("Launching UAT Stage Miles Web Page in ubuntu ec2");
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 				
 			}
 		}
@@ -188,7 +188,7 @@ public static void getChromeVersion() throws IOException
 				driver.manage().window().maximize();
 				driver.get(ProdURL);
 				//System.out.println("Launching Prod Fx Web Page in Win Env");
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 			}
 			else
 			{
@@ -209,7 +209,7 @@ public static void getChromeVersion() throws IOException
 				driver = new ChromeDriver(options);
 				driver.get(ProdURL);
 				//System.out.println("Launching Prod Fx Web Page in ubuntu ec2");
-				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 				
 			}
 			
