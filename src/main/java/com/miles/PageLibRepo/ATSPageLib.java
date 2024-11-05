@@ -141,7 +141,8 @@ public class ATSPageLib extends atspageObj
 
 	public void VerifyATSCOnfigurationOptionsStage()
 	{
-		driver.findElement(By.xpath("//*[contains(@title, 'Configuration')]")).click();
+		driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
+		//button[@title='Configuration']
 		// Expected options
 		List<String> expectedOptions = Arrays.asList(
 			    "Allocation Configuration",
@@ -186,7 +187,7 @@ public class ATSPageLib extends atspageObj
 	
 	public void VerifyATSCOnfigurationOptionsProd()
 	{
-		driver.findElement(By.xpath("//*[contains(@title, 'Configuration')]")).click();
+		driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
 		// Expected options
 		List<String> expectedOptions = Arrays.asList(
 			    "Allocation Configuration",
