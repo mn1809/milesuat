@@ -194,7 +194,7 @@ public static void getChromeVersion() throws IOException
 			{
 				options.addArguments("--no-sandbox"); 
 				options.addArguments("start-maximized"); // open Browser in maximized mode
-				options.addArguments("--window-size=1920,1080");
+				options.addArguments("--window-size=2560,1440"); //1920x1080 
 				options.addArguments("--no-default-browser-check");
 				options.addArguments("--no-first-run");
 				options.addArguments("--disable-gpu");
