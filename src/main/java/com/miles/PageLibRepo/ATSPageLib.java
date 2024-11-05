@@ -18,16 +18,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
-
+import java.time.Duration;
 import com.miles.PageObjectRepo.atspageObj;
 import com.miles.PageObjectRepo.AdminPageObj;
 import com.miles.PageObjectRepo.OPTPageObj;
 import com.miles.PageObjectRepo.atspageObj;
 import com.miles.Utilities.MilesUtilities;
 import com.miles.Utilities.MilesUtilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class ATSPageLib extends atspageObj
@@ -139,55 +141,131 @@ public class ATSPageLib extends atspageObj
 		Thread.sleep(4000);
 	}
 
-	public void VerifyATSCOnfigurationOptionsStage()
+	public void VerifyATSCOnfigurationOptionsStage() throws InterruptedException
 	{
 		//driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
-		driver.findElements(By.className("dropdown-toggle")).get(7).click();
 		
-		//dropdown-toggle
-		//button[@title='Configuration']
+//		WebElement plusElement = driver.findElement(By.xpath("//*[contains(@title, 'More Menu')]"));
+//		if 
+//		(plusElement.isDisplayed())
+//		{
+//			driver.findElement(By.xpath("//*[contains(@title, 'More Menu')]")).click();
+//			Thread.sleep(4000);
+//		}
+//	
+//		else
+//		{
+//			driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
+//		}
 
-		List<String> expectedOptions = Arrays.asList(
-			    "Allocation Configuration",
-			    "Enrollment Batches",
-			    "Enrollment University",
-			    "Buckets",
-			    "Enrollment Course",
-			    "ATS Journey",
-			    "LOR Question",
-			    "Graduation Division",
-			    "Pathway College",
-			    "Sessions",
-			    "Document Type",
-			    "MSA Document Type",
-			    "DS-160 Step",
-			    "Ineligible Reason",
-			    "Loan Provider",
-			    "Bank",
-			    "Synopsis",
-			    "Telephony call Reason",
-			    "Visa Slot City",
-			    "Questions",
-			    "Category",
-			    "Journey Decks",
-			    "MF Migration",
-			    "Student Previous Document History",
-			    "NAAC Grade",
-			    "University Category Matrix",
-			    "University Recommendation Combination"
-			);
-		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-		 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
+		 try {
+             WebElement plusElement = driver.findElement(By.xpath("//*[contains(@title, 'More Menu')]"));
+             
+             // If the element is displayed, click it
+             if (plusElement.isDisplayed()) {
+                 plusElement.click();
+                 System.out.println("Clicked on the 'More Menu' button.");
+                 Listforserver();
+             }
+             
+         } catch (Exception e) {
+             // If "More Menu" element is not found, fall back to clicking the "Configuration" button
+             System.out.println("'More Menu' not found, clicking 'Configuration' button instead.");
+             WebElement configButton = driver.findElement(By.xpath("//button[@title= 'Configuration']"));
+             configButton.click();
+             ListforLocal();
+             
+         }
 		 
-		 for (int i = 0; i < OptionsIteam.size();i++)
-		 {
-			 System.out.println(OptionsIteam.get(i).getText());
-			 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
-			 
-		 }
 	}
 	
 	
+	public void ListforLocal()
+	{
+		 
+			List<String> expectedOptions = Arrays.asList(
+				    "Allocation Configuration",
+				    "Enrollment Batches",
+				    "Enrollment University",
+				    "Buckets",
+				    "Enrollment Course",
+				    "ATS Journey",
+				    "LOR Question",
+				    "Graduation Division",
+				    "Pathway College",
+				    "Sessions",
+				    "Document Type",
+				    "MSA Document Type",
+				    "DS-160 Step",
+				    "Ineligible Reason",
+				    "Loan Provider",
+				    "Bank",
+				    "Synopsis",
+				    "Telephony call Reason",
+				    "Visa Slot City",
+				    "Questions",
+				    "Category",
+				    "Journey Decks",
+				    "MF Migration",
+				    "Student Previous Document History",
+				    "NAAC Grade",
+				    "University Category Matrix",
+				    "University Recommendation Combination"
+				);
+			 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+			 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
+			 
+			 for (int i = 0; i < OptionsIteam.size();i++)
+			 {
+				 System.out.println(OptionsIteam.get(i).getText());
+				 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
+				 
+			 }
+	}
+	
+	public void Listforserver()
+	{
+		 
+			List<String> expectedOptions = Arrays.asList(
+					"Telephony Call Logs",
+				    "Allocation Configuration",
+				    "Enrollment Batches",
+				    "Enrollment University",
+				    "Buckets",
+				    "Enrollment Course",
+				    "ATS Journey",
+				    "LOR Question",
+				    "Graduation Division",
+				    "Pathway College",
+				    "Sessions",
+				    "Document Type",
+				    "MSA Document Type",
+				    "DS-160 Step",
+				    "Ineligible Reason",
+				    "Loan Provider",
+				    "Bank",
+				    "Synopsis",
+				    "Telephony call Reason",
+				    "Visa Slot City",
+				    "Questions",
+				    "Category",
+				    "Journey Decks",
+				    "MF Migration",
+				    "Student Previous Document History",
+				    "NAAC Grade",
+				    "University Category Matrix",
+				    "University Recommendation Combination"
+				);
+			 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+			 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
+			 
+			 for (int i = 0; i < OptionsIteam.size();i++)
+			 {
+				 System.out.println(OptionsIteam.get(i).getText());
+				 Assert.assertEquals(OptionsIteam.get(i).getText(), expectedOptions.get(i));
+				 
+			 }
+	}
 	public void VerifyATSCOnfigurationOptionsProd()
 	{
 		driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
