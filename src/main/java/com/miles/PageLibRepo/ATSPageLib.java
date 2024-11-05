@@ -167,6 +167,7 @@ public class ATSPageLib extends atspageObj
 			    "Category",
 			    "Journey Decks",
 			    "MF Migration",
+			    "Student Previous Document History",
 			    "NAAC Grade",
 			    "University Category Matrix",
 			    "University Recommendation Combination"

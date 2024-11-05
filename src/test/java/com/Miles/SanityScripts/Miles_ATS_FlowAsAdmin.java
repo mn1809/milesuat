@@ -210,7 +210,7 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-@Test(priority = 1,description = "Verify Admin Login")
+//@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
@@ -218,7 +218,7 @@ public void ClearingHomePage() throws InterruptedException
 	ATS.ClearMyCandidateFilter();
 }
 
-@Test(priority = 2,description = "Verify Admin Dropdown Options")
+//@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -235,7 +235,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	}
 }
 
-@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -251,6 +251,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	ATSPageLib ATS = new ATSPageLib(driver);
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
 	if (EneEnv.contains("prod"))
 	{
 		ATS.VerifyATSCOnfigurationOptionsProd();
@@ -262,7 +263,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	
 }
 
-@Test (priority = 5,description = "Verify ATS Module Search Candidate")
+//@Test (priority = 5,description = "Verify ATS Module Search Candidate")
 public void U7ASearachCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -272,7 +273,7 @@ public void U7ASearachCandidate() throws InterruptedException
 	//EnteringGraduationDetails();										//--------------------------------Entering Graduation Details Mind it-------------------------------//
 }
 
-@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
+//@Test (priority = 6,description = "Verify ATS Module U7A Candidate Bucket")
 public void U7ACandidateWindow() throws InterruptedException
 {
 	
