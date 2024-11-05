@@ -141,9 +141,12 @@ public class ATSPageLib extends atspageObj
 
 	public void VerifyATSCOnfigurationOptionsStage()
 	{
-		driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
+		//driver.findElement(By.xpath("//button[@title= 'Configuration']")).click();
+		driver.findElements(By.className("dropdown-toggle")).get(7).click();
+		
+		//dropdown-toggle
 		//button[@title='Configuration']
-		// Expected options
+
 		List<String> expectedOptions = Arrays.asList(
 			    "Allocation Configuration",
 			    "Enrollment Batches",
