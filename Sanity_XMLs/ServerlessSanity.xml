@@ -6,9 +6,9 @@
     <classes> 
 		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsAdmin"/>
 		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsContentWriter"/> 
-		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsCounsellingTeam"/>
+		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsCounselingTeam"/>
 		<class name="com.Miles.SanityScripts.miles_ATS_FlowAsFundingTeam"/>
-		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsUnversityTeam"/>
+		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsUniversityTeam"/>
 		<class name="com.Miles.SanityScripts.Miles_ATS_FlowAsVisaTeam"/>
 		<class name="com.Miles.SanityScripts.Miles_OPT_FlowAsAdmin"/>
 		
