@@ -163,10 +163,10 @@ public static void getChromeVersion() throws IOException
 				options.addArguments("--remote-allow-origins=*");
 				options.addArguments("--no-sandbox");
 				options.addArguments("start-maximized"); // open Browser in maximized mode
-				options.addArguments("--window-size=2560x1440"); //1920x1080 
+				options.addArguments("--window-size=2560,1440"); //1920x1080 
 				options.addArguments("disable-infobars"); // disabling infobars
 				options.addArguments("--disable-extensions"); // disabling extensions
-				options.addArguments("--headless"); // to run in headless mode on ec2 os only
+			//	options.addArguments("--headless"); // to run in headless mode on ec2 os only
 				//options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 				 // Bypass OS security model
 				WebDriverManager.chromedriver().setup(); // Automating Driver management :) 
@@ -198,13 +198,13 @@ public static void getChromeVersion() throws IOException
 			{
 				options.addArguments("--no-sandbox"); 
 				options.addArguments("start-maximized"); // open Browser in maximized mode
-				options.addArguments("--window-size=2560x1440"); //1920x1080 2560,1440
+				options.addArguments("--window-size=2560,1440"); //1920x1080 2560,1440
 				options.addArguments("--no-default-browser-check");
 				options.addArguments("--no-first-run");
 				options.addArguments("--disable-gpu");
 				options.addArguments("disable-infobars"); // disabling infobars
 				options.addArguments("--disable-extensions"); // disabling extensions
-				options.addArguments("--headless");// to run in headless mode on ec2 os only
+			//	options.addArguments("--headless");// to run in headless mode on ec2 os only
 				options.addArguments("--remote-allow-origins=*");
 				options.addArguments("--disable-dev-shm-usage");// overcome limited resource problems
 				options.addArguments("--ignore-certificate-errors");
