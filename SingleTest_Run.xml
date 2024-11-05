@@ -38,14 +38,7 @@ Custome Report with Screenshot attached.
 		<!-- <class name = "com.frontierX.SanityScripts.Fx_BeatCount_Workflow"/>-->
 		<!--<class name="com.frontier -X.SanityScripts.FxShareActivity"/> 
 		<class name="com.frontierX.TestScripts.DownloadFIT"/>
-		<class name="com.frontierX.TestScripts.DownloadZIP"/>	
-		<class name="com.frontierX.TestScripts.EditActivity"/>	
-		<class name="com.frontierX.TestScripts.GenerateECGPDF"/>	
-		<class name="com.frontierX.TestScripts.LiveECGs"/>
-		<class name="com.frontierX.TestScripts.LiveUserDashboard"/>
-		<class name="com.frontierX.TestScripts.TestHomePageActions"/> 
-        <class name="com.frontierX.TestScripts.TrainingLoad"/>
-		<class name="com.frontierX.TestScripts.UserType"/>
+
         <class name="com.frontierX.TestScripts.ValidInvalidLoginCreds"/> -->
 		</classes>
 	</test>
