@@ -30,7 +30,7 @@ public class SendAttachmentInEmail
       String from = "manoj.hr@mileseducation.com";
 
       final String username = "manoj.hr@mileseducation.com";
-      final String password = "junk";
+      final String password = "tnlahncvzrcclung";
 
       
       String host = "smtp.gmail.com";
