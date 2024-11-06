@@ -1,0 +1,287 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>1</groupId>
+  <artifactId>MilesQA</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>MilesOdooProjects</name>
+  <url>http://maven.apache.org</url>
+<!--
+  <properties>
+	  
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+-->
+
+<profiles>
+<!-- This profile is for Regression tests , we need to pass Regression as Profile ID-->
+<profile>
+<id>Regression</id>
+	<build>
+		<plugins>
+			<!-- Compiler plug-in -->
+			<plugin>
+				<!--<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId> -->
+					<groupId>org.apache.maven.plugins</groupId>
+  					<artifactId>maven-compiler-plugin</artifactId>
+  					<version>3.10.1</version>
+  					<!--<type>maven-plugin</type> -->
+			</plugin>
+			<!-- Below plug-in is used to execute tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version> <!-- 3.0.0-M5 -->
+				<configuration>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>MasterSuite.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+</profile>
+
+<profile>
+<!-- This profile is for Sanity tests , we need to pass Sanity as Profile ID-->
+<id>Sanity</id>
+	<build>
+		<plugins>
+			<!-- Compiler plug-in -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<!-- Below plug-in is used to execute tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version> <!-- 3.0.0-M5 -->
+				<configuration>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>SanitySuite.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+</profile>
+
+<profile>
+<!-- This profile is for Experimental tests , we need to pass SingleTest as Profile ID-->
+<id>SingleTest</id>
+	<build>
+		<plugins>
+			<!-- Compiler plug-in -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<!-- Below plug-in is used to execute tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version> <!-- 3.0.0-M5 -->
+				<configuration>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>SingleTest_Run.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+</profile>
+
+<profile>
+<!-- This profile is for Serverless tests in Prod Env, we need to pass Serverless as Profile ID-->
+<id>prod</id>
+	<build>
+		<plugins>
+			<!-- Compiler plug-in -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<!-- Below plug-in is used to execute tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version> <!-- 3.0.0-M5 -->
+				<configuration>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>ServerlessSanitySuite.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+</profile>
+
+
+</profiles>
+
+
+<reporting>
+   <plugins>
+
+<!--
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+
+		Suite testng xml file to consider for test execution -->
+					  <!--<suiteXmlFiles> -->
+				<!--	<suiteXmlFile>${suiteXMLFile}</suiteXmlFile> 
+					<suiteXmlFile>SmokeTest_User.xml</suiteXmlFile>
+						<suiteXmlFile>suites-test-testng.xml</suiteXmlFile> 
+					</suiteXmlFiles>
+				<groups>Smoke Tests</groups>
+				</configuration>
+</plugin> -->
+<!--
+<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>3.5.1</version>
+			<configuration>
+				<source>1.7</source>
+				<target>1.7</target>
+			</configuration>
+	</plugin>
+-->
+
+</plugins>
+  </reporting>
+  <dependencies>
+
+   <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.9.0</version>
+    <scope>compile</scope>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.10.2</version>
+    <scope>compile</scope>
+</dependency>
+
+
+<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.9.0</version>
+</dependency>
+
+<dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.5.0</version>
+   </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-http-jdk-client</artifactId>
+      <version>4.5.0</version>
+    </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.5.0</version>
+</dependency>
+
+
+ <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-devtools-v102</artifactId>
+        <version>4.4.0</version>
+    </dependency>
+
+<dependency>
+	<groupId>org.seleniumhq.webdriver</groupId>
+	<artifactId>webdriver-support</artifactId>
+	<version>0.9.7376</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support 
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-support</artifactId>
+    <version>4.1.1</version>
+</dependency>
+-->
+<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.6</version>
+</dependency>
+
+
+<!-- JAVA-X Binder -->
+<dependency>
+  <groupId>javax.xml.bind</groupId>
+  <artifactId>jaxb-api</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.6.3</version>
+</dependency>
+
+
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>4.1.2</version>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.6.2</version>
+</dependency>
+  </dependencies>
+</project>
+
+
+
