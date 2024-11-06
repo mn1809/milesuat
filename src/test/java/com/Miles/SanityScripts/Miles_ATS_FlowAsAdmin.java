@@ -183,7 +183,7 @@ LoginPageLib loginObj ;
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-	//driver.quit();
+	driver.quit();
 	
 	 }
 	 
@@ -263,7 +263,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	
 }
 
-//@Test (priority = 5,description = "Verify ATS Module Search Candidate")
+@Test (priority = 5,description = "Verify ATS Module Search Candidate")
 public void U7ASearachCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
