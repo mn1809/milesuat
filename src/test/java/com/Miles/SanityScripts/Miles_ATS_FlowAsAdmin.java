@@ -244,7 +244,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 }
 
-//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -263,7 +263,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 	
 }
 
-@Test (priority = 5,description = "Verify ATS Module Search Candidate")
+//@Test (priority = 5,description = "Verify ATS Module Search Candidate")
 public void U7ASearachCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
