@@ -82,7 +82,7 @@
 
 <profile>
 <!-- This profile is for Experimental tests , we need to pass SingleTest as Profile ID-->
-<id>SingleTest</id>
+<id>SingleTestProd</id>
 	<build>
 		<plugins>
 			<!-- Compiler plug-in -->
@@ -98,7 +98,7 @@
 				<configuration>
 					<suiteXmlFiles>
 						<!-- TestNG suite XML files -->
-						<suiteXmlFile>SingleTest_Run.xml</suiteXmlFile>
+						<suiteXmlFile>SingleTest_Run_Prod.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
@@ -111,6 +111,38 @@
 </profile>
 
 <profile>
+
+<!-- This profile is for Experimental tests , we need to pass SingleTest as Profile ID-->
+<id>SingleTestStage</id>
+	<build>
+		<plugins>
+			<!-- Compiler plug-in -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<!-- Below plug-in is used to execute tests -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version> <!-- 3.0.0-M5 -->
+				<configuration>
+					<suiteXmlFiles>
+						<!-- TestNG suite XML files -->
+						<suiteXmlFile>SingleTest_Run_Stage.xml</suiteXmlFile>
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<properties>
+     <maven.compiler.source>1.8</maven.compiler.source>
+     <maven.compiler.target>1.8</maven.compiler.target>
+</properties>
+</profile>
+
+<profile>
+
 <!-- This profile is for Serverless tests in Prod Env, we need to pass Serverless as Profile ID-->
 <id>prod</id>
 	<build>

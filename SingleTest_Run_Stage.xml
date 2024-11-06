@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG Reports" verbose="5" thread-count="2" configfailurepolicy="continue">
+
+ <!--
+ <listeners>
+        <listener class-name="com.frontierX.Utilities.CustomReport" />
+        <listener class-name="com.frontierX.Utilities.TestNameListener" /> 
+    </listeners>
+
+Custome Report with Screenshot attached.
+<listeners>
+        <listener class-name="com.frontierX.Utilities.CustomReport" />
+        <listener class-name="com.frontierX.Utilities.TestNameListener" /> 
+    </listeners>
+
+
+-->
+<!--
+
+-->
+
+ <listeners>
+        <listener class-name="com.miles.Utilities.CustomReport" />
+        <listener class-name="com.miles.Utilities.TestNameListener" /> 
+</listeners>
+
+	<test name="Single Test Suite" parallel = "classes"> <!--parallel = "classes"> -->
+	<parameter name="enivironment" value="stage"/>
+	<!--<parameter name="user" value="user"/> -->
+	<classes>
+		
+		<class name = "com.Miles.SanityScripts.Miles_ATS_FlowAsAdmin"/>
+		
+		
+		
+		
+		<!-- <class name = "com.frontierX.SanityScripts.Fx_BeatCount_Workflow"/>-->
+		<!--<class name="com.frontier -X.SanityScripts.FxShareActivity"/> 
+		<class name="com.frontierX.TestScripts.DownloadFIT"/>
+
+        <class name="com.frontierX.TestScripts.ValidInvalidLoginCreds"/> -->
+		</classes>
+	</test>
+</suite>
