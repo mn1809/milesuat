@@ -167,6 +167,7 @@ public class ATSPageLib extends atspageObj
 	{
 		 
 			List<String> expectedOptions = Arrays.asList(
+					"Telephony Call Logs",
 				    "Allocation Configuration",
 				    "Enrollment Batches",
 				    "Enrollment University",
