@@ -17,6 +17,10 @@ import com.miles.BaseSettings.MilesBasePage;
 
 public class HomePageObj extends MilesBasePage
 {
+	public HomePageObj(WebDriver driver) 
+{
+	super(driver);
+}
 
 	   private Date date = new Date();
 	   private SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -142,7 +146,9 @@ public class HomePageObj extends MilesBasePage
 	//@FindBy(xpath = "(//button[@class='btn cancel-button'])[3]")
 	protected WebElement cancelShareActivity;
 	
-	protected WebElement HomeTrainingLoad = driver.findElement(By.className("training-load-val-qa"));
+	//protected WebElement HomeTrainingLoad = driver.findElement(By.className("training-load-val-qa"));
+	//button[@type='button']
+	protected WebElement HomeTrainingLoad = driver.findElements(By.xpath("//button[@type='button']")).get(0);
 	
 	protected WebElement HomeMaxStrain = driver.findElement(By.className("max-strain-val-qa"));
 	
@@ -298,10 +304,7 @@ public class HomePageObj extends MilesBasePage
 	protected WebElement Coach_deviceLink = driver.findElement(By.id("device_purchase_link"));
 	*/
 	//	Constructor
-	public HomePageObj(WebDriver driver) 
-	{
-		super(driver);
-	}
+	
 	
 	
 	

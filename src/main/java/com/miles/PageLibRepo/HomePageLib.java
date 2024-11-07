@@ -42,7 +42,7 @@ public class HomePageLib extends HomePageObj
 		String strDate = formatter.format(date);
 		String SmokeTestString = "Regression test on "+strDate;
 	
-		String a = "C:\\Users\\user\\eclipse-workspace\\frontierX\\target\\surefire-reports\\testng-results.xml";
+		String a = "C:\\Users\\user\\eclipse-workspace\\MilesQA\\target\\surefire-reports\\testng-results.xml";
 	
 		String DeleteTagText = "This tag will no longer be accessible in both your app and web-app.";
 		private	String HealthEntryInfoMsg = "Health entry added";
