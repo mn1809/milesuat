@@ -50,7 +50,7 @@ public class LoginPageLib extends LoginPageObj
 			//driver.findElement(By.xpath("//*[contains(@class, 'btn btn-login')]")).click();
 			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
 //			driver.findElement(By.id("password")).click();
-//password.click();
+
 			password.sendKeys(passwordValue);
 			loginButton.click();
 			break;
