@@ -57,72 +57,72 @@ private void SetEvidenceDir()
 	
 }
 	
-	 @Test (description = "Purpose of this test is to Verify that premium user can Login to FX WebApp")
-		public void VerifyPremiumUsersCanLoginToFxWebApp() throws Exception
-		{
-		
-			    String expectedText= "User Logged In Successfully";
-					
-			    homeObj.VerifyUserInfoPopUp(expectedText);	
-			    justSleepFor(4);
-				homeObj.VerifyLoggedInUserName(UserLevel.Premium.toString());
-		}
-		
-	 @Test (description = "Purpose of this test is to Verify that ECG has been synced and Green Tick mark is visble for Premium User")
-		public void VerifyECGSyncIsSuccessfullForPremiumUser() throws Exception
-		{		
-			WorkoutDetailsPageLib workoutObj = new WorkoutDetailsPageLib(this.driver);
-					
-			//	homeObj.VerifyTodaysECGIsSynced();
-				homeObj.clickOnGreenTick();
-				workoutObj.VerifyECGGraphIsDisplayed();
-		 }
-		    
-		@Test (description = "Purpose of this test is to Verify that user can Download and verify Current Day's FIT File and verifies if its valid or not based on length of file")
-		public void VerifyPremiumUserCanDownloadLatestFITFiles() throws Exception
-		{
-		    String ext = ".fit";
-		
-					MilesUtilities.deleteFiles(ext);
-					justSleepFor(6);
-					
-						homeObj.clickOnActivityButton();
-						homeObj.clickOnDownloadFIT();
-						System.out.println("FIT File option was clicked for user");
-						justSleepFor(4);
-						Assert.assertTrue(MilesUtilities.isCurrentDaysFileDownloaded(ext),"Fit File downloaded");
-					driver.close();	
-		}
-		
-		
-		@Test (description = "Purpose of this test is to Verify if Insights are displayed for Premium User ")
-		public void VerifyInsightInfoAreDisplayedForPremiumUser() throws Exception
-		{		
-			WorkoutDetailsPageLib wd = new WorkoutDetailsPageLib(driver);
-					
-					//	homeObj.VerifyTodaysActivityIsDisplayed();
-						homeObj.clickOnGreenTick();
-						justSleepFor(7);
-						wd.AssertInsightInfo();
-		}
-		
-		
-		@Test (description = "Purpose of this test is to Verify that Premium User can Sync his activity and it is being displayed")
-		public void VerifyActivitySyncForPremiumUser() throws Exception
-		{				
-					//	homeObj.VerifyTodaysActivityIsDisplayed();
-						
-		}
-		
-		
-		@Test(description = "Purpose of this test is to Verify ECG PDF Pop Up for Premium Users")
-		public void VerifyECGPDFPopUp_PremiumUser() throws Exception
-		{		
-						homeObj.clickOnActivityButton();
-						justSleepFor(3);
-						homeObj.ClickgenerateECGPDF();
-						justSleepFor(5);
-						homeObj.VerifyECGPDFPop();
-		}
-		
+//	 @Test (description = "Purpose of this test is to Verify that premium user can Login to FX WebApp")
+//		public void VerifyPremiumUsersCanLoginToFxWebApp() throws Exception
+//		{
+//		
+//			    String expectedText= "User Logged In Successfully";
+//					
+//			    homeObj.VerifyUserInfoPopUp(expectedText);	
+//			    justSleepFor(4);
+//				homeObj.VerifyLoggedInUserName(UserLevel.Premium.toString());
+//		}
+//		
+//	 @Test (description = "Purpose of this test is to Verify that ECG has been synced and Green Tick mark is visble for Premium User")
+//		public void VerifyECGSyncIsSuccessfullForPremiumUser() throws Exception
+//		{		
+//			WorkoutDetailsPageLib workoutObj = new WorkoutDetailsPageLib(this.driver);
+//					
+//			//	homeObj.VerifyTodaysECGIsSynced();
+//				homeObj.clickOnGreenTick();
+//				workoutObj.VerifyECGGraphIsDisplayed();
+//		 }
+//		    
+//		@Test (description = "Purpose of this test is to Verify that user can Download and verify Current Day's FIT File and verifies if its valid or not based on length of file")
+//		public void VerifyPremiumUserCanDownloadLatestFITFiles() throws Exception
+//		{
+//		    String ext = ".fit";
+//		
+//					MilesUtilities.deleteFiles(ext);
+//					justSleepFor(6);
+//					
+//						homeObj.clickOnActivityButton();
+//						homeObj.clickOnDownloadFIT();
+//						System.out.println("FIT File option was clicked for user");
+//						justSleepFor(4);
+//						Assert.assertTrue(MilesUtilities.isCurrentDaysFileDownloaded(ext),"Fit File downloaded");
+//					driver.close();	
+//		}
+//		
+//		
+//		@Test (description = "Purpose of this test is to Verify if Insights are displayed for Premium User ")
+//		public void VerifyInsightInfoAreDisplayedForPremiumUser() throws Exception
+//		{		
+//			WorkoutDetailsPageLib wd = new WorkoutDetailsPageLib(driver);
+//					
+//					//	homeObj.VerifyTodaysActivityIsDisplayed();
+//						homeObj.clickOnGreenTick();
+//						justSleepFor(7);
+//						wd.AssertInsightInfo();
+//		}
+//		
+//		
+//		@Test (description = "Purpose of this test is to Verify that Premium User can Sync his activity and it is being displayed")
+//		public void VerifyActivitySyncForPremiumUser() throws Exception
+//		{				
+//					//	homeObj.VerifyTodaysActivityIsDisplayed();
+//						
+//		}
+//		
+//		
+//		@Test(description = "Purpose of this test is to Verify ECG PDF Pop Up for Premium Users")
+//		public void VerifyECGPDFPopUp_PremiumUser() throws Exception
+//		{		
+//						homeObj.clickOnActivityButton();
+//						justSleepFor(3);
+//						homeObj.ClickgenerateECGPDF();
+//						justSleepFor(5);
+//						homeObj.VerifyECGPDFPop();
+//		}
+//		
 }

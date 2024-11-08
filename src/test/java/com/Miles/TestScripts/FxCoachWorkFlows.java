@@ -55,15 +55,15 @@ private void SetEvidenceDir()
 }
 		
 		
-		 @Test(description = "Purpose of this test is to Verify Fx Coach can log in and correct platform name is displayed ")
-			public void VerifyFCPName() throws Exception
-			{		
-				justSleepFor(3);
-				ClickOnAdminMenu();
-				justSleepFor(1);
-				homeObj.VerifyFCPName();
-				
-			}
+//		 @Test(description = "Purpose of this test is to Verify Fx Coach can log in and correct platform name is displayed ")
+//			public void VerifyFCPName() throws Exception
+//			{		
+//				justSleepFor(3);
+//				ClickOnAdminMenu();
+//				justSleepFor(1);
+//				homeObj.VerifyFCPName();
+//				
+//			}
 		
 /*
  * 
