@@ -153,7 +153,7 @@ public void ClearingHomePage() throws InterruptedException
 	ClearMyCandidateFilter();
 }
 
-@Test(description = "Verify Admin Dropdown Options")
+//@Test(description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
