@@ -1062,10 +1062,10 @@ public void StudentLORandSOP() throws InterruptedException
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
 	Thread.sleep(3000);
 //	
-//	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).click();
-//	Thread.sleep(3000);
-//	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
-//	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer button_green_color btn-secondary')]")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
+	Thread.sleep(3000);
 }
 
 
