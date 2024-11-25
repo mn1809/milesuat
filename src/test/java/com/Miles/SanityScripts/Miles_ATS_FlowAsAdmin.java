@@ -549,7 +549,7 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
 	
-	ATS.U9Stage3();
+	//ATS.U9Stage3();
 	Thread.sleep(2000);
 	ATS.UploadationOfApplicationProof();
 }
