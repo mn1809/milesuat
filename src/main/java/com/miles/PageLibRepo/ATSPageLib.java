@@ -1129,7 +1129,7 @@ Thread.sleep(2000);
 	    fileInput.click();
 	    
 	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-	    fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
+	    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 	    Thread.sleep(15000);
 	    
 	    
