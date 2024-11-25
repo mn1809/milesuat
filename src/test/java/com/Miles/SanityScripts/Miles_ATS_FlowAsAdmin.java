@@ -1308,6 +1308,7 @@ public void LoRResponses() throws InterruptedException
     button3.click();
     Thread.sleep(2500);
     driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question3);
+    Thread.sleep(2000);
     List <WebElement> Options3 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
    	Options3.get(0).click();
    	Thread.sleep(2500);
