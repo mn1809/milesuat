@@ -1283,6 +1283,7 @@ public void LoRResponses() throws InterruptedException
     button1.click();
     Thread.sleep(2500);
     driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question1);
+    Thread.sleep(2000);
 	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options1.get(0).click();
 	Thread.sleep(2500);
@@ -1295,6 +1296,7 @@ public void LoRResponses() throws InterruptedException
     button2.click();
     Thread.sleep(2500);
     driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question2);
+    Thread.sleep(2000);
     List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
    	Options2.get(0).click();
    	Thread.sleep(2500);
@@ -1322,6 +1324,7 @@ public void LoRResponses() throws InterruptedException
     button4.click();
     Thread.sleep(2500);
     driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question4);
+    Thread.sleep(2000);
     List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
     Options4.get(0).click();
    	Thread.sleep(2500);
@@ -1335,6 +1338,7 @@ public void LoRResponses() throws InterruptedException
     button5.click();
     Thread.sleep(2500);
     driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question5);
+    Thread.sleep(2000);
     List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
     Options5.get(0).click();
    	Thread.sleep(2500);
