@@ -25,6 +25,11 @@ public abstract class MilesSettings
 
 	protected static String ProdURL = "https://uspathway.mileseducation.com/web/login";
 	
+	
+	protected static String FrontendStageURL = "https://miles-ats-uat-v2.web.app/auth";
+	
+	protected static String FrontendProdURL = "https://connect.mileseducation.us/auth";
+			
 	protected static String Environment = MilesUtilities.getOperatingSystemSystemUtils();
 	static ChromeOptions options = new ChromeOptions();
 	
@@ -226,6 +231,103 @@ public static void getChromeVersion() throws IOException
 		System.out.println(driver);
 		return driver;
 	}
+									
+	
+										//------------------------------------------------FRONTEND CHANGES------------------//
+	
+	public static WebDriver DecideFrontendEnvironment(String env)
+	{
+		
+		WebDriver driver = null;
+	    
+	    if (env.equalsIgnoreCase("stage"))
+	    {				
+	    	if (Environment.contains("Win"))
+			{
+	    		options.addArguments("--remote-allow-origins=*");
+	    		WebDriverManager.chromedriver().setup(); // Automating Driver management :) 
+				System.out.println("WebDriverManager will take care of Driver management from here");
+				driver = new ChromeDriver(options);
+				driver.manage().window().maximize();
+				((JavascriptExecutor) driver).executeScript("window.resizeTo(2560,1440);"); // Set a custom size
+				driver.get(MilesUtilities.GetFURLs(FxEnums.FURLs.FserveLessStage));
+				//System.out.println("Launching Prod Fx Web Page in Win Env");
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+				
+			}
+			else
+			{
+				
+				//System.out.println("Chrome options are being set for "+MilesUtilities.getOperatingSystemSystemUtils()+" Environment");
+				options.addArguments("--remote-allow-origins=*");
+				options.addArguments("--no-sandbox");
+				options.addArguments("start-maximized"); // open Browser in maximized mode
+				options.addArguments("--window-size=2560,1440"); //1920x1080 
+				options.addArguments("disable-infobars"); // disabling infobars
+				options.addArguments("--disable-extensions"); // disabling extensions
+			//	options.addArguments("--headless"); // to run in headless mode on ec2 os only
+				//options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+				 // Bypass OS security model
+				WebDriverManager.chromedriver().setup(); // Automating Driver management :) 
+				System.out.println("WebDriver Manager will contine from here");
+				driver = new ChromeDriver(options);
+				driver.get(FrontendStageURL);
+				System.out.println("Launching UAT Stage Miles Web Page in ubuntu ec2");
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+				
+			}
+		}
+		
+	    else if (env.equalsIgnoreCase("prod"))
+		{
+			
+			if (Environment.contains("Win"))
+			{
+				options.addArguments("--remote-allow-origins=*");
+	    		WebDriverManager.chromedriver().setup(); // Automating Driver management :) 
+				System.out.println("WebDriverManager will take care of Driver management from here");
+				driver = new ChromeDriver(options);
+				driver.manage().window().maximize();
+				((JavascriptExecutor) driver).executeScript("window.resizeTo(2560,1440);"); // Set a custom size
+				driver.get(FrontendProdURL);
+				//System.out.println("Launching Prod Fx Web Page in Win Env");
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+			}
+			else
+			{
+				options.addArguments("--no-sandbox"); 
+				options.addArguments("start-maximized"); // open Browser in maximized mode
+				options.addArguments("--window-size=2560,1440"); //1920x1080 2560,1440
+				options.addArguments("--no-default-browser-check");
+				options.addArguments("--no-first-run");
+				options.addArguments("--disable-gpu");
+				options.addArguments("disable-infobars"); // disabling infobars
+				options.addArguments("--disable-extensions"); // disabling extensions
+				options.addArguments("--headless");// to run in headless mode on ec2 os only
+				options.addArguments("--remote-allow-origins=*");
+				options.addArguments("--disable-dev-shm-usage");// overcome limited resource problems
+				options.addArguments("--ignore-certificate-errors");
+				options.addArguments("--allow-running-insecure-content");
+				WebDriverManager.chromedriver().setup(); // Automating Driver management :) 
+				driver = new ChromeDriver(options);
+				driver.get(FrontendProdURL);
+				//System.out.println("Launching Prod Fx Web Page in ubuntu ec2");
+				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+				
+			}
+			
+		}
+		
+		else 
+		{
+			Assert.fail("Environment not executable");
+		}
+		System.out.println(driver);
+		return driver;
+	}
+	
+	
+	
 	
 	
 	public enum UserLevel

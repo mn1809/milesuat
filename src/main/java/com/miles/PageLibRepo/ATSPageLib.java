@@ -363,8 +363,125 @@ public class ATSPageLib extends atspageObj
 		 }
 	}
 	
+	public void EnteringCertificationDetails() throws InterruptedException
+	{
+		driver.findElement(By.xpath("//*[contains(@name, 'professional_details')]")).click();
+		Actions act1 = new Actions(driver);
+		act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("professional_id")).click();
+	
+		driver.findElement(By.id("professional_id")).sendKeys("Financial Risk Manager");
+		Thread.sleep(2000);
+	 	List <WebElement> Division = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	 	Division.get(0).click();
+	 	
+	 	//--------------------------------------------Year Of Certifications---------------------------------------//
+		  
+		  driver.findElement(By.id("year_of_graduation_date")).click();
+		  driver.findElement(By.xpath("//*[contains(@class, 'year old')]")).click();
+		     Thread.sleep(2000);
+		     driver.findElement(By.xpath("//span[@data-action='selectMonth' and @class='month']")).click();
+		     Thread.sleep(2000); 
+		     driver.findElement(By.xpath("//*[contains(@data-day, '01/18/2019')]")).click();
+		     Thread.sleep(2000);
+		     
+		//----------------------------------Professional Qualification Status----------------------------------------//
+		     
+		     driver.findElement(By.id("professional_status")).click();
+		 		WebElement ProfessionalStatus = driver.findElement(By.id("professional_status"));
+		 	    Select select2 = new Select(ProfessionalStatus);
+
+		 	    select2.selectByValue("\"completed\""); 
+		 	    WebElement selectedOption2 = select2.getFirstSelectedOption();
+		 	    System.out.println("Selected option is: " + selectedOption2.getText());
+		 	    Thread.sleep(3000);  
+		 	    
+		 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save')]")).click();  
+		     
+	}
 	
 	
+	
+	public void EnteringWorkExperience() throws InterruptedException
+	{
+		driver.findElement(By.xpath("//*[contains(@name, 'work_experience')]")).click();
+		 Thread.sleep(3000); 
+		driver.findElement(By.id("has_experience")).click();
+		
+		Actions act1 = new Actions(driver);
+		act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+		Thread.sleep(2000);
+		
+		WebElement workexpyear = driver.findElement(By.id("total_experience"));
+		workexpyear.click();
+		workexpyear.clear();
+		Thread.sleep(1000);
+		workexpyear.sendKeys("4");
+		
+		 Thread.sleep(3000); 
+		 
+		WebElement workexpmonth = driver.findElement(By.id("total_experience_month"));
+		workexpmonth.click();
+		workexpmonth.clear();
+		Thread.sleep(1000);
+		workexpmonth.sendKeys("5");
+		
+		 Thread.sleep(2000);
+		 
+		 WebElement CurrentCompany = driver.findElement(By.id("current_company"));
+		 CurrentCompany.click();
+		 CurrentCompany.clear();
+		 Thread.sleep(1500);
+		 CurrentCompany.sendKeys("Miles Automation Company");
+		 Thread.sleep(3000);
+		 
+		 driver.findElement(By.className("save_button")).click();
+	
+	}
+	
+	
+	public void AutoRecommendUniversity() throws InterruptedException
+	{
+		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+		Thread.sleep(3000);
+		
+		driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(0).isDisplayed();
+		System.out.println("1st Recommended University is "+driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(0).getText());
+		
+		driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(1).isDisplayed();
+		System.out.println("2nd Recommended University is "+driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(1).getText());
+		
+		driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(2).isDisplayed();
+		System.out.println("3rd Recommended University is "+driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(2).getText());	
+	
+		driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(3).isDisplayed();
+		System.out.println("4th Recommended University is "+driver.findElements(By.xpath("//*[contains(@name, 'university_id')]")).get(3).getText());
+		
+		Thread.sleep(2000);
+		
+		
+		driver.findElement(By.xpath("//*[contains(@name, 'action_recommend_university')]")).click();
+		Thread.sleep(3000);
+//-----------------------For Manual Recommendation--------------//
+//	    WebElement button = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
+//	    button.click();
+//	    Thread.sleep(2000);
+//	    WebElement addline =   driver.findElement(By.xpath("//div[@name='university_id']//input[@role='combobox']"));
+//		//div[@name='university_id']//input[@role='combobox']
+//	    addline.click();
+//	    addline.sendKeys("DePaul University");
+//	    Thread.sleep(2000);
+//	    List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//		Options1.get(0).click();
+	
+
+	}
+
+
+
 	public void TabsbuttonOnU7Enrolled() throws InterruptedException
 	{
 		
@@ -406,7 +523,7 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
 		Thread.sleep(3000);
 	
-			 
+	
 			 driver.findElement(By.id("job_position")).click();
 			 Thread.sleep(3000);
 			//input[@id='job_position']

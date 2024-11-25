@@ -32,6 +32,10 @@ public class FxEnums
 	}
 	
 	
-	
+	public enum FURLs
+	{
+		FServelessProd,
+		FserveLessStage,
+	}
 	
 }

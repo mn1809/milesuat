@@ -448,11 +448,27 @@ public class MilesUtilities
 			case ServerlessStage :
 				return "https://usp-uat.mileseducation.com/web/login";
 			
-				
-			
-				
 			}
 			return "";
 		}
+		
+		
+		//------------------------------------------------------FRONDEND CHANGES---------------------//
+		public static String GetFURLs(FxEnums.FURLs URL)
+		{
+			
+			switch(URL)
+			
+			{
+			case FserveLessStage :
+			return "https://miles-ats-uat-v2.web.app/auth";
+			
+			case FServelessProd :
+				return "https://connect.mileseducation.us/auth";
+			
+			}
+			return "";
+		}
+		
 		
 }

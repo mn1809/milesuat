@@ -23,6 +23,11 @@ public class LoginPageObj extends MilesBasePage
 	protected WebElement loginButton ;
 	
 
+//div[@class="max-md:flex md:hidden h-full bg-cover bg-no-repeat items-end bg-[url('/assets/images/login/bg_Mob.svg')]"]//input[@placeholder='Enter your number']
+
+@FindBy(xpath ="//form[contains(@class, 'ng-pristine ng-invalid')]//button[contains(@class, 'relative') and contains(@class, 'bg-miles')]" )
+protected WebElement ContinueLogin;
+
 	
 	//driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary btn-block')]")).click();
 
@@ -49,6 +54,6 @@ public class LoginPageObj extends MilesBasePage
 		return new HomePageObj(driver);
 	}
 	
-	
-	
+
+	//form[@class='ng-pristine ng-invalid ng-touched']//button[@class='overflow-hidden relative w-full py-2 px-4 rounded-xl font-bold space-x-2 bg-miles text-white text-md']
 }
