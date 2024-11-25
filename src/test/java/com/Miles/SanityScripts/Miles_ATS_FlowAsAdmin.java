@@ -1289,6 +1289,8 @@ public void LoRResponses() throws InterruptedException
     driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer1);
     Thread.sleep(3000);
     
+    driver.findElement(By.className("o_field_x2many_list_row_add")).click();
+    Thread.sleep(1000);
 	WebElement button2 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button2.click();
     Thread.sleep(2500);
@@ -1300,6 +1302,8 @@ public void LoRResponses() throws InterruptedException
     Thread.sleep(3000);
     
     
+    driver.findElement(By.className("o_field_x2many_list_row_add")).click();
+    Thread.sleep(1000);
 	WebElement button3 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button3.click();
     Thread.sleep(2500);
@@ -1311,6 +1315,8 @@ public void LoRResponses() throws InterruptedException
     Thread.sleep(3000);
     
     
+    driver.findElement(By.className("o_field_x2many_list_row_add")).click();
+    Thread.sleep(1000);
     WebElement button4 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button4.click();
     Thread.sleep(2500);
@@ -1322,6 +1328,8 @@ public void LoRResponses() throws InterruptedException
     Thread.sleep(3000);
     
     
+    driver.findElement(By.className("o_field_x2many_list_row_add")).click();
+    Thread.sleep(1000);
     WebElement button5 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button5.click();
     Thread.sleep(2500);
