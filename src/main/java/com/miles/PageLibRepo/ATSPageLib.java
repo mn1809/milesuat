@@ -1111,10 +1111,10 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
 	
 	//-----------------------------Need to be Deleted the above one----------------------//
-	driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(0).click();
-	Thread.sleep(3000);
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
-	Thread.sleep(4000);
+//	driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(0).click();
+//	Thread.sleep(3000);
+//	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
+//	Thread.sleep(4000);
 	//--------------------------------------------------------------------------------------------------------//
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 
