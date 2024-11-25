@@ -1163,8 +1163,8 @@ Thread.sleep(2000);
 	    robot3.keyPress(KeyEvent.VK_ENTER);
 	    robot3.keyRelease(KeyEvent.VK_ENTER);
 	    Thread.sleep(10000);
-	    driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();  
-	    Thread.sleep(1500);
+//	    driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();  
+//	    Thread.sleep(1500);
 	    driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
 	    Thread.sleep(7000);
 	    
