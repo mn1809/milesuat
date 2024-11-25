@@ -1114,7 +1114,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 		SubmissionScreenshot.click();
 	    Thread.sleep(5000);
 	    Robot robot1 = new Robot();
-	    StringSelection filePath1 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath1 = new StringSelection("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
 	    robot1.keyPress(KeyEvent.VK_CONTROL);
 	    robot1.keyPress(KeyEvent.VK_V);
@@ -1129,7 +1129,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 		EmailScreenshot.click();
 	    Thread.sleep(5000);
 	    Robot robot2 = new Robot();
-	    StringSelection filePath2 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath2 = new StringSelection("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath2, null);
 	    robot2.keyPress(KeyEvent.VK_CONTROL);
 	    robot2.keyPress(KeyEvent.VK_V);	    
@@ -1143,7 +1143,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 		PaymentScreenshot.click();
 	    Thread.sleep(5000);  
 	    Robot robot3 = new Robot();
-	    StringSelection filePath3 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
+	    StringSelection filePath3 = new StringSelection("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
 	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath3, null);
 	    robot3.keyPress(KeyEvent.VK_CONTROL);
 	    robot3.keyPress(KeyEvent.VK_V);
