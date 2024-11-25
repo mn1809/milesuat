@@ -1114,7 +1114,7 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 //	driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(0).click();
 //	Thread.sleep(3000);
 //	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
-//	Thread.sleep(4000);
+	Thread.sleep(4000);
 	//--------------------------------------------------------------------------------------------------------//
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 
