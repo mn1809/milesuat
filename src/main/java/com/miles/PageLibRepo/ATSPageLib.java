@@ -1131,40 +1131,40 @@ Thread.sleep(2000);
 	    robot1.keyRelease(KeyEvent.VK_CONTROL);
 	    robot1.keyPress(KeyEvent.VK_ENTER);
 	    robot1.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(10000);
+	    Thread.sleep(15000);
 	    
 		//---------------------------------------------------------------------------------------------------------//
-		WebElement EmailScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(1);
-		EmailScreenshot.click();
-	    Thread.sleep(5000);
-	    Robot robot2 = new Robot();
-	    StringSelection filePath2 = new StringSelection("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath2, null);
-	    robot2.keyPress(KeyEvent.VK_CONTROL);
-	    robot2.keyPress(KeyEvent.VK_V);	    
-	    robot2.keyRelease(KeyEvent.VK_V);
-	    robot2.keyRelease(KeyEvent.VK_CONTROL);
-	    robot2.keyPress(KeyEvent.VK_ENTER);
-	    robot2.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(10000);
-		//-------------------------------------------------------------------------------------------------------------------//
-		WebElement PaymentScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(2);
-		PaymentScreenshot.click();
-	    Thread.sleep(5000);  
-	    Robot robot3 = new Robot();
-	    StringSelection filePath3 = new StringSelection("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath3, null);
-	    robot3.keyPress(KeyEvent.VK_CONTROL);
-	    robot3.keyPress(KeyEvent.VK_V);
-	    robot3.keyRelease(KeyEvent.VK_V);
-	    robot3.keyRelease(KeyEvent.VK_CONTROL);
-	    robot3.keyPress(KeyEvent.VK_ENTER);
-	    robot3.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(10000);
-	    driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();  
-	    Thread.sleep(1500);
-	    driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
-	    Thread.sleep(7000);
+//		WebElement EmailScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(1);
+//		EmailScreenshot.click();
+//	    Thread.sleep(5000);
+//	    Robot robot2 = new Robot();
+//	    StringSelection filePath2 = new StringSelection("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
+//	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath2, null);
+//	    robot2.keyPress(KeyEvent.VK_CONTROL);
+//	    robot2.keyPress(KeyEvent.VK_V);	    
+//	    robot2.keyRelease(KeyEvent.VK_V);
+//	    robot2.keyRelease(KeyEvent.VK_CONTROL);
+//	    robot2.keyPress(KeyEvent.VK_ENTER);
+//	    robot2.keyRelease(KeyEvent.VK_ENTER);
+//	    Thread.sleep(10000);
+//		//-------------------------------------------------------------------------------------------------------------------//
+//		WebElement PaymentScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(2);
+//		PaymentScreenshot.click();
+//	    Thread.sleep(5000);  
+//	    Robot robot3 = new Robot();
+//	    StringSelection filePath3 = new StringSelection("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
+//	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath3, null);
+//	    robot3.keyPress(KeyEvent.VK_CONTROL);
+//	    robot3.keyPress(KeyEvent.VK_V);
+//	    robot3.keyRelease(KeyEvent.VK_V);
+//	    robot3.keyRelease(KeyEvent.VK_CONTROL);
+//	    robot3.keyPress(KeyEvent.VK_ENTER);
+//	    robot3.keyRelease(KeyEvent.VK_ENTER);
+//	    Thread.sleep(10000);
+//	    driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();  
+//	    Thread.sleep(1500);
+//	    driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
+//	    Thread.sleep(7000);
 	    
 }
 
