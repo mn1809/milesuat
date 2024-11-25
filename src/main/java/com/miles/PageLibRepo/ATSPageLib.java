@@ -1118,7 +1118,8 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 	//--------------------------------------------------------------------------------------------------------//
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 Thread.sleep(2000);
-		WebElement SubmissionScreenshot = driver.findElement(By.xpath("//button[normalize-space()='Submission Screenshot']"));   //button[normalize-space()='Submission Screenshot']
+		WebElement SubmissionScreenshot = driver.findElement(By.xpath("//button[normalize-space()='Submission Screenshot']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", SubmissionScreenshot);//button[normalize-space()='Submission Screenshot']
 		SubmissionScreenshot.click();
 	    Thread.sleep(5000);
 	    Robot robot1 = new Robot();
