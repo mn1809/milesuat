@@ -1103,6 +1103,14 @@ public void U9Stage3() throws InterruptedException, AWTException
 public void UploadationOfApplicationProof() throws InterruptedException, AWTException
 
 {
+	CandidateData();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+	
+	//-----------------------------Need to be Deleted the above one----------------------//
 	driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(0).click();
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
