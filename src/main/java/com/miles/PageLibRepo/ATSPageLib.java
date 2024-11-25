@@ -1124,7 +1124,8 @@ Thread.sleep(2000);
 	    Thread.sleep(5000);
 	    
 	    WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
-	    fileInput.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.png");
+	    fileInput.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	  
 	    
 	    
 //	    Robot robot1 = new Robot();
