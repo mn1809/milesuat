@@ -1034,17 +1034,18 @@ public void StudentLORandSOP() throws InterruptedException
     driver.findElement(By.xpath("//*[contains(@name, 'action_update_lor')]")).click();
     Thread.sleep(3000);
     driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
-    Thread.sleep(8000);
+    Thread.sleep(10000);
 
 	
     ///----------Entrieing Student SOP------------------//
     
 	driver.findElement(By.id("sop_updated")).click();
+	Thread.sleep(2000);
 	driver.findElement(By.id("sop_updated")).sendKeys("Automated Script SOP for Candidate.");
 	Thread.sleep(2000);
 	 driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(1).click();
 	  
-	  Thread.sleep(6000);
+	  Thread.sleep(10000);
 	
 
     
