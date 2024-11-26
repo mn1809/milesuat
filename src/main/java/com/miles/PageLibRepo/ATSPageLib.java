@@ -1585,6 +1585,16 @@ Thread.sleep(2000);
 
      driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
      Thread.sleep(4000);
+     WebElement feeReceivedstatus1 = driver.findElement(By.id("fee_received_status"));
+
+     // Create a Select object for the dropdown
+     Select selectstatus1 = new Select(feeReceivedstatus1);
+     Thread.sleep(2000);
+     // Select the option by value
+     selectstatus1.selectByValue("\"2\""); //Payment Completed in edit Miles Pathway Funding // Ensure to include the exact value here
+     WebElement selectedStatus1 = select.getFirstSelectedOption();
+     System.out.println("Selected option is: " + selectedStatus1.getText());
+     Thread.sleep(4000);
      
      //--------------------------------Loan Sanction Date--------------------//
 //     	driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(1).click();
