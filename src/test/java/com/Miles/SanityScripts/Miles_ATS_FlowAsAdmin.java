@@ -684,7 +684,7 @@ public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 31, description = "U13B Miles US Funding Completed Bucket Stage 1")
+//@Test (priority = 31, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
 
 public void VerifyU13BBucketStage1() throws InterruptedException
 
@@ -697,7 +697,7 @@ public void VerifyU13BBucketStage1() throws InterruptedException
 
 }
 
-@Test (priority = 32, description = "U13B Miles US Funding Completed Bucket Stage 2")
+//@Test (priority = 32, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
 public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 {
@@ -710,7 +710,7 @@ public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 
 
-//@Test (priority = 33, description = "U13B Miles US Funding Completed Bucket Stage 3")
+@Test (priority = 33, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
 public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 
 {
@@ -718,7 +718,7 @@ public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
-	ATS.U13BBucketStage3();
+	ATS.U13BBucketStage3(); //---------Approvving US Finace Proof-------------//
 }
 
 //@Test (priority = 34, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
