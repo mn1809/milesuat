@@ -554,7 +554,7 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.UploadationOfApplicationProof();
 }
 
-@Test (priority = 21, description = "U9+ Application Submitted Process")
+//@Test (priority = 21, description = "U9+ Application Submitted Process")
 
 public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 
@@ -566,12 +566,12 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	ATS.U9PlusBucket();
 	Thread.sleep(2000);
 	ATS.UPPlusReuploading(); 
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	ATS.U9VerifyDocuments();
 	
 }
 
-//@Test (priority = 22, description= "U9+ Application Initiated")
+@Test (priority = 22, description= "U9+ Application Initiated")
 
 public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 {
@@ -580,7 +580,7 @@ public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
 	ATS.U9plusVerifyApplicationSubmitted();
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 	ATS.U9PlusAddingMOI();
 
 }

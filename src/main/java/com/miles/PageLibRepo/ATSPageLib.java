@@ -1227,18 +1227,7 @@ public void UPPlusReuploading() throws InterruptedException, AWTException
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_edit_application_line_wizard')]")).click();
 	Thread.sleep(3000);
-//	WebElement SubmissionScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(0);
-//	SubmissionScreenshot.click();
-//    Thread.sleep(5000);
-    
-    
-//    WebElement SubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
-//	
-//    SubmissionScreenshot.click();
-    
-//    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-//    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-//    Thread.sleep(15000);
+
 	 WebElement RESubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
 		
 	    RESubmissionScreenshot.click();
@@ -1321,24 +1310,20 @@ public void U9PlusAddingMOI()throws InterruptedException, AWTException
 		
 		WebElement SubmissionScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(2);
 		SubmissionScreenshot.click();
-	    Thread.sleep(5000);
-	    Robot robot1 = new Robot();
-	    StringSelection filePath1 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
-	    robot1.keyPress(KeyEvent.VK_CONTROL);
-	    robot1.keyPress(KeyEvent.VK_V);
-	    robot1.keyRelease(KeyEvent.VK_V);
-	    robot1.keyRelease(KeyEvent.VK_CONTROL);
-	    robot1.keyPress(KeyEvent.VK_ENTER);
-	    robot1.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(3000);
+		
+		 WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(2);
+		    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+		
+	   
 	    Thread.sleep(10000);
 	    
 		driver.findElement(By.xpath("//*[contains(@name, 'action_update_line')]")).click();
-		
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Ok']")).click();
 		Thread.sleep(3000);
 }
