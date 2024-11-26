@@ -721,7 +721,7 @@ public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 	ATS.U13BBucketStage3(); //---------Approvving US Finace Proof-------------//
 }
 
-@Test (priority = 34, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
+//@Test (priority = 34, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 
 {
@@ -732,7 +732,7 @@ public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 	ATS.U13CBucketStage1(); //-----------------------------Uploading Copy Of I20 Documents-----------------//
 }
 
-//@Test (priority = 35, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
+@Test (priority = 35, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
 public void VerifyU13CBucketStage2() throws InterruptedException
 
 {
