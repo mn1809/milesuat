@@ -1570,7 +1570,7 @@ public void U11BucketStage2() throws InterruptedException
 	
 	//------------------------Final Confirmation of Stage2 U11 Bucket--------------//
 	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary2')]")).click();
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).isDisplayed();
 	System.out.println("Final Funding Type selected by Automation script is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).getText());
