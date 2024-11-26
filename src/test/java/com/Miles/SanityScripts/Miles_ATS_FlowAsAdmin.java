@@ -597,7 +597,7 @@ public void VerifyU10Bucket() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 24, description= "U10 Approve Offer Letter")
+//@Test (priority = 24, description= "U10 Approve Offer Letter")
 
 public void VerifyU10Stage2Bucket() throws InterruptedException
 {
@@ -609,7 +609,7 @@ public void VerifyU10Stage2Bucket() throws InterruptedException
 
 }
 
-//@Test (priority = 25, description= "U10 Final Approver of Offer Letter")
+@Test (priority = 25, description= "U10 Final Approver of Offer Letter")
 
 public void VerifyU10Stage3Bucket() throws InterruptedException
 {
@@ -618,7 +618,7 @@ public void VerifyU10Stage3Bucket() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
 	ATS.U10BucketStage3();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 }
 
 //@Test (priority = 26, description = "U11 Miles Pathway Funding")
