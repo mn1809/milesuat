@@ -1731,68 +1731,51 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 {	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 
 //--------------------------------------Uploading Documents for Passport---------------------//
-	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
-	
-//	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
+//	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
+//	
+////	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
+////	passportDocument.click();
+//	
+//	
+//	WebElement passportDocument = driver.findElements(By.className("o_file_input_trigger")).get(0);			//----------Will be Uploading passport Document-----------//
 //	passportDocument.click();
-	
-	
-	WebElement passportDocument = driver.findElements(By.className("o_file_input_trigger")).get(0);			//----------Will be Uploading offer letter-----------//
-	passportDocument.click();
-	Thread.sleep(3000);
-	
-	 WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-	    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-    Thread.sleep(10000);
+//	Thread.sleep(3000);
+//	
+//	 WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+//	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+//	 Thread.sleep(10000);
 
 	    
 		//-----------------------------------------Loan Sanction Letter----------------------------------------------------------------//
-	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(2).click();	
-	WebElement LoanSanctionLetter = driver.findElements(By.className("o_file_input_trigger")).get(0);
-	LoanSanctionLetter.click();
-	    Thread.sleep(5000);
-	    Robot robot2 = new Robot();
-	    StringSelection filePath2 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath2, null);
-	    robot2.keyPress(KeyEvent.VK_CONTROL);
-	    robot2.keyPress(KeyEvent.VK_V);	    
-	    robot2.keyRelease(KeyEvent.VK_V);
-	    robot2.keyRelease(KeyEvent.VK_CONTROL);
-	    robot2.keyPress(KeyEvent.VK_ENTER);
-	    robot2.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(10000);
+	 driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(2).click();	
+	 WebElement LoanSanctionLetter = driver.findElements(By.className("o_file_input_trigger")).get(0);
+	 LoanSanctionLetter.click();
+	 Thread.sleep(3000);
+	
+	 WebElement fileInput2 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+	 fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	 Thread.sleep(10000);
 	    
 		//---------------------------------------------------Bank Balance Certificate-----------------------------------------------//
 	    driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(4).click();	
 	    WebElement BankBalanceCertificate = driver.findElements(By.className("o_file_input_trigger")).get(0);
 	    BankBalanceCertificate.click();
-	    Thread.sleep(5000);  
-	    Robot robot3 = new Robot();
-	    StringSelection filePath3 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath3, null);
-	    robot3.keyPress(KeyEvent.VK_CONTROL);
-	    robot3.keyPress(KeyEvent.VK_V);
-	    robot3.keyRelease(KeyEvent.VK_V);
-	    robot3.keyRelease(KeyEvent.VK_CONTROL);
-	    robot3.keyPress(KeyEvent.VK_ENTER);
-	    robot3.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(10000);
+	    Thread.sleep(3000);
 	    
+	    WebElement fileInput3 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+		 fileInput3.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+		 Thread.sleep(10000);
+	
 	//---------------------------------------------Financial Affidavit---------------------------------------------------------//
 		
 	    driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(6).click();	
 	    WebElement FinancialAffidavit = driver.findElements(By.className("o_file_input_trigger")).get(0);
 	    FinancialAffidavit.click();
 	    Thread.sleep(5000);  
-	    Robot robot4 = new Robot();
-	    StringSelection filePath4 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath4, null);
-	    robot4.keyPress(KeyEvent.VK_CONTROL);
-	    robot4.keyPress(KeyEvent.VK_V);
-	    robot4.keyRelease(KeyEvent.VK_V);
-	    robot4.keyRelease(KeyEvent.VK_CONTROL);
-	    robot4.keyPress(KeyEvent.VK_ENTER);
-	    robot4.keyRelease(KeyEvent.VK_ENTER);
+	    
+	    WebElement fileInput4 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+		 fileInput4.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+		
 	    Thread.sleep(10000);
 	    
 	    
