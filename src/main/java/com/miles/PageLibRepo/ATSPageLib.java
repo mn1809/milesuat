@@ -1909,21 +1909,18 @@ public void U13BBucketStage2()throws InterruptedException, AWTException
 	System.out.println("Stage is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).getText());
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
+	Thread.sleep(2000);
 	
 	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
 	
-	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
-	passportDocument.click();
-	Thread.sleep(5000);
-	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-	robot.keyPress(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_ENTER);
-	robot.keyRelease(KeyEvent.VK_ENTER);
+	WebElement USFinaceProof = driver.findElements(By.className("o_file_input_trigger")).get(0);
+	USFinaceProof.click();
+    Thread.sleep(5000);  
+    
+    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	
+   
 	Thread.sleep(10000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
