@@ -1393,17 +1393,17 @@ public void U10BucketStage2() throws InterruptedException
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
 	
-	Thread.sleep(1500);
+	Thread.sleep(2500);
 	 driver.findElement(By.xpath("//*[contains(@name, 'action_student_application_list')]")).click();
 	 //----------------------Approveing the documents----------------------------------//
-	 
+	 Thread.sleep(3000);
 	 driver.findElement(By.xpath("//*[contains(@name, 'action_open_document_attachment_state_wizard')]")).click();
-	    
+	 Thread.sleep(3000);
 	    driver.findElements(By.xpath("//*[contains(@name, 'action_approve')]")).get(0).click();
 	    Thread.sleep(5000);
 	    
 	    driver.findElement(By.xpath("//span[normalize-space()='Cancel']")).click();
-		Thread.sleep(1500);
+		Thread.sleep(5000);
 	
 }
 

@@ -585,7 +585,7 @@ public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 23, description= "U10 Upload Offer Letter")
+//@Test (priority = 23, description= "U10 Upload Offer Letter")
 
 public void VerifyU10Bucket() throws InterruptedException, AWTException
 {
@@ -597,14 +597,14 @@ public void VerifyU10Bucket() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 24, description= "U10 Approve Offer Letter")
+@Test (priority = 24, description= "U10 Approve Offer Letter")
 
 public void VerifyU10Stage2Bucket() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
-	Thread.sleep(2000);	
+	Thread.sleep(3000);	
 	ATS.U10BucketStage2();
 
 }
