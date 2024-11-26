@@ -2240,6 +2240,8 @@ public void U16Bucket() throws InterruptedException
 	System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
 
 }
+
+
 public void U15BucketStage2UploadingVISADetails() throws InterruptedException, AWTException
 
 {
@@ -2257,33 +2259,26 @@ public void U15BucketStage2UploadingVISADetails() throws InterruptedException, A
 	Options1.get(0).click();
 	
 	
-	
+	Thread.sleep(3000);
 		//--------------------------------VISA Slot Date-------------------------//
 		driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(1).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 	     driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
 	     Thread.sleep(2000);
 	
 	     driver.findElement(By.xpath("//*[contains(@title, 'Close the picker')]")).click(); 
-	     Thread.sleep(1000);
+	     Thread.sleep(3000);
 	     //---------------------------VISA SLOT PROOF---------------------------//
 	     
 	 	WebElement VisaSlotDocument = driver.findElement(By.className("o_file_input_trigger"));
 	 	VisaSlotDocument.click();
-		Thread.sleep(5000);
-		Robot robot = new Robot();
-		StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-		robot.keyPress(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_V);
-		robot.keyRelease(KeyEvent.VK_CONTROL);
-		robot.keyPress(KeyEvent.VK_ENTER);
-		robot.keyRelease(KeyEvent.VK_ENTER);
+		  Thread.sleep(5000);  
+		    
+		    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+			 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 		Thread.sleep(10000);
-		
-		
+	
 		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
 	    Thread.sleep(1500); 
 	     
