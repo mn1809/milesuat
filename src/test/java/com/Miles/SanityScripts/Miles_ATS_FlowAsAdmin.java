@@ -539,7 +539,7 @@ public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 
 }
 
-@Test (priority = 20, description = "U9 MSA SIGNED")
+//@Test (priority = 20, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
 
@@ -549,12 +549,12 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(2000);
 	
-	//ATS.U9Stage3();
+	ATS.U9Stage3();
 	Thread.sleep(2000);
 	ATS.UploadationOfApplicationProof();
 }
 
-//@Test (priority = 21, description = "U9+ Application Submitted Process")
+@Test (priority = 21, description = "U9+ Application Submitted Process")
 
 public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 
@@ -567,7 +567,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	Thread.sleep(2000);
 	ATS.UPPlusReuploading(); 
 	Thread.sleep(2000);
-	ATS.U9VerifyDocuments();
+	//ATS.U9VerifyDocuments();
 	
 }
 

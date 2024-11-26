@@ -1103,24 +1103,15 @@ public void U9Stage3() throws InterruptedException, AWTException
 public void UploadationOfApplicationProof() throws InterruptedException, AWTException
 
 {
-	CandidateData();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 	
+	driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(0).click();
 	Thread.sleep(3000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
-	
-	//-----------------------------Need to be Deleted the above one----------------------//
-//	driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(0).click();
-//	Thread.sleep(3000);
-//	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
 	Thread.sleep(4000);
 	//--------------------------------------------------------------------------------------------------------//
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
-Thread.sleep(2000);
+		Thread.sleep(2000);
 
-	    
-	  //  WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
 	    WebElement SubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
 	
 	    SubmissionScreenshot.click();
@@ -1239,16 +1230,16 @@ public void UPPlusReuploading() throws InterruptedException, AWTException
 	WebElement SubmissionScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(0);
 	SubmissionScreenshot.click();
     Thread.sleep(5000);
-    Robot robot1 = new Robot();
-    StringSelection filePath1 = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
-    robot1.keyPress(KeyEvent.VK_CONTROL);
-    robot1.keyPress(KeyEvent.VK_V);
-    robot1.keyRelease(KeyEvent.VK_V);
-    robot1.keyRelease(KeyEvent.VK_CONTROL);
-    robot1.keyPress(KeyEvent.VK_ENTER);
-    robot1.keyRelease(KeyEvent.VK_ENTER);
-    Thread.sleep(10000);
+    
+    
+//    WebElement SubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
+//	
+//    SubmissionScreenshot.click();
+    
+    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+    Thread.sleep(15000);
+    
     
     driver.findElement(By.xpath("//*[contains(@name, 'action_update_line')]")).click();
     Thread.sleep(5000);
