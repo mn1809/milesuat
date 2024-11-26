@@ -1673,7 +1673,7 @@ public void U12BucketUSFundingType() throws InterruptedException
      System.out.println("Selected option is: " + selectedOption.getText());
      
      //--------------------US Funding Status Selections----------------//
-     
+     Thread.sleep(5000);
      WebElement USFundingStatus = driver.findElement(By.id("fee_received_status_us"));
 
      // Create a Select object for the dropdown
