@@ -2142,9 +2142,9 @@ public void U15BucketStage1MandateFeilds() throws InterruptedException
 
 	//---------------------------------Negative FLow For Mandate Feilds---------------//
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
-
+	Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
-	
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_notification o_notification_fade border border-danger bg-white mb-2 position-relative o_notification_fade-enter-active')]")).isDisplayed();
 	System.out.println("Error Accored for Mandate Feilds "+driver.findElement(By.xpath("//*[contains(@class, 'o_notification o_notification_fade border border-danger bg-white mb-2 position-relative o_notification_fade-enter-active')]")).getText());
 }
@@ -2156,7 +2156,7 @@ public void TooBookVISASlot() throws InterruptedException, AWTException
 	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
-
+	Thread.sleep(3000);
 	driver.findElement(By.id("job_position")).click();
 	Thread.sleep(2000);
 	driver.findElement(By.id("job_position")).clear();
@@ -2176,7 +2176,7 @@ public void TooBookVISASlot() throws InterruptedException, AWTException
 	
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options.get(0).click();
-
+Thread.sleep(3000);
 	
 	driver.findElement((By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]"))).click();
 	Thread.sleep(2000);

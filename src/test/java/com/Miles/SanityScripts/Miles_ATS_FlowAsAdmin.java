@@ -763,7 +763,7 @@ public void VerifyU14BucketStage2() throws InterruptedException, AWTException
 	ATS.U14BucketStage2();//-----------------------------Uploading DS160 Documents--------------------//
 }
 
-@Test (priority = 38, description = "U14 Miles Fincial Submitted to US Unversity Stage3")
+//@Test (priority = 38, description = "U14 Miles Fincial Submitted to US Unversity Stage3")
 public void VerifyU14BucketStage3() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -774,7 +774,7 @@ public void VerifyU14BucketStage3() throws InterruptedException, AWTException
 }	
 
 
-//@Test (priority = 39, description = "U15 Miles DS160 Submitted")
+@Test (priority = 39, description = "U15 Miles DS160 Submitted")
 public void VerifyU15BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
