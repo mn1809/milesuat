@@ -643,7 +643,7 @@ public void verifyU11Stage2Bucket() throws InterruptedException
 	ATS.U11BucketStage2();	
 }
 
-@Test (priority = 28, description = "U12 Miles US Pathway Funding Type")
+//@Test (priority = 28, description = "U12 Miles US Pathway Funding Type")
 public void verifyU12Bucket() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -654,7 +654,7 @@ public void verifyU12Bucket() throws InterruptedException
 	
 }
 
-//@Test (priority = 29, description = "U13A Miles US Funding Bucket Stage1")
+@Test (priority = 29, description = "U13A Miles US Funding Bucket Stage1")
 
 public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 {
