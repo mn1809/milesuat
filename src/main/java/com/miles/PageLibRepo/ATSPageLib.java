@@ -1168,7 +1168,7 @@ Thread.sleep(2000);
 	    fileInput3.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 	    Thread.sleep(15000);
 	    
-	    driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();  
+	    driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university12345')]")).click();  
 	    Thread.sleep(1500);
 	    driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
 	    Thread.sleep(7000);
