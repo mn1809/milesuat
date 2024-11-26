@@ -1614,19 +1614,19 @@ public void U15BucketStage3ApprovingVISADetails() throws InterruptedException
 	Thread.sleep(2000);
 	
 	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
-	Thread.sleep(1500);
+	Thread.sleep(2500);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
 	Thread.sleep(3000);
 	
 	Actions act = new Actions(driver);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]"))).perform();
-	
+	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 	Thread.sleep(2000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
-    Thread.sleep(1500);
+    Thread.sleep(2500);
 	
 	
 }

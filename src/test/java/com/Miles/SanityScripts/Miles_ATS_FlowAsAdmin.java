@@ -784,7 +784,7 @@ public void VerifyU15BucketStage1() throws InterruptedException, AWTException
 	ATS.U15BucketStage1MandateFeilds();//---------------------------------Negative FLow For Mandate Feilds---------------//
 }
 
-@Test (priority = 40, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
+//@Test (priority = 40, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
 public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -795,7 +795,7 @@ public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, 
 }	
 
 
-//@Test (priority = 41, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
+@Test (priority = 41, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
 public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
