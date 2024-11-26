@@ -1220,12 +1220,12 @@ public void UPPlusReuploading() throws InterruptedException, AWTException
 	
 	driver.findElement(By.id("remark")).sendKeys("Adding Remark to Check Reupload");
 	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'action_submit_remark')]")).click();
-	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_submit_remark')]")).click();	//CLIKCING SUBMIT//
+	Thread.sleep(4000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-sm btn-info')]")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_edit_application_line_wizard')]")).click();
 	Thread.sleep(3000);
 //	WebElement SubmissionScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(0);
 //	SubmissionScreenshot.click();
