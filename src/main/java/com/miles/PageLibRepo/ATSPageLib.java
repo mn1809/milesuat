@@ -1731,19 +1731,19 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 {	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 
 //--------------------------------------Uploading Documents for Passport---------------------//
-//	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
-//	
-////	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
-////	passportDocument.click();
-//	
-//	
-//	WebElement passportDocument = driver.findElements(By.className("o_file_input_trigger")).get(0);			//----------Will be Uploading passport Document-----------//
+	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
+	
+//	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
 //	passportDocument.click();
-//	Thread.sleep(3000);
-//	
-//	 WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-//	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-//	 Thread.sleep(10000);
+	
+	
+	WebElement passportDocument = driver.findElements(By.className("o_file_input_trigger")).get(0);			//----------Will be Uploading passport Document-----------//
+	passportDocument.click();
+	Thread.sleep(3000);
+	
+	 WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	 Thread.sleep(10000);
 
 	    
 		//-----------------------------------------Loan Sanction Letter----------------------------------------------------------------//
@@ -1787,13 +1787,9 @@ public void DocumentCollectionforUSFundingDocuments() throws InterruptedExceptio
 
 public void U13ABucketStage2USFunding() throws InterruptedException, AWTException
 {
-	CandidateData();
+	CandidateData1();
 	
 	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	
-	Thread.sleep(3000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
 	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());

@@ -654,7 +654,7 @@ public void verifyU12Bucket() throws InterruptedException
 	
 }
 
-@Test (priority = 29, description = "U13A Miles US Funding Bucket Stage1")
+//@Test (priority = 29, description = "U13A Miles US Funding Bucket Stage1")
 
 public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 {
@@ -664,12 +664,12 @@ public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 	Thread.sleep(2000);
 	
 	ATS.U13ABucketStage1USFunding();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	ATS.DocumentCollectionforUSFundingDocuments();
 
 }
 
-//@Test (priority = 30, description = "U13A Miles US Funding Bucket Stage2")
+@Test (priority = 30, description = "U13A Miles US Funding Bucket Stage2")
 
 public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 {
