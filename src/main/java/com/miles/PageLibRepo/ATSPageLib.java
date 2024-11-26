@@ -1226,23 +1226,29 @@ public void UPPlusReuploading() throws InterruptedException, AWTException
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-sm btn-info')]")).click();
-	
-	WebElement SubmissionScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(0);
-	SubmissionScreenshot.click();
-    Thread.sleep(5000);
+	Thread.sleep(3000);
+//	WebElement SubmissionScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(0);
+//	SubmissionScreenshot.click();
+//    Thread.sleep(5000);
     
     
 //    WebElement SubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
 //	
 //    SubmissionScreenshot.click();
     
-    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-    Thread.sleep(15000);
-    
+//    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+//    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+//    Thread.sleep(15000);
+	 WebElement RESubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
+		
+	    RESubmissionScreenshot.click();
+	    
+	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+	    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	    Thread.sleep(15000);    
     
     driver.findElement(By.xpath("//*[contains(@name, 'action_update_line')]")).click();
-    Thread.sleep(5000);
+    Thread.sleep(8000);
 }
 
 public void U9VerifyDocuments() throws InterruptedException
@@ -1261,7 +1267,7 @@ public void U9VerifyDocuments() throws InterruptedException
     Thread.sleep(2000);
    
     driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
-	Thread.sleep(1500);
+	Thread.sleep(5500);
 }
 
 public void U9plusVerifyApplicationSubmitted() throws InterruptedException

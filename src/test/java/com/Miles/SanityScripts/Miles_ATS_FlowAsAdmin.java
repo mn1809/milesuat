@@ -183,7 +183,7 @@ LoginPageLib loginObj ;
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-	driver.quit();
+//	driver.quit();
 	
 	 }
 	 
@@ -565,7 +565,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	Thread.sleep(2000);
 	ATS.U9PlusBucket();
 	Thread.sleep(2000);
-	//ATS.UPPlusReuploading(); 
+	ATS.UPPlusReuploading(); 
 	Thread.sleep(2000);
 	ATS.U9VerifyDocuments();
 	
