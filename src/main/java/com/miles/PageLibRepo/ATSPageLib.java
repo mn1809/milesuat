@@ -1703,13 +1703,10 @@ public void U12BucketUSFundingType() throws InterruptedException
 
 public void U13ABucketStage1USFunding() throws InterruptedException, AWTException 
 {
-	CandidateData();
-	
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	CandidateData1();
 	
 	Thread.sleep(3000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
+
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
 	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
