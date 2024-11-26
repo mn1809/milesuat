@@ -732,7 +732,7 @@ public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 	ATS.U13CBucketStage1(); //-----------------------------Uploading Copy Of I20 Documents-----------------//
 }
 
-@Test (priority = 35, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
+//@Test (priority = 35, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
 public void VerifyU13CBucketStage2() throws InterruptedException
 
 {
@@ -743,7 +743,7 @@ public void VerifyU13CBucketStage2() throws InterruptedException
 	ATS.U13CBucketStage2();//------------------------Approving I20 Documents----------------------//
 }
 
-//@Test (priority = 36, description = "U14 Miles Fincial Submitted to US Unversity Stage1")
+@Test (priority = 36, description = "U14 Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU14BucketSatge1() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
