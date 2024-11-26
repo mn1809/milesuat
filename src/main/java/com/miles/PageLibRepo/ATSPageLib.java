@@ -1130,7 +1130,25 @@ Thread.sleep(2000);
 	    Thread.sleep(15000);
 	    
 		//---------------------------------------------------------------------------------------------------------//
+//	    Actions act1 = new Actions(driver);
+//		act1.moveToElement (driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]"))).get(1).perform();
+//		Thread.sleep(2000);
 
+		Actions act1 = new Actions(driver);
+
+		// Get the list of elements matching the XPath
+		List<WebElement> attachButtons = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]"));
+
+		// Check if the second element exists
+		if (attachButtons.size() > 1) {
+		    // Move to the second element
+		    act1.moveToElement(attachButtons.get(1)).click().perform();
+		} else {
+		    System.out.println("The second attach button was not found.");
+		}
+		
+		
+		
 	    WebElement EmailScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(1);
 		
 	    EmailScreenshot.click();
