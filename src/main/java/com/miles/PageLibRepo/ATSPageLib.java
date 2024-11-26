@@ -60,7 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Test user for UR");
 		Thread.sleep(3000);
 	}
 	
@@ -1585,16 +1585,12 @@ Thread.sleep(2000);
 
      driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
      Thread.sleep(4000);
-     WebElement feeReceivedstatus1 = driver.findElement(By.id("fee_received_status"));
-
-     // Create a Select object for the dropdown
-     Select selectstatus1 = new Select(feeReceivedstatus1);
+     driver.findElement(By.xpath("//*[contains(@class,'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).click();
      Thread.sleep(2000);
-     // Select the option by value
-     selectstatus1.selectByValue("\"2\""); //Payment Completed in edit Miles Pathway Funding // Ensure to include the exact value here
-     WebElement selectedStatus1 = select.getFirstSelectedOption();
-     System.out.println("Selected option is: " + selectedStatus1.getText());
-     Thread.sleep(4000);
+     driver.findElement(By.id("ctp_fee_collect_date")).isDisplayed();
+     System.out.println("The Collected Date is"+driver.findElement(By.id("ctp_fee_collect_date")).getText());
+     
+  
      
      //--------------------------------Loan Sanction Date--------------------//
 //     	driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(1).click();
