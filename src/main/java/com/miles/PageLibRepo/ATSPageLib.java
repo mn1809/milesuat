@@ -1498,7 +1498,7 @@ public void ScrollToFundingU11() throws InterruptedException
 	Actions act = new Actions(driver);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'funding')]"))).perform();
 	driver.findElement(By.xpath("//*[contains(@name, 'funding')]")).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'action_open_payment_wizard')]"))).perform();
 	//driver.findElement(By.className("fa fa-plus")).click();
 }
@@ -1513,7 +1513,7 @@ public void U11BucketStage2() throws InterruptedException
 	
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_subtitle  kanban_tiles_subtitle')]")).click();
-	
+	Thread.sleep(3000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercase')]")).get(0).isDisplayed();
 	System.out.println("Current Candidate is in "+driver.findElements(By.xpath("//*[contains(@class, 'btn o_arrow_button_current o_arrow_button disabled text-uppercas')]")).get(0).getText());
 	
@@ -1578,14 +1578,14 @@ public void U11BucketStage2() throws InterruptedException
 	
 	//--------------------------------Fee collect Date-------------------------//
 	driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(0).click();
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 
      driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
      Thread.sleep(2000);
      
      //--------------------------------Loan Sanction Date--------------------//
      	driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(1).click();
- 		Thread.sleep(1000);
+ 		Thread.sleep(2000);
 
  		driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
  		Thread.sleep(2000);
