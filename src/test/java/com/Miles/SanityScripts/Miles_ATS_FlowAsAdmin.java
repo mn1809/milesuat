@@ -609,7 +609,7 @@ public void VerifyU10Stage2Bucket() throws InterruptedException
 
 }
 
-@Test (priority = 25, description= "U10 Final Approver of Offer Letter")
+//@Test (priority = 25, description= "U10 Final Approver of Offer Letter")
 
 public void VerifyU10Stage3Bucket() throws InterruptedException
 {
@@ -621,7 +621,7 @@ public void VerifyU10Stage3Bucket() throws InterruptedException
 	Thread.sleep(3000);
 }
 
-//@Test (priority = 26, description = "U11 Miles Pathway Funding")
+@Test (priority = 26, description = "U11 Miles Pathway Funding")
 
 public void VerifyU11Stage1Bucket()throws InterruptedException
 {
