@@ -1570,7 +1570,7 @@ public void U11BucketStage2() throws InterruptedException
 	
 	//------------------------Final Confirmation of Stage2 U11 Bucket--------------//
 	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary2')]")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).isDisplayed();
 	System.out.println("Final Funding Type selected by Automation script is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).getText());
@@ -1681,14 +1681,14 @@ public void U12BucketUSFundingType() throws InterruptedException
     //------------------------Selecting Bank Name---------------------//
      
      driver.findElement(By.id("bank_id")).click();
-     
+     Thread.sleep(2000);
      driver.findElement(By.id("bank_id")).sendKeys("SBI");
      Thread.sleep(2000);
  	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
  	Options.get(0).click();
- 	
+ 	Thread.sleep(2000);
  	 driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
-     Thread.sleep(1500); 
+     Thread.sleep(3500); 
      
 }
 
