@@ -1988,19 +1988,15 @@ public void U13CBucketStage1() throws InterruptedException, AWTException
 	Thread.sleep(1000);
 	
 	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
-	
+	Thread.sleep(2000);
 	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
 	passportDocument.click();
-	Thread.sleep(5000);
-	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-	robot.keyPress(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_ENTER);
-	robot.keyRelease(KeyEvent.VK_ENTER);
+	
+	  Thread.sleep(5000);  
+	    
+	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+		 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+		
 	Thread.sleep(10000);
 	
 	
