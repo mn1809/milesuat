@@ -1118,31 +1118,16 @@ public void UploadationOfApplicationProof() throws InterruptedException, AWTExce
 	//--------------------------------------------------------------------------------------------------------//
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 Thread.sleep(2000);
-		WebElement SubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
-	//	((JavascriptExecutor) driver).executeScript("arguments[0].click();", SubmissionScreenshot);//button[normalize-space()='Submission Screenshot']
-	//	SubmissionScreenshot.click();
-	    Thread.sleep(5000);
+
 	    
 	  //  WebElement fileInput = driver.findElement(By.xpath("//input[@type='file']"));
-	    WebElement fileInput = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
-	  //  fileInput.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-	    fileInput.click();
+	    WebElement SubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
+	
+	    SubmissionScreenshot.click();
 	    
 	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
 	    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 	    Thread.sleep(15000);
-	    
-	    
-//	    Robot robot1 = new Robot();
-//	    StringSelection filePath1 = new StringSelection("C:\\Users\\Miles\\Pictures\\MASATTACHEMENT.png");
-//	    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath1, null);
-//	    robot1.keyPress(KeyEvent.VK_CONTROL);
-//	    robot1.keyPress(KeyEvent.VK_V);
-//	    robot1.keyRelease(KeyEvent.VK_V);
-//	    robot1.keyRelease(KeyEvent.VK_CONTROL);
-//	    robot1.keyPress(KeyEvent.VK_ENTER);
-//	    robot1.keyRelease(KeyEvent.VK_ENTER);
-//	    Thread.sleep(15000);
 	    
 		//---------------------------------------------------------------------------------------------------------//
 //		WebElement EmailScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(1);
@@ -1159,6 +1144,15 @@ Thread.sleep(2000);
 //	    robot2.keyPress(KeyEvent.VK_ENTER);
 //	    robot2.keyRelease(KeyEvent.VK_ENTER);
 //	    Thread.sleep(10000);
+	    WebElement EmailScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(1);
+		
+	    EmailScreenshot.click();
+	    
+	    WebElement fileInput2 = driver.findElements(By.xpath("//input[@type='file']")).get(1);
+	    fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	    Thread.sleep(15000);
+	    
+	    
 //		//-------------------------------------------------------------------------------------------------------------------//
 //		WebElement PaymentScreenshot = driver.findElements(By.className("o_file_input_trigger")).get(2);
 //		((JavascriptExecutor) driver).executeScript("arguments[0].click();", PaymentScreenshot);
@@ -1174,6 +1168,14 @@ Thread.sleep(2000);
 //	    robot3.keyPress(KeyEvent.VK_ENTER);
 //	    robot3.keyRelease(KeyEvent.VK_ENTER);
 //	    Thread.sleep(10000);
+  WebElement PaymentScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(2);
+		
+  PaymentScreenshot.click();
+	    
+	    WebElement fileInput3 = driver.findElements(By.xpath("//input[@type='file']")).get(2);
+	    fileInput3.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	    Thread.sleep(15000);
+	    
 	    driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university1234')]")).click();  
 	    Thread.sleep(1500);
 	    driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
