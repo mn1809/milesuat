@@ -60,7 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Sai- test");
 		Thread.sleep(3000);
 	}
 	
@@ -1474,7 +1474,7 @@ public void U11BucketStage1() throws InterruptedException
       // Optional: Print selected option to verify
       WebElement selectedOption = select.getFirstSelectedOption();
       System.out.println("Selected option is: " + selectedOption.getText());
-  
+  Thread.sleep(2000);
       driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
     Thread.sleep(1500); 
     
@@ -1532,11 +1532,12 @@ public void U11BucketStage2() throws InterruptedException
 	ScrollToFundingU11();
 	Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@name, 'action_open_select_finance_fee_wizard')]")).get(1).click();
-	Thread.sleep(2000);
+	Thread.sleep(4000);
 	
 	//Alternative way to select the other options//
 	WebElement paymentDropdown = driver.findElement(By.id("funding_type"));
-
+	
+Thread.sleep(2000);
     // Create a Select object for the dropdown
     Select select = new Select(paymentDropdown);
 
@@ -1549,7 +1550,7 @@ public void U11BucketStage2() throws InterruptedException
     System.out.println("Selected option is: " + selectedOption.getText());
 
     ///---------------------Fee Recevied Status----------------------------------------//
-
+    Thread.sleep(5000);
 	//Alternative way to select the other options//
 	WebElement feeReceivedstatus = driver.findElement(By.id("fee_received_status"));
 
@@ -1563,7 +1564,7 @@ public void U11BucketStage2() throws InterruptedException
 
     WebElement selectedStatus = select.getFirstSelectedOption();
     System.out.println("Selected option is: " + selectedStatus.getText());
-    Thread.sleep(2000);
+    Thread.sleep(4000);
     
     driver.findElement(By.xpath("//*[contains(@name, 'action_finance_fee_manage_submit')]")).click();
 	Thread.sleep(2000);
@@ -1571,7 +1572,7 @@ public void U11BucketStage2() throws InterruptedException
 	//------------------------Final Confirmation of Stage2 U11 Bucket--------------//
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
-	
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).isDisplayed();
 	System.out.println("Final Funding Type selected by Automation script is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).getText());
 	Thread.sleep(2000);
