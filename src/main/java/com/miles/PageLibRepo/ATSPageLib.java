@@ -2069,22 +2069,19 @@ public void U14BucketStage2() throws InterruptedException, AWTException
 	
 	//-----------------------------Uploading DS160 Documents--------------------//
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	
 	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
 	
-	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
-	passportDocument.click();
-	Thread.sleep(5000);
-	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-	robot.keyPress(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_ENTER);
-	robot.keyRelease(KeyEvent.VK_ENTER);
+	Thread.sleep(2000);
+	
+	WebElement DS160Document = driver.findElement(By.className("o_file_input_trigger"));
+	DS160Document.click();
+	
+	  Thread.sleep(5000);  
+	    
+	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+		 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 	Thread.sleep(10000);
 	
 	
