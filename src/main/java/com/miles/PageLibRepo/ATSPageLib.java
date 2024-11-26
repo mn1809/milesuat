@@ -60,7 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("Sai- test");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 		Thread.sleep(3000);
 	}
 	
@@ -1542,7 +1542,7 @@ Thread.sleep(2000);
     Select select = new Select(paymentDropdown);
 
     // Select the option by value
-    select.selectByValue("\"1\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+    select.selectByValue("\"0\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
 
     // OR: Select the option by visible text     // select.selectByVisibleText("Self support");
 
@@ -1556,11 +1556,11 @@ Thread.sleep(2000);
 
     // Create a Select object for the dropdown
     Select selectstatus = new Select(feeReceivedstatus);
-
+    Thread.sleep(2000);
     // Select the option by value
-    selectstatus.selectByValue("\"2\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+    selectstatus.selectByValue("\"2\""); //Payment Completed in edit Miles Pathway Funding // Ensure to include the exact value here
 
-    // OR: Select the option by visible text     // select.selectByVisibleText("Loan support");
+
 
     WebElement selectedStatus = select.getFirstSelectedOption();
     System.out.println("Selected option is: " + selectedStatus.getText());
@@ -1582,14 +1582,14 @@ Thread.sleep(2000);
 	Thread.sleep(2000);
 
      driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
-     Thread.sleep(2000);
+     Thread.sleep(4000);
      
      //--------------------------------Loan Sanction Date--------------------//
-     	driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(1).click();
- 		Thread.sleep(2000);
-
- 		driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
- 		Thread.sleep(2000);
+//     	driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(1).click();
+// 		Thread.sleep(2000);
+//
+// 		driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
+// 		Thread.sleep(2000);
  
  		driver.findElement(By.xpath("//*[contains(@name, 'action_finance_fee_manage_submit')]")).click();
  		
