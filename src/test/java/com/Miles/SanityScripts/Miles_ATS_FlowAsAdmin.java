@@ -805,7 +805,7 @@ public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, 
 	ATS.U15BucketStage3ApprovingVISADetails();//------------------------------Approving VISA Slot Details and Documents--------------------//
 }
 
-@Test (priority = 42, description = "U16 Miles Too Book VISA Slot")
+//@Test (priority = 42, description = "U16 Miles Too Book VISA Slot")
 public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -817,7 +817,7 @@ public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 	ATS.TooBookVISASlot();				//----------------------VISA Booking Slot---------------------//
 }
 
-//@Test (priority = 43, description = "U16 Miles Book Visa Mock Interview")
+@Test (priority = 43, description = "U16 Miles Book Visa Mock Interview")
 public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -1480,7 +1480,7 @@ public void U16TooBookVISAMock() throws InterruptedException
 	Thread.sleep(2000);
 
 	driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
-
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
 Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
