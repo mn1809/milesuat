@@ -410,21 +410,23 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.xpath("//*[contains(@name, 'work_experience')]")).click();
 		 Thread.sleep(3000); 
 		driver.findElement(By.id("has_experience")).click();
-		
+		Thread.sleep(2000);
 		Actions act1 = new Actions(driver);
 		act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
 		Thread.sleep(2000);
 		
 		WebElement workexpyear = driver.findElement(By.id("total_experience"));
 		workexpyear.click();
+		Thread.sleep(2000);
 		workexpyear.clear();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		workexpyear.sendKeys("4");
 		
 		 Thread.sleep(3000); 
 		 
 		WebElement workexpmonth = driver.findElement(By.id("total_experience_month"));
 		workexpmonth.click();
+		Thread.sleep(2000);
 		workexpmonth.clear();
 		Thread.sleep(1000);
 		workexpmonth.sendKeys("5");
@@ -433,6 +435,7 @@ public class ATSPageLib extends atspageObj
 		 
 		 WebElement CurrentCompany = driver.findElement(By.id("current_company"));
 		 CurrentCompany.click();
+		 Thread.sleep(2000);
 		 CurrentCompany.clear();
 		 Thread.sleep(1500);
 		 CurrentCompany.sendKeys("Miles Automation Company");
@@ -688,7 +691,7 @@ public void ScrollToMeetingTab() throws InterruptedException
 	Actions act = new Actions(driver);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'student_meeting_line')]"))).perform();
 	driver.findElement(By.xpath("//*[contains(@name, 'student_meeting_line')]")).click();
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
 	//driver.findElement(By.className("fa fa-plus")).click();
 	
@@ -769,7 +772,7 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
-	
+	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
 	Thread.sleep(3000);
 	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).click();
@@ -783,7 +786,7 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
 	Thread.sleep(3000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
-	
+	Thread.sleep(2000);
 }
 
 
@@ -869,7 +872,7 @@ public void U8bucket() throws InterruptedException
 public void MSASigned() throws InterruptedException, AWTException
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
-	
+	Thread.sleep(2000);
 	 driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("JAGSoM (Opt-IN)");//---------Giving MAS Documnet Input----------//
 	 Thread.sleep(2000);
 
@@ -889,26 +892,19 @@ public void MSASigned() throws InterruptedException, AWTException
 		//	 Thread.sleep(5000);
 		//	driver.findElement(By.xpath("//*[contains(@name, 'action_sign_msa_agreement_submit')]")).click();
 		Thread.sleep(5000);
-        WebElement uploadButton = driver.findElement(By.className("o_file_input_trigger"));
-        uploadButton.click();
-        Thread.sleep(5000);
+//        WebElement uploadButton = driver.findElement(By.className("o_file_input_trigger"));
+//        uploadButton.click();
+//        Thread.sleep(5000);
         
-        // Use the Robot class to handle the file upload dialog
-        Robot robot = new Robot();
-
-        // Copy the file path to the clipboard
-        StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-        // Simulate pressing CTRL + V (paste)
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        
-        robot.keyRelease(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-
-        // Simulate pressing Enter to confirm the file selection
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+    	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
+    	Thread.sleep(2000);
+    	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
+    	passportDocument.click();
+    	
+    	  Thread.sleep(5000);  
+    	    
+    	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+    		 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 
         // Add any further actions if needed, such as submitting the form
 	Thread.sleep(10000);
