@@ -817,7 +817,7 @@ public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 	ATS.TooBookVISASlot();				//----------------------VISA Booking Slot---------------------//
 }
 
-@Test (priority = 43, description = "U16 Miles Book Visa Mock Interview")
+//@Test (priority = 43, description = "U16 Miles Book Visa Mock Interview")
 public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -828,7 +828,7 @@ public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 }
 
 
-//@Test (priority = 44, description = "U16 Miles Attending Visa Mock Interview")
+@Test (priority = 44, description = "U16 Miles Attending Visa Mock Interview")
 public void VerifyU16BucketStage3() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -1407,7 +1407,7 @@ public void U16ToAttendingMeeting() throws InterruptedException
 	ATS.ScrollToMeetingTab();
 	Thread.sleep(3000);
 	
-System.out.println("Meeting Info is "+driver.findElements(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).get(1).getText());
+	System.out.println("Meeting Info is "+driver.findElements(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).get(1).getText());
 
 	
 	driver.findElements(By.xpath("//*[contains(@name, 'action_goto_booking')]")).get(1).click(); //Click on Go to Booking Tab.//
@@ -1426,12 +1426,16 @@ System.out.println("Meeting Info is "+driver.findElements(By.xpath("//*[contains
 		Thread.sleep(4000);
 		ATS.EndMeeting();
 		Thread.sleep(4000);
+		
 		driver.findElement(By.xpath("//*[contains(@name, 'action_goto_lead')]")).click();
+		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 		Thread.sleep(2000);
+		
 		driver.findElement(By.id("interview_feedback")).sendKeys(Adding_CommentsTo_VISAInterviewFeedback);
 		Thread.sleep(2000);
+		
 		driver.findElement(By.xpath("//*[contains(@name, 'action_submit_visa_slot_feedback')]")).click();
 		Thread.sleep(5000);
 }
