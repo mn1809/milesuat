@@ -1458,7 +1458,7 @@ public void U16TooBookVISAMock() throws InterruptedException
 	//XPath using the calculated date
 	String xpath = String.format("//td[@data-action='selectDay' and @data-day='%s']", tomorrowDate);
 	
-	
+	Thread.sleep(2000);
 	WebElement dateElement = driver.findElement(By.xpath(xpath));
 	dateElement.click();
 	
@@ -1467,9 +1467,11 @@ public void U16TooBookVISAMock() throws InterruptedException
 	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
 	
 	System.out.println("Booked Date for Selected Slot is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_field_date')]")).getText());
-	System.out.println("Start Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'start_date')]")).getText());
-	System.out.println("End Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'end_date')]")).getText());
 	Thread.sleep(1000);
+	System.out.println("Start Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'start_date')]")).getText());
+	Thread.sleep(1000);
+	System.out.println("End Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'end_date')]")).getText());
+	Thread.sleep(2000);
 	
 	driver.findElement(By.xpath("//*[contains(@name, 'confirm_slot')]")).click();
 	Thread.sleep(2000);
@@ -1480,7 +1482,7 @@ public void U16TooBookVISAMock() throws InterruptedException
 	driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
 
 	driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
-
+Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
 	
 	Thread.sleep(10000);
