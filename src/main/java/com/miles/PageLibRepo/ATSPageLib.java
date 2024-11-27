@@ -2384,7 +2384,7 @@ Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
-	Thread.sleep(1500);
+	Thread.sleep(2500);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
 	Thread.sleep(3000);
 	
@@ -2393,7 +2393,7 @@ Thread.sleep(2000);
 	
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
-	
+	Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
 	Thread.sleep(3000);
 	

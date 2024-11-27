@@ -848,7 +848,7 @@ public void VerifyU16BucketStage4() throws InterruptedException, AWTException
 	ATS.U16VisaRecevied();
 }
 
-@Test (priority = 46, description = "U17 Miles Bucket Uploading Visa Proof")
+//@Test (priority = 46, description = "U17 Miles Bucket Uploading Visa Proof")
 public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -858,7 +858,7 @@ public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 	ATS.U17Stage1UploadingVISA();	 //-------------------Uploading VISA Proof--------------------//
 }
 
-//@Test (priority = 47, description = "U17 Miles Bucket Approving Visa Proof")
+@Test (priority = 47, description = "U17 Miles Bucket Approving Visa Proof")
 public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 {	
 	
