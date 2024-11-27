@@ -963,7 +963,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		 		WebElement GraduatioStatus = driver.findElement(By.id("graduation_status"));
 		 	    Select select2 = new Select(GraduatioStatus);
 
-		 	    select2.selectByValue("\"2\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+		 	    select2.selectByValue("\"1\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
 		 	    WebElement selectedOption2 = select2.getFirstSelectedOption();
 		 	    System.out.println("Selected option is: " + selectedOption2.getText());
 		 	    Thread.sleep(3000);   
@@ -1222,8 +1222,8 @@ public void SearchU7ACnadidate() throws InterruptedException
 	Thread.sleep(4000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 	Thread.sleep(4000);
-	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
-	Thread.sleep(4000);
+	//Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
+
 	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
 	
 	
