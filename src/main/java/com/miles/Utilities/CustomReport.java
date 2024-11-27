@@ -37,21 +37,21 @@ public class CustomReport implements IReporter
     private static SimpleDateFormat sdfdate = new SimpleDateFormat("MMM-dd-yyyy hh:mm:ss a");
     private static String filePreffix = new SimpleDateFormat("MMM_dd_yyyy").format(new Date());
     private static SimpleDateFormat sdftime = new SimpleDateFormat("HH:mm:ss a");
-    private static String outFilename = filePreffix+"_FFX-custom-report.html";
+    private static String outFilename = filePreffix+"_MILES-custom-report.html";
     private static NumberFormat integerFormat = NumberFormat.getIntegerInstance();
     private static NumberFormat decimalFormat = NumberFormat.getNumberInstance();
     protected PrintWriter writer;
     protected List<SuiteResult> suiteResults = Lists.newArrayList();
     private StringBuilder buffer = new StringBuilder();
     private String ffX_Logo = "<center><a data-v-0310a31a=\"\" href=\"https://fourthfrontier.com/\">\n"
-    		+ "<img data-v-0310a31a=\"\" src=\"https://app.fourthfrontier.com/images/logo_full_white.png?d875c23dbc54f17278a097f31bb9785c\" alt=\"Fourth Frountier\" style=\"background-color:black;padding:20px;\">\n"
+    		+ "<img data-v-0310a31a=\"\" src=\"https://www.mileseducation.com/newImages/MilesEducationWebsite-2024/logo.webp\" alt=\"Miles Education\" style=\"background-color:black;padding:20px;\">\n"
     		+ "</a></center>"; 
     
     private String ffx_Background = "<div data-v-517b4a5c=\"\" class=\"container-fluid img_background\"> </div>" ;
     
     private String localGoogleDriverMapper = "G:\\.shortcut-targets-by-id\\1_FpxrsdPY5eOoYYZ1SdoHTwUAL_8rx1b\\Prod Automation Report";
     
-    private String CustomReportFolder = "/test-output/Fx Daily Reports/"; //"D:\\Gitwebapp\\frontierX\\test-output\\Custome Reports"
+    private String CustomReportFolder = "/test-output/Fx Daily Reports/"; //"D:\\Gitwebapp\\miles\\test-output\\Custome Reports"
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
                                String outputDirectory) 
@@ -110,7 +110,7 @@ public class CustomReport implements IReporter
     protected void writeHead()
     {
         writer.print("<head>");
-        writer.print("<title>Fourth Foruntier WebApp Automation Test Report</title>");
+        writer.print("<title>Miles Education WebApp Automation Test Report</title>");
         writer.print(ffX_Logo);
         writer.print(ffx_Background);
         writeStylesheet();

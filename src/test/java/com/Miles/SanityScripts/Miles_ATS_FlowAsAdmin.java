@@ -866,7 +866,7 @@ public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage(); 
 	Thread.sleep(2000);
-	//ATS.U17Stage2ApprovingVISA();		//-------------------------------------Approving VISA--------------------------//	
+	ATS.U17Stage2ApprovingVISA();		//-------------------------------------Approving VISA--------------------------//	
 }
 
 	/*
