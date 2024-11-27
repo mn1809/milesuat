@@ -44,7 +44,7 @@ public class CustomReport implements IReporter
     protected List<SuiteResult> suiteResults = Lists.newArrayList();
     private StringBuilder buffer = new StringBuilder();
     private String ffX_Logo = "<center><a data-v-0310a31a=\"\" href=\"https://mleseducation.com/\">\n"
-    		+ "<img data-v-0310a31a=\"\" src=\"https://www.mileseducation.com/newImages/MilesEducationWebsite-2024/logo.webp\" alt=\"Miles Education\" style=\"background-color:white;padding:20px;height:60px;width:150px;\">\n"
+    		+ "<img data-v-0310a31a=\"\" src=\"https://www.mileseducation.com/newImages/MilesEducationWebsite-2024/logo.webp\" alt=\"Miles Education\" style=\"background-color:white;padding:20px;height:60px;width:200px;\">\n"
     		+ "</a></center>"; 
     
     private String ffx_Background = "<div data-v-517b4a5c=\"\" class=\"container-fluid img_background\"> </div>" ;
