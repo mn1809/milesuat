@@ -2348,22 +2348,20 @@ public void U17Stage1UploadingVISA() throws InterruptedException, AWTException
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 	
+	Thread.sleep(2000);
+	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
 	
-driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
+	Thread.sleep(4000);
 	
-	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
-	passportDocument.click();
-	Thread.sleep(5000);
-	Robot robot = new Robot();
-	StringSelection filePath = new StringSelection("C:\\Users\\MILES\\Pictures\\Screenshots\\MASATTACHEMENT.png");
-	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-	robot.keyPress(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_V);
-	robot.keyRelease(KeyEvent.VK_CONTROL);
-	robot.keyPress(KeyEvent.VK_ENTER);
-	robot.keyRelease(KeyEvent.VK_ENTER);
-	Thread.sleep(10000);
+	WebElement VISAProofDocument = driver.findElement(By.className("o_file_input_trigger"));
+	VISAProofDocument.click();
+	
+	 Thread.sleep(5000);  
+	    
+	 WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
+	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	 Thread.sleep(10000);
+
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
     Thread.sleep(1500); 
