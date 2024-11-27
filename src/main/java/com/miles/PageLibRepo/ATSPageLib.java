@@ -2202,8 +2202,18 @@ Thread.sleep(3000);
     Thread.sleep(3000);
  
     driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys("VISA Mock Session");
+    Thread.sleep(3000);
+    List <WebElement> ADDLINE = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+    ADDLINE.get(0).click();
+    Thread.sleep(3000);
 
+
+    WebElement Description = driver.findElement(By.id("description"));
+    Description.click();
     Thread.sleep(2000);
+    Description .sendKeys("Adding Note From Autoamtion Script");
+    Thread.sleep(1000);
+    
     driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();//To Save Button//
     Thread.sleep(2000);
     driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click(); //To confimring Allocation//
