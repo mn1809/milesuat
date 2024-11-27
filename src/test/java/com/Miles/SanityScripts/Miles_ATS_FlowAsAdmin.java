@@ -930,6 +930,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		//-------------------------Unversity--------------------------//
 		
 		 driver.findElement(By.id("university_id")).click();
+		 Thread.sleep(2000);
 		 driver.findElement(By.id("university_id")).sendKeys("Acharya Nagarjuna University, Guntur (Id: U-0003)");
 		 Thread.sleep(2000);
 		  List <WebElement> Unversity = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
@@ -938,6 +939,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		//----------------------------------------Years of Graduation-------------------------------//    
 		  
 		  driver.findElement(By.id("year_of_graduation_date")).click();
+		  Thread.sleep(2000);
 		  driver.findElement(By.xpath("//*[contains(@class, 'year old')]")).click();
 		     Thread.sleep(2000);
 		     driver.findElement(By.xpath("//span[@data-action='selectMonth' and @class='month']")).click();
@@ -947,6 +949,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		   //----------------------------------------------NAAC Grade------------------------//  
 		     
 		     driver.findElement(By.id("naac_grade")).click();
+		     Thread.sleep(2000);
 		 		WebElement NAAC = driver.findElement(By.id("naac_grade"));
 		 	    Select select1 = new Select(NAAC);
 
@@ -956,6 +959,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		 	    Thread.sleep(3000);
 	//-------------------------------------------------GraduatioStatus---------------------------//	     
 		 	   driver.findElement(By.id("graduation_status")).click();
+		 	  Thread.sleep(2000);
 		 		WebElement GraduatioStatus = driver.findElement(By.id("graduation_status"));
 		 	    Select select2 = new Select(GraduatioStatus);
 
@@ -967,6 +971,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 	//----------------------------------------Rank------------------------------//
 		 	    
 		 	   driver.findElement(By.id("graduation_rank")).click();
+		 	  Thread.sleep(2000);
 		 		WebElement Rank = driver.findElement(By.id("graduation_rank"));
 		 	    Select select3 = new Select(Rank);
 
@@ -978,7 +983,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		 	//------------------------------------------------------Division-------------------//
 		 	    
 		 	   driver.findElement(By.id("graduation_rank_id")).click();
-		 	  
+		 	  Thread.sleep(2000);
 		 	 driver.findElement(By.id("graduation_rank_id")).sendKeys("First Division");
 		 	   Thread.sleep(3000); 
 		 	List <WebElement> Division = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
@@ -988,6 +993,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		    //-----------------------------------------------------Overall Percentage%-------------------------------
 		WebElement Percentage = driver.findElement(By.id("graduation_percentage"));
 		Percentage.click();
+		 Thread.sleep(2000);
 		Percentage.clear();
 		
 		Percentage.sendKeys("85");
@@ -995,6 +1001,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		    
 		 	//---------------------------------NAACSTATUS---------------------------//    
 		 	   driver.findElement(By.id("naac_status")).click();
+		 	  Thread.sleep(2000);
 		 		WebElement NAACSTATUS = driver.findElement(By.id("naac_status"));
 		 	    Select select5 = new Select(NAACSTATUS);
 
@@ -1015,7 +1022,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 	Thread.sleep(2000);
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
-	
+	 Thread.sleep(2000);
 	driver.findElement(By.id("graduation_level")).click();
 	
 	//Alternative way to select the other options//
@@ -1034,6 +1041,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 	    Thread.sleep(3000);
 	    //-------------------------Graduation--------------------//
 	    driver.findElement(By.id("graduation_id")).click();
+	    Thread.sleep(2000);
 	    driver.findElement(By.id("graduation_id")).sendKeys("Master of Engineering");
 	    Thread.sleep(2000);
 	    List <WebElement> Graduation = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
@@ -1042,6 +1050,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 		//-------------------------Unversity--------------------------//
 		
 		 driver.findElement(By.id("university_id")).click();
+		 Thread.sleep(2000);
 		 driver.findElement(By.id("university_id")).sendKeys("Acharya Nagarjuna University, Guntur (Id: U-0003)");
 		 Thread.sleep(2000);
 		  List <WebElement> Unversity = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
@@ -1050,6 +1059,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 		//----------------------------------------Years of Graduation-------------------------------//    
 		  
 		  driver.findElement(By.id("year_of_graduation_date")).click();
+		  Thread.sleep(2000);
 		//  driver.findElement(By.xpath("//*[contains(@class, 'year old')]")).click();//span[normalize-space()='2021']
 		   driver.findElement(By.xpath("//span[normalize-space()='2021']")).click(); 
 		  Thread.sleep(2000);
@@ -1060,6 +1070,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 		   //----------------------------------------------NAAC Grade------------------------//  
 		     
 		     driver.findElement(By.id("naac_grade")).click();
+		     Thread.sleep(2000);
 		 		WebElement NAAC = driver.findElement(By.id("naac_grade"));
 		 	    Select select1 = new Select(NAAC);
 
@@ -1069,6 +1080,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 		 	    Thread.sleep(3000);
 	//-------------------------------------------------GraduatioStatus---------------------------//	     
 		 	   driver.findElement(By.id("graduation_status")).click();
+		 	  Thread.sleep(2000);
 		 		WebElement GraduatioStatus = driver.findElement(By.id("graduation_status"));
 		 	    Select select2 = new Select(GraduatioStatus);
 
@@ -1080,6 +1092,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 	//----------------------------------------Rank------------------------------//
 		 	    
 		 	   driver.findElement(By.id("graduation_rank")).click();
+		 	  Thread.sleep(2000);
 		 		WebElement Rank = driver.findElement(By.id("graduation_rank"));
 		 	    Select select3 = new Select(Rank);
 
@@ -1091,7 +1104,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 		 	//------------------------------------------------------Division-------------------//
 		 	    
 		 	   driver.findElement(By.id("graduation_rank_id")).click();
-		 	  
+		 	  Thread.sleep(2000);
 		 	 driver.findElement(By.id("graduation_rank_id")).sendKeys("First Division");
 		 	   Thread.sleep(3000); 
 		 	List <WebElement> Division = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
@@ -1101,6 +1114,7 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 		    //-----------------------------------------------------Overall Percentage%-------------------------------
 		WebElement Percentage = driver.findElement(By.id("graduation_percentage"));
 		Percentage.click();
+		 Thread.sleep(2000);
 		Percentage.clear();
 		
 		Percentage.sendKeys("85");
@@ -1120,59 +1134,60 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 }
 
 public void CandidateU7AllocationProcess() throws InterruptedException, AWTException
+
 {
-driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
-Thread.sleep(2000);
-driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
+	driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
+	Thread.sleep(2000);
+	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
 
-driver.findElement(By.className("o_searchview_input")).click();
-driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
-Thread.sleep(3000);
-driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-Thread.sleep(3000);
-driver.findElement(By.xpath("//*[contains(@class, 'form-check-input')]")).click();
-driver.findElement(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).click();
+	driver.findElement(By.className("o_searchview_input")).click();
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	Thread.sleep(3000);
+	driver.findElement(By.xpath("//*[contains(@class, 'form-check-input')]")).click();
+	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).click();
 
-System.out.println("Actual Can id is "+getcandidateId());
+	System.out.println("Actual Can id is "+getcandidateId());
 //Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
 
-driver.findElement(By.id("general_manager_id")).click();
-Thread.sleep(5000);
-driver.findElement(By.id("general_manager_id")).sendKeys("Manoj Expert");
-Thread.sleep(3000);
-List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-Options1.get(0).click();
+	driver.findElement(By.id("general_manager_id")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.id("general_manager_id")).sendKeys("Manoj Expert");
+	Thread.sleep(3000);
+	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options1.get(0).click();
 //Robot robot = new Robot();
 //robot.mouseMove(100, 200); // Adjust the coordinates as needed
 //robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 //robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 
-Thread.sleep(2000);
-driver.findElement(By.id("gm_spoc_id")).click();
-Thread.sleep(5000);
-driver.findElement(By.id("gm_spoc_id")).sendKeys("Manoj Spoc");
-Thread.sleep(3000);
-List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-Options2.get(0).click();
+	Thread.sleep(2000);
+	driver.findElement(By.id("gm_spoc_id")).click();
+	Thread.sleep(5000);
+	driver.findElement(By.id("gm_spoc_id")).sendKeys("Manoj Spoc");
+	Thread.sleep(3000);
+	List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options2.get(0).click();
 //Robot robot1 = new Robot();
 //robot1.mouseMove(300, 400); // Adjust the coordinates as needed
 //robot1.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 //robot1.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 //action_allocate_gm_to_leads
-Thread.sleep(2000);
-driver.findElement(By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]")).click();
 
 }
 
 public void CandidateU7ADetails() throws InterruptedException
 {
-String ExpectedDashBoardUserName = "Automation-User1";
-driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
-Thread.sleep(3000);
-System.out.println("Actual User Name According To Passport is "+getCandidateName());
-Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
+	String ExpectedDashBoardUserName = "Automation-User1";
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
+	Thread.sleep(3000);
+	System.out.println("Actual User Name According To Passport is "+getCandidateName());
+	Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
 
-System.out.println("Actual Can id is "+getcandidateId());
+	System.out.println("Actual Can id is "+getcandidateId());
 //Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
 
 }
@@ -1180,25 +1195,25 @@ System.out.println("Actual Can id is "+getcandidateId());
 
 public String GetCandidateEligibilityType()
 {
-return driver.findElements(By.xpath("//*[contains(@name, 'eligibility_done_status')]")).get(0).getText();
+	return driver.findElements(By.xpath("//*[contains(@name, 'eligibility_done_status')]")).get(0).getText();
 }
 public String GetCandidateEligibilityCode()
 {
-return driver.findElements(By.xpath("//*[contains(@name, 'eligibility_code')]")).get(0).getText();
+	return driver.findElements(By.xpath("//*[contains(@name, 'eligibility_code')]")).get(0).getText();
 }
 
 public String GetCandidateEnrollmentStatus()
 {
-return driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(14).getText();
+	return driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(14).getText();
 }
 
 public String getcandidateId()
 {
-return driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).getText();
+	return driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).getText();
 }
 public String getCandidateName()
 {
-return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
+	return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
 }
 
 public void SearchU7ACnadidate() throws InterruptedException
@@ -1390,7 +1405,7 @@ public void BookExpertSessionU7Window() throws InterruptedException
 
 		driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
 		Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
+		driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
 		Thread.sleep(2000);
 		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
  
