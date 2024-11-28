@@ -527,7 +527,7 @@ public class ATSPageLib extends atspageObj
 //		
 //		AllocationsOptions2.click();
 		
-		driver.findElement(By.xpath("//a[@role='menuitem' and text()='Reallocate the Spocs']")).click();
+		driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']")).click();
 		Thread.sleep(2000);
 		
 		//a[@role='menuitem' and text()='Reallocate the Spocs']
