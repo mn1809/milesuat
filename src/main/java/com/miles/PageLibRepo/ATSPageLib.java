@@ -534,7 +534,7 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.className("o_searchview_input")).click();
 		Thread.sleep(2000);
 		
-		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 		Thread.sleep(4000);
 		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
 		Options.get(0).click();
