@@ -547,15 +547,36 @@ public class ATSPageLib extends atspageObj
 //		    System.out.println(link.getText());
 //		}
 		 
+//		List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
+//
+//		for (WebElement link : childLinks) {
+//		    String linkText = link.getText(); // Get the text of the link
+//		    boolean isVisible = link.isDisplayed(); // Check if the link is visible
+//		    System.out.println("Link Text: " + linkText + " | Visible: " + isVisible);
+//		}
+
 		List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
 
-		for (WebElement link : childLinks) {
-		    String linkText = link.getText(); // Get the text of the link
-		    boolean isVisible = link.isDisplayed(); // Check if the link is visible
-		    System.out.println("Link Text: " + linkText + " | Visible: " + isVisible);
-		}
+		// Ensure the list has at least 3 elements
+		if (childLinks.size() >= 3) {
+		    WebElement thirdOption = childLinks.get(2); // Index 2 for the 3rd element (0-based index)
 
-		 
+		    // Scroll into view if necessary
+		    JavascriptExecutor js = (JavascriptExecutor) driver;
+		    js.executeScript("arguments[0].scrollIntoView(true);", thirdOption);
+
+		    // Check if it's visible before clicking
+		    if (thirdOption.isDisplayed()) {
+		        Thread.sleep(2000);
+		    	thirdOption.click();
+		        System.out.println("Clicked on the 3rd option: " + thirdOption.getText());
+		    } else {
+		        System.out.println("The 3rd option is not visible and cannot be clicked.");
+		    }
+		} else {
+		    System.out.println("Less than 3 options are available. Cannot click the 3rd option.");
+		}
+	 
 		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 
 //		WebElement AllocationsOptions2 = driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
