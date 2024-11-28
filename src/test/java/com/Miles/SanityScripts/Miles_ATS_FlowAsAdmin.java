@@ -294,6 +294,7 @@ public void U7ASearachCandidate() throws InterruptedException
 		Thread.sleep(3000);
 		
 		WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
+		
 		Gm.click();
 		Thread.sleep(2000);
 		Gm.sendKeys("Manoj Expert");
@@ -301,7 +302,19 @@ public void U7ASearachCandidate() throws InterruptedException
 		List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 		Options1.get(0).click();
 		Thread.sleep(2000);
+	
+		
+		WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING SPOC------------//
+		Spoc.click();
+		Thread.sleep(2000);
+		Spoc.sendKeys("Manoj Spoc");
+		Thread.sleep(2000);
+		List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+		Options2.get(0).click();
+		Thread.sleep(2000);
+		
 		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
+
 }
 
 //@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
