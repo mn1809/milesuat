@@ -520,16 +520,31 @@ public class ATSPageLib extends atspageObj
 	public void ReAllocate() throws InterruptedException
 	{
 		driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
+		Thread.sleep(4000);
+		
+		
+//		WebElement AllocationsOptions2 = driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
+//		
+//		AllocationsOptions2.click();
+		
+		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(3).click();
 		Thread.sleep(2000);
 		
 		
-//		WebElement AllocationsOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-//		
-//		AllocationsOptions.get()
+//		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+//		 List<WebElement>OptionsIteam = configOptions.findElements(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
+//		 ((WebElement) OptionsIteam).click();
+		 
+		//driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]")).click();
+		
+		
+		
+//		List <WebElement> AllocationsOptions = driver.findElements(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+//		AllocationsOptions.get(2).click();
 		
 		//a[normalize-space()='Reallocate the Spocs']
-		driver.findElement(By.xpath("//a[normalize-space()='Reallocate the Spocs']")).click();
-		Thread.sleep(2000);
+//		driver.findElement(By.xpath("//a[normalize-space()='Reallocate the Spocs']")).click();
+		Thread.sleep(3000);
 
 		driver.findElement(By.className("o_searchview_input")).click();
 		Thread.sleep(2000);
