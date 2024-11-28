@@ -264,7 +264,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 }
 
 
-@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
+//@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
 public void U7ASearachCandidate() throws InterruptedException
 
 {
@@ -407,7 +407,7 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-//@Test (priority = 13,description = "Verify ATS Module Candidate U7 Tabs")
+@Test (priority = 13,description = "Verify ATS Module Candidate U7 Tabs")
 
 public void CheckingU7Tabs() throws InterruptedException
 {	
@@ -418,7 +418,7 @@ public void CheckingU7Tabs() throws InterruptedException
 	Thread.sleep(3000);
 	ATS.TabsbuttonOnU7Enrolled();
 	Thread.sleep(3000);
-//	ATS.ReAllocate();
+	ATS.ReAllocate();
 }
 
 //@Test (priority = 14, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")

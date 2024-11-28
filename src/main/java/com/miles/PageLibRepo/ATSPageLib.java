@@ -60,7 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
 		Thread.sleep(3000);
 	}
 	
