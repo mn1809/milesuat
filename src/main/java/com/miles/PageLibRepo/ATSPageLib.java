@@ -529,9 +529,11 @@ public class ATSPageLib extends atspageObj
 //		 Thread.sleep(2000);
 		 
 		 
-		driver.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")).click();
+	//	driver.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")).click();
 		 
-		 
+		WebElement element = driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
 		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 
 //		WebElement AllocationsOptions2 = driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
