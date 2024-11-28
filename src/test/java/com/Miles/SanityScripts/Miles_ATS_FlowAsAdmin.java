@@ -210,7 +210,7 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-//@Test(priority = 1,description = "Verify Admin Login")
+@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
@@ -218,7 +218,7 @@ public void ClearingHomePage() throws InterruptedException
 	ATS.ClearMyCandidateFilter();
 }
 
-//@Test(priority = 2,description = "Verify Admin Dropdown Options")
+@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -235,7 +235,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	}
 }
 
-//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -244,7 +244,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 }
 
-//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -264,7 +264,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 }
 
 
-//@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
+@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
 public void U7ASearachCandidate() throws InterruptedException
 
 {
@@ -317,7 +317,7 @@ public void U7ASearachCandidate() throws InterruptedException
 
 }
 
-//@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
+@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
 public void U7UGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -328,7 +328,7 @@ public void U7UGCandidate() throws InterruptedException
 }
 
 
-//@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
+@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
 public void U7PGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -338,7 +338,7 @@ public void U7PGCandidate() throws InterruptedException
 	EnteringPGGraduationDetails();										//--------------------------------Entering PG Graduation Details Mind it-------------------------------//
 }
 
-//@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
+@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
 
 public void U7ACertifications() throws InterruptedException
 {
@@ -349,7 +349,7 @@ public void U7ACertifications() throws InterruptedException
 	ATS.EnteringCertificationDetails();
 }
 
-//@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
+@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
 public void U7AWorkExperience() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -360,7 +360,7 @@ public void U7AWorkExperience() throws InterruptedException
 }
 
 
-//@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
+@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
 public void U7PRecommendUniversity() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -370,7 +370,7 @@ public void U7PRecommendUniversity() throws InterruptedException
 	ATS.AutoRecommendUniversity();
 }
 
-////@Test (priority = 8,description = "Verify ATS Module U7A Candidate Bucket")
+//@Test (priority = 8,description = "Verify ATS Module U7A Candidate Bucket")
 //public void U7ACandidateWindow() throws InterruptedException
 //{
 //	
@@ -381,21 +381,21 @@ public void U7PRecommendUniversity() throws InterruptedException
 //	CandidateU7ADetails();
 //}
 	
-//@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
+@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
-	Thread.sleep(3000);
+	Thread.sleep(3000);								//--------------------NEED TO BE ADDRESSED-----------------//
 	SearchU7ACnadidate();
 	Thread.sleep(3000);
-	CandidateU7AllocationProcess();
+	//CandidateU7AllocationProcess();
 	
 }
 
-//@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -407,9 +407,9 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-@Test (priority = 13,description = "Verify ATS Module Candidate U7 Tabs")
+@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
 
-public void CheckingU7Tabs() throws InterruptedException
+public void CheckingU7Reallocate() throws InterruptedException
 {	
 	
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -421,7 +421,7 @@ public void CheckingU7Tabs() throws InterruptedException
 	ATS.ReAllocate();
 }
 
-//@Test (priority = 14, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
+@Test (priority = 14, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
 
 public void CandidateBasicDetails() throws InterruptedException
 {
@@ -435,7 +435,7 @@ public void CandidateBasicDetails() throws InterruptedException
 
 }
 
-//@Test (priority = 15, description = "Verify Updating Candidate Communication Test Result")
+@Test (priority = 15, description = "Verify Updating Candidate Communication Test Result")
 
 public void UpdatingCommunicationTestResult() throws InterruptedException, AWTException
 {
@@ -448,7 +448,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-//@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
+@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -468,12 +468,12 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 	Thread.sleep(3000);
 	ATS.TooBookTimeSlot();
 	Thread.sleep(3000);
-	//BookExpertSessionU7Window();
+
 	
 }
 //------------------------Needed to be added the Recommend university--------------------//
 
-//@Test (priority = 17, description = "Booking Expert Session U7 window")
+@Test (priority = 17, description = "Booking Expert Session U7 window")
 public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -485,7 +485,7 @@ public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTExce
 }
 
 
-//@Test (priority = 18, description = "U7+ Expert Session Booked")
+@Test (priority = 18, description = "U7+ Expert Session Booked")
 
 public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 {
@@ -506,7 +506,7 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 
 }
 
-//@Test (priority = 19, description = "U7+ Expert Session Booked Eligible Candidate")
+@Test (priority = 19, description = "U7+ Expert Session Booked Eligible Candidate")
 
 public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedException
 {
@@ -520,7 +520,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 
 
 
-//@Test (priority = 20, description = "U7+ Recommend University To Candidate")
+@Test (priority = 20, description = "U7+ Recommend University To Candidate")
 public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -536,7 +536,7 @@ public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTEx
 
 }
 
-//@Test (priority = 21, description = "U8 Expert Session Done Bucket")
+@Test (priority = 21, description = "U8 Expert Session Done Bucket")
 
 public void VerifyU8Bucket() throws InterruptedException, AWTException
 {
@@ -550,7 +550,7 @@ public void VerifyU8Bucket() throws InterruptedException, AWTException
 	ATS.MSASigned();
 }
 
-//@Test (priority = 22, description = "U9 MSA SIGNED")
+@Test (priority = 22, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage1Bucket() throws InterruptedException
 {
@@ -564,7 +564,7 @@ public void VerifyU9Stage1Bucket() throws InterruptedException
 	
 }
 
-//@Test (priority = 23, description = "U9 MSA SIGNED LOR and SOP")
+@Test (priority = 23, description = "U9 MSA SIGNED LOR and SOP")
 
 public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 {
@@ -584,7 +584,7 @@ public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 
 }
 
-//@Test (priority = 24, description = "U9 MSA SIGNED")
+@Test (priority = 24, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
 
@@ -599,7 +599,7 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.UploadationOfApplicationProof();
 }
 
-//@Test (priority = 25, description = "U9+ Application Submitted Process")
+@Test (priority = 25, description = "U9+ Application Submitted Process")
 
 public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 
@@ -616,7 +616,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	
 }
 
-//@Test (priority = 26, description= "U9+ Application Initiated")
+@Test (priority = 26, description= "U9+ Application Initiated")
 
 public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 {
@@ -630,7 +630,7 @@ public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 27, description= "U10 Upload Offer Letter")
+@Test (priority = 27, description= "U10 Upload Offer Letter")
 
 public void VerifyU10Bucket() throws InterruptedException, AWTException
 {
@@ -642,7 +642,7 @@ public void VerifyU10Bucket() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 28, description= "U10 Approve Offer Letter")
+@Test (priority = 28, description= "U10 Approve Offer Letter")
 
 public void VerifyU10Stage2Bucket() throws InterruptedException
 {
@@ -654,7 +654,7 @@ public void VerifyU10Stage2Bucket() throws InterruptedException
 
 }
 
-//@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
+@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
 
 public void VerifyU10Stage3Bucket() throws InterruptedException
 {
@@ -666,7 +666,7 @@ public void VerifyU10Stage3Bucket() throws InterruptedException
 	Thread.sleep(3000);
 }
 
-//@Test (priority = 30, description = "U11 Miles Pathway Funding")
+@Test (priority = 30, description = "U11 Miles Pathway Funding")
 
 public void VerifyU11Stage1Bucket()throws InterruptedException
 {
@@ -677,7 +677,7 @@ public void VerifyU11Stage1Bucket()throws InterruptedException
 	ATS.U11BucketStage1();
 }
 
-//@Test (priority = 31, description = "U11 Miles Pathway Fee Received")
+@Test (priority = 31, description = "U11 Miles Pathway Fee Received")
 public void verifyU11Stage2Bucket() throws InterruptedException
 
 {
@@ -688,7 +688,7 @@ public void verifyU11Stage2Bucket() throws InterruptedException
 	ATS.U11BucketStage2();	
 }
 
-//@Test (priority = 32, description = "U12 Miles US Pathway Funding Type")
+@Test (priority = 32, description = "U12 Miles US Pathway Funding Type")
 public void verifyU12Bucket() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -699,7 +699,7 @@ public void verifyU12Bucket() throws InterruptedException
 	
 }
 
-//@Test (priority = 33, description = "U13A Miles US Funding Bucket Stage1")
+@Test (priority = 33, description = "U13A Miles US Funding Bucket Stage1")
 
 public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 {
@@ -714,7 +714,7 @@ public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage2")
+@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage2")
 
 public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 {
@@ -729,7 +729,7 @@ public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 35, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
+@Test (priority = 35, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
 
 public void VerifyU13BBucketStage1() throws InterruptedException
 
@@ -742,7 +742,7 @@ public void VerifyU13BBucketStage1() throws InterruptedException
 
 }
 
-//@Test (priority = 36, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
+@Test (priority = 36, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
 public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 {
@@ -755,7 +755,7 @@ public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 
 
-//@Test (priority = 37, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
+@Test (priority = 37, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
 public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 
 {
@@ -766,7 +766,7 @@ public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 	ATS.U13BBucketStage3(); //---------Approvving US Finace Proof-------------//
 }
 
-//@Test (priority = 38, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
+@Test (priority = 38, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 
 {
@@ -777,7 +777,7 @@ public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 	ATS.U13CBucketStage1(); //-----------------------------Uploading Copy Of I20 Documents-----------------//
 }
 
-//@Test (priority = 39, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
+@Test (priority = 39, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
 public void VerifyU13CBucketStage2() throws InterruptedException
 
 {
@@ -788,7 +788,7 @@ public void VerifyU13CBucketStage2() throws InterruptedException
 	ATS.U13CBucketStage2();//------------------------Approving I20 Documents----------------------//
 }
 
-//@Test (priority = 40, description = "U14 Miles Fincial Submitted to US Unversity Stage1")
+@Test (priority = 40, description = "U14 Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU14BucketSatge1() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -798,7 +798,7 @@ public void VerifyU14BucketSatge1() throws InterruptedException
 	ATS.U14BucketStage1();
 }
 
-//@Test (priority = 41, description = "U14 Miles Fincial Submitted to US Unversity Stage2")
+@Test (priority = 41, description = "U14 Miles Fincial Submitted to US Unversity Stage2")
 public void VerifyU14BucketStage2() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -808,7 +808,7 @@ public void VerifyU14BucketStage2() throws InterruptedException, AWTException
 	ATS.U14BucketStage2();//-----------------------------Uploading DS160 Documents--------------------//
 }
 
-//@Test (priority = 42, description = "U14 Miles Fincial Submitted to US Unversity Stage3")
+@Test (priority = 42, description = "U14 Miles Fincial Submitted to US Unversity Stage3")
 public void VerifyU14BucketStage3() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -819,7 +819,7 @@ public void VerifyU14BucketStage3() throws InterruptedException, AWTException
 }	
 
 
-//@Test (priority = 43, description = "U15 Miles DS160 Submitted")
+@Test (priority = 43, description = "U15 Miles DS160 Submitted")
 public void VerifyU15BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -829,7 +829,7 @@ public void VerifyU15BucketStage1() throws InterruptedException, AWTException
 	ATS.U15BucketStage1MandateFeilds();//---------------------------------Negative FLow For Mandate Feilds---------------//
 }
 
-//@Test (priority = 44, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
+@Test (priority = 44, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
 public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -840,7 +840,7 @@ public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, 
 }	
 
 
-//@Test (priority = 45, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
+@Test (priority = 45, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
 public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -850,7 +850,7 @@ public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, 
 	ATS.U15BucketStage3ApprovingVISADetails();//------------------------------Approving VISA Slot Details and Documents--------------------//
 }
 
-//@Test (priority = 46, description = "U16 Miles Too Book VISA Slot")
+@Test (priority = 46, description = "U16 Miles Too Book VISA Slot")
 public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -862,7 +862,7 @@ public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 	ATS.TooBookVISASlot();				//----------------------VISA Booking Slot---------------------//
 }
 
-//@Test (priority = 47, description = "U16 Miles Book Visa Mock Interview")
+@Test (priority = 47, description = "U16 Miles Book Visa Mock Interview")
 public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -873,7 +873,7 @@ public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 }
 
 
-//@Test (priority = 48, description = "U16 Miles Attending Visa Mock Interview")
+@Test (priority = 48, description = "U16 Miles Attending Visa Mock Interview")
 public void VerifyU16BucketStage3() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -883,7 +883,7 @@ public void VerifyU16BucketStage3() throws InterruptedException, AWTException
 	U16ToAttendingMeeting();
 }
 
-//@Test (priority = 49, description = "U16 Miles Book Visa Received")
+@Test (priority = 49, description = "U16 Miles Book Visa Received")
 public void VerifyU16BucketStage4() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -893,7 +893,7 @@ public void VerifyU16BucketStage4() throws InterruptedException, AWTException
 	ATS.U16VisaRecevied();
 }
 
-//@Test (priority = 50, description = "U17 Miles Bucket Uploading Visa Proof")
+@Test (priority = 50, description = "U17 Miles Bucket Uploading Visa Proof")
 public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -903,7 +903,7 @@ public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 	ATS.U17Stage1UploadingVISA();	 //-------------------Uploading VISA Proof--------------------//
 }
 
-//@Test (priority = 51, description = "U17 Miles Bucket Approving Visa Proof")
+@Test (priority = 51, description = "U17 Miles Bucket Approving Visa Proof")
 public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 {	
 	
