@@ -60,7 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 		Thread.sleep(3000);
 	}
 	
@@ -521,89 +521,6 @@ public class ATSPageLib extends atspageObj
 	{
 		driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
 		Thread.sleep(4000);
-		
-	//	 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-		 
-//		 WebElement OptionsIteam = configOptions.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]"));
-//		 configOptions.click();
-//		 Thread.sleep(2000);
-		//a[normalize-space()='Reallocate the Spocs']
-		 
-	//	driver.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")).click();
-//		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//		 WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")));
-//
-//		 // Scroll into view
-//		 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-//
-//		 // Click the element
-//		 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-
-		 
-//		 List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
-//
-//		// Print the text of each child element
-//		for (WebElement link : childLinks) {
-//		    System.out.println(link.getText());
-//		}
-		 
-//		List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
-//
-//		for (WebElement link : childLinks) {
-//		    String linkText = link.getText(); // Get the text of the link
-//		    boolean isVisible = link.isDisplayed(); // Check if the link is visible
-//		    System.out.println("Link Text: " + linkText + " | Visible: " + isVisible);
-//		}
-
-	
-
-	 
-		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
-		 
-//		WebElement AllocationsOptions2 = driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
-//		
-//		AllocationsOptions2.click();
-		
-//		driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']")).click();
-//		Thread.sleep(2000);
-		
-		//a[@role='menuitem' and text()='Reallocate the Spocs']
-		
-//		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-//		 List<WebElement>OptionsIteam = configOptions.findElements(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
-//		 ((WebElement) OptionsIteam).click();
-		 
-		//driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]")).click();
-		
-//		
-//		
-//		List<WebElement> childLinks = driver.findElements(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-//
-//		for (WebElement link : childLinks) 
-//		{
-//		    // Use .equals() to compare strings in Java
-//		    if (link.getText().equals("Relocate to spoc")) 
-//		    {
-//		        link.click();
-//		        break; // Exit the loop once the desired link is clicked
-//		    }
-//		}
-
-//		WebElement thirdMenuItem = driver.findElement(By.xpath("(//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem'])[3]"));
-//		thirdMenuItem.click();
-
-//		WebElement thirdMenuItem = driver.findElement(By.cssSelector("div.o-dropdown--menu a.dropdown-item:nth-of-type(3)"));
-//		thirdMenuItem.click();
-		
-//		List<WebElement> menuItems = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem']"));
-//
-//		if (menuItems.size() >= 3) {
-//		    WebElement thirdMenuItem = menuItems.get(2); // 0-based index
-//		    thirdMenuItem.click();
-//		    System.out.println("Clicked the third menu item successfully.");
-//		} else {
-//		    System.out.println("The third menu item was not found.");
-//		}
 		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@data-menu-xmlid='miles_ats_student.menu_miles_ats_student_gm_spoc_vise_allocate_spocs']")));
