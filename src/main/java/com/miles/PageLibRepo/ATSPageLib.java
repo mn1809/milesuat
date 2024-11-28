@@ -555,16 +555,7 @@ public class ATSPageLib extends atspageObj
 //		    System.out.println("Link Text: " + linkText + " | Visible: " + isVisible);
 //		}
 
-		List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
-
-		// Ensure the list has at least 3 elements
-		if (childLinks.size() >= 3) {
-		    WebElement thirdOption = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a")).get(2); // Re-fetch the list
-		    thirdOption.click();
-		    System.out.println("Clicked on the 3rd option: " + thirdOption.getText());
-		} else {
-		    System.out.println("Less than 3 options are available.");
-		}
+	
 
 	 
 		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
@@ -586,12 +577,12 @@ public class ATSPageLib extends atspageObj
 		
 		
 		
-//		List <WebElement> AllocationsOptions = driver.findElements(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-//		AllocationsOptions.get(2).click();
+	List <WebElement> AllocationsOptions = driver.findElements(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+
 		
 		//a[normalize-space()='Reallocate the Spocs']
-//		driver.findElement(By.xpath("//a[normalize-space()='Reallocate the Spocs']")).click();
-		Thread.sleep(3000);
+		driver.findElement(By.xpath("//a[normalize-space()='Reallocate the Spocs']")).click();
+		Thread.sleep(4000);
 
 ////-----		driver.findElement(By.className("o_searchview_input")).click();
 //		Thread.sleep(2000);
@@ -608,7 +599,7 @@ public class ATSPageLib extends atspageObj
 //		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
 //		Thread.sleep(3000);
 //
-//	WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
+	WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
 //	Gm.click();
 //	Thread.sleep(2000);
 //	Gm.sendKeys("Manoj Expert");

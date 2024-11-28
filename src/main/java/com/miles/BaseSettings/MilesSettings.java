@@ -360,7 +360,7 @@ public static void getChromeVersion() throws IOException
 		  {
 		      public String toString()
 		      {
-		          return "Ravi Kiran 07";
+		          return "MANOJ ";
 		      }
 		  },
 		  Trainer
@@ -403,7 +403,7 @@ public static void getChromeVersion() throws IOException
 		  {
 		      public String toString()
 		      {
-		          return "Ravi Kiran 07";
+		          return "MANOJ";
 		      }
 		  },
 		  Trainer
