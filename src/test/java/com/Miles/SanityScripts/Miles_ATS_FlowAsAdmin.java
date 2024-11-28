@@ -301,7 +301,7 @@ public void U7ASearachCandidate() throws InterruptedException
 		List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 		Options1.get(0).click();
 		Thread.sleep(2000);
-	//	driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
+		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads123')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
 }
 
 //@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
