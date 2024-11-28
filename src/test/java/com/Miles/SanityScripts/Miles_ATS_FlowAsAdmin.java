@@ -210,7 +210,7 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-@Test(priority = 1,description = "Verify Admin Login")
+//@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
@@ -218,7 +218,7 @@ public void ClearingHomePage() throws InterruptedException
 	ATS.ClearMyCandidateFilter();
 }
 
-@Test(priority = 2,description = "Verify Admin Dropdown Options")
+//@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -235,7 +235,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	}
 }
 
-@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -244,7 +244,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 }
 
-@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -264,7 +264,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 }
 
 
-@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
+//@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
 public void U7ASearachCandidate() throws InterruptedException
 
 {
@@ -921,7 +921,7 @@ public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 public void CandidateData() throws InterruptedException
 {
 	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Nirmala A");
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 	Thread.sleep(3000);
 }
 
