@@ -589,9 +589,11 @@ public class ATSPageLib extends atspageObj
 //		    }
 //		}
 
-		WebElement thirdMenuItem = driver.findElement(By.xpath("(//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem'])[3]"));
-		thirdMenuItem.click();
+//		WebElement thirdMenuItem = driver.findElement(By.xpath("(//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem'])[3]"));
+//		thirdMenuItem.click();
 
+		WebElement thirdMenuItem = driver.findElement(By.cssSelector("div.o-dropdown--menu a.dropdown-item:nth-of-type(3)"));
+		thirdMenuItem.click();
 
 
 	//	driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']")).click();
