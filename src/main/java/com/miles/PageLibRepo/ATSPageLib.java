@@ -595,16 +595,21 @@ public class ATSPageLib extends atspageObj
 //		WebElement thirdMenuItem = driver.findElement(By.cssSelector("div.o-dropdown--menu a.dropdown-item:nth-of-type(3)"));
 //		thirdMenuItem.click();
 		
-		List<WebElement> menuItems = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem']"));
+//		List<WebElement> menuItems = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem']"));
+//
+//		if (menuItems.size() >= 3) {
+//		    WebElement thirdMenuItem = menuItems.get(2); // 0-based index
+//		    thirdMenuItem.click();
+//		    System.out.println("Clicked the third menu item successfully.");
+//		} else {
+//		    System.out.println("The third menu item was not found.");
+//		}
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@data-menu-xmlid='miles_ats_student.menu_miles_ats_student_gm_spoc_vise_allocate_spocs']")));
 
-		if (menuItems.size() >= 3) {
-		    WebElement thirdMenuItem = menuItems.get(2); // 0-based index
-		    thirdMenuItem.click();
-		    System.out.println("Clicked the third menu item successfully.");
-		} else {
-		    System.out.println("The third menu item was not found.");
-		}
-
+		WebElement element = driver.findElement(By.xpath("//a[@data-menu-xmlid='miles_ats_student.menu_miles_ats_student_gm_spoc_vise_allocate_spocs']"));
+		element.click();
 
 
 	//	driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']")).click();
