@@ -527,7 +527,7 @@ public class ATSPageLib extends atspageObj
 		 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
 //		 configOptions.click();
 		 Thread.sleep(2000);
-		 driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(3).click();
+		 driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 
 //		WebElement AllocationsOptions2 = driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
 //		
