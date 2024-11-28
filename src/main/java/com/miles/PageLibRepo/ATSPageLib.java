@@ -592,8 +592,19 @@ public class ATSPageLib extends atspageObj
 //		WebElement thirdMenuItem = driver.findElement(By.xpath("(//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem'])[3]"));
 //		thirdMenuItem.click();
 
-		WebElement thirdMenuItem = driver.findElement(By.cssSelector("div.o-dropdown--menu a.dropdown-item:nth-of-type(3)"));
-		thirdMenuItem.click();
+//		WebElement thirdMenuItem = driver.findElement(By.cssSelector("div.o-dropdown--menu a.dropdown-item:nth-of-type(3)"));
+//		thirdMenuItem.click();
+		
+		List<WebElement> menuItems = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem']"));
+
+		if (menuItems.size() >= 3) {
+		    WebElement thirdMenuItem = menuItems.get(2); // 0-based index
+		    thirdMenuItem.click();
+		    System.out.println("Clicked the third menu item successfully.");
+		} else {
+		    System.out.println("The third menu item was not found.");
+		}
+
 
 
 	//	driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']")).click();
