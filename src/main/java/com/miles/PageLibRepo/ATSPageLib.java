@@ -569,16 +569,16 @@ public class ATSPageLib extends atspageObj
 		Thread.sleep(2000);
 		
 		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
 		Options.get(0).click();
-		 Thread.sleep(3000);
+		 Thread.sleep(4000);
 		 
 		driver.findElement(By.id("checkbox-comp-1")).click();
 		 Thread.sleep(3000);
 		 
 		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 
 	WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
 	Gm.click();
