@@ -374,6 +374,7 @@ public void CheckingU7Tabs() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 	Thread.sleep(3000);
 	ATS.TabsbuttonOnU7Enrolled();
+	Thread.sleep(3000);
 	ATS.ReAllocate();
 }
 

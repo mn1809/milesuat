@@ -533,8 +533,10 @@ public class ATSPageLib extends atspageObj
 		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
 		Options.get(0).click();
 		 Thread.sleep(3000);
-		driver.findElements(By.xpath("//*[contains(@class, 'form-check-input')]")).get(1).click();
-		
+		 
+		driver.findElement(By.id("checkbox-comp-1")).click();
+		 Thread.sleep(3000);
+		 
 		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
 		Thread.sleep(2000);
 
@@ -587,7 +589,7 @@ public class ATSPageLib extends atspageObj
 	Thread.sleep(2000);
 	
 	
-	driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
+		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
 		
 	}
 	
