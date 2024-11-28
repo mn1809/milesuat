@@ -598,7 +598,7 @@ public class ATSPageLib extends atspageObj
 	
 	
 		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
-		
+		Thread.sleep(10000);
 	}
 	
 	
