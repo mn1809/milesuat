@@ -522,7 +522,13 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
 		Thread.sleep(2000);
 		
-		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(3).click();
+		
+//		WebElement AllocationsOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+//		
+//		AllocationsOptions.get()
+		
+		
+		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
 		Thread.sleep(2000);
 
 		driver.findElement(By.className("o_searchview_input")).click();
