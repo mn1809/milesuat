@@ -314,7 +314,7 @@ public void U7ASearachCandidate() throws InterruptedException
 		Thread.sleep(2000);
 		
 		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
-
+		Thread.sleep(10000);
 }
 
 @Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
