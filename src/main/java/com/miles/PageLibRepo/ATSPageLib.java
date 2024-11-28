@@ -60,7 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Shaik Basha");
 		Thread.sleep(3000);
 	}
 	
@@ -534,7 +534,8 @@ public class ATSPageLib extends atspageObj
 		driver.findElement(By.className("o_searchview_input")).click();
 		Thread.sleep(2000);
 		
-		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Shaik Basha");
+	
 		Thread.sleep(4000);
 		
 		driver.findElement((By.xpath("//b[normalize-space()='Student']"))).click();
