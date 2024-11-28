@@ -60,7 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
-		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
 		Thread.sleep(3000);
 	}
 	
@@ -515,6 +515,85 @@ public class ATSPageLib extends atspageObj
 		System.out.println("Brown Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_brown_color btn-secondary')]")).getText());
 		
 	}
+	
+	
+	public void ReAllocate() throws InterruptedException
+	{
+		driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
+		Thread.sleep(2000);
+		
+		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(3).click();
+		Thread.sleep(2000);
+
+		driver.findElement(By.className("o_searchview_input")).click();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
+		Thread.sleep(1000);
+		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
+		Options.get(0).click();
+		 Thread.sleep(3000);
+		driver.findElements(By.xpath("//*[contains(@class, 'form-check-input')]")).get(1).click();
+		
+		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
+		Thread.sleep(2000);
+
+	WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
+	Gm.click();
+	Thread.sleep(2000);
+	Gm.sendKeys("Manoj Expert");
+	Thread.sleep(2000);
+	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options1.get(0).click();
+	
+	Thread.sleep(2000);
+	
+	WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING SPOC------------//
+	Spoc.click();
+	Thread.sleep(2000);
+	Spoc.sendKeys("Manoj Spoc");
+	Thread.sleep(2000);
+	List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options2.get(0).click();
+	
+	Thread.sleep(2000);
+	
+	WebElement UniveristyExpert = driver.findElement(By.id("university_expert_id"));		//----------------ADDING UNIVERSITY EXPERT----------//
+	UniveristyExpert.click();
+	Thread.sleep(2000);
+	UniveristyExpert.sendKeys("Manoj University Expert");
+	Thread.sleep(2000);
+	List <WebElement> Options3 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options3.get(0).click();
+	Thread.sleep(2000);
+	
+	WebElement VisaExpert = driver.findElement(By.id("visa_expert_id"));		//---------------------------ADDING VISA EXPERT-----------------//
+	VisaExpert.click();
+	Thread.sleep(2000);
+	VisaExpert.sendKeys("Syed Pasha");
+	Thread.sleep(2000);
+	List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options4.get(0).click();
+	Thread.sleep(2000);
+	
+	
+	WebElement ContentSpoc = driver.findElement(By.id("content_spoc_id"));   //----------------------------ADDING CONTENT SPOC-------------//
+	ContentSpoc.click();
+	Thread.sleep(2000);
+	ContentSpoc.sendKeys("Manoj ContentWriter");
+	Thread.sleep(2000);
+	List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options5.get(0).click();
+	Thread.sleep(2000);
+	
+	
+	driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
+		
+	}
+	
+	
+	
+	
 	
 	public void TooBookExpertSessionProd() throws InterruptedException
 	{
@@ -2403,7 +2482,7 @@ Thread.sleep(2000);
 		Thread.sleep(2000);
 		driver.findElement(By.className("o_searchview_input")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.className("o_searchview_input")).sendKeys("AUTOMAYUON987");
+		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 		Thread.sleep(2000);
