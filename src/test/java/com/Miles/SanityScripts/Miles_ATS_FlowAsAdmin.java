@@ -282,8 +282,10 @@ public void U7ASearachCandidate() throws InterruptedException
 	Thread.sleep(2000);
 	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 	Thread.sleep(4000);
-	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
-	Options.get(0).click();
+//	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
+//	Options.get(0).click();
+	
+	driver.findElement(By.id("65")).click();
 	 Thread.sleep(4000);
 		driver.findElement(By.id("checkbox-comp-1")).click();
 		 Thread.sleep(3000);
