@@ -527,8 +527,8 @@ public class ATSPageLib extends atspageObj
 //		
 //		AllocationsOptions.get()
 		
-		
-		driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
+		//a[normalize-space()='Reallocate the Spocs']
+		driver.findElement(By.xpath("//a[normalize-space()='Reallocate the Spocs']")).click();
 		Thread.sleep(2000);
 
 		driver.findElement(By.className("o_searchview_input")).click();
