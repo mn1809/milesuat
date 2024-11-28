@@ -559,23 +559,13 @@ public class ATSPageLib extends atspageObj
 
 		// Ensure the list has at least 3 elements
 		if (childLinks.size() >= 3) {
-		    WebElement thirdOption = childLinks.get(2); // Index 2 for the 3rd element (0-based index)
-
-		    // Scroll into view if necessary
-		    JavascriptExecutor js = (JavascriptExecutor) driver;
-		    js.executeScript("arguments[0].scrollIntoView(true);", thirdOption);
-
-		    // Check if it's visible before clicking
-		    if (thirdOption.isDisplayed()) {
-		        Thread.sleep(2000);
-		    	thirdOption.click();
-		        System.out.println("Clicked on the 3rd option: " + thirdOption.getText());
-		    } else {
-		        System.out.println("The 3rd option is not visible and cannot be clicked.");
-		    }
+		    WebElement thirdOption = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a")).get(2); // Re-fetch the list
+		    thirdOption.click();
+		    System.out.println("Clicked on the 3rd option: " + thirdOption.getText());
 		} else {
-		    System.out.println("Less than 3 options are available. Cannot click the 3rd option.");
+		    System.out.println("Less than 3 options are available.");
 		}
+
 	 
 		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 

@@ -155,7 +155,7 @@ public static void getChromeVersion() throws IOException
 				System.out.println("WebDriverManager will take care of Driver management from here");
 				driver = new ChromeDriver(options);
 				driver.manage().window().maximize();
-				((JavascriptExecutor) driver).executeScript("window.resizeTo(2560,1440);"); // Set a custom size
+				((JavascriptExecutor) driver).executeScript("window.resizeTo(1920,1080);"); // Set a custom size
 				driver.get(MilesUtilities.GetURLs(FxEnums.URLs.ServerlessStage));
 				//System.out.println("Launching Prod Fx Web Page in Win Env");
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -194,7 +194,7 @@ public static void getChromeVersion() throws IOException
 				System.out.println("WebDriverManager will take care of Driver management from here");
 				driver = new ChromeDriver(options);
 				driver.manage().window().maximize();
-				((JavascriptExecutor) driver).executeScript("window.resizeTo(2560,1440);"); // Set a custom size
+				((JavascriptExecutor) driver).executeScript("window.resizeTo(1920,1080);"); // Set a custom size
 				driver.get(ProdURL);
 				//System.out.println("Launching Prod Fx Web Page in Win Env");
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
