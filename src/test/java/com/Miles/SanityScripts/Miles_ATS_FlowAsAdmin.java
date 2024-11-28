@@ -290,9 +290,18 @@ public void U7ASearachCandidate() throws InterruptedException
 		driver.findElement(By.id("checkbox-comp-1")).click();
 		 Thread.sleep(3000);
 		 
-		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead123')]")).click();
+		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
 		Thread.sleep(3000);
-	//a[normalize-space()='Allocate to GM']
+		
+		WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
+		Gm.click();
+		Thread.sleep(2000);
+		Gm.sendKeys("Manoj Expert");
+		Thread.sleep(2000);
+		List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+		Options1.get(0).click();
+		Thread.sleep(2000);
+	//	driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
 }
 
 //@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
@@ -899,7 +908,7 @@ public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 public void CandidateData() throws InterruptedException
 {
 	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Nirmala A");
 	Thread.sleep(3000);
 }
 
