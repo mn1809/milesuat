@@ -524,10 +524,15 @@ public class ATSPageLib extends atspageObj
 		
 		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
 		 
-		 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
+//		 WebElement OptionsIteam = configOptions.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]"));
 //		 configOptions.click();
-		 Thread.sleep(2000);
-		 driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
+//		 Thread.sleep(2000);
+		 
+		 
+		driver.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")).click();
+		 
+		 
+		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 
 //		WebElement AllocationsOptions2 = driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
 //		
