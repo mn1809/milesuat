@@ -540,14 +540,21 @@ public class ATSPageLib extends atspageObj
 //		 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
 		 
-		 List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
+//		 List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
+//
+//		// Print the text of each child element
+//		for (WebElement link : childLinks) {
+//		    System.out.println(link.getText());
+//		}
+		 
+		List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
 
-		// Print the text of each child element
 		for (WebElement link : childLinks) {
-		    System.out.println(link.getText());
+		    String linkText = link.getText(); // Get the text of the link
+		    boolean isVisible = link.isDisplayed(); // Check if the link is visible
+		    System.out.println("Link Text: " + linkText + " | Visible: " + isVisible);
 		}
-		 
-		 
+
 		 
 		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 
