@@ -575,17 +575,23 @@ public class ATSPageLib extends atspageObj
 		 
 		//driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]")).click();
 		
-		
-		
-	//List <WebElement> AllocationsOptions = driver.findElements(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
-		List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
-		for (WebElement link : childLinks) {
-		    // Use .equals() to compare strings in Java
-		    if (link.getText().equals("Relocate to spoc")) {
-		        link.click();
-		        break; // Exit the loop once the desired link is clicked
-		    }
-		}
+//		
+//		
+//		List<WebElement> childLinks = driver.findElements(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
+//
+//		for (WebElement link : childLinks) 
+//		{
+//		    // Use .equals() to compare strings in Java
+//		    if (link.getText().equals("Relocate to spoc")) 
+//		    {
+//		        link.click();
+//		        break; // Exit the loop once the desired link is clicked
+//		    }
+//		}
+
+		WebElement thirdMenuItem = driver.findElement(By.xpath("(//div[@class='o-dropdown--menu dropdown-menu d-block']//a[@role='menuitem'])[3]"));
+		thirdMenuItem.click();
+
 
 
 	//	driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']")).click();
@@ -654,7 +660,7 @@ public class ATSPageLib extends atspageObj
 	Thread.sleep(2000);
 	
 	
-		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads12345')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
+		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
 		
 	}
 	
