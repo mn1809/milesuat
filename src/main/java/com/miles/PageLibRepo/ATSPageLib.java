@@ -530,15 +530,25 @@ public class ATSPageLib extends atspageObj
 		//a[normalize-space()='Reallocate the Spocs']
 		 
 	//	driver.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")).click();
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		 WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")));
+//		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//		 WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")));
+//
+//		 // Scroll into view
+//		 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+//
+//		 // Click the element
+//		 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
-		 // Scroll into view
-		 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		 
+		 List<WebElement> childLinks = driver.findElements(By.xpath("//div[@class='o-dropdown--menu dropdown-menu d-block']/a"));
 
-		 // Click the element
-		 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-
+		// Print the text of each child element
+		for (WebElement link : childLinks) {
+		    System.out.println(link.getText());
+		}
+		 
+		 
+		 
 		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 
 //		WebElement AllocationsOptions2 = driver.findElement(By.xpath("//*[contains(@class, 'dropdown-item focus')]"));
@@ -565,72 +575,72 @@ public class ATSPageLib extends atspageObj
 //		driver.findElement(By.xpath("//a[normalize-space()='Reallocate the Spocs']")).click();
 		Thread.sleep(3000);
 
-		driver.findElement(By.className("o_searchview_input")).click();
-		Thread.sleep(2000);
-		
-		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
-		Thread.sleep(4000);
-		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
-		Options.get(0).click();
-		 Thread.sleep(4000);
-		 
-		driver.findElement(By.id("checkbox-comp-1")).click();
-		 Thread.sleep(3000);
-		 
-		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
-		Thread.sleep(3000);
-
-	WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
-	Gm.click();
-	Thread.sleep(2000);
-	Gm.sendKeys("Manoj Expert");
-	Thread.sleep(2000);
-	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options1.get(0).click();
-	
-	Thread.sleep(2000);
-	
-	WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING SPOC------------//
-	Spoc.click();
-	Thread.sleep(2000);
-	Spoc.sendKeys("Manoj Spoc");
-	Thread.sleep(2000);
-	List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options2.get(0).click();
-	
-	Thread.sleep(2000);
-	
-	WebElement UniveristyExpert = driver.findElement(By.id("university_expert_id"));		//----------------ADDING UNIVERSITY EXPERT----------//
-	UniveristyExpert.click();
-	Thread.sleep(2000);
-	UniveristyExpert.sendKeys("Manoj University Expert");
-	Thread.sleep(2000);
-	List <WebElement> Options3 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options3.get(0).click();
-	Thread.sleep(2000);
-	
-	WebElement VisaExpert = driver.findElement(By.id("visa_expert_id"));		//---------------------------ADDING VISA EXPERT-----------------//
-	VisaExpert.click();
-	Thread.sleep(2000);
-	VisaExpert.sendKeys("Syed Pasha");
-	Thread.sleep(2000);
-	List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options4.get(0).click();
-	Thread.sleep(2000);
-	
-	
-	WebElement ContentSpoc = driver.findElement(By.id("content_spoc_id"));   //----------------------------ADDING CONTENT SPOC-------------//
-	ContentSpoc.click();
-	Thread.sleep(2000);
-	ContentSpoc.sendKeys("Manoj ContentWriter");
-	Thread.sleep(2000);
-	List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options5.get(0).click();
-	Thread.sleep(2000);
-	
-	
-		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
-		
+////-----		driver.findElement(By.className("o_searchview_input")).click();
+//		Thread.sleep(2000);
+//		
+//		driver.findElement(By.className("o_searchview_input")).sendKeys("hydLead_01");
+//		Thread.sleep(4000);
+//		List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'dropdown-menu o_searchview_autocomplete dropdown-menu show')]")));
+//		Options.get(0).click();
+//		 Thread.sleep(4000);
+//		 
+//		driver.findElement(By.id("checkbox-comp-1")).click();
+//		 Thread.sleep(3000);
+//		 
+//		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
+//		Thread.sleep(3000);
+//
+//	WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
+//	Gm.click();
+//	Thread.sleep(2000);
+//	Gm.sendKeys("Manoj Expert");
+//	Thread.sleep(2000);
+//	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//	Options1.get(0).click();
+//	
+//	Thread.sleep(2000);
+//	
+//	WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING SPOC------------//
+//	Spoc.click();
+//	Thread.sleep(2000);
+//	Spoc.sendKeys("Manoj Spoc");
+//	Thread.sleep(2000);
+//	List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//	Options2.get(0).click();
+//	
+//	Thread.sleep(2000);
+//	
+//	WebElement UniveristyExpert = driver.findElement(By.id("university_expert_id"));		//----------------ADDING UNIVERSITY EXPERT----------//
+//	UniveristyExpert.click();
+//	Thread.sleep(2000);
+//	UniveristyExpert.sendKeys("Manoj University Expert");
+//	Thread.sleep(2000);
+//	List <WebElement> Options3 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//	Options3.get(0).click();
+//	Thread.sleep(2000);
+//	
+//	WebElement VisaExpert = driver.findElement(By.id("visa_expert_id"));		//---------------------------ADDING VISA EXPERT-----------------//
+//	VisaExpert.click();
+//	Thread.sleep(2000);
+//	VisaExpert.sendKeys("Syed Pasha");
+//	Thread.sleep(2000);
+//	List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//	Options4.get(0).click();
+//	Thread.sleep(2000);
+//	
+//	
+//	WebElement ContentSpoc = driver.findElement(By.id("content_spoc_id"));   //----------------------------ADDING CONTENT SPOC-------------//
+//	ContentSpoc.click();
+//	Thread.sleep(2000);
+//	ContentSpoc.sendKeys("Manoj ContentWriter");
+//	Thread.sleep(2000);
+//	List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+//	Options5.get(0).click();
+//	Thread.sleep(2000);
+//	
+//	
+//		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
+//		
 	}
 	
 	
