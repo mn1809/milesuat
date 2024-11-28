@@ -527,12 +527,17 @@ public class ATSPageLib extends atspageObj
 //		 WebElement OptionsIteam = configOptions.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]"));
 //		 configOptions.click();
 //		 Thread.sleep(2000);
-		 
+		//a[normalize-space()='Reallocate the Spocs']
 		 
 	//	driver.findElement(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")).click();
-		 
-		WebElement element = driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		 WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(), 'Reallocate the Spocs')]")));
+
+		 // Scroll into view
+		 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+		 // Click the element
+		 ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
 		// driver.findElements(By.xpath("//*[contains(@class, 'dropdown-item')]")).get(2).click();
 		 
