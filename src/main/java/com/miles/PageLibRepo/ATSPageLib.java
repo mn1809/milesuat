@@ -528,7 +528,7 @@ public class ATSPageLib extends atspageObj
 		WebElement element = driver.findElement(By.xpath("//a[@data-menu-xmlid='miles_ats_student.menu_miles_ats_student_gm_spoc_vise_allocate_spocs']"));
 		element.click();
 
-
+		//b[normalize-space()='Student']
 	//	driver.findElement(By.xpath("//a[text()='Reallocate the Spocs']")).click();
 		Thread.sleep(4000);
 		driver.findElement(By.className("o_searchview_input")).click();
