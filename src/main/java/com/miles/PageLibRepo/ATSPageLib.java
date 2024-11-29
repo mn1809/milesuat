@@ -1175,11 +1175,11 @@ public void StudentLORandSOP() throws InterruptedException
 	//System.out.println(driver.findElement(By.id("lor_updated")).getText());
 
 	driver.findElement(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).sendKeys("Akhila Chandrashekar");
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	
 	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options1.get(0).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
     driver.findElement(By.xpath("//*[contains(@name, 'action_update_lor')]")).click();
     Thread.sleep(3000);
     driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
@@ -1189,9 +1189,9 @@ public void StudentLORandSOP() throws InterruptedException
     ///----------Entrieing Student SOP------------------//
     
 	driver.findElement(By.id("sop_updated")).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	driver.findElement(By.id("sop_updated")).sendKeys("Automated Script SOP for Candidate.");
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	 driver.findElements(By.xpath("//*[contains(@name, 'action_update_sop')]")).get(1).click();
 	  
 	  Thread.sleep(10000);
@@ -1200,7 +1200,7 @@ public void StudentLORandSOP() throws InterruptedException
     
 	Actions act1 = new Actions(driver);
 	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'action_lor_submit_wizard')]"))).perform();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	
 	
 	
