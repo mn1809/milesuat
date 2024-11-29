@@ -618,7 +618,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	Thread.sleep(2000);
 	ATS.U9PlusBucket();
 	Thread.sleep(2000);
-	//ATS.UPPlusReuploading(); 
+	ATS.UPPlusReuploading(); 
 	Thread.sleep(5000);
 	ATS.U9VerifyDocuments();
 	
