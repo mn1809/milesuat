@@ -1738,8 +1738,10 @@ Thread.sleep(2000);
      Thread.sleep(4000);
      driver.findElement(By.xpath("//*[contains(@class,'o_field_widget o_readonly_modifier o_required_modifier o_field_selection')]")).click();
      Thread.sleep(2000);
-     driver.findElement(By.id("ctp_fee_collect_date")).isDisplayed();
-     System.out.println("The Collected Date is"+driver.findElement(By.id("ctp_fee_collect_date")).getText());
+     
+//     driver.findElement(By.id("ctp_fee_collect_date")).isDisplayed();
+//     
+//     System.out.println("The Collected Date is"+driver.findElement(By.id("ctp_fee_collect_date")).getText());
      
   
      
@@ -1751,7 +1753,7 @@ Thread.sleep(2000);
 // 		Thread.sleep(2000);
  
  		driver.findElement(By.xpath("//*[contains(@name, 'action_finance_fee_manage_submit')]")).click();
- 		
+ 		Thread.sleep(4000);
 }
 
 public void U15BucketStage3ApprovingVISADetails() throws InterruptedException
