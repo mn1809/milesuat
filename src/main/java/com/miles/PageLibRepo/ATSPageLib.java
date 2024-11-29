@@ -982,41 +982,37 @@ public void MSASigned() throws InterruptedException, AWTException
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 	Thread.sleep(2000);
 	
-	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).click();
+	driver.findElement(By.id("msa_doc_type_id")).click();
 	Thread.sleep(2000);
-	 driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("JAGSoM (Opt-IN)");//---------Giving MAS Documnet Input----------//
+	 driver.findElement(By.id("msa_doc_type_id")).sendKeys("JAGSoM (Opt-IN)");//---------Giving MAS Documnet Input----------//
 	 Thread.sleep(2000);
 
 		
 		driver.findElement(By.xpath("//a[@class='dropdown-item ui-menu-item-wrapper text-truncate ui-state-active']")).click();		
-		
-		//	driver.findElement(By.xpath("//*[contains(@class, 'oe_fileupload')]")).click();
-		//	 Thread.sleep(5000);
-		//	 String Attachements = System.getProperty("user.dir");
-		//	 driver.findElement(By.xpath("//*[contains(@name, 'o_field_widget o_field_many2many_binary')]")).sendKeys(Attachements+"\\Attachements\\MASATTACHEMENT.png");
-//	 
-		//	 WebElement fileInput = driver.findElement(By.xpath("//*[contains(@class, 'oe_fileupload')]"));
-//	 
-		////	 WebElement fileInput = driver.findElement(By.xpath("//*[contains(@class, 'oe_fileupload')]"));
-		////	 fileInput.sendKeys("C:\\Users\\MANOJ.HR\\Pictures\\Screenshots\\Screenshot (10).png");
-//	
-		//	 Thread.sleep(5000);
-		//	driver.findElement(By.xpath("//*[contains(@name, 'action_sign_msa_agreement_submit')]")).click();
+
 		Thread.sleep(5000);
-//        WebElement uploadButton = driver.findElement(By.className("o_file_input_trigger"));
-//        uploadButton.click();
-//        Thread.sleep(5000);
+
         
-    	driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
+    	//driver.findElements(By.xpath("//*[contains(@name, 'doc_attachment_ids')]")).get(0).click();	
     	Thread.sleep(2000);
-    	WebElement passportDocument = driver.findElement(By.className("o_file_input_trigger"));
-    	passportDocument.click();
+    	WebElement AgreementDocument = driver.findElements(By.className("o_file_input_trigger")).get(0);
+    	AgreementDocument.click();
     	
     	  Thread.sleep(5000);  
     	    
     	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
     		 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 
+    		  Thread.sleep(5000);  
+    			WebElement OptinDocument = driver.findElements(By.className("o_file_input_trigger")).get(1);
+    			OptinDocument.click();
+    	    	
+    	    	  Thread.sleep(5000);  
+    	    	    
+    	    	    WebElement fileInput2 = driver.findElements(By.xpath("//input[@type='file']")).get(1);
+    	    		 fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+    		 
+    		 
         // Add any further actions if needed, such as submitting the form
 	Thread.sleep(10000);
 
