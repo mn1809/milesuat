@@ -544,7 +544,7 @@ public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTEx
 
 }
 
-@Test (priority = 21, description = "U8 Expert Session Done Bucket")
+//@Test (priority = 21, description = "U8 Expert Session Done Bucket")
 
 public void VerifyU8Bucket() throws InterruptedException, AWTException
 {
@@ -558,7 +558,7 @@ public void VerifyU8Bucket() throws InterruptedException, AWTException
 	ATS.MSASigned();
 }
 
-//@Test (priority = 22, description = "U9 MSA SIGNED")
+@Test (priority = 22, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage1Bucket() throws InterruptedException
 {
