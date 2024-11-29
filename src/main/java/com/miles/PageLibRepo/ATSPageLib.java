@@ -1013,11 +1013,11 @@ public void MSASigned() throws InterruptedException, AWTException
     	    	    WebElement fileInput2 = driver.findElements(By.xpath("//input[@type='file']")).get(1);
     	    		 fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
     		 
-    		 
+    	    	//	 C:\Users\Miles\Pictures\Screenshots\Frotedn-1.PNG
         // Add any further actions if needed, such as submitting the form
 	Thread.sleep(10000);
 
-	driver.findElement(By.xpath("//*[contains(@name, 'action_sign_msa_agreement_submit1234')]")).click();
+	driver.findElement(By.xpath("//span[normalize-space()='Submit']")).click();
 	
 	Thread.sleep(4000);
 	
