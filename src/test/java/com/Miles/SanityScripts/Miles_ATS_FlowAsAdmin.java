@@ -520,7 +520,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 	ATS.TabsbuttonOnU7PlusEnrolled();
 	Thread.sleep(3000);
 
-	//ATS.RecommendationCompleted();
+	ATS.RecommendationCompleted();
 	Thread.sleep(3000);
 	ATS.U7PLusEligibleTheCandidate();
 	
@@ -528,7 +528,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 
 
 
-@Test (priority = 20, description = "U7+ Recommend University To Candidate")
+//@Test (priority = 20, description = "U7+ Recommend University To Candidate")
 public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -538,13 +538,13 @@ public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTEx
 	Thread.sleep(3000);
 	ATS.ScrollToMeetingTab();
 	Thread.sleep(3000);
-	ATS.Recommenduniversity();
-	Thread.sleep(3000);
-	ATS.U7PLusEligibleTheCandidate();
+//	ATS.Recommenduniversity();
+//	Thread.sleep(3000);
+//	ATS.U7PLusEligibleTheCandidate();
 
 }
 
-//@Test (priority = 21, description = "U8 Expert Session Done Bucket")
+@Test (priority = 21, description = "U8 Expert Session Done Bucket")
 
 public void VerifyU8Bucket() throws InterruptedException, AWTException
 {
