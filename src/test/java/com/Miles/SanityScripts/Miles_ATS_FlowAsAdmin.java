@@ -607,7 +607,7 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.UploadationOfApplicationProof();
 }
 
-@Test (priority = 25, description = "U9+ Application Submitted Process")
+//@Test (priority = 25, description = "U9+ Application Submitted Process")
 
 public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 
@@ -624,7 +624,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	
 }
 
-//@Test (priority = 26, description= "U9+ Application Initiated")
+@Test (priority = 26, description= "U9+ Application Initiated")
 
 public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 {
