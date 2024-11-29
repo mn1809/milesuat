@@ -1016,7 +1016,7 @@ public void MSASigned() throws InterruptedException, AWTException
         // Add any further actions if needed, such as submitting the form
 	Thread.sleep(10000);
 
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary1234')]")).get(1).click();
 }
 
 
