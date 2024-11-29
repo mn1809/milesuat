@@ -2414,7 +2414,7 @@ public void U15BucketStage2UploadingVISADetails() throws InterruptedException, A
 	
 	driver.findElement(By.id("visa_city_id")).click();
 	Thread.sleep(2000);
-	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("Dubai");
+	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys("Dubai");
 	Thread.sleep(2000);
 	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options1.get(0).click();
