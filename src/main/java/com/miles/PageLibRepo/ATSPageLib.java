@@ -1742,9 +1742,7 @@ Thread.sleep(2000);
 //     driver.findElement(By.id("ctp_fee_collect_date")).isDisplayed();
 //     
 //     System.out.println("The Collected Date is"+driver.findElement(By.id("ctp_fee_collect_date")).getText());
-     
-  
-     
+   
      //--------------------------------Loan Sanction Date--------------------//
 //     	driver.findElements(By.xpath("//*[contains(@class, 'o_datepicker_input o_input datetimepicker-input')]")).get(1).click();
 // 		Thread.sleep(2000);
