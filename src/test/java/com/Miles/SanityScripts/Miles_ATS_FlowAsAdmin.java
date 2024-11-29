@@ -707,7 +707,7 @@ public void verifyU12Bucket() throws InterruptedException
 	
 }
 
-@Test (priority = 33, description = "U13A Miles US Funding Bucket Stage1")
+//@Test (priority = 33, description = "U13A Miles US Funding Bucket Stage1")
 
 public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 {
@@ -722,7 +722,7 @@ public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage2")
+@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage2 Approving US Funding Documnents")
 
 public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 {
