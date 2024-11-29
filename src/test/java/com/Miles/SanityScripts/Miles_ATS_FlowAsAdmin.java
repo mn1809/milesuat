@@ -624,7 +624,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	
 }
 
-@Test (priority = 26, description= "U9+ Application Initiated")
+//@Test (priority = 26, description= "U9+ Application Initiated")
 
 public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 {
@@ -638,7 +638,7 @@ public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 27, description= "U10 Upload Offer Letter")
+@Test (priority = 27, description= "U10 Upload Offer Letter")
 
 public void VerifyU10Bucket() throws InterruptedException, AWTException
 {
