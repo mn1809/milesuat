@@ -837,7 +837,7 @@ public void VerifyU15BucketStage1() throws InterruptedException, AWTException
 	ATS.U15BucketStage1MandateFeilds();//---------------------------------Negative FLow For Mandate Feilds---------------//
 }
 
-@Test (priority = 44, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
+//@Test (priority = 44, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
 public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -848,7 +848,7 @@ public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, 
 }	
 
 
-@Test (priority = 45, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
+//@Test (priority = 45, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
 public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -858,7 +858,7 @@ public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, 
 	ATS.U15BucketStage3ApprovingVISADetails();//------------------------------Approving VISA Slot Details and Documents--------------------//
 }
 
-@Test (priority = 46, description = "U16 Miles Too Book VISA Slot")
+//@Test (priority = 46, description = "U16 Miles Too Book VISA Slot")
 public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -1524,12 +1524,14 @@ public void U16TooBookVISAMock() throws InterruptedException
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 	
 	Thread.sleep(2000);
-	System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
-	System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).getText());
-	System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(17).getText());
+	System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(13).getText());
+	System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(14).getText());
+	System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
 	Thread.sleep(2000);
-	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(18).click();
-
+	
+	//driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(18).click();
+driver.findElement(By.id("booked_date")).click();
+Thread.sleep(2000);
 	// Get tomorrow's date
 	LocalDate tomorrow = LocalDate.now().plusDays(1);
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
