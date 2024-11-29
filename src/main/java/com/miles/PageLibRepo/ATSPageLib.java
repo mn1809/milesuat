@@ -60,6 +60,7 @@ public class ATSPageLib extends atspageObj
 	public void CandidateData() throws InterruptedException
 	{
 		driver.findElement(By.className("o_searchview_input")).click();
+		Thread.sleep(1000);
 		driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 		Thread.sleep(3000);
 	}
@@ -1017,6 +1018,9 @@ public void MSASigned() throws InterruptedException, AWTException
 	Thread.sleep(10000);
 
 	driver.findElement(By.xpath("//*[contains(@name, 'action_sign_msa_agreement_submit')]")).click();
+	
+	Thread.sleep(4000);
+	
 }
 
 
