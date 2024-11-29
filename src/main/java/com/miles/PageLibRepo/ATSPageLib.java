@@ -573,7 +573,7 @@ public class ATSPageLib extends atspageObj
 	
 	Thread.sleep(2000);
 	
-	WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING SPOC------------//
+	WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING GM SPOC------------//
 	Spoc.click();
 	Thread.sleep(2000);
 	Spoc.sendKeys("Manoj Spoc");
@@ -592,13 +592,51 @@ public class ATSPageLib extends atspageObj
 	Options3.get(0).click();
 	Thread.sleep(2000);
 	
+	
+	WebElement UniveristySpoc = driver.findElement(By.id("university_spoc_id"));        //--------------ADDING UNIVERSITY SPOC------------//
+	UniveristySpoc.click();
+	Thread.sleep(2000);
+	UniveristySpoc.sendKeys("Manoj University Spoc");
+	Thread.sleep(2000);
+	List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options4.get(0).click();
+	
+	
+	WebElement LoanExpert = driver.findElement(By.id("loan_expert_id"));        //--------------ADDING Loan Expert------------//
+	LoanExpert.click();
+	Thread.sleep(2000);
+	LoanExpert.sendKeys("Aishu loan support expert");
+	Thread.sleep(2000);
+	List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options5.get(0).click();
+	
+	
+	WebElement LoanSpoc = driver.findElement(By.id("loan_spoc_id"));        //--------------ADDING Loan Spoc------------//
+	LoanSpoc.click();
+	Thread.sleep(2000);
+	LoanSpoc.sendKeys("Aishu loan support spoc");
+	Thread.sleep(2000);
+	List <WebElement> Options6 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options6.get(0).click();
+	
+	
 	WebElement VisaExpert = driver.findElement(By.id("visa_expert_id"));		//---------------------------ADDING VISA EXPERT-----------------//
 	VisaExpert.click();
 	Thread.sleep(2000);
 	VisaExpert.sendKeys("Syed Pasha");
 	Thread.sleep(2000);
-	List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options4.get(0).click();
+	List <WebElement> Options7 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options7.get(0).click();
+	Thread.sleep(2000);
+	
+	
+	WebElement VisaSPOC = driver.findElement(By.id("visa_expert_id"));		//---------------------------ADDING VISA Spoc-----------------//
+	VisaSPOC.click();
+	Thread.sleep(2000);
+	VisaSPOC.sendKeys("Debasmita Ray");
+	Thread.sleep(2000);
+	List <WebElement> Options8 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options8.get(0).click();
 	Thread.sleep(2000);
 	
 	
@@ -607,8 +645,8 @@ public class ATSPageLib extends atspageObj
 	Thread.sleep(2000);
 	ContentSpoc.sendKeys("Manoj ContentWriter");
 	Thread.sleep(2000);
-	List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options5.get(0).click();
+	List <WebElement> Options9 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+	Options9.get(0).click();
 	Thread.sleep(2000);
 	
 	
@@ -1002,8 +1040,10 @@ public void MSASigned() throws InterruptedException, AWTException
     	  Thread.sleep(5000);  
     	    
     	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-    		 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-
+    	//	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+    	    fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
+    	    
+    	    
     		  Thread.sleep(8000);  
     			WebElement OptinDocument = driver.findElements(By.className("o_file_input_trigger")).get(1);
     			OptinDocument.click();
@@ -1011,7 +1051,8 @@ public void MSASigned() throws InterruptedException, AWTException
     	    	  Thread.sleep(5000);  
     	    	    
     	    	    WebElement fileInput2 = driver.findElements(By.xpath("//input[@type='file']")).get(1);
-    	    		 fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+    	    	//	 fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+    	    		 fileInput2.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
     		 
     	    	//	 C:\Users\Miles\Pictures\Screenshots\Frotedn-1.PNG
         // Add any further actions if needed, such as submitting the form
