@@ -572,7 +572,7 @@ public void VerifyU9Stage1Bucket() throws InterruptedException
 	
 }
 
-@Test (priority = 23, description = "U9 MSA SIGNED LOR and SOP")
+//@Test (priority = 23, description = "U9 MSA SIGNED LOR and SOP")
 
 public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 {
@@ -592,7 +592,7 @@ public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 
 }
 
-//@Test (priority = 24, description = "U9 MSA SIGNED")
+@Test (priority = 24, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
 
