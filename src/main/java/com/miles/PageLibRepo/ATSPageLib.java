@@ -1017,7 +1017,7 @@ public void MSASigned() throws InterruptedException, AWTException
         // Add any further actions if needed, such as submitting the form
 	Thread.sleep(10000);
 
-	driver.findElement(By.xpath("//*[contains(@name, 'action_sign_msa_agreement_submit')]")).click();
+	driver.findElement(By.xpath("//*[contains(@name, 'action_sign_msa_agreement_submit1234')]")).click();
 	
 	Thread.sleep(4000);
 	
