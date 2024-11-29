@@ -483,6 +483,20 @@ public class ATSPageLib extends atspageObj
 
 	}
 
+	
+	public void RecommendationCompleted() throws InterruptedException
+	{
+		Actions act = new Actions(driver);
+		Thread.sleep(2000);
+		act.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+		Thread.sleep(2000);
+		
+		driver.findElement(By.xpath("//a[@name='student_application_line']")).click();//a[@name='student_application_line']
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[conatins(@name,'action_recommendation_completion')]")).click();
+		Thread.sleep(2000);
+		
+	}
 
 
 	public void TabsbuttonOnU7Enrolled() throws InterruptedException
@@ -663,7 +677,7 @@ public class ATSPageLib extends atspageObj
 	
 			 
 			 driver.findElement(By.id("job_position")).click();
-			 
+			 Thread.sleep(3000);
 			 driver.findElement(By.id("job_position")).clear();
 			 Thread.sleep(3000);
 			 driver.findElement(By.id("job_position")).click();
@@ -863,7 +877,13 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
 	Thread.sleep(3000);
-	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).click();
+	
+	WebElement intakeBatch=driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(13);
+	intakeBatch.click();
+	Thread.sleep(2000);
+//	intakeBatch.clear();
+//	Thread.sleep(2000);
+	//intakeBatch.sendKeys("Spring 2025");
 	
 	Thread.sleep(3000);
 	
