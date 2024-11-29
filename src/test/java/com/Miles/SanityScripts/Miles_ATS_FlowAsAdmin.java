@@ -1358,6 +1358,8 @@ public void LoRResponses() throws InterruptedException
     driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer1);
     Thread.sleep(3000);
     
+    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();   //--------------------TO SAVE-----------//
+    
     driver.findElement(By.className("o_field_x2many_list_row_add")).click();
     Thread.sleep(1000);
 	WebElement button2 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
@@ -1371,6 +1373,7 @@ public void LoRResponses() throws InterruptedException
     driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer2);
     Thread.sleep(3000);
     
+    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();    //--------------------TO SAVE-----------//
     
     driver.findElement(By.className("o_field_x2many_list_row_add")).click();
     Thread.sleep(1000);
@@ -1385,6 +1388,8 @@ public void LoRResponses() throws InterruptedException
     driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer3);
     Thread.sleep(3000);
     
+    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();    //--------------------TO SAVE-----------//
+    
     
     driver.findElement(By.className("o_field_x2many_list_row_add")).click();
     Thread.sleep(1000);
@@ -1398,7 +1403,7 @@ public void LoRResponses() throws InterruptedException
    	Thread.sleep(2500);
     driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer4);
     Thread.sleep(3000);
-    
+    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();    //--------------------TO SAVE-----------//
     
     driver.findElement(By.className("o_field_x2many_list_row_add")).click();
     Thread.sleep(1000);
@@ -1412,7 +1417,7 @@ public void LoRResponses() throws InterruptedException
    	Thread.sleep(2500);
     driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer5);
     Thread.sleep(3000);
-    
+    driver.findElement(By.xpath("//*[contains(@class, 'o_form_button_save btn btn-light py-0')]")).click();    //--------------------TO SAVE-----------//
 
     driver.findElement(By.xpath("//*[contains(@name, 'action_generate_lor')]")).click();
  
