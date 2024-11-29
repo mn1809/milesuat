@@ -981,6 +981,9 @@ public void MSASigned() throws InterruptedException, AWTException
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 	Thread.sleep(2000);
+	
+	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).click();
+	Thread.sleep(2000);
 	 driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("JAGSoM (Opt-IN)");//---------Giving MAS Documnet Input----------//
 	 Thread.sleep(2000);
 
