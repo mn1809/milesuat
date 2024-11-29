@@ -1040,19 +1040,20 @@ public void MSASigned() throws InterruptedException, AWTException
     	  Thread.sleep(5000);  
     	    
     	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-    	//	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-    	    fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
+    	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+    	 //   fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
     	    
     	    
     		  Thread.sleep(8000);  
+    		  
     			WebElement OptinDocument = driver.findElements(By.className("o_file_input_trigger")).get(1);
     			OptinDocument.click();
     	    	
     	    	  Thread.sleep(5000);  
     	    	    
     	    	    WebElement fileInput2 = driver.findElements(By.xpath("//input[@type='file']")).get(1);
-    	    	//	 fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-    	    		 fileInput2.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
+    	    	 fileInput2.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+    	    		// fileInput2.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
     		 
     	    	//	 C:\Users\Miles\Pictures\Screenshots\Frotedn-1.PNG
         // Add any further actions if needed, such as submitting the form
