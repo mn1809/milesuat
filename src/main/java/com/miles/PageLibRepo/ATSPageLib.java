@@ -1382,7 +1382,7 @@ public void UPPlusReuploading() throws InterruptedException, AWTException
 	 WebElement RESubmissionScreenshot = driver.findElements(By.xpath("//*[contains(@class,'btn btn-secondary o_attach')]")).get(0);
 		
 	    RESubmissionScreenshot.click();
-	    
+	    Thread.sleep(2000);
 	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
 	    fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 	    Thread.sleep(15000);    
