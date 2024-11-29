@@ -1173,8 +1173,10 @@ public void StudentLORandSOP() throws InterruptedException
 	}
 	
 	//System.out.println(driver.findElement(By.id("lor_updated")).getText());
-
-	driver.findElement(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).sendKeys("Akhila Chandrashekar");
+	Thread.sleep(3000);
+	driver.findElement(By.id("signed_by")).click();
+	Thread.sleep(2000);
+	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys("Akhila Chandrashekar");
 	Thread.sleep(3000);
 	
 	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
