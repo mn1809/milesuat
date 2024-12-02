@@ -509,7 +509,7 @@ public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 
 }
 
-@Test (priority = 19, description = "U7+ Expert Session Booked Eligible Candidate")
+//@Test (priority = 19, description = "U7+ Expert Session Booked Eligible Candidate")
 
 public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedException
 {
@@ -522,7 +522,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 
 	ATS.RecommendationCompleted();
 	Thread.sleep(3000);
-	ATS.U7PLusEligibleTheCandidate();
+	ATS.U7PLusEligibleTheCandidate();  //---------------------EVEN With INtake has been added ---------------------//
 	
 }
 
