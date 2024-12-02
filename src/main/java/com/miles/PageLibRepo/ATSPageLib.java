@@ -2249,22 +2249,22 @@ public void U14BucketStage3() throws InterruptedException
 	CandidateData1();
 	Thread.sleep(3000);
 			//-------------------------------------Approving DS160--------------------------//
-//	driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
-//	Thread.sleep(2000);
-//	   
-//	    Actions act1 = new Actions(driver);
-//		act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
-//		Thread.sleep(2000);
-//	
-//		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
-//		Thread.sleep(1500);
-//		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
-//		Thread.sleep(3000);
-//		
-//		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
-//		System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+	driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
+	Thread.sleep(2000);
+	   
+	    Actions act1 = new Actions(driver);
+		act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+		Thread.sleep(2000);
+	
+		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+		Thread.sleep(1500);
+		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+		System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
 		
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
@@ -2527,22 +2527,22 @@ public void U17Stage2ApprovingVISA() throws InterruptedException
 	Thread.sleep(5000);
 	
 	//-------------------------------------Approving VISA--------------------------//
-driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
-Thread.sleep(2000);
-   
-    Actions act1 = new Actions(driver);
-	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
-	Thread.sleep(2000);
-
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
-	Thread.sleep(2500);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
-	Thread.sleep(3000);
-	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
-	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+//driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
+//Thread.sleep(2000);
+//   
+//    Actions act1 = new Actions(driver);
+//	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+//	Thread.sleep(2000);
+//
+//	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+//	Thread.sleep(2000);
+//	driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+//	Thread.sleep(2500);
+//	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+//	Thread.sleep(3000);
+//	
+//	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+//	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
 	
 	
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
