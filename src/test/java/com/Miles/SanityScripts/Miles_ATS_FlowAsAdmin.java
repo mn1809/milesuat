@@ -361,7 +361,7 @@ public void U7AWorkExperience() throws InterruptedException
 }
 
 
-@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
+//@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
 public void U7PRecommendUniversity() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -383,7 +383,7 @@ public void U7PRecommendUniversity() throws InterruptedException
 //	CandidateU7ADetails();
 //}
 	
-@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
+//@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -397,7 +397,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-//@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -409,7 +409,7 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-//@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
+@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
 
 public void CheckingU7Reallocate() throws InterruptedException
 {	
