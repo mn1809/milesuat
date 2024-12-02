@@ -317,7 +317,7 @@ public void U7AAllocatingGMCandidate() throws InterruptedException
 		Thread.sleep(10000);
 }
 
-@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
+//@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
 public void U7UGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -328,7 +328,7 @@ public void U7UGCandidate() throws InterruptedException
 }
 
 
-@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
+//@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
 public void U7PGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -338,7 +338,7 @@ public void U7PGCandidate() throws InterruptedException
 	EnteringPGGraduationDetails();										//--------------------------------Entering PG Graduation Details Mind it-------------------------------//
 }
 
-//@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
+@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
 
 public void U7ACertifications() throws InterruptedException
 {
@@ -349,7 +349,7 @@ public void U7ACertifications() throws InterruptedException
 	ATS.EnteringCertificationDetails();
 }
 
-//@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
+@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
 public void U7AWorkExperience() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
