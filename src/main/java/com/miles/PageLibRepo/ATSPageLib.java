@@ -1969,15 +1969,16 @@ public void ApprovingCollectedDocumentsU13A() throws InterruptedException
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
-    Thread.sleep(1500); 
+    Thread.sleep(2000); 
 
     		//--------------------Negative Flow where not able to save without Verifying the Documents------------------------//
 	driver.findElements(By.xpath("//*[contains(@class, 'modal-body')]")).get(1).isDisplayed();
 	System.out.println("Error Message is "+driver.findElements(By.xpath("//*[contains(@class, 'modal-body')]")).get(1).getText());
 	Thread.sleep(1000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary o-default-button')]")).get(1).click();
+	Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
-    Thread.sleep(1500); 
+    Thread.sleep(2500); 
     
     //----------------------------------Back to Positive Flow where approving the Documents--------------------//
   
