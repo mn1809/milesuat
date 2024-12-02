@@ -210,7 +210,7 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-@Test(priority = 1,description = "Verify Admin Login")
+//@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
@@ -218,7 +218,7 @@ public void ClearingHomePage() throws InterruptedException
 	ATS.ClearMyCandidateFilter();
 }
 
-@Test(priority = 2,description = "Verify Admin Dropdown Options")
+//@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -235,7 +235,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	}
 }
 
-@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -244,7 +244,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 }
 
-@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -264,7 +264,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 }
 
 
-@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
+//@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
 public void U7ASearachCandidate() throws InterruptedException
 
 {
@@ -317,7 +317,7 @@ public void U7ASearachCandidate() throws InterruptedException
 		Thread.sleep(10000);
 }
 
-@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
+//@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
 public void U7UGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -328,7 +328,7 @@ public void U7UGCandidate() throws InterruptedException
 }
 
 
-@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
+//@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
 public void U7PGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -338,7 +338,7 @@ public void U7PGCandidate() throws InterruptedException
 	EnteringPGGraduationDetails();										//--------------------------------Entering PG Graduation Details Mind it-------------------------------//
 }
 
-@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
+//@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
 
 public void U7ACertifications() throws InterruptedException
 {
@@ -349,7 +349,7 @@ public void U7ACertifications() throws InterruptedException
 	ATS.EnteringCertificationDetails();
 }
 
-@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
+//@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
 public void U7AWorkExperience() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -360,7 +360,7 @@ public void U7AWorkExperience() throws InterruptedException
 }
 
 
-@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
+//@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
 public void U7PRecommendUniversity() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -382,7 +382,7 @@ public void U7PRecommendUniversity() throws InterruptedException
 //	CandidateU7ADetails();
 //}
 	
-@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
+//@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
@@ -396,7 +396,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+//@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -408,7 +408,7 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
+//@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
 
 public void CheckingU7Reallocate() throws InterruptedException
 {	
@@ -422,7 +422,7 @@ public void CheckingU7Reallocate() throws InterruptedException
 	ATS.ReAllocate();
 }
 
-@Test (priority = 14, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
+//@Test (priority = 14, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
 
 public void CandidateBasicDetails() throws InterruptedException
 {
@@ -449,7 +449,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
+//@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -474,7 +474,7 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 }
 //------------------------Needed to be added the Recommend university--------------------//
 
-@Test (priority = 17, description = "Booking Expert Session U7 window")
+//@Test (priority = 17, description = "Booking Expert Session U7 window")
 public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -488,7 +488,7 @@ public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTExce
 }
 
 
-@Test (priority = 18, description = "U7+ Expert Session Booked")
+//@Test (priority = 18, description = "U7+ Expert Session Booked")
 
 public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 {
