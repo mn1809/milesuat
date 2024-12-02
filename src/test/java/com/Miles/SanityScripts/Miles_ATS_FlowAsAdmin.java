@@ -521,7 +521,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 	ATS.TabsbuttonOnU7PlusEnrolled();
 	Thread.sleep(3000);
 
-	ATS.RecommendationCompleted();
+	//ATS.RecommendationCompleted();
 	Thread.sleep(3000);
 	ATS.U7PLusEligibleTheCandidate();  //---------------------EVEN With INtake has been added ---------------------//
 	

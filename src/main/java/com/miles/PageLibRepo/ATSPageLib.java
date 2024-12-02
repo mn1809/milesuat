@@ -1059,6 +1059,7 @@ public void MSASigned() throws InterruptedException, AWTException
     	    		// fileInput2.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG");
     		 
     	    	//	 C:\Users\Miles\Pictures\Screenshots\Frotedn-1.PNG
+    	    	 
         // Add any further actions if needed, such as submitting the form
 	Thread.sleep(10000);
 
