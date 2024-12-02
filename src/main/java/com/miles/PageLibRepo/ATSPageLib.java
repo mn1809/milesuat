@@ -2180,7 +2180,7 @@ Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
 	System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
 	
-	
+	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 	Thread.sleep(3000);
 	
