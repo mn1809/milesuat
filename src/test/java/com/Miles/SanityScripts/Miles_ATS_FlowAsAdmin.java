@@ -317,7 +317,7 @@ public void U7AAllocatingGMCandidate() throws InterruptedException
 		Thread.sleep(10000);
 }
 
-@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
+//@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
 public void U7UGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -361,7 +361,7 @@ public void U7AWorkExperience() throws InterruptedException
 }
 
 
-//@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
+@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
 public void U7PRecommendUniversity() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -383,7 +383,7 @@ public void U7PRecommendUniversity() throws InterruptedException
 //	CandidateU7ADetails();
 //}
 	
-//@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
+@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
 
 public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 {
