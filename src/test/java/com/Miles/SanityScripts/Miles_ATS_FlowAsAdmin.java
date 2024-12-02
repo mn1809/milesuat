@@ -651,7 +651,7 @@ public void VerifyU10Bucket() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 28, description= "U10 Approve Offer Letter")
+//@Test (priority = 28, description= "U10 Approve Offer Letter")
 
 public void VerifyU10Stage2Bucket() throws InterruptedException
 {
@@ -663,7 +663,7 @@ public void VerifyU10Stage2Bucket() throws InterruptedException
 
 }
 
-@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
+//@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
 
 public void VerifyU10Stage3Bucket() throws InterruptedException
 {
@@ -675,7 +675,7 @@ public void VerifyU10Stage3Bucket() throws InterruptedException
 	Thread.sleep(3000);
 }
 
-//@Test (priority = 30, description = "U11 Miles Pathway Funding")
+@Test (priority = 30, description = "U11 Miles Pathway Funding")
 
 public void VerifyU11Stage1Bucket()throws InterruptedException
 {
@@ -686,7 +686,7 @@ public void VerifyU11Stage1Bucket()throws InterruptedException
 	ATS.U11BucketStage1();
 }
 
-//@Test (priority = 31, description = "U11 Miles Pathway Fee Received")
+@Test (priority = 31, description = "U11 Miles Pathway Fee Received")
 public void verifyU11Stage2Bucket() throws InterruptedException
 
 {
