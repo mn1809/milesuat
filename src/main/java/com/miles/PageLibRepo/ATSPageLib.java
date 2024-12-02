@@ -917,7 +917,8 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 	Thread.sleep(2000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(4).click();
+//	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(4).click();
+	driver.findElement(By.xpath("//button[normalize-space()='Ok']")).click();
 	Thread.sleep(3000);
 	
 	WebElement intakeBatch=driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(13);
@@ -933,11 +934,11 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 	Options.get(0).click();
 	
 	Thread.sleep(4000);
-	driver.findElement(By.xpath("//*[contains(@name, 'action_student_ineligible_reason')]")).click();
+	driver.findElement(By.xpath("//*[contains(@name, 'action_student_ineligible_reason')]")).click();  //-----SUBMIT Button---//
 	Thread.sleep(3000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(6).click();
+	driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Ok']")).click();  //---------AND OK -------//
 	Thread.sleep(2000);
-}
+}//button[@class='btn btn-primary'][normalize-space()='Ok']
 
 
 public void Recommenduniversity() throws InterruptedException, AWTException
