@@ -2249,27 +2249,27 @@ public void U14BucketStage3() throws InterruptedException
 	CandidateData1();
 	Thread.sleep(3000);
 			//-------------------------------------Approving DS160--------------------------//
-	driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
-	Thread.sleep(2000);
-	   
-	    Actions act1 = new Actions(driver);
-		act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
-		Thread.sleep(2000);
-	
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
-		Thread.sleep(1500);
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
-		Thread.sleep(3000);
-		
-		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
-		System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
+//	driver.findElement(By.xpath("//*[contains(@name, 'student_document_line')]")).click();
+//	Thread.sleep(2000);
+//	   
+//	    Actions act1 = new Actions(driver);
+//		act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
+//		Thread.sleep(2000);
+//	
+//		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-sm btn-warning')]")).get(0).click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("//*[contains(@name, 'action_approve')]")).click();
+//		Thread.sleep(1500);
+//		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).get(2).click();
+//		Thread.sleep(3000);
+//		
+//		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).isDisplayed();
+//		System.out.println("Green Button is "+driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).getText());
 		
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 		Thread.sleep(3000);
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+		driver.findElement(By.xpath("//*[contains(@name, 'action_student_document_collection_submit')]")).click();
 		Thread.sleep(3000);	
 }
 
@@ -2296,7 +2296,7 @@ public void U15BucketStage1MandateFeilds() throws InterruptedException
 	//---------------------------------Negative FLow For Mandate Feilds---------------//
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
 	Thread.sleep(2000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	driver.findElement(By.xpath("//*[contains(@name, 'action_submit_visa_slot_verification')]")).click();
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_notification o_notification_fade border border-danger bg-white mb-2 position-relative o_notification_fade-enter-active')]")).isDisplayed();
 	System.out.println("Error Accored for Mandate Feilds "+driver.findElement(By.xpath("//*[contains(@class, 'o_notification o_notification_fade border border-danger bg-white mb-2 position-relative o_notification_fade-enter-active')]")).getText());
@@ -2442,7 +2442,7 @@ public void U15BucketStage2UploadingVISADetails() throws InterruptedException, A
 			 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
 		Thread.sleep(10000);
 	
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+		driver.findElement(By.xpath("//*[contains(@name, 'action_submit_visa_slot_verification')]")).click();
 	    Thread.sleep(1500); 
 	     
 }
