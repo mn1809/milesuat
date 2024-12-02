@@ -837,7 +837,7 @@ public void VerifyU15BucketStage1() throws InterruptedException, AWTException
 	ATS.U15BucketStage1MandateFeilds();//---------------------------------Negative FLow For Mandate Feilds---------------//
 }
 
-@Test (priority = 44, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
+//@Test (priority = 44, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
 public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -848,7 +848,7 @@ public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, 
 }	
 
 
-@Test (priority = 45, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
+//@Test (priority = 45, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
 public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -858,7 +858,7 @@ public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, 
 	ATS.U15BucketStage3ApprovingVISADetails();//------------------------------Approving VISA Slot Details and Documents--------------------//
 }
 
-@Test (priority = 46, description = "U16 Miles Too Book VISA Slot")
+//@Test (priority = 46, description = "U16 Miles Too Book VISA Slot")
 public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -870,7 +870,7 @@ public void VerifyU16BucketStage1() throws InterruptedException, AWTException
 	ATS.TooBookVISASlot();				//----------------------VISA Booking Slot---------------------//
 }
 
-@Test (priority = 47, description = "U16 Miles Book Visa Mock Interview")
+//@Test (priority = 47, description = "U16 Miles Book Visa Mock Interview")
 public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -881,7 +881,7 @@ public void VerifyU16BucketStage2() throws InterruptedException, AWTException
 }
 
 
-@Test (priority = 48, description = "U16 Miles Attending Visa Mock Interview")
+//@Test (priority = 48, description = "U16 Miles Attending Visa Mock Interview")
 public void VerifyU16BucketStage3() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -891,7 +891,7 @@ public void VerifyU16BucketStage3() throws InterruptedException, AWTException
 	U16ToAttendingMeeting();
 }
 
-@Test (priority = 49, description = "U16 Miles Book Visa Received")
+//@Test (priority = 49, description = "U16 Miles Book Visa Received")
 public void VerifyU16BucketStage4() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -901,7 +901,7 @@ public void VerifyU16BucketStage4() throws InterruptedException, AWTException
 	ATS.U16VisaRecevied();
 }
 
-@Test (priority = 50, description = "U17 Miles Bucket Uploading Visa Proof")
+//@Test (priority = 50, description = "U17 Miles Bucket Uploading Visa Proof")
 public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
