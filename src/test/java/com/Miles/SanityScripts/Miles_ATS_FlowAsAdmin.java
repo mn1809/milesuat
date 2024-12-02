@@ -264,8 +264,8 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 }
 
 
-@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
-public void U7ASearachCandidate() throws InterruptedException
+//@Test (priority = 5,description = "Verify ALLOCATING GM  in U7A Bucket.")
+public void U7AAllocatingGMCandidate() throws InterruptedException
 
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -317,7 +317,7 @@ public void U7ASearachCandidate() throws InterruptedException
 		Thread.sleep(10000);
 }
 
-//@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
+@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
 public void U7UGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -328,7 +328,7 @@ public void U7UGCandidate() throws InterruptedException
 }
 
 
-//@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
+@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
 public void U7PGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -1222,11 +1222,7 @@ public void CandidateU7AllocationProcess() throws InterruptedException, AWTExcep
 	Thread.sleep(3000);
 	List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options2.get(0).click();
-//Robot robot1 = new Robot();
-//robot1.mouseMove(300, 400); // Adjust the coordinates as needed
-//robot1.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-//robot1.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-//action_allocate_gm_to_leads
+
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]")).click();
 
