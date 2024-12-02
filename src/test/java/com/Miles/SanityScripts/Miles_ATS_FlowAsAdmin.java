@@ -264,7 +264,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 }
 
 
-//@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
+@Test (priority = 5,description = "Verify Search Candidate in U7A Bucket.")
 public void U7ASearachCandidate() throws InterruptedException
 
 {
@@ -911,7 +911,7 @@ public void VerifyU17BucketStage1() throws InterruptedException, AWTException
 	ATS.U17Stage1UploadingVISA();	 //-------------------Uploading VISA Proof--------------------//
 }
 
-@Test (priority = 51, description = "U17 Miles Bucket Approving Visa Proof")
+//@Test (priority = 51, description = "U17 Miles Bucket Approving Visa Proof")
 public void VerifyU17BucketStage2() throws InterruptedException, AWTException
 {	
 	
