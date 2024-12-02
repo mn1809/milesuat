@@ -397,7 +397,7 @@ public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
 	
 }
 
-@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+//@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
 
 public void U7EnrolledBucket()throws InterruptedException
 {
@@ -409,7 +409,7 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
+//@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
 
 public void CheckingU7Reallocate() throws InterruptedException
 {	
@@ -450,7 +450,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-//@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
+@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -475,7 +475,7 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 }
 //------------------------Needed to be added the Recommend university--------------------//
 
-//@Test (priority = 17, description = "Booking Expert Session U7 window")
+@Test (priority = 17, description = "Booking Expert Session U7 window")
 public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
