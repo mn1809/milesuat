@@ -608,7 +608,7 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.UploadationOfApplicationProof();
 }
 
-@Test (priority = 25, description = "U9+ Application Submitted Process")
+//@Test (priority = 25, description = "U9+ Application Submitted Process")
 
 public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 
@@ -625,7 +625,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	
 }
 
-@Test (priority = 26, description= "U9+ Application Initiated")
+//@Test (priority = 26, description= "U9+ Application Initiated")
 
 public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 {
@@ -639,7 +639,7 @@ public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 27, description= "U10 Upload Offer Letter")
+//@Test (priority = 27, description= "U10 Upload Offer Letter")
 
 public void VerifyU10Bucket() throws InterruptedException, AWTException
 {
@@ -651,7 +651,7 @@ public void VerifyU10Bucket() throws InterruptedException, AWTException
 
 }
 
-//@Test (priority = 28, description= "U10 Approve Offer Letter")
+@Test (priority = 28, description= "U10 Approve Offer Letter")
 
 public void VerifyU10Stage2Bucket() throws InterruptedException
 {
@@ -663,7 +663,7 @@ public void VerifyU10Stage2Bucket() throws InterruptedException
 
 }
 
-//@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
+@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
 
 public void VerifyU10Stage3Bucket() throws InterruptedException
 {
