@@ -493,9 +493,9 @@ public class ATSPageLib extends atspageObj
 		Thread.sleep(2000);
 		
 		driver.findElement(By.xpath("//a[@name='student_application_line']")).click();//a[@name='student_application_line']
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[conatins(@name,'action_recommendation_completion')]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//*[conatins(@class,'btn button_green_color')]")).click();
+		Thread.sleep(3000);
 		
 	}
 

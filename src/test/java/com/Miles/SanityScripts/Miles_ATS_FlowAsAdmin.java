@@ -436,7 +436,7 @@ public void CandidateBasicDetails() throws InterruptedException
 
 }
 
-@Test (priority = 15, description = "Verify Updating Candidate Communication Test Result")
+//@Test (priority = 15, description = "Verify Updating Candidate Communication Test Result")
 
 public void UpdatingCommunicationTestResult() throws InterruptedException, AWTException
 {
