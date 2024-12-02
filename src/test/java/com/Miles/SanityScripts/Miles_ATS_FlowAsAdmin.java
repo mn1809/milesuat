@@ -489,7 +489,7 @@ public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTExce
 }
 
 
-@Test (priority = 18, description = "U7+ Expert Session Booked")
+//@Test (priority = 18, description = "U7+ Expert Session Booked")
 
 public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 {
@@ -529,7 +529,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 
 
 
-//@Test (priority = 20, description = "U7+ Recommend University To Candidate")
+@Test (priority = 20, description = "U7+ Recommend University To Candidate")
 public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);

@@ -891,12 +891,13 @@ public void SwitchtoBLueButton() throws InterruptedException
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'sc-dJjYzT gbVgVx md buttonWrapper sc-bUKjYF kULnRS')]")).click();	
 		
-	
+	Thread.sleep(3000);
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'MuiButtonBase-root MuiMenuItem-root MuiMenuItem-root sc-lheXJl fwmlKu css-1vsvrdy')]")));
 	Options.get(8).click();
-	
+	Thread.sleep(4000);
 	driver.findElement(By.xpath("//*[contains(@class, 'sc-dlVxhl jQxUMv sc-jnbWvw eysmcT')]")).click();
 	MilesUtilities.SwitchTab(0, driver);
+	Thread.sleep(4000);
 }
 
 
@@ -904,9 +905,10 @@ public void EndMeeting() throws InterruptedException
 {
 	List <WebElement> Options = driver.findElements(By.xpath("//*[contains(@class, 'btn btn-danger')]"));
 	Options.get(0).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();	
+	Thread.sleep(3000);
 }
 
 
@@ -915,7 +917,7 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 {
 	driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary')]")).click();
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(4).click();
 	Thread.sleep(3000);
 	
 	WebElement intakeBatch=driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(13);
@@ -931,9 +933,9 @@ public void U7PLusEligibleTheCandidate() throws InterruptedException
 	Options.get(0).click();
 	
 	Thread.sleep(4000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	driver.findElement(By.xpath("//*[contains(@name, 'action_student_ineligible_reason')]")).click();
 	Thread.sleep(3000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
+	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(6).click();
 	Thread.sleep(2000);
 }
 
