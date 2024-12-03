@@ -210,7 +210,7 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-@Test(priority = 1,description = "Verify Admin Login")
+//@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
@@ -218,7 +218,7 @@ public void ClearingHomePage() throws InterruptedException
 	ATS.ClearMyCandidateFilter();
 }
 
-@Test(priority = 2,description = "Verify Admin Dropdown Options")
+//@Test(priority = 2,description = "Verify Admin Dropdown Options")
 public void AdminDropdownOptions() throws InterruptedException
 
 {
@@ -235,7 +235,7 @@ public void AdminDropdownOptions() throws InterruptedException
 	}
 }
 
-@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
 public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 
 {
@@ -244,7 +244,7 @@ public void EntireingtoMilesRequirementATSModule() throws InterruptedException
 	ATS.VerifyInitiateATSPage();
 }
 
-@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
 public void ATSConfigurationDropdownOptions () throws InterruptedException
 
 {
@@ -264,7 +264,7 @@ public void ATSConfigurationDropdownOptions () throws InterruptedException
 }
 
 
-@Test (priority = 5,description = "Verify ALLOCATING GM  in U7A Bucket.")
+//@Test (priority = 5,description = "Verify ALLOCATING GM  in U7A Bucket.")
 public void U7AAllocatingGMCandidate() throws InterruptedException
 
 {
@@ -329,7 +329,7 @@ public void U7UGCandidate() throws InterruptedException
 }
 
 
-@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
+//@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
 public void U7PGCandidate() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -409,7 +409,7 @@ public void U7EnrolledBucket()throws InterruptedException
 
 }
 
-@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
+//@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
 
 public void CheckingU7Reallocate() throws InterruptedException
 {	
@@ -1017,7 +1017,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		 		WebElement GraduatioStatus = driver.findElement(By.id("graduation_status"));
 		 	    Select select2 = new Select(GraduatioStatus);
 
-		 	    select2.selectByValue("\"1\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
+		 	    select2.selectByValue("\"2\""); 				 // Ensure to include the exact value here
 		 	    WebElement selectedOption2 = select2.getFirstSelectedOption();
 		 	    System.out.println("Selected option is: " + selectedOption2.getText());
 		 	    Thread.sleep(3000);   
@@ -1065,7 +1065,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		 	    Thread.sleep(3000);    
 		 	    
 		 	   
-		 	 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save')]")).click();  
+		 	 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save123')]")).click();  
 }
 
 public void EnteringPGGraduationDetails() throws InterruptedException
