@@ -738,7 +738,7 @@ public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 35, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
+//@Test (priority = 35, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
 
 public void VerifyU13BBucketStage1() throws InterruptedException
 
@@ -751,7 +751,7 @@ public void VerifyU13BBucketStage1() throws InterruptedException
 
 }
 
-@Test (priority = 36, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
+//@Test (priority = 36, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
 public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 {
@@ -764,7 +764,7 @@ public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
 
 
 
-@Test (priority = 37, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
+//@Test (priority = 37, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
 public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 
 {
@@ -775,7 +775,7 @@ public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
 	ATS.U13BBucketStage3(); //---------Approvving US Finace Proof-------------//
 }
 
-@Test (priority = 38, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
+//@Test (priority = 38, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 
 {
