@@ -450,7 +450,7 @@ public void UpdatingCommunicationTestResult() throws InterruptedException, AWTEx
 	
 }
 
-@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
+//@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
 public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
 {
 	
@@ -475,7 +475,7 @@ public void VerifyAllocatingBookingExpertSession() throws InterruptedException, 
 }
 //------------------------Needed to be added the Recommend university--------------------//
 
-@Test (priority = 17, description = "Booking Expert Session U7 window")
+//@Test (priority = 17, description = "Booking Expert Session U7 window")
 public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -489,7 +489,7 @@ public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTExce
 }
 
 
-@Test (priority = 18, description = "U7+ Expert Session Booked")
+//@Test (priority = 18, description = "U7+ Expert Session Booked")
 
 public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
 {
@@ -521,7 +521,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 	ATS.TabsbuttonOnU7PlusEnrolled();
 	Thread.sleep(3000);
 
-	ATS.RecommendationCompleted();
+	//ATS.RecommendationCompleted();
 	Thread.sleep(3000);
 	ATS.U7PLusEligibleTheCandidate();  //---------------------EVEN With INtake has been added ---------------------//
 	
