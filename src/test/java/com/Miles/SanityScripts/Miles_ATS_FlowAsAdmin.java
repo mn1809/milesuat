@@ -1532,7 +1532,7 @@ public void U16TooBookVISAMock() throws InterruptedException
 driver.findElement(By.id("booked_date")).click();
 Thread.sleep(2000);
 	// Get tomorrow's date
-	LocalDate tomorrow = LocalDate.now().plusDays(1);
+	LocalDate tomorrow = LocalDate.now().plusDays(2);
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	String tomorrowDate = tomorrow.format(formatter);
 	

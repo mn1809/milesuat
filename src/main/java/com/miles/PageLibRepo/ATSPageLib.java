@@ -2367,7 +2367,17 @@ Thread.sleep(3000);
     ADDLINE.get(0).click();
     Thread.sleep(3000);
 
+    //----------Changing Slot time---------//
+    driver.findElements(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_required_modifier')]")).get(0).click();
+    Thread.sleep(2000);
+    Actions act = new Actions(driver);
+    WebElement DoubleClick =  driver.findElements(By.xpath("//*[contains(@class, 'fa fa-chevron-up')]")).get(0);
+    act.doubleClick(DoubleClick).perform();
+    
 
+    
+    
+    
     WebElement Description = driver.findElement(By.id("description"));
     Description.click();
     Thread.sleep(2000);
