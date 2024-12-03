@@ -496,8 +496,10 @@ public class ATSPageLib extends atspageObj
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//span[normalize-space()='Recommendation Completed']")).click();
 		Thread.sleep(3000);
-		//span[normalize-space()='Recommendation Completed']
 		
+		act.moveToElement(driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]"))).perform();
+		//span[normalize-space()='Recommendation Completed']
+//		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 	}
 
 
