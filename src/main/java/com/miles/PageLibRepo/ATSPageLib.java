@@ -2113,7 +2113,7 @@ public void U13BBucketStage3() throws InterruptedException
 		
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 		Thread.sleep(3000);
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+		driver.findElement(By.xpath("//*[contains(@name, 'action_student_document_collection_submit')]")).click();
 		Thread.sleep(3000);	
 }
 
