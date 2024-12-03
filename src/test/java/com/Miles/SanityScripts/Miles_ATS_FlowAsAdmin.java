@@ -1557,11 +1557,11 @@ Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@name, 'confirm_slot')]")).get(0).click();
 	Thread.sleep(2000);
 	
-	driver.findElements(By.xpath("//*[contains(@name, 'btn btn-primary')]")).get(6).click();
+	driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Ok']")).click();
 	Thread.sleep(2000);
 
 	driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
 Thread.sleep(2000);
 	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
