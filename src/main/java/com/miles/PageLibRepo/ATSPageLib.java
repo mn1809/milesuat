@@ -1107,7 +1107,7 @@ public void UniversitySelection() throws InterruptedException
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options.get(0).click();
 	Thread.sleep(3000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();
+	driver.findElement(By.xpath("//*[contains(@name, 'action_selected_enrolled_university')]")).click();
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//button[@class='btn btn-primary'][normalize-space()='Ok']")).click();
 	Thread.sleep(3000);
