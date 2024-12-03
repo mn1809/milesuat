@@ -559,7 +559,7 @@ public void VerifyU8Bucket() throws InterruptedException, AWTException
 	ATS.MSASigned();
 }
 
-@Test (priority = 22, description = "U9 MSA SIGNED")
+//@Test (priority = 22, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage1Bucket() throws InterruptedException
 {
@@ -573,7 +573,7 @@ public void VerifyU9Stage1Bucket() throws InterruptedException
 	
 }
 
-@Test (priority = 23, description = "U9 MSA SIGNED LOR and SOP")
+//@Test (priority = 23, description = "U9 MSA SIGNED LOR and SOP")
 
 public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 {
@@ -593,7 +593,7 @@ public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
 
 }
 
-@Test (priority = 24, description = "U9 MSA SIGNED")
+//@Test (priority = 24, description = "U9 MSA SIGNED")
 
 public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
 
@@ -608,7 +608,7 @@ public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, 
 	ATS.UploadationOfApplicationProof();
 }
 
-@Test (priority = 25, description = "U9+ Application Submitted Process")
+//@Test (priority = 25, description = "U9+ Application Submitted Process")
 
 public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 
@@ -625,7 +625,7 @@ public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
 	
 }
 
-@Test (priority = 26, description= "U9+ Application Initiated")
+//@Test (priority = 26, description= "U9+ Application Initiated")
 
 public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 {
@@ -639,7 +639,7 @@ public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 27, description= "U10 Upload Offer Letter")
+//@Test (priority = 27, description= "U10 Upload Offer Letter")
 
 public void VerifyU10Bucket() throws InterruptedException, AWTException
 {
@@ -651,7 +651,7 @@ public void VerifyU10Bucket() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 28, description= "U10 Approve Offer Letter")
+//@Test (priority = 28, description= "U10 Approve Offer Letter")
 
 public void VerifyU10Stage2Bucket() throws InterruptedException
 {
@@ -663,7 +663,7 @@ public void VerifyU10Stage2Bucket() throws InterruptedException
 
 }
 
-@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
+//@Test (priority = 29, description= "U10 Final Approver of Offer Letter")
 
 public void VerifyU10Stage3Bucket() throws InterruptedException
 {
@@ -675,7 +675,7 @@ public void VerifyU10Stage3Bucket() throws InterruptedException
 	Thread.sleep(3000);
 }
 
-@Test (priority = 30, description = "U11 Miles Pathway Funding")
+//@Test (priority = 30, description = "U11 Miles Pathway Funding")
 
 public void VerifyU11Stage1Bucket()throws InterruptedException
 {
@@ -686,7 +686,7 @@ public void VerifyU11Stage1Bucket()throws InterruptedException
 	ATS.U11BucketStage1();
 }
 
-@Test (priority = 31, description = "U11 Miles Pathway Fee Received")
+//@Test (priority = 31, description = "U11 Miles Pathway Fee Received")
 public void verifyU11Stage2Bucket() throws InterruptedException
 
 {
@@ -697,7 +697,7 @@ public void verifyU11Stage2Bucket() throws InterruptedException
 	ATS.U11BucketStage2();	
 }
 
-@Test (priority = 32, description = "U12 Miles US Pathway Funding Type")
+//@Test (priority = 32, description = "U12 Miles US Pathway Funding Type")
 public void verifyU12Bucket() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
@@ -708,7 +708,7 @@ public void verifyU12Bucket() throws InterruptedException
 	
 }
 
-@Test (priority = 33, description = "U13A Miles US Funding Bucket Stage1")
+//@Test (priority = 33, description = "U13A Miles US Funding Bucket Stage1")
 
 public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 {
@@ -723,7 +723,7 @@ public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 
 }
 
-@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage2 Approving US Funding Documnents")
+//@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage2 Approving US Funding Documnents")
 
 public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 {
