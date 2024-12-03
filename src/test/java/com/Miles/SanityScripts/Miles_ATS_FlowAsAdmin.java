@@ -1065,7 +1065,7 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		 	    Thread.sleep(3000);    
 		 	    
 		 	   
-		 	 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save123')]")).click();  
+		 	 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save')]")).click();  
 }
 
 public void EnteringPGGraduationDetails() throws InterruptedException
