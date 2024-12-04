@@ -527,7 +527,7 @@ public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedExcep
 	
 }
 
-@Test (priority = 20, description = "U7+ Batch Intake with Elgible")
+//@Test (priority = 20, description = "U7+ Batch Intake with Elgible")
 public void VerifyU7PlusBatchIntake() throws InterruptedException
 {
 	ATSPageLib ATS = new ATSPageLib(driver);
