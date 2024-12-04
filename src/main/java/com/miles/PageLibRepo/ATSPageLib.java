@@ -195,7 +195,8 @@ public class ATSPageLib extends atspageObj
 				    "Student Previous Document History",
 				    "NAAC Grade",
 				    "University Category Matrix",
-				    "University Recommendation Combination"
+				    "University Recommendation Combination",
+				    "ATS Terms and Conditions"
 				);
 			 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
 			 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
@@ -238,7 +239,8 @@ public class ATSPageLib extends atspageObj
 				    "Student Previous Document History",
 				    "NAAC Grade",
 				    "University Category Matrix",
-				    "University Recommendation Combination"
+				    "University Recommendation Combination",
+				    "ATS Terms and Conditions"
 				);
 			 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
 			 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
@@ -308,7 +310,8 @@ public class ATSPageLib extends atspageObj
 			    "Student Previous Document History",
 			    "NAAC Grade",
 			    "University Grade Matrix",
-			    "University Recommendation Combination"
+			    "University Recommendation Combination",
+			    "ATS Terms and Conditions"
 			);
 		
 		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
@@ -351,7 +354,8 @@ public class ATSPageLib extends atspageObj
 			    "Student Previous Document History",
 			    "NAAC Grade",
 			    "University Grade Matrix",
-			    "University Recommendation Combination"
+			    "University Recommendation Combination",
+			    "ATS Terms and Conditions"
 			);
 		 WebElement configOptions = driver.findElement(By.xpath("//*[contains(@class, 'o-dropdown--menu dropdown-menu d-block')]"));
 		 List<WebElement>OptionsIteam = configOptions.findElements(By.className("dropdown-item"));
