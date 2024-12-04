@@ -533,7 +533,9 @@ public void VerifyU7PlusBatchIntake() throws InterruptedException
 	ATSPageLib ATS = new ATSPageLib(driver);
 	ATS.ClearMyCandidateFilter();
 	ATS.VerifyInitiateATSPage();
+	ATS.TabsbuttonOnU7PlusEnrolled();
 	Thread.sleep(3000);
+	
 	ATS.U7PLusEligibleTheCandidate();  //---------------------EVEN With INtake has been added ---------------------//
 }
 
