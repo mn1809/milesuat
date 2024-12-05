@@ -1209,7 +1209,8 @@ public void CandidateU7AllocationProcess() throws InterruptedException, AWTExcep
 	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
 
 	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
+	
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 	Thread.sleep(3000);
