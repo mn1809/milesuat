@@ -1716,7 +1716,6 @@ public String getUserNameOnDashboard()
 {
 	return driver.findElement(By.className("current-user-dashboard")).getText();
 }
-//Tejalk
 
 }
 	
