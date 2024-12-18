@@ -210,580 +210,579 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-//@Test(priority = 1,description = "Verify Admin Login")
-//public void ClearingHomePage() throws InterruptedException
-//
+@Test(priority = 1,description = "Verify Admin Login")
+public void ClearingHomePage() throws InterruptedException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+}
+
+@Test(priority = 2,description = "Verify Admin Dropdown Options")
+public void AdminDropdownOptions() throws InterruptedException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+
+	if (EneEnv.contains("prod"))
+	{
+		ATS.VerifyHomeMenuOptionsProd();
+	}
+	else
+	{
+		ATS.VerifyHomeMenuOptionsStage();
+	}
+}
+
+@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
+public void EntireingtoMilesRequirementATSModule() throws InterruptedException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+}
+
+@Test (priority = 4,description = "Verify ATS Module Configuration Options")
+public void ATSConfigurationDropdownOptions () throws InterruptedException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	if (EneEnv.contains("prod"))
+	{
+		ATS.VerifyATSCOnfigurationOptionsProd();
+	}
+	else
+	{
+		ATS.VerifyATSCOnfigurationOptionsStage();
+	}
+	
+}
+
+
+@Test (priority = 5,description = "Verify ALLOCATING GM  in U7A Bucket.")
+public void U7AAllocatingGMCandidate() throws InterruptedException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	SearchU7ACnadidate();
+	
+	driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
+	Thread.sleep(4000);
+	
+	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
+	Thread.sleep(2000);
+	driver.findElement(By.className("o_searchview_input")).click();
+	Thread.sleep(2000);
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+	Thread.sleep(4000);
+//	List <WebElement> Options = driver.findElements((By.xpath("//b[normalize-space()='Student']")));
+//	Options.get(0).click();
+	
+	driver.findElement((By.xpath("//b[normalize-space()='Student']"))).click();
+	 Thread.sleep(4000);
+		driver.findElement(By.id("checkbox-comp-1")).click();
+		 Thread.sleep(3000);
+		 
+		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
+		Thread.sleep(3000);
+		
+		WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
+		
+		Gm.click();
+		Thread.sleep(2000);
+		Gm.sendKeys("Manoj Expert");
+		Thread.sleep(2000);
+		List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+		Options1.get(0).click();
+		Thread.sleep(2000);
+	
+		
+		WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING SPOC------------//
+		Spoc.click();
+		Thread.sleep(2000);
+		Spoc.sendKeys("Manoj Spoc");
+		Thread.sleep(2000);
+		List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
+		Options2.get(0).click();
+		Thread.sleep(2000);
+		
+		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
+		Thread.sleep(10000);
+}
+
+@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
+public void U7UGCandidate() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	SearchU7ACnadidate();
+	Thread.sleep(3000);
+	EnteringUGGraduationDetails();										//--------------------------------Entering UG Graduation Details Mind it-------------------------------//
+}
+
+
+@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
+public void U7PGCandidate() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	SearchU7ACnadidate();
+	EnteringPGGraduationDetails();										//--------------------------------Entering PG Graduation Details Mind it-------------------------------//
+}
+
+@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
+
+public void U7ACertifications() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();										//----------------------------------------Entering Certifications Details----------------------------------//
+	SearchU7ACnadidate();
+	ATS.EnteringCertificationDetails();
+}
+
+@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
+public void U7AWorkExperience() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();										//----------------------------------------Entering Work Experience Details----------------------------------//
+	SearchU7ACnadidate();
+	ATS.EnteringWorkExperience();
+}
+
+
+@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
+public void U7PRecommendUniversity() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();										//----------------------------------------Entering Auto Recommend University----------------------------------//
+	SearchU7ACnadidate();
+	ATS.AutoRecommendUniversity();
+
+}
+
+// (priority = 8,description = "Verify ATS Module U7A Candidate Bucket")
+//public void U7ACandidateWindow() throws InterruptedException
 //{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//}
-//
-//@Test(priority = 2,description = "Verify Admin Dropdown Options")
-//public void AdminDropdownOptions() throws InterruptedException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//
-//	if (EneEnv.contains("prod"))
-//	{
-//		ATS.VerifyHomeMenuOptionsProd();
-//	}
-//	else
-//	{
-//		ATS.VerifyHomeMenuOptionsStage();
-//	}
-//}
-//
-//@Test(priority = 3,description = "Verify Admin Can Enter to ATS Module")
-//public void EntireingtoMilesRequirementATSModule() throws InterruptedException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//}
-//
-//@Test (priority = 4,description = "Verify ATS Module Configuration Options")
-//public void ATSConfigurationDropdownOptions () throws InterruptedException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	if (EneEnv.contains("prod"))
-//	{
-//		ATS.VerifyATSCOnfigurationOptionsProd();
-//	}
-//	else
-//	{
-//		ATS.VerifyATSCOnfigurationOptionsStage();
-//	}
 //	
-//}
-//
-//
-//@Test (priority = 5,description = "Verify ALLOCATING GM  in U7A Bucket.")
-//public void U7AAllocatingGMCandidate() throws InterruptedException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
+//	ATSPageLib ATS = new ATSPageLib(driver);					//-------------------------DONT SUe this------------------------//
 //	ATS.ClearMyCandidateFilter();
 //	ATS.VerifyInitiateATSPage();
 //	SearchU7ACnadidate();
-//	
-//	driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
-//	Thread.sleep(4000);
-//	
-//	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
-//	Thread.sleep(2000);
-//	driver.findElement(By.className("o_searchview_input")).click();
-//	Thread.sleep(2000);
-//	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
-//	Thread.sleep(4000);
-////	List <WebElement> Options = driver.findElements((By.xpath("//b[normalize-space()='Student']")));
-////	Options.get(0).click();
-//	
-//	driver.findElement((By.xpath("//b[normalize-space()='Student']"))).click();
-//	 Thread.sleep(4000);
-//		driver.findElement(By.id("checkbox-comp-1")).click();
-//		 Thread.sleep(3000);
-//		 
-//		driver.findElement(By.xpath("//*[contains(@name, 'open_wiz_allocate_gm_spoc_to_lead')]")).click();
-//		Thread.sleep(3000);
-//		
-//		WebElement Gm =	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0);   //------------ADDING GENERAL MANAGER-------------//
-//		
-//		Gm.click();
-//		Thread.sleep(2000);
-//		Gm.sendKeys("Manoj Expert");
-//		Thread.sleep(2000);
-//		List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-//		Options1.get(0).click();
-//		Thread.sleep(2000);
-//	
-//		
-//		WebElement Spoc = driver.findElement(By.id("gm_spoc_id"));        //--------------ADDING SPOC------------//
-//		Spoc.click();
-//		Thread.sleep(2000);
-//		Spoc.sendKeys("Manoj Spoc");
-//		Thread.sleep(2000);
-//		List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-//		Options2.get(0).click();
-//		Thread.sleep(2000);
-//		
-//		driver.findElement((By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]"))).click();  //-----------------------Final OK ALLOCTING---------------------//
-//		Thread.sleep(10000);
+//	CandidateU7ADetails();
 //}
-//
-//@Test (priority = 6,description = "Verify ATS Module Entering UG Education Details.")
-//public void U7UGCandidate() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	SearchU7ACnadidate();
+	
+@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
+
+public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(3000);								//--------------------NEED TO BE ADDRESSED-----------------//
+	SearchU7ACnadidate();
+	Thread.sleep(3000);
+	//CandidateU7AllocationProcess();
+	
+}
+
+@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
+
+public void U7EnrolledBucket()throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	SearchU7EnrolledCandidate();
+
+}
+
+@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
+
+public void CheckingU7Reallocate() throws InterruptedException
+{	
+	
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	ATS.TabsbuttonOnU7Enrolled();
+	Thread.sleep(3000);
+	ATS.ReAllocate();
+}
+
+@Test (priority = 14, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
+
+public void CandidateBasicDetails() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	ATS.TabsbuttonOnU7Enrolled();
+	ATS.ScrollToBasicDetails();
+	//BasicCandidateDetails();
+
+}
+
+@Test (priority = 15, description = "Verify Updating Candidate Communication Test Result")
+
+public void UpdatingCommunicationTestResult() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	ATS.TabsbuttonOnU7Enrolled();
+	Thread.sleep(3000);
+//	CommunicationTestFlow();				//---------------------------------------------------Communication Test Flow------------------------//
+	
+}
+
+@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
+public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
+{
+	
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	ATS.TabsbuttonOnU7Enrolled();
+	Thread.sleep(3000);
+	if (EneEnv.contains("prod"))
+	{
+		ATS.TooBookExpertSessionProd();
+	}
+	else
+	{
+		ATS.TooBookExpertSessionStage();
+	}
+	Thread.sleep(3000);
+	ATS.TooBookTimeSlot();
+	Thread.sleep(3000);
+
+	
+}
+//------------------------Needed to be added the Recommend university--------------------//
+
+@Test (priority = 17, description = "Booking Expert Session U7 window")
+public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.TabsbuttonOnU7Enrolled();
+	Thread.sleep(2000);
+	BookExpertSessionU7Window();
+	Thread.sleep(10000);
+}
+
+
+@Test (priority = 18, description = "U7+ Expert Session Booked")
+
+public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	ATS.TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+	
+	ATS.ScrollToMeetingTab();
+	Thread.sleep(3000);
+	ATS.StartMeeting();
+	Thread.sleep(3000);
+	ATS.SwitchtoBLueButton();
+	Thread.sleep(3000);
+	ATS.EndMeeting();
+	
+
+}
+
+@Test (priority = 19, description = "U7+ Expert Session Booked Eligible Candidate")
+
+public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	ATS.TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+
+	ATS.RecommendationCompleted();
+	Thread.sleep(3000);	
+	
+}
+
+@Test (priority = 20, description = "U7+ Batch Intake with Elgible")
+public void VerifyU7PlusBatchIntake() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	ATS.TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+	
+	ATS.U7PLusEligibleTheCandidate();  //---------------------EVEN With INtake has been added ---------------------//
+}
+
+@Test (priority = 21, description = "U7+ Recommend University To Candidate")
+public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	ATS.TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+	ATS.ScrollToMeetingTab();
+	Thread.sleep(3000);
+//	ATS.Recommenduniversity();
 //	Thread.sleep(3000);
-//	EnteringUGGraduationDetails();										//--------------------------------Entering UG Graduation Details Mind it-------------------------------//
-//}
-//
-//
-//@Test (priority = 7,description = "Verify ATS Module Entering PG Education Details.")
-//public void U7PGCandidate() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	SearchU7ACnadidate();
-//	EnteringPGGraduationDetails();										//--------------------------------Entering PG Graduation Details Mind it-------------------------------//
-//}
-//
-//@Test (priority = 8, description = "Verify Adding Certifications for Candidate")
-//
-//public void U7ACertifications() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();										//----------------------------------------Entering Certifications Details----------------------------------//
-//	SearchU7ACnadidate();
-//	ATS.EnteringCertificationDetails();
-//}
-//
-//@Test (priority = 9, description = "Verify Adding Work Expecrience for Candidate")
-//public void U7AWorkExperience() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();										//----------------------------------------Entering Work Experience Details----------------------------------//
-//	SearchU7ACnadidate();
-//	ATS.EnteringWorkExperience();
-//}
-//
-//
-//@Test (priority = 10, description = "Veridy Auto University Recommendation For university")
-//public void U7PRecommendUniversity() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();										//----------------------------------------Entering Auto Recommend University----------------------------------//
-//	SearchU7ACnadidate();
-//	ATS.AutoRecommendUniversity();
-//
-//}
-//
-//// (priority = 8,description = "Verify ATS Module U7A Candidate Bucket")
-////public void U7ACandidateWindow() throws InterruptedException
-////{
-////	
-////	ATSPageLib ATS = new ATSPageLib(driver);					//-------------------------DONT SUe this------------------------//
-////	ATS.ClearMyCandidateFilter();
-////	ATS.VerifyInitiateATSPage();
-////	SearchU7ACnadidate();
-////	CandidateU7ADetails();
-////}
-//	
-//@Test (priority = 11,description  = "Verify ATS Module Candidate Allocation For GM")
-//
-//public void U7EnrolledLeadAllocation() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(3000);								//--------------------NEED TO BE ADDRESSED-----------------//
-//	SearchU7ACnadidate();
-//	Thread.sleep(3000);
-//	//CandidateU7AllocationProcess();
-//	
-//}
-//
-//@Test (priority = 12,description = "Verify ATS Module Candidate U7 Enrolled Bucket")
-//
-//public void U7EnrolledBucket()throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(3000);
-//	SearchU7EnrolledCandidate();
-//
-//}
-//
-//@Test (priority = 13,description = "Verify ATS Module Candidate U7 Reallocate")
-//
-//public void CheckingU7Reallocate() throws InterruptedException
-//{	
-//	
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(3000);
-//	ATS.TabsbuttonOnU7Enrolled();
-//	Thread.sleep(3000);
-//	ATS.ReAllocate();
-//}
-//
-//@Test (priority = 14, description = "Verify Candidate Basic Details in U7 Enrolled Bucket")
-//
-//public void CandidateBasicDetails() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(3000);
-//	ATS.TabsbuttonOnU7Enrolled();
-//	ATS.ScrollToBasicDetails();
-//	//BasicCandidateDetails();
-//
-//}
-//
-//@Test (priority = 15, description = "Verify Updating Candidate Communication Test Result")
-//
-//public void UpdatingCommunicationTestResult() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	ATS.TabsbuttonOnU7Enrolled();
-//	Thread.sleep(3000);
-////	CommunicationTestFlow();				//---------------------------------------------------Communication Test Flow------------------------//
-//	
-//}
-//
-//@Test (priority = 16, description = "Booking Expert Session From SPOC to Candidate")
-//public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
-//{
-//	
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	ATS.TabsbuttonOnU7Enrolled();
-//	Thread.sleep(3000);
-//	if (EneEnv.contains("prod"))
-//	{
-//		ATS.TooBookExpertSessionProd();
-//	}
-//	else
-//	{
-//		ATS.TooBookExpertSessionStage();
-//	}
-//	Thread.sleep(3000);
-//	ATS.TooBookTimeSlot();
-//	Thread.sleep(3000);
-//
-//	
-//}
-////------------------------Needed to be added the Recommend university--------------------//
-//
-//@Test (priority = 17, description = "Booking Expert Session U7 window")
-//public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.TabsbuttonOnU7Enrolled();
-//	Thread.sleep(2000);
-//	BookExpertSessionU7Window();
-//	Thread.sleep(10000);
-//}
-//
-//
-//@Test (priority = 18, description = "U7+ Expert Session Booked")
-//
-//public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	ATS.TabsbuttonOnU7PlusEnrolled();
-//	Thread.sleep(3000);
-//	
-//	ATS.ScrollToMeetingTab();
-//	Thread.sleep(3000);
-//	ATS.StartMeeting();
-//	Thread.sleep(3000);
-//	ATS.SwitchtoBLueButton();
-//	Thread.sleep(3000);
-//	ATS.EndMeeting();
-//	
-//
-//}
-//
-//@Test (priority = 19, description = "U7+ Expert Session Booked Eligible Candidate")
-//
-//public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(3000);
-//	ATS.TabsbuttonOnU7PlusEnrolled();
-//	Thread.sleep(3000);
-//
-//	ATS.RecommendationCompleted();
-//	Thread.sleep(3000);
-//	
-//	
-//}
-//
-//@Test (priority = 20, description = "U7+ Batch Intake with Elgible")
-//public void VerifyU7PlusBatchIntake() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	ATS.TabsbuttonOnU7PlusEnrolled();
-//	Thread.sleep(3000);
-//	
-//	ATS.U7PLusEligibleTheCandidate();  //---------------------EVEN With INtake has been added ---------------------//
-//}
-//
-//@Test (priority = 21, description = "U7+ Recommend University To Candidate")
-//public void VerifyU7PlusRecommendUniversity() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	ATS.TabsbuttonOnU7PlusEnrolled();
-//	Thread.sleep(3000);
-//	ATS.ScrollToMeetingTab();
-//	Thread.sleep(3000);
-////	ATS.Recommenduniversity();
-////	Thread.sleep(3000);
-////	ATS.U7PLusEligibleTheCandidate();
-//
-//}
-//
-//@Test (priority = 22, description = "U8 Expert Session Done Bucket")
-//
-//public void VerifyU8Bucket() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//
-//	ATS.U8bucket();
-//	Thread.sleep(3000);
-//	ATS.MSASigned();
-//}
-//
-//@Test (priority = 23, description = "U9 MSA SIGNED")
-//
-//public void VerifyU9Stage1Bucket() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U9bucketStage1();
-//	Thread.sleep(2000);
-//	ATS.UniversitySelection();
-//	
-//}
-//
-//@Test (priority = 24, description = "U9 MSA SIGNED LOR and SOP")
-//
-//public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	Thread.sleep(2000);
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	
-//	ATS.U9bucketStage2LOR();
-//	Thread.sleep(2000);
-//	ATS.ScrollToLORatU9();
-//	Thread.sleep(4000);
-//	LoRResponses();
-//	Thread.sleep(5000);
-//	ATS.StudentLORandSOP();
-//
-//}
-//
-//@Test (priority = 25, description = "U9 MSA SIGNED")
-//
-//public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	
-//	ATS.U9Stage3();
-//	Thread.sleep(2000);
-//	ATS.UploadationOfApplicationProof();
-//}
-//
-//@Test (priority = 26, description = "U9+ Application Submitted Process")
-//
-//public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U9PlusBucket();
-//	Thread.sleep(2000);
-//	ATS.UPPlusReuploading(); 
-//	Thread.sleep(5000);
-//	ATS.U9VerifyDocuments();
-//	
-//}
-//
-//@Test (priority = 27, description= "U9+ Application Initiated")
-//
-//public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U9plusVerifyApplicationSubmitted();
-//	Thread.sleep(5000);
-//	ATS.U9PlusAddingMOI();
-//
-//}
-//
-//@Test (priority = 28, description= "U10 Upload Offer Letter")
-//
-//public void VerifyU10Bucket() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(3000);
-//	ATS.U10BucketStage1();
-//
-//}
-//
-//@Test (priority = 29, description= "U10 Approve Offer Letter")
-//
-//public void VerifyU10Stage2Bucket() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(3000);	
-//	ATS.U10BucketStage2();
-//
-//}
-//
-//@Test (priority = 30, description= "U10 Final Approver of Offer Letter")
-//
-//public void VerifyU10Stage3Bucket() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U10BucketStage3();
-//	Thread.sleep(3000);
-//}
-//
-//@Test (priority = 31, description = "U11 Miles Pathway Funding")
-//
-//public void VerifyU11Stage1Bucket()throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U11BucketStage1();
-//}
-//
-//@Test (priority = 32, description = "U11 Miles Pathway Fee Received")
-//public void verifyU11Stage2Bucket() throws InterruptedException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U11BucketStage2();	
-//}
-//
-//@Test (priority = 33, description = "U12 Miles US Pathway Funding Type")
-//public void verifyU12Bucket() throws InterruptedException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U12BucketUSFundingType();
-//	
-//}
-//
-//@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage1")
-//
-//public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	
-//	ATS.U13ABucketStage1USFunding();
-//	Thread.sleep(3000);
-//	ATS.DocumentCollectionforUSFundingDocuments();
-//
-//}
-//
-//@Test (priority = 35, description = "U13A Miles US Funding Bucket Stage2 Approving US Funding Documnents")
-//
-//public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
-//{
-//	
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U13ABucketStage2USFunding();
-//	Thread.sleep(2000);
-//	ATS.ApprovingCollectedDocumentsU13A();
-//
-//}
-//
-//@Test (priority = 36, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
-//
-//public void VerifyU13BBucketStage1() throws InterruptedException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U13BBucketSkipFinancialStage1();//----Stage1----//
-//
-//}
-//
-//@Test (priority = 37, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
-//public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U13BBucketStage2(); //----------Stage2---Uploading Funding Proof------------//
-//}
-//
-//
-//
-//@Test (priority = 38, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
-//public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
-//
-//{
-//	ATSPageLib ATS = new ATSPageLib(driver);
-//	ATS.ClearMyCandidateFilter();
-//	ATS.VerifyInitiateATSPage();
-//	Thread.sleep(2000);
-//	ATS.U13BBucketStage3(); //---------Approvving US Finace Proof-------------//
-//}
+//	ATS.U7PLusEligibleTheCandidate();
+
+}
+
+@Test (priority = 22, description = "U8 Expert Session Done Bucket")
+
+public void VerifyU8Bucket() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+
+	ATS.U8bucket();
+	Thread.sleep(3000);
+	ATS.MSASigned();
+}
+
+@Test (priority = 23, description = "U9 MSA SIGNED")
+
+public void VerifyU9Stage1Bucket() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U9bucketStage1();
+	Thread.sleep(2000);
+	ATS.UniversitySelection();
+	
+}
+
+@Test (priority = 24, description = "U9 MSA SIGNED LOR and SOP")
+
+public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	Thread.sleep(2000);
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	
+	ATS.U9bucketStage2LOR();
+	Thread.sleep(2000);
+	ATS.ScrollToLORatU9();
+	Thread.sleep(4000);
+	LoRResponses();
+	Thread.sleep(5000);
+	ATS.StudentLORandSOP();
+
+}
+
+@Test (priority = 25, description = "U9 MSA SIGNED")
+
+public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	
+	ATS.U9Stage3();
+	Thread.sleep(2000);
+	ATS.UploadationOfApplicationProof();
+}
+
+@Test (priority = 26, description = "U9+ Application Submitted Process")
+
+public void VerifyU9plusStage1Bucket() throws InterruptedException, AWTException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U9PlusBucket();
+	Thread.sleep(2000);
+	ATS.UPPlusReuploading(); 
+	Thread.sleep(5000);
+	ATS.U9VerifyDocuments();
+	
+}
+
+@Test (priority = 27, description= "U9+ Application Initiated")
+
+public void VerifyU9plusStage2Bucket() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U9plusVerifyApplicationSubmitted();
+	Thread.sleep(5000);
+	ATS.U9PlusAddingMOI();
+
+}
+
+@Test (priority = 28, description= "U10 Upload Offer Letter")
+
+public void VerifyU10Bucket() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(3000);
+	ATS.U10BucketStage1();
+
+}
+
+@Test (priority = 29, description= "U10 Approve Offer Letter")
+
+public void VerifyU10Stage2Bucket() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(3000);	
+	ATS.U10BucketStage2();
+
+}
+
+@Test (priority = 30, description= "U10 Final Approver of Offer Letter")
+
+public void VerifyU10Stage3Bucket() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U10BucketStage3();
+	Thread.sleep(3000);
+}
+
+@Test (priority = 31, description = "U11 Miles Pathway Funding")
+
+public void VerifyU11Stage1Bucket()throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U11BucketStage1();
+}
+
+@Test (priority = 32, description = "U11 Miles Pathway Fee Received")
+public void verifyU11Stage2Bucket() throws InterruptedException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U11BucketStage2();	
+}
+
+@Test (priority = 33, description = "U12 Miles US Pathway Funding Type")
+public void verifyU12Bucket() throws InterruptedException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U12BucketUSFundingType();
+	
+}
+
+@Test (priority = 34, description = "U13A Miles US Funding Bucket Stage1")
+
+public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	
+	ATS.U13ABucketStage1USFunding();
+	Thread.sleep(3000);
+	ATS.DocumentCollectionforUSFundingDocuments();
+
+}
+
+@Test (priority = 35, description = "U13A Miles US Funding Bucket Stage2 Approving US Funding Documnents")
+
+public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
+{
+	
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U13ABucketStage2USFunding();
+	Thread.sleep(2000);
+	ATS.ApprovingCollectedDocumentsU13A();
+
+}
+
+@Test (priority = 36, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
+
+public void VerifyU13BBucketStage1() throws InterruptedException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U13BBucketSkipFinancialStage1();//----Stage1----//
+
+}
+
+@Test (priority = 37, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
+public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U13BBucketStage2(); //----------Stage2---Uploading Funding Proof------------//
+}
+
+
+
+@Test (priority = 38, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
+public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
+
+{
+	ATSPageLib ATS = new ATSPageLib(driver);
+	ATS.ClearMyCandidateFilter();
+	ATS.VerifyInitiateATSPage();
+	Thread.sleep(2000);
+	ATS.U13BBucketStage3(); //---------Approvving US Finace Proof-------------//
+}
 
 @Test (priority = 39, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
@@ -1004,6 +1003,19 @@ public void EnteringUGGraduationDetails() throws InterruptedException
 		  List <WebElement> Unversity = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 		  Unversity.get(0).click();
 		    
+		  
+		  //-----------------------------Course Duration---------------------//
+		  
+		  driver.findElement(By.id("graduation_year")).click();
+		  Thread.sleep(2000);
+		  WebElement Course = driver.findElement(By.id("graduation_year"));
+	 	    Select select6 = new Select(Course);
+	 	    
+	 	   select6.selectByValue("\"4\""); 
+	 	   
+	 	  WebElement selectedOption6 = select6.getFirstSelectedOption();
+	 	    System.out.println("Selected option is: " + selectedOption6.getText());
+	 	    
 		//----------------------------------------Years of Graduation-------------------------------//    
 		  
 		  driver.findElement(By.id("year_of_graduation_date")).click();
@@ -1123,6 +1135,21 @@ public void EnteringPGGraduationDetails() throws InterruptedException
 		 Thread.sleep(2000);
 		  List <WebElement> Unversity = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 		  Unversity.get(0).click();
+		  
+		  
+		  
+		  //-----------------------------Course Duration---------------------//
+		  
+		  driver.findElement(By.id("graduation_year")).click();
+		  Thread.sleep(2000);
+		  WebElement Course = driver.findElement(By.id("graduation_year"));
+	 	    Select select6 = new Select(Course);
+	 	    
+	 	   select6.selectByValue("\"2\""); 
+	 	   
+	 	  WebElement selectedOption6 = select6.getFirstSelectedOption();
+	 	    System.out.println("Selected option is: " + selectedOption6.getText());
+	 	    Thread.sleep(3000);
 		    
 		//----------------------------------------Years of Graduation-------------------------------//    
 		  

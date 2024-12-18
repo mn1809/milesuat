@@ -36,8 +36,9 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.openqa.selenium.WebElement;
 import com.miles.BaseSettings.MilesSettings;
+import com.miles.PageLibRepo.ATSLoanLib;
 import com.miles.PageLibRepo.ATSPageLib;
-import com.miles.PageLibRepo.ATSVisaLib;
+import com.miles.PageLibRepo.ATSUniversityLib;
 import com.miles.PageLibRepo.AdminPageLib;
 import com.miles.PageLibRepo.HomePageLib;
 
@@ -50,7 +51,7 @@ import com.miles.PageObjectRepo.OPTPageObj;
 import com.miles.Utilities.MilesUtilities;
 import com.miles.Utilities.MilesUtilities;
 
-public class Miles_ATS_FlowAsVisaTeam extends MilesSettings
+public class Miles_ATS_FlowAsLoanTeam extends MilesSettings
 {	
 	 WebDriver driver = null ;
 	 
@@ -94,26 +95,6 @@ LoginPageLib loginObj ;
 
 
 	 
-	 String Adding_Commentson_CommunicationTEST = "Adding Comments/Feedback Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1; 
-	 String Adding_Interview_Recording_Link = "Adding Interview Recording Link By QATeam on- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1+"www.YouTube.com";
-	 String Adding_CommentsTo_Agenda = "Adding Comments to Agenda By Automation Script For Booked Slots";
-	 String Adding_CommentsTo_VISAInterviewFeedback = "Adding Comments to VISA Interview Feedback By Automation Script For Booked VISA Slots";
-	 
-	 String Adding_LOR_Question1 = "Can you share details about your academic background, major, and any significant achievements?";
-	 String Adding_Answer1 = "Adding Answer to 1st Question Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
-	 
-	 String Adding_LOR_Question2 = "What inspired you to pursue this particular program?";
-	 String Adding_Answer2 = "Adding Answer to 2nd Question Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
-	 
-	 String Adding_LOR_Question3 = "Describe instances where you demonstrated effective communication, collaboration, and leadership in academic or group settings.";
-	 String Adding_Answer3 = "Adding Answer to 3rd Question Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
-	
-	 String Adding_LOR_Question4 = "What skills or qualities do you believe are your strengths, and how have you demonstrated them in the past?";
-	 String Adding_Answer4 = "Adding Answer to 4th Question Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
-	 
-	 String Adding_LOR_Question5 = "Can you share any experiences where you've demonstrated leadership or teamwork skills?";
-	 String Adding_Answer5 = "Adding Answer to 5th Question Through Automation Script By QATeam On- "+weekAbbreviation+", "+ CurrentMonth+", "+currentDate1;
-	 
      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
      
      DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("d");
@@ -144,14 +125,14 @@ LoginPageLib loginObj ;
 		 EneEnv = env;
 		 if(env.contains("prod"))			//Prod//
 		 {
-			homeObj = loginObj.login("manoj.hr.visaexpert@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
+			homeObj = loginObj.login("manoj.hr.loanexpert@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
 			 //MTIzNDEyMzQ=
 			 System.out.println("Logging in as Quality : Serverless Production user");
 		 }
 		 
 		 else
 		 {   // Regular Prod User		//Stage//
-			 homeObj = loginObj.login("manoj.hr.visaexpert@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
+			 homeObj = loginObj.login("manoj.hr.loanexpert@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
 			 
 			 System.out.println("Logging in as Quality user : Regular Stage user");
 		 }
@@ -183,7 +164,7 @@ LoginPageLib loginObj ;
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-	driver.quit();
+	//driver.quit();
 	
 	 }
 	 
@@ -210,135 +191,100 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 
+//@Test (priority = 1, description = "U11 Miles Pathway Funding")
 
-//@Test (priority = 1, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
-public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
-
+public void VerifyU11Stage1Bucket()throws InterruptedException
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
 
 	Thread.sleep(2000);
-	ATSV.U13CBucketStage1(); //-----------------------------Uploading Copy Of I20 Documents-----------------//
+	ATSL.U11BucketStage1();
 }
 
-
-//@Test (priority = 2, description = "U13C Miles Fincial Submitted to US Unversity Stage2")
-public void VerifyU13CBucketStage2() throws InterruptedException
+//@Test (priority = 2, description = "U11 Miles Pathway Fee Received")
+public void verifyU11Stage2Bucket() throws InterruptedException
 
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
-	Thread.sleep(2000);
-	ATSV.U13CBucketStage2();//------------------------Approving I20 Documents----------------------//
-}
-
-
-//@Test (priority = 3, description = "U14 Miles Fincial Submitted to US Unversity Stage1")
-public void VerifyU14BucketSatge1() throws InterruptedException
-{
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
 	
 	Thread.sleep(2000);
-	ATSV.U14BucketStage1();
+	ATSL.U11BucketStage2();	
 }
 
-//@Test (priority = 4, description = "U14 Miles Fincial Submitted to US Unversity Stage2")
-public void VerifyU14BucketStage2() throws InterruptedException, AWTException
+
+//@Test (priority = 3, description = "U12 Miles US Pathway Funding Type")
+public void verifyU12Bucket() throws InterruptedException
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
+
+	Thread.sleep(2000);
+	ATSL.U12BucketUSFundingType();
 	
-	Thread.sleep(2000);
-	ATSV.U14BucketStage2();//-----------------------------Uploading DS160 Documents--------------------//
 }
+//@Test (priority = 4, description = "U13A Miles US Funding Bucket Stage1")
 
-
-//@Test (priority = 5, description = "U14 Miles Fincial Submitted to US Unversity Stage3")
-public void VerifyU14BucketStage3() throws InterruptedException, AWTException
+public void VerifyU13ABucketStage1() throws InterruptedException, AWTException
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
 	
-	Thread.sleep(2000);
-	ATSV.U14BucketStage3();//-------------------------------------Approving DS160--------------------------//
-}
-
-
-//@Test (priority = 6, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
-public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, AWTException
-{
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
 	
-	Thread.sleep(2000);
-	ATSV.U15BucketStage2UploadingVISADetails();	//-------------------------Uploading VISA SLOT Details and Documents----------------------//
-}
-
-
-//@Test (priority = 7, description = "U15 Miles DS160 Submitted Approving VISA Slot Details ")
-public void VerifyU15BucketStage3VISASlotDetails() throws InterruptedException, AWTException
-{
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
-
-	Thread.sleep(2000);
-	ATSV.U15BucketStage3ApprovingVISADetails();//------------------------------Approving VISA Slot Details and Documents--------------------//
-}
-
-
-//@Test (priority = 8, description = "U16 Miles Too Book VISA Slot")
-public void VerifyU16BucketStage1() throws InterruptedException, AWTException
-{
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
-
-	Thread.sleep(2000);
-	ATSV.U16Bucket();
+	ATSL.U13ABucketStage1USFunding();
 	Thread.sleep(3000);
-	ATSV.TooBookVISASlot();				//----------------------VISA Booking Slot---------------------//
+	ATSL.DocumentCollectionforUSFundingDocuments();
+
 }
 
+//@Test (priority = 5, description = "U13A Miles US Funding Bucket Stage2 Approving US Funding Documnents")
 
-//@Test (priority = 9, description = "U16 Miles Book Visa Mock Interview")
-public void VerifyU16BucketStage2() throws InterruptedException, AWTException
+public void VerifyU13ABucketStage2() throws InterruptedException, AWTException
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
 	
 	Thread.sleep(2000);
-	U16TooBookVISAMock();
+	ATSL.U13ABucketStage2USFunding();
+	Thread.sleep(2000);
+	ATSL.ApprovingCollectedDocumentsU13A();
+	
+	ATSL.U13VisaExpertApprovals();
+		
+		
 }
 
-//@Test (priority = 10, description = "U16 Miles Attending Visa Mock Interview")
-public void VerifyU16BucketStage3() throws InterruptedException, AWTException
+//@Test (priority = 6, description = "U13B Miles US Funding Financial Skips Bucket Stage 1")
+
+public void VerifyU13BBucketStage1() throws InterruptedException
+
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
 	
 	Thread.sleep(2000);
-	U16ToAttendingMeeting();
+	ATSL.U13BBucketSkipFinancialStage1();//----Stage1----//
+
 }
 
-//@Test (priority = 11, description = "U16 Miles Book Visa Received")
-public void VerifyU16BucketStage4() throws InterruptedException, AWTException
+//@Test (priority = 7, description = "U13B Miles US Funding Uploading Funding Proof Bucket Stage 2")
+public void VerifyU13BBucketStage2() throws InterruptedException, AWTException
+
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
 	
 	Thread.sleep(2000);
-	ATSV.U16VisaRecevied();
+	ATSL.U13BBucketStage2(); //----------Stage2---Uploading Funding Proof------------//
 }
 
 
-//@Test (priority = 12, description = "U17 Miles Bucket Uploading Visa Proof")
-public void VerifyU17BucketStage1() throws InterruptedException, AWTException
+
+//@Test (priority = 8, description = "U13B Miles US Funding Approvving US Finace Proof Bucket Stage 3")
+public void VerifyU13BBucketStage3() throws InterruptedException, AWTException
+
 {
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
-	
-	Thread.sleep(2000);
-	ATSV.U17Stage1UploadingVISA();	 //-------------------Uploading VISA Proof--------------------//
-}
-
-//@Test (priority = 13, description = "U17 Miles Bucket Approving Visa Proof")
-public void VerifyU17BucketStage2() throws InterruptedException, AWTException
-{	
-	
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
+	ATSLoanLib ATSL = new ATSLoanLib(driver);
 
 	Thread.sleep(2000);
-	ATSV.U17Stage2ApprovingVISA();		//-------------------------------------Approving VISA--------------------------//	
+	ATSL.U13BBucketStage3(); //---------Approvving US Finace Proof-------------//
 }
+
 
 	/*
 	 * Helper Methods
@@ -366,166 +312,10 @@ public void CandidateData1() throws InterruptedException
 }
 
 
-public void EnteringGraduationDetails() throws InterruptedException
-{
-	driver.findElement(By.xpath("//*[contains(@name, 'education_details')]")).click();
-	Actions act1 = new Actions(driver);
-	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
-	Thread.sleep(2000);
-	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
-	
-	driver.findElement(By.id("graduation_level")).click();
-	
-	//Alternative way to select the other options//
-		WebElement paymentDropdown = driver.findElement(By.id("graduation_level"));
 
-	    // Create a Select object for the dropdown
-	    Select select = new Select(paymentDropdown);
 
-	    // Select the option by value
-	    select.selectByValue("\"ug\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
 
-	    // OR: Select the option by visible text     // select.selectByVisibleText("Self support");
 
-	    WebElement selectedOption = select.getFirstSelectedOption();
-	    System.out.println("Selected option is: " + selectedOption.getText());
-	    Thread.sleep(3000);
-	    //-------------------------Graduation--------------------//
-	    driver.findElement(By.id("graduation_id")).click();
-	    driver.findElement(By.id("graduation_id")).sendKeys("Bachelor of Engineering");
-	    Thread.sleep(2000);
-	    List <WebElement> Graduation = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	    Graduation.get(0).click();
-	    
-		//-------------------------Unversity--------------------------//
-		
-		 driver.findElement(By.id("university_id")).click();
-		 driver.findElement(By.id("university_id")).sendKeys("Acharya Nagarjuna University, Guntur (Id: U-0003)");
-		 Thread.sleep(2000);
-		  List <WebElement> Unversity = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-		  Unversity.get(0).click();
-		    
-		//----------------------------------------Years of Graduation-------------------------------//    
-		  
-		  driver.findElement(By.id("year_of_graduation_date")).click();
-		  driver.findElement(By.xpath("//*[contains(@class, 'year old')]")).click();
-		     Thread.sleep(2000);
-		     driver.findElement(By.xpath("//span[@data-action='selectMonth' and @class='month']")).click();
-		     Thread.sleep(2000); 
-		     driver.findElement(By.xpath("//*[contains(@data-day, '01/18/2019')]")).click();
-		     Thread.sleep(2000); 
-		   //----------------------------------------------NAAC Grade------------------------//  
-		     
-		     driver.findElement(By.id("naac_grade")).click();
-		 		WebElement NAAC = driver.findElement(By.id("naac_grade"));
-		 	    Select select1 = new Select(NAAC);
-
-		 	    select1.selectByValue("\"app\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption1 = select1.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption1.getText());
-		 	    Thread.sleep(3000);
-	//-------------------------------------------------GraduatioStatus---------------------------//	     
-		 	   driver.findElement(By.id("graduation_status")).click();
-		 		WebElement GraduatioStatus = driver.findElement(By.id("graduation_status"));
-		 	    Select select2 = new Select(GraduatioStatus);
-
-		 	    select2.selectByValue("\"2\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption2 = select2.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption2.getText());
-		 	    Thread.sleep(3000);   
-		 	    
-	//----------------------------------------Rank------------------------------//
-		 	    
-		 	   driver.findElement(By.id("graduation_rank")).click();
-		 		WebElement Rank = driver.findElement(By.id("graduation_rank"));
-		 	    Select select3 = new Select(Rank);
-
-		 	    select3.selectByValue("\"1\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption3 = select3.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption3.getText());
-		 	    Thread.sleep(3000);  
-
-		 	//------------------------------------------------------Division-------------------//
-		 	    
-		 	   driver.findElement(By.id("graduation_rank_id")).click();
-		 	  
-		 	 driver.findElement(By.id("graduation_rank_id")).sendKeys("First Division");
-		 	   Thread.sleep(3000); 
-		 	List <WebElement> Division = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-		 	Division.get(0).click();
-		    Thread.sleep(3000); 
-		
-		 	//---------------------------------NAACSTATUS---------------------------//    
-		 	   driver.findElement(By.id("naac_status")).click();
-		 		WebElement NAACSTATUS = driver.findElement(By.id("naac_status"));
-		 	    Select select5 = new Select(NAACSTATUS);
-
-		 	    select5.selectByValue("\"yes\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption5 = select5.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption5.getText());
-		 	    Thread.sleep(3000);    
-		 	    
-		 	   
-		 	 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save')]")).click();  
-}
-public void CandidateU7AllocationProcess() throws InterruptedException, AWTException
-{
-driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
-Thread.sleep(2000);
-driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
-
-driver.findElement(By.className("o_searchview_input")).click();
-driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User");
-Thread.sleep(3000);
-driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-Thread.sleep(3000);
-driver.findElement(By.xpath("//*[contains(@class, 'form-check-input')]")).click();
-driver.findElement(By.xpath("//*[contains(@class, 'btn btn-secondary')]")).click();
-
-System.out.println("Actual Can id is "+getcandidateId());
-//Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
-
-driver.findElement(By.id("general_manager_id")).click();
-Thread.sleep(5000);
-driver.findElement(By.id("general_manager_id")).sendKeys("Manoj Expert");
-Thread.sleep(3000);
-List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-Options1.get(0).click();
-//Robot robot = new Robot();
-//robot.mouseMove(100, 200); // Adjust the coordinates as needed
-//robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-//robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-
-Thread.sleep(2000);
-driver.findElement(By.id("gm_spoc_id")).click();
-Thread.sleep(5000);
-driver.findElement(By.id("gm_spoc_id")).sendKeys("Manoj Spoc");
-Thread.sleep(3000);
-List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-Options2.get(0).click();
-//Robot robot1 = new Robot();
-//robot1.mouseMove(300, 400); // Adjust the coordinates as needed
-//robot1.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-//robot1.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-//action_allocate_gm_to_leads
-Thread.sleep(2000);
-driver.findElement(By.xpath("//*[contains(@name, 'action_allocate_gm_to_leads')]")).click();
-
-}
-
-public void CandidateU7ADetails() throws InterruptedException
-{
-String ExpectedDashBoardUserName = "Automation-User1";
-driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
-Thread.sleep(3000);
-System.out.println("Actual User Name According To Passport is "+getCandidateName());
-Assert.assertTrue(getCandidateName().contains(ExpectedDashBoardUserName));
-
-System.out.println("Actual Can id is "+getcandidateId());
-//Assert.assertTrue(getcandidateId().contains(ExpectedCanID));
-
-}
 
 
 public String GetCandidateEligibilityType()
@@ -551,271 +341,101 @@ public String getCandidateName()
 return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
 }
 
-public void SearchU7ACnadidate() throws InterruptedException
-{
-	CandidateData();
-	Thread.sleep(4000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(4000);
-	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
-	Thread.sleep(4000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
-	
-	
-}
 
 
-public void CommunicationTestFlow() throws AWTException, InterruptedException
-{
-	
-	Thread.sleep(4000);
-	driver.findElements(By.xpath("//*[contains(@class, 'btn button_red_color btn-secondary')]")).get(1).click();
-	Thread.sleep(2000);
-	
-	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0')]")).get(15).click();
-	Thread.sleep(1000);
 
-     driver.findElement(By.xpath("//*[contains(@class, 'day today')]")).click();
-     Thread.sleep(3000);
-     
-     driver.findElement(By.xpath("//*[contains(@title, 'Close the picker')]")).click();
-     Thread.sleep(2000);
-   System.out.println("Date selected is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0')]")).get(15).getText());
-   RandomClickonScreen();
-   
-   
-   driver.findElement(By.id("ats_communication_test_status")).click();
-   Thread.sleep(2000);
-   Select dropdown = new Select(driver.findElement(By.id("ats_communication_test_status")));
-   dropdown.selectByValue("\"pass\""); // For "Passed"
-   // dropdown.selectByValue("\"fail\""); // For "Failed"
-   // dropdown.selectByValue("\"conditional\""); // For "Conditional Pass"
-   driver.findElements(By.id("ats_communication_test_remark")).get(0).sendKeys(Adding_Commentson_CommunicationTEST);
-   driver.findElements(By.id("ats_communication_test_link")).get(0).sendKeys(Adding_Interview_Recording_Link);
-   driver.findElements(By.id("ats_communication_skill_domain")).get(0).sendKeys(Adding_Skill_Domain);
-   driver.findElements(By.id("ats_communication_test_score")).get(0).sendKeys(Adding_BasicCommunication_TestScore);
-   
-   driver.findElements(By.id("ats_communication_tested_by")).get(0).sendKeys("Manoj Coach");
-   Thread.sleep(2000);
-   List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options.get(0).click();
 
-   
-    Thread.sleep(2000);
-   driver.findElement(By.xpath("//*[contains(@name, 'action_submit_enrollment_rejection')]")).click();
-}
 
-public void RandomClickonScreen() throws AWTException
-{
-	Robot robot = new Robot();
-	robot.mouseMove(100, 200); // Adjust the coordinates as needed
-   robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-   robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-}
 
-//
-//public void BasicCandidateDetails()
+
+
+//public void U16ToAttendingMeeting() throws InterruptedException
 //{
-//	System.out.println("Actual Eligibility Code is "+GetCandidateEligibilityCode());
-//	Assert.assertTrue(GetCandidateEligibilityCode().contains(ExpectedEligibilityCode));
+//	ATSPageLib ATS = new ATSPageLib(driver);
+//	CandidateData1();
+//	Thread.sleep(5000);
+//	ATS.ScrollToMeetingTab();
+//	Thread.sleep(3000);
 //	
-//	System.out.println("Actual Enrollment Status is "+GetCandidateEnrollmentStatus());
-//	Assert.assertTrue(GetCandidateEnrollmentStatus().contains(ExpectedEnrollmentStatus));
+//System.out.println("Meeting Info is "+driver.findElements(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).get(1).getText());
+//
 //	
-//	System.out.println("Actual Eligibility Type is "+GetCandidateEligibilityType());
-//	Assert.assertTrue(GetCandidateEligibilityType().contains(ExpectedEligibilityType));
+//	driver.findElements(By.xpath("//*[contains(@name, 'action_goto_booking')]")).get(1).click(); //Click on Go to Booking Tab.//
+//	Thread.sleep(2000);
+//	driver.findElement(By.xpath("//*[contains(@name, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
+//	Thread.sleep(2000);
+//	
+//	
+//		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();///Click to OK Button before Joining Meeting.//
+//		Thread.sleep(4000);
+//		
+//		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success')]")).click(); //Click Operation for Join Meeting.//
+//		Thread.sleep(5000);
+//		
+//		ATS.SwitchtoBLueButton();
+//		Thread.sleep(4000);
+//		ATS.EndMeeting();
+//		Thread.sleep(4000);
+//		driver.findElement(By.xpath("//*[contains(@name, 'action_goto_lead')]")).click();
+//		
+//		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
+//		Thread.sleep(2000);
+//		driver.findElement(By.id("interview_feedback")).sendKeys(Adding_CommentsTo_VISAInterviewFeedback);
+//		Thread.sleep(2000);
+//		driver.findElement(By.xpath("//*[contains(@name, 'action_submit_visa_slot_feedback')]")).click();
+//		Thread.sleep(5000);
 //}
 
-public void LoRResponses() throws InterruptedException
-
-{
-	WebElement button1 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
-    button1.click();
-    Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question1);
-	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	Options1.get(0).click();
-	Thread.sleep(2500);
-    driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer1);
-    
-    
-	WebElement button2 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
-    button2.click();
-    Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question2);
-    List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-   	Options2.get(0).click();
-   	Thread.sleep(2500);
-    driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer2);
-    
-	WebElement button3 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
-    button3.click();
-    Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question3);
-    List <WebElement> Options3 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-   	Options3.get(0).click();
-   	Thread.sleep(2500);
-    driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer3);
-    
-    WebElement button4 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
-    button4.click();
-    Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question4);
-    List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-    Options4.get(0).click();
-   	Thread.sleep(2500);
-    driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer4);
-    
-    WebElement button5 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
-    button5.click();
-    Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question5);
-    List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-    Options5.get(0).click();
-   	Thread.sleep(2500);
-    driver.findElement(By.xpath("//textarea[@class='o_input']")).sendKeys(Adding_Answer5);
-    
-
-    driver.findElement(By.xpath("//*[contains(@name, 'action_generate_lor')]")).click();
- 
-    
-}
-
-
-public void BookExpertSessionU7Window() throws InterruptedException
-{
-		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
-		Thread.sleep(2000);
-		System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
-		System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).getText());
-		System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(17).getText());
-		Thread.sleep(2000);
-		driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(18).click();
-
-		// Get tomorrow's date
-		LocalDate tomorrow = LocalDate.now().plusDays(1);
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-		String tomorrowDate = tomorrow.format(formatter);
-		
-		//XPath using the calculated date
-		String xpath = String.format("//td[@data-action='selectDay' and @data-day='%s']", tomorrowDate);
-		
-		
-		WebElement dateElement = driver.findElement(By.xpath(xpath));
-		dateElement.click();
-		
-		
-		driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
-		
-		System.out.println("Booked Date for Selected Slot is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_field_date')]")).getText());
-		System.out.println("Start Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'start_date')]")).getText());
-		System.out.println("End Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'end_date')]")).getText());
-		Thread.sleep(2000);
-		
-		driver.findElement(By.xpath("//*[contains(@name, 'confirm_slot')]")).click();
-		Thread.sleep(2000);
-		
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(3).click();
-		Thread.sleep(2000);
-
-		driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
-		Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
-		Thread.sleep(2000);
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
- 
-		Thread.sleep(5000);
-}
-
-
-
-public void U16ToAttendingMeeting() throws InterruptedException
-{
-	ATSVisaLib ATSV = new ATSVisaLib(driver);
-	CandidateData1();
-	Thread.sleep(5000);
-	ATSV.ScrollToMeetingTab();
-	Thread.sleep(3000);
-	
-System.out.println("Meeting Info is "+driver.findElements(By.xpath("//*[contains(@class, 'o_data_cell cursor-pointer o_field_cell o_list_char o_readonly_modifier')]")).get(1).getText());
-
-	
-	driver.findElements(By.xpath("//*[contains(@name, 'action_goto_booking')]")).get(1).click(); //Click on Go to Booking Tab.//
-	Thread.sleep(2000);
-	driver.findElement(By.xpath("//*[contains(@name, 'action_start_meeting')]")).click(); //Click Operation for Start Meeting. //
-	Thread.sleep(2000);
-	
-	
-		driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(1).click();///Click to OK Button before Joining Meeting.//
-		Thread.sleep(4000);
-		
-		driver.findElement(By.xpath("//*[contains(@class, 'btn btn-success')]")).click(); //Click Operation for Join Meeting.//
-		Thread.sleep(5000);
-		
-		ATSV.SwitchtoGoogleMeetButton();
-		Thread.sleep(4000);
-		ATSV.EndMeeting();
-		Thread.sleep(4000);
-		driver.findElement(By.xpath("//*[contains(@name, 'action_goto_lead')]")).click();
-		
-		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.id("interview_feedback")).sendKeys(Adding_CommentsTo_VISAInterviewFeedback);
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[contains(@name, 'action_submit_visa_slot_feedback')]")).click();
-		Thread.sleep(5000);
-}
-
-public void U16TooBookVISAMock() throws InterruptedException
-{
-	CandidateData1();
-	Thread.sleep(5000);
-	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
-	
-	Thread.sleep(2000);
-	System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(13).getText());
-	System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(14).getText());
-	System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
-	Thread.sleep(2000);
-	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).click();
-
-	// Get tomorrow's date
-	LocalDate tomorrow = LocalDate.now().plusDays(1);
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-	String tomorrowDate = tomorrow.format(formatter);
-	
-	//XPath using the calculated date
-	String xpath = String.format("//td[@data-action='selectDay' and @data-day='%s']", tomorrowDate);
-	
-	
-	WebElement dateElement = driver.findElement(By.xpath(xpath));
-	dateElement.click();
-	
-	Thread.sleep(2000);
-	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
-	
-	System.out.println("Booked Date for Selected Slot is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_field_date')]")).getText());
-	System.out.println("Start Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'start_date')]")).getText());
-	System.out.println("End Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'end_date')]")).getText());
-	Thread.sleep(1000);
-	
-	driver.findElement(By.xpath("//*[contains(@name, 'confirm_slot')]")).click();
-	Thread.sleep(2000);
-	
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(6).click();
-	Thread.sleep(2000);
-
-	driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
-
-	driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
-
-	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
-	
-	Thread.sleep(10000);
-	
-}
+//public void U16TooBookVISAMock() throws InterruptedException
+//{
+//	CandidateData1();
+//	Thread.sleep(5000);
+//	
+//	driver.findElement(By.xpath("//*[contains(@class, 'btn button_orange_color btn-secondary')]")).click();
+//	
+//	Thread.sleep(2000);
+//	System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
+//	System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).getText());
+//	System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(17).getText());
+//	Thread.sleep(2000);
+//	driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(18).click();
+//
+//	// Get tomorrow's date
+//	LocalDate tomorrow = LocalDate.now().plusDays(1);
+//	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+//	String tomorrowDate = tomorrow.format(formatter);
+//	
+//	//XPath using the calculated date
+//	String xpath = String.format("//td[@data-action='selectDay' and @data-day='%s']", tomorrowDate);
+//	
+//	
+//	WebElement dateElement = driver.findElement(By.xpath(xpath));
+//	dateElement.click();
+//	
+//	Thread.sleep(2000);
+//	
+//	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
+//	
+//	System.out.println("Booked Date for Selected Slot is "+driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_field_date')]")).getText());
+//	System.out.println("Start Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'start_date')]")).getText());
+//	System.out.println("End Date and Time of Selected Slot is "+driver.findElement(By.xpath("//*[contains(@name, 'end_date')]")).getText());
+//	Thread.sleep(1000);
+//	
+//	driver.findElement(By.xpath("//*[contains(@name, 'confirm_slot')]")).click();
+//	Thread.sleep(2000);
+//	
+//	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(6).click();
+//	Thread.sleep(2000);
+//
+//	driver.findElement(By.id("agenda")).sendKeys(Adding_CommentsTo_Agenda);
+//
+//	driver.findElement(By.xpath("//*[contains(@name, 'action_book_session')]")).click();
+//
+//	driver.findElements(By.xpath("//*[contains(@class, 'btn btn-primary')]")).get(2).click();
+//	
+//	Thread.sleep(10000);
+//	
+//}
 public void SearchU7EnrolledCandidate() throws InterruptedException
 {
 	String ExpectedDashBoardUserName = "Automation-User1";

@@ -81,8 +81,8 @@ LoginPageLib loginObj ;
 	int currentDate1 = currentDate.getDayOfMonth();
 	//int tomaroDate1 = tomaroDate.getDayOfMonth();
 	
-	 String Name = "Automation-User1";
-	 String expectedInfoTxt = "Automation-User1";
+	 String Name = "Couselling Expert Test";
+	 String expectedInfoTxt = "Couselling Expert Test";
 	// String ExpectedCanID = "B-810987678";
 	 String ExpectedEmail = "milesautomation@mileseducation.com";
 	 
@@ -145,14 +145,14 @@ LoginPageLib loginObj ;
 		 EneEnv = env;
 		 if(env.contains("prod"))			//Prod//
 		 {
-			homeObj = loginObj.login("manojexpert",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
+			homeObj = loginObj.login("manoj.hr.counsellingexpert@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
 			 //MTIzNDEyMzQ=
 			 System.out.println("Logging in as Quality : Serverless Production user");
 		 }
 		 
 		 else
 		 {   // Regular Prod User		//Stage//
-			 homeObj = loginObj.login("manojexpert",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
+			 homeObj = loginObj.login("manoj.hr.counsellingexpert@mileseducation.com",MilesUtilities.DecryptPass("MTIzNDEyMzQ="));
 			 
 			 System.out.println("Logging in as Quality user : Regular Stage user");
 		 }
@@ -184,7 +184,7 @@ LoginPageLib loginObj ;
 			 System.out.println("<-------------Passed Test case is -> " +result.getName()+"-------------->");
 		 }
 		 
-		 driver.quit();
+		// driver.quit();
 	
 	 }
 	 
@@ -209,25 +209,217 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-@Test(priority = 1,description = "Verify Admin Login")
+//@Test(priority = 1,description = "Verify Admin Login")
 public void ClearingHomePage() throws InterruptedException
 
 {
 	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
-	CandidateData();
+	SearchU7PCnadidate();
+}
+
+
+//@Test (priority = 2, description = "Verify ATS Module Entering UG Education Details.")
+
+public void U7PUGCandidate() throws InterruptedException
+
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	SearchU7PCnadidate();
+	Thread.sleep(3000);
+	ATSC.EnteringGraduationDetails();	
+}
+
+//@Test (priority = 3,description = "Verify ATS Module Entering PG Education Details.")
+public void U7PGCandidate() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	SearchU7PCnadidate();
+	Thread.sleep(3000);
+	ATSC.EnteringPGGraduationDetails();									//--------------------------------Entering PG Graduation Details Mind it-------------------------------//
+}
+
+//@Test (priority = 4, description = "Verify Adding Certifications for Candidate")
+
+public void U7PCertifications() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	SearchU7PCnadidate();
+	Thread.sleep(3000);
+	ATSC.EnteringCertificationDetails();
+}
+
+//@Test (priority = 5, description = "Verify Adding Work Expecrience for Candidate")
+public void U7AWorkExperience() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	SearchU7PCnadidate();
+	Thread.sleep(3000);
+	ATSC.EnteringWorkExperience();
 }
 
 
 
+//@Test (priority = 6, description = "Verify Auto University Recommendation For university")
+public void U7PRecommendUniversity() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	SearchU7PCnadidate();									//----------------------------------------Entering Auto Recommend University----------------------------------//
+	ATSC.AutoRecommendUniversity();
+
+}
+
+//@Test (priority = 7, description = "Booking Expert Session From SPOC to Candidate")
+public void VerifyAllocatingBookingExpertSession() throws InterruptedException, AWTException
+
+{
+	
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+
+	ATSC.TabsbuttonOnU7Enrolled();
+	Thread.sleep(3000);
+	if (EneEnv.contains("prod"))
+	{
+		ATSC.TooBookExpertSessionProd();
+	}
+	else
+	{
+		ATSC.TooBookExpertSessionStage();
+	}
+	Thread.sleep(3000);
+	ATSC.TooBookTimeSlot();
+	Thread.sleep(3000);
+
+}
+
+
+//@Test (priority = 8, description = "Booking Expert Session U7 window")
+public void VerifyAllocatingBookingExpert() throws InterruptedException, AWTException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+
+	
+	ATSC.TabsbuttonOnU7Enrolled();
+	Thread.sleep(2000);
+	BookExpertSessionU7Window();
+	Thread.sleep(10000);
+}
+
+
+//@Test (priority = 9, description = "U7+ Expert Session Booked")
+
+public void VerifyU7PlusExpertSeesionBooked() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	
+	ATSC.TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+	
+	ATSC.ScrollToMeetingTab();
+	Thread.sleep(3000);
+	
+	ATSC.StartMeeting();
+	Thread.sleep(3000);
+	
+	ATSC.SwitchtoGoogleMeetButton();
+	Thread.sleep(3000);
+	ATSC.EndMeeting();
+	
+
+}
+
+//@Test (priority = 10, description = "U7+ Expert Session Booked Eligible Candidate")
+
+public void VerifyU7PlusExpertSeesionEligibleCandidate() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	
+	ATSC.TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+
+	ATSC.RecommendationCompleted();
+	Thread.sleep(3000);	
+	
+}
+
+
+//@Test (priority = 11, description = "U7+ Batch Intake with Elgible")
+public void VerifyU7PlusBatchIntake() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	
+	ATSC.TabsbuttonOnU7PlusEnrolled();
+	Thread.sleep(3000);
+	
+	ATSC.U7PLusEligibleTheCandidate();  //---------------------EVEN With INtake has been added ---------------------//
+}
+
+//@Test (priority = 12, description = "U8 Expert Session Done Bucket")
+
+public void VerifyU8Bucket() throws InterruptedException, AWTException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	
+	Thread.sleep(2000);
+
+	ATSC.U8bucket();
+	Thread.sleep(3000);
+	ATSC.MSASigned();
+}
+
+
+//@Test (priority = 13, description = "U9 MSA SIGNED")
+
+public void VerifyU9Stage1Bucket() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	
+	Thread.sleep(2000);
+	ATSC.U9bucketStage1();
+	Thread.sleep(2000);
+	ATSC.UniversitySelection();
+	
+}
+
+//@Test (priority = 14, description = "U9 MSA SIGNED LOR and SOP")
+
+public void VerifyU9Stage2LORandSOPBucket() throws InterruptedException
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	
+	ATSC.U9bucketStage2LOR();
+	Thread.sleep(2000);
+	ATSC.ScrollToLORatU9();
+	Thread.sleep(4000);
+	LoRResponses();
+	Thread.sleep(5000);
+	ATSC.StudentLORandSOP();
+
+}
+
+
+//@Test (priority = 15, description = "U9 MSA SIGNED")
+
+public void VerifyU9Stage3ApplicationProofBucket() throws InterruptedException, AWTException
+
+{
+	ATSCounselingLib ATSC = new ATSCounselingLib(driver);
+	
+	Thread.sleep(2000);
+	
+	ATSC.U9Stage3();
+	Thread.sleep(2000);
+	ATSC.UploadationOfApplicationProof();
+}
 
 	/*
 	 * Helper Methods
 	 */
 
 public void CandidateData() throws InterruptedException
+
 {
 	driver.findElement(By.className("o_searchview_input")).click();
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Couselling Expert Test");
 	Thread.sleep(3000);
 }
 
@@ -238,117 +430,29 @@ public void CandidateData1() throws InterruptedException
 	Thread.sleep(2000);
 	driver.findElement(By.className("o_searchview_input")).click();
 	Thread.sleep(2000);
-	driver.findElement(By.className("o_searchview_input")).sendKeys("Automation-User1");
+	driver.findElement(By.className("o_searchview_input")).sendKeys("Couselling Expert Test");
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
 	Thread.sleep(2000);
 	driver.findElement(By.xpath("//*[contains(@name, 'can_id')]")).click();
 }
 
+public void SearchU7PCnadidate() throws InterruptedException
 
-public void EnteringGraduationDetails() throws InterruptedException
 {
-	driver.findElement(By.xpath("//*[contains(@name, 'education_details')]")).click();
-	Actions act1 = new Actions(driver);
-	act1.moveToElement(driver.findElement(By.xpath("//*[contains(@name, 'telephony_call_logs')]"))).perform();
-	Thread.sleep(2000);
+	CandidateData();
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
+	Thread.sleep(4000);
+	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
+	Thread.sleep(4000);
+	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
 	
-	driver.findElement(By.xpath("//*[contains(@class, 'btn oe_subtotal_footer btn-primary')]")).click();
 	
-	driver.findElement(By.id("graduation_level")).click();
-	
-	//Alternative way to select the other options//
-		WebElement paymentDropdown = driver.findElement(By.id("graduation_level"));
-
-	    // Create a Select object for the dropdown
-	    Select select = new Select(paymentDropdown);
-
-	    // Select the option by value
-	    select.selectByValue("\"ug\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-
-	    // OR: Select the option by visible text     // select.selectByVisibleText("Self support");
-
-	    WebElement selectedOption = select.getFirstSelectedOption();
-	    System.out.println("Selected option is: " + selectedOption.getText());
-	    Thread.sleep(3000);
-	    //-------------------------Graduation--------------------//
-	    driver.findElement(By.id("graduation_id")).click();
-	    driver.findElement(By.id("graduation_id")).sendKeys("Bachelor of Engineering");
-	    Thread.sleep(2000);
-	    List <WebElement> Graduation = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-	    Graduation.get(0).click();
-	    
-		//-------------------------Unversity--------------------------//
-		
-		 driver.findElement(By.id("university_id")).click();
-		 driver.findElement(By.id("university_id")).sendKeys("Acharya Nagarjuna University, Guntur (Id: U-0003)");
-		 Thread.sleep(2000);
-		  List <WebElement> Unversity = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-		  Unversity.get(0).click();
-		    
-		//----------------------------------------Years of Graduation-------------------------------//    
-		  
-		  driver.findElement(By.id("year_of_graduation_date")).click();
-		  driver.findElement(By.xpath("//*[contains(@class, 'year old')]")).click();
-		     Thread.sleep(2000);
-		     driver.findElement(By.xpath("//span[@data-action='selectMonth' and @class='month']")).click();
-		     Thread.sleep(2000); 
-		     driver.findElement(By.xpath("//*[contains(@data-day, '01/18/2019')]")).click();
-		     Thread.sleep(2000); 
-		   //----------------------------------------------NAAC Grade------------------------//  
-		     
-		     driver.findElement(By.id("naac_grade")).click();
-		 		WebElement NAAC = driver.findElement(By.id("naac_grade"));
-		 	    Select select1 = new Select(NAAC);
-
-		 	    select1.selectByValue("\"app\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption1 = select1.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption1.getText());
-		 	    Thread.sleep(3000);
-	//-------------------------------------------------GraduatioStatus---------------------------//	     
-		 	   driver.findElement(By.id("graduation_status")).click();
-		 		WebElement GraduatioStatus = driver.findElement(By.id("graduation_status"));
-		 	    Select select2 = new Select(GraduatioStatus);
-
-		 	    select2.selectByValue("\"2\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption2 = select2.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption2.getText());
-		 	    Thread.sleep(3000);   
-		 	    
-	//----------------------------------------Rank------------------------------//
-		 	    
-		 	   driver.findElement(By.id("graduation_rank")).click();
-		 		WebElement Rank = driver.findElement(By.id("graduation_rank"));
-		 	    Select select3 = new Select(Rank);
-
-		 	    select3.selectByValue("\"1\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption3 = select3.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption3.getText());
-		 	    Thread.sleep(3000);  
-
-		 	//------------------------------------------------------Division-------------------//
-		 	    
-		 	   driver.findElement(By.id("graduation_rank_id")).click();
-		 	  
-		 	 driver.findElement(By.id("graduation_rank_id")).sendKeys("First Division");
-		 	   Thread.sleep(3000); 
-		 	List <WebElement> Division = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
-		 	Division.get(0).click();
-		    Thread.sleep(3000); 
-		
-		 	//---------------------------------NAACSTATUS---------------------------//    
-		 	   driver.findElement(By.id("naac_status")).click();
-		 		WebElement NAACSTATUS = driver.findElement(By.id("naac_status"));
-		 	    Select select5 = new Select(NAACSTATUS);
-
-		 	    select5.selectByValue("\"yes\""); //Loan Support in edit Miles Pathway Funding // Ensure to include the exact value here
-		 	    WebElement selectedOption5 = select5.getFirstSelectedOption();
-		 	    System.out.println("Selected option is: " + selectedOption5.getText());
-		 	    Thread.sleep(3000);    
-		 	    
-		 	   
-		 	 driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_form_button_save')]")).click();  
 }
+
+
+
 public void CandidateU7AllocationProcess() throws InterruptedException, AWTException
 {
 driver.findElement(By.xpath("//*[contains(@title, 'Lead Allocation')]")).click();
@@ -431,18 +535,6 @@ public String getCandidateName()
 return driver.findElement(By.xpath("//*[contains(@class, 'o_field_widget o_readonly_modifier o_required_modifier o_field_char')]")).getText();
 }
 
-public void SearchU7ACnadidate() throws InterruptedException
-{
-	CandidateData();
-	Thread.sleep(4000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_menu_item dropdown-item focus')]")).click();
-	Thread.sleep(4000);
-	Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).getText().contains(expectedInfoTxt));
-	Thread.sleep(4000);
-	driver.findElement(By.xpath("//*[contains(@class, 'o_kanban_record_title kanban_tiles_title truncate-text-name')]")).click();
-	
-	
-}
 
 
 public void CommunicationTestFlow() throws AWTException, InterruptedException
@@ -512,7 +604,7 @@ public void LoRResponses() throws InterruptedException
 	WebElement button1 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button1.click();
     Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question1);
+    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys(Adding_LOR_Question1);
 	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options1.get(0).click();
 	Thread.sleep(2500);
@@ -522,7 +614,7 @@ public void LoRResponses() throws InterruptedException
 	WebElement button2 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button2.click();
     Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question2);
+    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys(Adding_LOR_Question2);
     List <WebElement> Options2 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
    	Options2.get(0).click();
    	Thread.sleep(2500);
@@ -531,7 +623,7 @@ public void LoRResponses() throws InterruptedException
 	WebElement button3 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button3.click();
     Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question3);
+    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys(Adding_LOR_Question3);
     List <WebElement> Options3 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
    	Options3.get(0).click();
    	Thread.sleep(2500);
@@ -540,7 +632,7 @@ public void LoRResponses() throws InterruptedException
     WebElement button4 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button4.click();
     Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question4);
+    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys(Adding_LOR_Question4);
     List <WebElement> Options4 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
     Options4.get(0).click();
    	Thread.sleep(2500);
@@ -549,7 +641,7 @@ public void LoRResponses() throws InterruptedException
     WebElement button5 = driver.findElement(By.xpath("//a[@role='button' and text()='Add a line']"));
     button5.click();
     Thread.sleep(2500);
-    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys(Adding_LOR_Question5);
+    driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys(Adding_LOR_Question5);
     List <WebElement> Options5 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
     Options5.get(0).click();
    	Thread.sleep(2500);
@@ -566,11 +658,11 @@ public void BookExpertSessionU7Window() throws InterruptedException
 {
 		driver.findElement(By.xpath("//*[contains(@class, 'btn button_green_color btn-secondary')]")).click();
 		Thread.sleep(2000);
-		System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
-		System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).getText());
-		System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(17).getText());
+//		System.out.println("Booking Session is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(15).getText());
+//		System.out.println("Counselor is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).getText());
+//		System.out.println("Student is "+driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(17).getText());
 		Thread.sleep(2000);
-		driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(18).click();
+		driver.findElements(By.xpath("//*[contains(@class, 'o_cell o_wrap_input flex-grow-1 flex-sm-grow-0 text-break')]")).get(16).click();
 
 		// Get tomorrow's date
 		LocalDate tomorrow = LocalDate.now().plusDays(1);

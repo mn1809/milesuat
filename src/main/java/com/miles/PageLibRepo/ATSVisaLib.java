@@ -25,6 +25,7 @@ import org.testng.Assert;
 import java.time.Duration;
 import com.miles.PageObjectRepo.atspageObj;
 import com.miles.PageObjectRepo.ATSCounselingObj;
+import com.miles.PageObjectRepo.ATSVisaObj;
 import com.miles.PageObjectRepo.AdminPageObj;
 import com.miles.PageObjectRepo.OPTPageObj;
 import com.miles.PageObjectRepo.atspageObj;
@@ -33,14 +34,14 @@ import com.miles.Utilities.MilesUtilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class ATSCounselingLib extends ATSCounselingObj
+public class ATSVisaLib extends ATSVisaObj
 
 {	
 //	  public ATSPageLib(WebDriver driver, String env) {
 //	        super(driver, env);  // Pass driver and env to Libpage constructor
 //	    }
 
-	public ATSCounselingLib   (WebDriver driver) 
+	public ATSVisaLib   (WebDriver driver) 
 	{
 		super(driver);
 	
@@ -2425,8 +2426,8 @@ public void U13CBucketStage1() throws InterruptedException, AWTException
 	  Thread.sleep(5000);  
 	    
 	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-		 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
-		
+		// fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+	fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG"); 
 	Thread.sleep(10000);
 	
 	
@@ -2513,6 +2514,7 @@ public void U14BucketStage2() throws InterruptedException, AWTException
 	    
 	    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
 		 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+		// fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG"); 
 	Thread.sleep(10000);
 	
 	
@@ -2584,7 +2586,7 @@ public void TooBookVISASlot() throws InterruptedException, AWTException
 {
 	driver.findElement(By.xpath("//*[contains(@title, 'Meetings')]")).click();
 	Thread.sleep(2000);
-	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(2).click();
+	driver.findElements(By.xpath("//*[contains(@role, 'menuitem')]")).get(1).click();
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//*[contains(@class, 'btn btn-primary o_list_button_add')]")).click();
 	Thread.sleep(3000);
@@ -2602,7 +2604,7 @@ public void TooBookVISASlot() throws InterruptedException, AWTException
 	
 		driver.findElement(By.id("emp_id")).click();
 	Thread.sleep(3000);
-	driver.findElement(By.id("emp_id")).sendKeys("Syed Pasha");
+	driver.findElement(By.id("emp_id")).sendKeys("Manoj Visa Expert");
 	Thread.sleep(3000);
 	
 	List <WebElement> Options = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
@@ -2704,8 +2706,8 @@ public void U15BucketStage2UploadingVISADetails() throws InterruptedException, A
 	
 	driver.findElement(By.id("visa_city_id")).click();
 	Thread.sleep(2000);
-	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(2).sendKeys("Dubai");
-	Thread.sleep(2000);
+	driver.findElements(By.xpath("//*[contains(@class, 'o-autocomplete--input o_input')]")).get(0).sendKeys("Dubai");
+	Thread.sleep(3000);
 	List <WebElement> Options1 = driver.findElements((By.xpath("//*[contains(@class, 'o-autocomplete--dropdown-menu dropdown-menu ui-widget ui-autocomplete show')]")));
 	Options1.get(0).click();
 	
@@ -2727,7 +2729,9 @@ public void U15BucketStage2UploadingVISADetails() throws InterruptedException, A
 		  Thread.sleep(5000);  
 		    
 		    WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
-			 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+		//	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+			 
+			 fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG"); 
 		Thread.sleep(10000);
 	
 		driver.findElement(By.xpath("//*[contains(@name, 'action_submit_visa_slot_verification')]")).click();
@@ -2801,6 +2805,8 @@ public void U17Stage1UploadingVISA() throws InterruptedException, AWTException
 	    
 	 WebElement fileInput1 = driver.findElements(By.xpath("//input[@type='file']")).get(0);
 	 fileInput1.sendKeys("C:\\Users\\Automation\\Pictures\\MASATTACHEMENT.jpg");
+//	 fileInput1.sendKeys("C:\\Users\\Miles\\Pictures\\Screenshots\\Frotedn-1.PNG"); 
+		
 	 Thread.sleep(10000);
 
 	

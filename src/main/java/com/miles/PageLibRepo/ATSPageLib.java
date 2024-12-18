@@ -902,6 +902,7 @@ public void SwitchtoBLueButton() throws InterruptedException
 	Options.get(8).click();
 	Thread.sleep(4000);
 	driver.findElement(By.xpath("//*[contains(@class, 'sc-dlVxhl jQxUMv sc-jnbWvw eysmcT')]")).click();
+	Thread.sleep(3000);
 	MilesUtilities.SwitchTab(0, driver);
 	Thread.sleep(4000);
 }
