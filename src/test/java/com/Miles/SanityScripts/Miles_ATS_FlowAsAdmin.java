@@ -81,7 +81,7 @@ LoginPageLib loginObj ;
 	//int tomaroDate1 = tomaroDate.getDayOfMonth();
 	
 	 String Name = "Automation-User1";
-	 String expectedInfoTxt = "Uni";							//Hi miles education//
+	 String expectedInfoTxt = "Uni";							//Hi miles education How are u//
 
 	// String ExpectedCanID = "B-810987678";
 	 String ExpectedEmail = "milesautomation@mileseducation.com";
