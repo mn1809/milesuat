@@ -211,7 +211,7 @@ private void SetEvidenceDir()
 //}
 
 
-//@Test (priority = 1, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
+@Test (priority = 1, description = "U13C Miles Fincial Submitted to US Unversity Stage1")
 public void VerifyU13CBucketStage1() throws InterruptedException, AWTException
 
 {
@@ -260,7 +260,7 @@ public void VerifyU14BucketStage3() throws InterruptedException, AWTException
 	ATSV.U14BucketStage3();//-------------------------------------Approving DS160--------------------------//
 }
 
-
+//TESTING>??
 //@Test (priority = 6, description = "U15 Miles DS160 Submitted Submitting VISA Slot Details ")
 public void VerifyU15BucketStage2VISASlotDetails() throws InterruptedException, AWTException
 {
