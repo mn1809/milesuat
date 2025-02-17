@@ -6,10 +6,19 @@ import org.openqa.selenium.WebElement;
 
 import com.miles.BaseSettings.MilesBasePage;
 
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
 public class ATSFrontendPageObj extends MilesBasePage
 {
 
-
+	public ATSFrontendPageObj(WebDriver driver) 
+	{
+		//PageFactory.initElements(driver, this);
+		super(driver);
+	}
 	
 	//protected WebElement Duriation = driver.findElement(By.id("wd-duration-value"));
 	//protected WebElement TrainingLoad = driver.findElement(By.id("wd-training-load-value"));
@@ -19,17 +28,13 @@ public class ATSFrontendPageObj extends MilesBasePage
 	//protected WebElement HRVValue = driver.findElement(By.id("wd-hrv-value"));
 	//protected WebElement BodyShock = driver.findElement(By.id("wd-body-shock-value"));
 	//protected WebElement CadenceValue = driver.findElement(By.id("wd-step-cadence-value"));
-	protected WebElement AvgTab = driver.findElement(By.id("wd-avg-tab"));
-	protected WebElement MaxTab = driver.findElement(By.id("wd-max-tab"));
-	protected WebElement MinTab = driver.findElement(By.id("wd-min-tab"));
-	
-	//protected WebElement StartTimeOfActivityOnGraph = driver.findElements(By.xpath("//*[contains(@class, 'dygraph-axis-label dygraph-axis-label-x')]")).get(10);
-	
-	protected WebElement TrainingTime = driver.findElement(By.className("training-time"));
+//	protected WebElement AvgTab = driver.findElement(By.id("wd-avg-tab"));
+//	protected WebElement MaxTab = driver.findElement(By.id("wd-max-tab"));
+//	protected WebElement MinTab = driver.findElement(By.id("wd-min-tab"));
+//	
+//	//protected WebElement StartTimeOfActivityOnGraph = driver.findElements(By.xpath("//*[contains(@class, 'dygraph-axis-label dygraph-axis-label-x')]")).get(10);
+//	
+//	protected WebElement TrainingTime = driver.findElement(By.className("training-time"));
 	//	Constructor
-	public ATSFrontendPageObj(WebDriver driver) 
-	{
-		//PageFactory.initElements(driver, this);
-		super(driver);
-	}	
+	
 }

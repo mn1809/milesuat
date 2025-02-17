@@ -42,8 +42,10 @@ import com.miles.PageLibRepo.HomePageLib;
 
 import com.miles.PageLibRepo.LoginPageLib;
 import com.miles.PageLibRepo.OPTPageLib;
+import com.miles.PageLibRepo.ATSFrontendPageLib;
 
 import com.miles.PageObjectRepo.atspageObj;
+import com.miles.PageObjectRepo.ATSFrontendPageObj;
 import com.miles.PageObjectRepo.HomePageObj;
 import com.miles.PageObjectRepo.OPTPageObj;
 import com.miles.Utilities.MilesUtilities;
@@ -59,12 +61,15 @@ LoginPageLib loginObj ;
 	
 //	protected ATSPageLib atspageObj;
 	 
-	atspageObj ATSPageLib;
+	//atspageObj ATSPageLib;
+	
+	  ATSFrontendPageObj ATSFrontendPageLib;	
 	
 	String env;
 	
 //	ShareActivityPageLib ShareActivityPageObj;
 //	 atspageObj = new ATSPageLib(driver);
+	
 	 
 	 LocalDate currentDate = LocalDate.now();
 	 LocalDate tomaroDate = LocalDate.now().plusDays(1);
@@ -74,6 +79,7 @@ LoginPageLib loginObj ;
           TextStyle.FULL, 
           Locale.getDefault()
   );
+		
 	String weekAbbreviation = currentDate.format(DateTimeFormatter.ofPattern("Eee", locale)).substring(0, 3);
 	String CurrentMonth = MilesUtilities.GetShortFormOfMonth(currentMonthAsString.toUpperCase());
 	int currentDate1 = currentDate.getDayOfMonth();
@@ -199,12 +205,104 @@ private void SetEvidenceDir()
 //	 Info = "manoj.hr@mileseducation.com";
 //}
 	
-@Test(priority = 1,description = "Verify Admin Login")
-public void ClearingHomePage() throws InterruptedException
+//@Test(priority = 1,description = "Verify User  Login")
+public void UserLoginPage() throws InterruptedException
 
 {
-	ATSPageLib ATS = new ATSPageLib(driver);
-	ATS.ClearMyCandidateFilter();
+	ATSFrontendPageLib ATSF = new ATSFrontendPageLib(driver);
+	ATSF.EnteruserNumber();
+	Thread.sleep(2000);
+	ATSF.OTP();
+	
 }
+
+
+
+//@Test(priority = 2,description = "Verify User Education Detials")
+
+public void EducationandExperienceDetails() throws InterruptedException
+{
+	ATSFrontendPageLib ATSF = new ATSFrontendPageLib(driver);
+	ATSF.EnteruserNumber();
+	Thread.sleep(2000);
+	ATSF.OTP();
+	
+	Thread.sleep(2000);
+	ATSF.UGeducationdetails();
+	Thread.sleep(2000);
+	ATSF.PGeducationdetails();
+	Thread.sleep(2000);
+	ATSF.ExperienceFeilds();
+}
+
+
+@Test (priority = 3, description = "Selecting the Recommended Univeristy")
+
+
+public void RecommendedUniversity() throws InterruptedException
+{
+	ATSFrontendPageLib ATSF = new ATSFrontendPageLib(driver);
+	ATSF.EnteruserNumber();
+	Thread.sleep(2000);
+	ATSF.OTP();
+	Thread.sleep(2000);
+	//ATSF.RecommenedUniveristy();
+	
+	// Launch a new window with a different URL
+    String originalWindow = driver.getWindowHandle(); // Save the current window handle
+    
+    // Open a new URL in the same window (or use a method to trigger it in a new tab/window)
+    ((JavascriptExecutor) driver).executeScript("window.open('https://usp-uat.mileseducation.com/web/login\"');");
+
+    // Switch to the new window
+    for (String windowHandle : driver.getWindowHandles())
+    {
+        if (!windowHandle.equals(originalWindow))
+        {
+            driver.switchTo().window(windowHandle); // Switch to the new window
+            break;
+        }
+    }
+
+    // Perform actions in the new window, such as loading a URL
+    driver.get("https://usp-uat.mileseducation.com/web/login");
+    
+    // Optionally, close the new window and return to the original one
+   // driver.close(); // Close the new window
+    driver.switchTo().window(originalWindow); // Switch back to the original window
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }	

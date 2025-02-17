@@ -30,7 +30,7 @@ Custome Report with Screenshot attached.
 	<!--<parameter name="user" value="user"/> -->
 	<classes>
 		
-		<class name = "com.Miles.SanityScripts.Miles_ATS_FlowAsVisaTeam"/>
+		<class name = "com.Miles.SanityScripts.Miles_ATS_Frontend"/>
 		
 		
 		
